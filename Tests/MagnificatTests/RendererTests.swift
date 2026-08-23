@@ -313,3 +313,54 @@ func headings(_ xml: Data) throws -> [String] {
         "Cello has no measure 2.",
     ])
 }
+
+// SPEC.md §6.4 — consecutive whole-measure rests collapse. Songs open with long
+// piano introductions, and hearing "Whole measure rest" sixteen times is a poor
+// use of a reader's attention.
+
+@Test func collapsesARunOfWholeMeasureRests() throws {
+    let rest = "<note><rest measure=\"yes\"/><duration>16</duration></note>"
+    let xml = scoreXML(parts: """
+      <part id="P1">
+      <measure number="1"><attributes><divisions>4</divisions></attributes>\(rest)</measure>
+      <measure number="2">\(rest)</measure>
+      <measure number="3">\(rest)</measure>
+      <measure number="4">
+        <note><pitch><step>C</step><octave>5</octave></pitch><duration>16</duration>
+          <type>whole</type></note></measure>
+      </part>
+    """)
+    #expect(try measureLines(xml) == ["Measures 1 to 3. Rest.",
+                                      "Measure 4. C 5, whole."])
+}
+
+@Test func aLoneWholeMeasureRestIsNotCollapsed() throws {
+    let rest = "<note><rest measure=\"yes\"/><duration>16</duration></note>"
+    let xml = scoreXML(parts: """
+      <part id="P1">
+      <measure number="1"><attributes><divisions>4</divisions></attributes>\(rest)</measure>
+      <measure number="2">
+        <note><pitch><step>C</step><octave>5</octave></pitch><duration>16</duration>
+          <type>whole</type></note></measure>
+      </part>
+    """)
+    #expect(try measureLines(xml) == ["Measure 1. Whole measure rest.",
+                                      "Measure 2. C 5, whole."])
+}
+
+@Test func aRunIsNotCollapsedAcrossSomethingWorthHearing() throws {
+    // A repeat or a dynamic inside the run must not be swallowed by it.
+    let rest = "<note><rest measure=\"yes\"/><duration>16</duration></note>"
+    let xml = scoreXML(parts: """
+      <part id="P1">
+      <measure number="1"><attributes><divisions>4</divisions></attributes>\(rest)</measure>
+      <measure number="2">
+        <direction><direction-type><dynamics><p/></dynamics></direction-type></direction>
+        \(rest)</measure>
+      <measure number="3">\(rest)</measure>
+      </part>
+    """)
+    #expect(try measureLines(xml) == ["Measure 1. Whole measure rest.",
+                                      "Measure 2. Dynamic: piano. Whole measure rest.",
+                                      "Measure 3. Whole measure rest."])
+}

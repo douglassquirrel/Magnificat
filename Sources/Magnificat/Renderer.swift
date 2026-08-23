@@ -195,6 +195,18 @@ struct Renderer {
         // last forward repeat, or the start of the part when there is none.
         var repeatTarget = part.measures.first?.number ?? "1"
 
+        /// A measure's content, held back so a run of empty bars can be collapsed.
+        struct Rendered {
+            var measure: Measure
+            var opening: [String]
+            var groups: [EventGroup]
+            var closing: [String]
+            /// True when the bar holds a whole-measure rest and nothing else at
+            /// all — no dynamic, no repeat, nothing worth stopping for.
+            var isBareWholeMeasureRest: Bool
+        }
+        var pending: [Rendered] = []
+
         for (index, measure) in part.measures.enumerated() {
             if measure.barlines.contains(where: { $0.repeatDirection == .forward }) {
                 repeatTarget = measure.number
@@ -228,6 +240,44 @@ struct Renderer {
                 ? measure.barlines.filter { $0.location == .right }
                     .flatMap { $0.spokenPhrases(repeatTarget: repeatTarget) }
                 : []
+
+            var isBare = false
+            if case .rest(let rest)? = groups.first, groups.count == 1,
+               rest.isWholeMeasure, opening.isEmpty, closing.isEmpty {
+                isBare = true
+            }
+            pending.append(Rendered(measure: measure, opening: opening, groups: groups,
+                                    closing: closing, isBareWholeMeasureRest: isBare))
+        }
+
+        // Collapse runs of empty bars. Only under .byPart: .byMeasure interleaves
+        // the streams measure by measure, and a collapsed span has no single
+        // measure to interleave at.
+        let collapsing = options.layout == .byPart
+        var index = 0
+        while index < pending.count {
+            let entry = pending[index]
+            if collapsing && entry.isBareWholeMeasureRest {
+                var last = index
+                while last + 1 < pending.count && pending[last + 1].isBareWholeMeasureRest {
+                    last += 1
+                }
+                if last > index {
+                    let first = pending[index].measure.number
+                    let final = pending[last].measure.number
+                    lines.append(TranscriptLine(
+                        text: "Measures \(first) to \(final). Rest.",
+                        kind: .measure, partID: part.id, measureNumber: first))
+                    index = last + 1
+                    continue
+                }
+            }
+
+            let measure = entry.measure
+            let opening = entry.opening
+            let groups = entry.groups
+            let closing = entry.closing
+            index += 1
 
             switch options.density {
             case .perMeasure:
