@@ -142,11 +142,29 @@ public struct Part: Sendable, Equatable {
     public var measures: [Measure]
 }
 
+/// What the file says about itself. Every field is optional: machine-generated
+/// MusicXML frequently carries none of it, and what it does carry is sometimes
+/// odd — one fixture names a part after the model that produced it. All of it is
+/// reflected exactly as written and never tidied. See `SPEC.md` §6.13.
+public struct ScoreMetadata: Sendable, Equatable {
+    public var workTitle: String?
+    public var movementTitle: String?
+    public var movementNumber: String?
+    public var composer: String?
+    public var lyricist: String?
+    public var rights: String?
+    public var encodingSoftware: String?
+
+    public init() {}
+}
+
 /// A parsed MusicXML score.
 ///
 /// This is the faithful layer: it holds what the file said, with no English in it.
 /// Rendering to plain text is a separate step. See `SPEC.md` §4.
 public struct Score: Sendable, Equatable {
+    /// What the file says about itself.
+    public var metadata: ScoreMetadata = ScoreMetadata()
     /// The parts, in document order.
     public var parts: [Part]
 }

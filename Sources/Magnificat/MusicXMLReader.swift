@@ -55,6 +55,8 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
     private var elements: [String] = []
 
     // Part list: id in document order, and the names found for them.
+    private var metadata = ScoreMetadata()
+    private var creatorType: String?
     private var partOrder: [String] = []
     private var partNames: [String: String] = [:]
     private var currentScorePartID: String?
@@ -104,7 +106,7 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
     private var tupletNormal: Int?
 
     func makeScore() -> Score {
-        Score(parts: parts)
+        Score(metadata: metadata, parts: parts)
     }
 
     // MARK: - XMLParserDelegate
@@ -126,6 +128,8 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
         switch name {
         case "score-part":
             currentScorePartID = attributes["id"]
+        case "creator":
+            creatorType = attributes["type"]
         case "part":
             currentPartID = attributes["id"]
             measures = []
@@ -184,6 +188,23 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
         let value = text.trimmingCharacters(in: .whitespacesAndNewlines)
 
         switch name {
+        case "work-title":
+            metadata.workTitle = value.isEmpty ? nil : value
+        case "movement-title":
+            metadata.movementTitle = value.isEmpty ? nil : value
+        case "movement-number":
+            metadata.movementNumber = value.isEmpty ? nil : value
+        case "rights":
+            metadata.rights = value.isEmpty ? nil : value
+        case "software":
+            metadata.encodingSoftware = value.isEmpty ? nil : value
+        case "creator":
+            switch creatorType {
+            case "composer": metadata.composer = value.isEmpty ? nil : value
+            case "lyricist", "poet": metadata.lyricist = value.isEmpty ? nil : value
+            default: break
+            }
+            creatorType = nil
         case "part-name":
             if let id = currentScorePartID, !value.isEmpty {
                 // Part names carry embedded newlines: "Singstimme\nVoice".

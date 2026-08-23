@@ -411,13 +411,19 @@ not carry:
 Du bist wie eine Blume
 Emilie Mayer
 Words by Heinrich Heine
-From 3 Lieder, Opus 7, number 1
+From 3 Lieder, Op.7, number 1
 2 parts: Singstimme, Voice; Pianoforte
 32 measures
 Key: A flat major, 4 flats
 Time signature: 4 4
 ```
 
+- **Work titles are used exactly as written, and `<work-number>` is not spoken.**
+  Corrected 23 August 2026: this section previously rendered the Mayer's
+  `3 Lieder, Op.7` as `Opus 7`, which edits what the file says and so contradicts
+  §6.13's own rule. The opus number is also already inside the title in every
+  fixture that has one, so speaking `<work-number>` as well would give
+  `3 Lieder, Op.7, opus 7`.
 - The key is named from `<fifths>` and `<mode>`. Where `<mode>` is absent, the major name is
   given with the accidental count, which is unambiguous and does not assert a mode the file
   did not state.

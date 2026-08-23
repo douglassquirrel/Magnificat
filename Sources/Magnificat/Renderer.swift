@@ -24,7 +24,7 @@ struct Renderer {
     }
 
     func render(_ score: Score) -> Transcript {
-        var lines: [TranscriptLine] = []
+        var lines = heading(for: score)
         for (index, part) in score.parts.enumerated() {
             let name = Self.name(of: part, at: index)
             lines.append(TranscriptLine(text: name, kind: .partHeading, partID: part.id))
