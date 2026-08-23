@@ -21,6 +21,8 @@ public struct Note: Sendable, Equatable {
     /// Where this note starts, in divisions from the start of the measure.
     /// Resolved from `<backup>` and `<forward>` while parsing.
     public var onset: Int = 0
+    /// The syllables sung on this note, one per verse, in verse order.
+    public var lyrics: [Lyric] = []
 }
 
 /// A silence.
@@ -37,10 +39,21 @@ public struct Rest: Sendable, Equatable {
     public var onset: Int = 0
 }
 
+/// A direction placed in the event stream, with the staff it applies to.
+public struct PlacedDirection: Sendable, Equatable {
+    /// What is written.
+    public var direction: Direction
+    /// The staff it applies to. Directions carry no voice.
+    public var staff: Int = 1
+    /// Where it falls, in divisions from the start of the measure.
+    public var onset: Int = 0
+}
+
 /// One thing that happens in a measure, in reading order.
 public enum MusicalEvent: Sendable, Equatable {
     case note(Note)
     case rest(Rest)
+    case direction(PlacedDirection)
 }
 
 extension MusicalEvent {
@@ -49,6 +62,7 @@ extension MusicalEvent {
         switch self {
         case .note(let note): return note.onset
         case .rest(let rest): return rest.onset
+        case .direction(let placed): return placed.onset
         }
     }
 
@@ -57,6 +71,9 @@ extension MusicalEvent {
         switch self {
         case .note(let note): return note.voice
         case .rest(let rest): return rest.voice
+        // A direction belongs to a staff, not a voice; it is rendered in the
+        // first stream of its staff so it is spoken once, not once per voice.
+        case .direction: return 0
         }
     }
 
@@ -65,6 +82,7 @@ extension MusicalEvent {
         switch self {
         case .note(let note): return note.staff
         case .rest(let rest): return rest.staff
+        case .direction(let placed): return placed.staff
         }
     }
 }

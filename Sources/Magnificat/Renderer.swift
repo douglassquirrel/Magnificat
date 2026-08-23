@@ -18,6 +18,9 @@ struct Renderer {
         var label: String
         var staff: Int
         var voice: Int
+        /// True for the first voice of its staff, which is where directions are
+        /// spoken so they are heard once rather than once per voice.
+        var carriesDirections: Bool = false
     }
 
     func render(_ score: Score) -> Transcript {
@@ -59,7 +62,13 @@ struct Renderer {
     /// Machine-generated files split a grand staff into two one-staff parts, and
     /// nothing marks the pair as one instrument, so this never guesses.
     static func streams(of part: Part, partName: String) -> [Stream] {
-        let events = part.measures.flatMap(\.events)
+        // Streams are discovered from notes and rests only. A direction has no
+        // voice of its own, and letting it contribute one would invent a phantom
+        // stream carrying nothing but directions.
+        let events = part.measures.flatMap(\.events).filter { event in
+            if case .direction = event { return false }
+            return true
+        }
         let declaredStaves = part.measures.compactMap { $0.attributes?.staves }.max()
         let staffCount = max(declaredStaves ?? 1, events.map(\.staff).max() ?? 1)
 
@@ -82,7 +91,8 @@ struct Renderer {
                 // number: a piano left hand uses voices 5 and 6, and "voice 6"
                 // would mean nothing to a reader.
                 let label = position == 0 ? base : "\(base), voice \(position + 1)"
-                result.append(Stream(label: label, staff: staff, voice: voice))
+                result.append(Stream(label: label, staff: staff, voice: voice,
+                                     carriesDirections: position == 0))
             }
         }
         return result
@@ -120,11 +130,19 @@ struct Renderer {
             let spoken = names[index]
             let items = measure.events.indices.compactMap { position -> Item? in
                 let event = measure.events[position]
-                guard event.staff == stream.staff, event.voice == stream.voice else {
-                    return nil
+                guard event.staff == stream.staff else { return nil }
+                if case .direction = event {
+                    guard stream.carriesDirections else { return nil }
+                } else {
+                    guard event.voice == stream.voice else { return nil }
                 }
                 return Item(event: event, spokenPitch: spoken[position])
             }
+
+            // A stream is silent in most measures when it is a secondary voice.
+            // A bare "Measure 4." would say nothing, and a reader stepping
+            // through the stream would meet dozens of them.
+            guard !items.isEmpty else { continue }
 
             let phrases = Self.group(items).map(phrase(for:))
             let text = (["Measure \(measure.number)"] + phrases)
@@ -147,6 +165,7 @@ struct Renderer {
     enum EventGroup {
         case notes([(note: Note, spoken: String)])
         case rest(Rest)
+        case direction(Direction)
     }
 
     /// Gathers chord members onto the note they sound with. See `SPEC.md` §6.5.
@@ -163,6 +182,8 @@ struct Renderer {
                 }
             case .rest(let rest):
                 groups.append(.rest(rest))
+            case .direction(let placed):
+                groups.append(.direction(placed.direction))
             }
         }
         return groups
@@ -171,6 +192,8 @@ struct Renderer {
     /// One group, spoken. No trailing full stop: the caller punctuates.
     private func phrase(for group: EventGroup) -> String {
         switch group {
+        case .direction(let direction):
+            return direction.spokenText
         case .rest(let rest):
             if rest.isWholeMeasure { return "Whole measure rest" }
             return "\(rest.duration.spokenName.capitalizedFirst) rest"
@@ -184,9 +207,25 @@ struct Renderer {
             // The duration belongs to the chord as a whole; take it from the note
             // the file wrote first, which is the one that carries the timing.
             let duration = sounding[0].note.duration.spokenName
-            if names.count == 1 { return "\(names[0]), \(duration)" }
-            return "Chord \(names.joined(separator: ", ")), \(duration)"
+            let head = names.count == 1
+                ? "\(names[0]), \(duration)"
+                : "Chord \(names.joined(separator: ", ")), \(duration)"
+            // Lyrics belong to the note the file wrote first; a chord is sung on
+            // one syllable, not one per note.
+            return head + Self.lyricPhrase(sounding[0].note.lyrics)
         }
+    }
+}
+
+extension Renderer {
+    /// The lyrics of a note, appended to its phrase. No quotation marks: many
+    /// screen readers announce them. See `SPEC.md` §6.1 and §6.11.
+    static func lyricPhrase(_ lyrics: [Lyric]) -> String {
+        lyrics.map { lyric in
+            lyric.verse == 1
+                ? ", lyric \(lyric.hyphenated)"
+                : ", verse \(lyric.verse) lyric \(lyric.hyphenated)"
+        }.joined()
     }
 }
 

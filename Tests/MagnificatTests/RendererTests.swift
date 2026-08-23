@@ -171,3 +171,29 @@ func headings(_ xml: Data) throws -> [String] {
     #expect(try measureLines(xml) == ["Measure 1. C sharp 4, quarter.",
                                       "Measure 2. C 4, quarter."])
 }
+
+// A secondary voice usually sounds in only a few measures of a part — the Mayer's
+// vocal line has seven notes in voice 2 across 32 measures. A stream must not
+// emit a bare "Measure 4." for every measure it is silent in: the line would say
+// nothing, and a reader stepping through would meet dozens of them.
+
+@Test func aStreamOnlyRendersTheMeasuresItActuallySoundsIn() throws {
+    let xml = scoreXML(parts: """
+      <part id="P1">
+      <measure number="1">
+        <attributes><divisions>4</divisions></attributes>
+        <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration>
+          <type>quarter</type><voice>1</voice></note>
+      </measure>
+      <measure number="2">
+        <note><pitch><step>D</step><octave>5</octave></pitch><duration>4</duration>
+          <type>quarter</type><voice>1</voice></note>
+        <backup><duration>4</duration></backup>
+        <note><pitch><step>F</step><octave>4</octave></pitch><duration>4</duration>
+          <type>quarter</type><voice>2</voice></note>
+      </measure></part>
+    """)
+    #expect(try measureLines(xml) == ["Measure 1. C 5, quarter.",
+                                      "Measure 2. D 5, quarter.",
+                                      "Measure 2. F 4, quarter."])
+}

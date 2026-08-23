@@ -308,6 +308,11 @@ even when the exporter ordered the notes differently.
   corpus as voices 1 and 2 on staff 1, 5 and 6 on staff 2 — each voice is a separate
   stream, labelled `voice 2` and so on. Voice 1 of a staff is not labelled; a lone voice
   never needs a number.
+- **A stream renders only the measures it actually sounds in.** A secondary voice
+  is silent for most of a part — the Mayer's vocal line has seven notes in voice 2
+  across 32 measures — and a bare `Measure 4.` with nothing after it says nothing
+  while making a reader step through dozens of empty lines. Added 23 August 2026
+  while building §7.1, which the empty lines broke.
 - `<backup>` and `<forward>` are resolved during parsing. They never appear in the output;
   their only job is to place events on the right staff and voice at the right time.
 - Parts appear in document order. Part names come from `<part-name>`, with embedded

@@ -94,6 +94,12 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
     private var noteIsChordMember = false
     private var noteIsGrace = false
     private var notePrintedAccidental: Accidental?
+    private var directionStaff: Int?
+    private var pendingDirections: [Direction] = []
+    private var noteLyrics: [Lyric] = []
+    private var lyricVerse = 1
+    private var lyricText: String?
+    private var lyricSyllabic: Syllabic = .single
     private var tupletActual: Int?
     private var tupletNormal: Int?
 
@@ -143,6 +149,18 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             noteIsChordMember = true
         case "grace":
             noteIsGrace = true
+        case "direction":
+            pendingDirections = []
+            directionStaff = nil
+        case "p", "pp", "ppp", "pppp", "f", "ff", "fff", "ffff",
+             "mp", "mf", "sf", "sfz", "sfp", "fp", "rf", "rfz":
+            if elements.dropLast().last == "dynamics" {
+                pendingDirections.append(.dynamic(name))
+            }
+        case "lyric":
+            lyricVerse = Int(attributes["number"] ?? "1") ?? 1
+            lyricText = nil
+            lyricSyllabic = .single
         case "dot":
             noteDots += 1
         case "rest":
@@ -209,7 +227,12 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
         case "voice":
             noteVoice = Int(value) ?? 1
         case "staff":
-            noteStaff = Int(value) ?? 1
+            // <staff> appears inside <note> and inside <direction> alike.
+            if elements.dropLast().last == "direction" {
+                directionStaff = Int(value)
+            } else {
+                noteStaff = Int(value) ?? 1
+            }
         case "divisions":
             attributes.divisions = Int(value)
         case "fifths":
@@ -230,6 +253,28 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             if let beats = timeBeats, let beatType = timeBeatType {
                 attributes.time = TimeSignature(beats: beats, beatType: beatType)
             }
+        case "words":
+            if !value.isEmpty { pendingDirections.append(.words(value)) }
+        case "other-dynamics":
+            if !value.isEmpty { pendingDirections.append(.dynamic(value)) }
+        case "direction":
+            for direction in pendingDirections {
+                events.append(.direction(PlacedDirection(
+                    direction: direction, staff: directionStaff ?? 1, onset: cursor)))
+            }
+            pendingDirections = []
+            directionStaff = nil
+        case "syllabic":
+            lyricSyllabic = Syllabic(musicXML: value)
+        case "text":
+            // <text> appears only inside <lyric> in the MusicXML this reads.
+            lyricText = (lyricText ?? "") + value
+        case "lyric":
+            if let text = lyricText, !text.isEmpty {
+                noteLyrics.append(Lyric(verse: lyricVerse, text: text,
+                                        syllabic: lyricSyllabic))
+            }
+            lyricText = nil
         case "accidental":
             notePrintedAccidental = Accidental(musicXML: value)
         case "actual-notes":
@@ -279,6 +324,9 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
         notePrintedAccidental = nil
         tupletActual = nil
         tupletNormal = nil
+        noteLyrics = []
+        lyricText = nil
+        lyricSyllabic = .single
     }
 
     private func appendNote() {
@@ -308,6 +356,7 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             pitch: Pitch(step: step, alter: noteAlter, octave: octave),
             duration: duration, voice: noteVoice, staff: noteStaff,
             isChordMember: noteIsChordMember, isGrace: noteIsGrace,
-            printedAccidental: notePrintedAccidental, onset: onset)))
+            printedAccidental: notePrintedAccidental, onset: onset,
+            lyrics: noteLyrics.sorted { $0.verse < $1.verse })))
     }
 }
