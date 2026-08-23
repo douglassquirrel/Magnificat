@@ -23,6 +23,23 @@ public struct Pitch: Sendable, Equatable {
 }
 
 extension Pitch {
+    /// Semitones above C-1, so two pitches can be ordered by what they sound
+    /// rather than by their letters. B sharp 4 sits above B 4 and alongside C 5,
+    /// which letter ordering alone would get wrong.
+    var chromaticValue: Int {
+        let semitonesAboveC: Int
+        switch step {
+        case .c: semitonesAboveC = 0
+        case .d: semitonesAboveC = 2
+        case .e: semitonesAboveC = 4
+        case .f: semitonesAboveC = 5
+        case .g: semitonesAboveC = 7
+        case .a: semitonesAboveC = 9
+        case .b: semitonesAboveC = 11
+        }
+        return (octave + 1) * 12 + semitonesAboveC + alter
+    }
+
     /// The pitch spoken as plain text, as `SPEC.md` §6.2 defines it.
     var spokenName: String {
         if let word = accidentalWord {
