@@ -27,6 +27,9 @@ Every one of these must be true before you report the work as done:
 5. **A `README.md`** that a newcomer can follow. See [README](#readme).
 6. **Everything builds and all tests pass** with a single `swift build && swift test`.
    Never report success on an unverified build — run it, paste real output.
+7. **`DIARY.md` is current.** Every increment of work is recorded there as it happens, and
+   the file is written so that a session with no memory of this project can pick the work up
+   from it alone. See [Diary](#diary).
 
 ---
 
@@ -38,6 +41,7 @@ Use Swift Package Manager. The library is named **Magnificat**. Create this stru
 Package.swift
 SPEC.md                      # what to build (written by the user)
 CLAUDE.md                    # this file
+DIARY.md                     # the running record of the work (you keep this current)
 README.md                    # how to use the library (you write this)
 Sources/
   Magnificat/             # the portable library — Foundation only
@@ -197,6 +201,72 @@ Show real code that actually works. Run every snippet before committing it.
 - Report honestly: if something is incomplete or a test fails, say so plainly with the
   output.
 
+## Diary
+
+`DIARY.md` is the running record of how this library got built. Its purpose is **handover**: a
+fresh session, a new contributor, or you after a context renewal must be able to read it and
+resume without asking anyone anything. Assume the reader has none of your context and cannot
+ask you a question — they have this file, `SPEC.md`, `CLAUDE.md`, and the code.
+
+### Structure
+
+Two parts, and the split is what makes the file usable once it is long:
+
+1. **`## Where things stand`** at the top — a snapshot, **rewritten in place** every session.
+   What is built, what is green, what the next step is, and what is known-broken. A reader must
+   get the current state from this section alone, without reading the log below it.
+2. **`## Log`** underneath — append-only, **newest last**, one entry per increment of work.
+   Never rewrite or tidy a past entry. If an earlier entry turns out to be wrong, say so in a
+   *new* entry; the mistake and its correction are both part of the record.
+
+### When to write an entry
+
+Write one for each meaningful increment — normally each completed red-green-refactor cycle, and
+also for anything that changes the shape of the work: a decision, a surprise, a dead end, a
+`SPEC.md` clarification, a fixture added, a rule that turned out to be wrong. **Not** one per
+tool call, and not a blow-by-blow of everything you typed.
+
+Write it **as the work happens**, not reconstructed at the end of a session. A diary assembled
+from memory after the fact is exactly the document that quietly invents a red-green cycle that
+never ran.
+
+### What an entry contains
+
+```markdown
+### <date> — <short title>
+
+**Goal.** The one behaviour this increment was meant to add.
+
+**Test.** The test name, and what it asserts.
+
+**Red.** The real failure output, trimmed to the assertion. Say why it is the *right* failure.
+
+**Green.** The passing output, and the full-suite result alongside it.
+
+**Decision / surprise.** Anything a future reader would otherwise have to rediscover: why an
+approach was rejected, what the MusicXML actually turned out to contain, a rule in `SPEC.md`
+that needed sharpening.
+
+**State.** What is green now, and the next step.
+```
+
+Trim the sections that do not apply — a non-coding entry has no red or green — but never drop
+**Decision / surprise** when there was one. That section is the reason the file is worth
+keeping; the rest can be reconstructed from git and the test suite, and that cannot.
+
+### Rules
+
+- Paste **real** terminal output, exactly as `CLAUDE.md`'s [Reporting](#reporting) rule
+  requires. Never summarise a run you did not execute or reproduce one from memory.
+- Record dead ends and wrong turns. A diary of unbroken success is not a record, and the next
+  session will repeat whatever you quietly abandoned.
+- Update `## Where things stand` **in the same commit** that invalidates it. A stale snapshot is
+  worse than none, because it reads as current.
+- Keep entries short. Someone should be able to read the whole log in ten minutes and know how
+  the library got to where it is.
+- If you end a session mid-increment, say so explicitly in `## Where things stand` — which test
+  is red, what you were part-way through, and what you had ruled out.
+
 ## Definition of done
 
 ```bash
@@ -207,6 +277,9 @@ swift run MagnificatCLI --help
 
 All three succeed, coverage is ≥90%, `README.md` is complete and its examples run, and no
 platform UI framework appears anywhere under `Sources/Magnificat/`.
+
+`DIARY.md` is current: its `## Where things stand` describes the finished state, and its log
+records how the work actually went, dead ends included.
 
 And every piece of behavior in the library got there through a test that was written
 first, run, seen to fail for the right reason, and then run again and seen to pass.

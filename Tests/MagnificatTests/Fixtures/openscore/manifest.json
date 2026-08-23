@@ -1,0 +1,221 @@
+[
+  {
+    "file": "openscore/beethoven-4-mailied.musicxml",
+    "work": "Beethoven,_Ludwig_van/8_Lieder,_Op.52/4_Mailied",
+    "imslp_id": "#47274",
+    "imslp_url": "https://imslp.org/wiki/Special:ReverseLookup/47274",
+    "parts": [
+      "Voice",
+      "Piano"
+    ],
+    "measures": 126,
+    "notes": 1167,
+    "off_key_pct": 1.3,
+    "printed_accidental_pct": 1.3,
+    "key_fifths": -3,
+    "meter": "2/4",
+    "license": "CC0-1.0",
+    "source": "OpenScore Lieder Corpus (github.com/OpenScore/Lieder)"
+  },
+  {
+    "file": "openscore/satie-je-te-veux.musicxml",
+    "work": "Satie,_Erik/_/Je_te_veux",
+    "imslp_id": "#16883",
+    "imslp_url": "https://imslp.org/wiki/Special:ReverseLookup/16883",
+    "parts": [
+      "Chant Voice",
+      "Piano"
+    ],
+    "measures": 110,
+    "notes": 1175,
+    "off_key_pct": 2.4,
+    "printed_accidental_pct": 2.1,
+    "key_fifths": 0,
+    "meter": "3/4",
+    "license": "CC0-1.0",
+    "source": "OpenScore Lieder Corpus (github.com/OpenScore/Lieder)"
+  },
+  {
+    "file": "openscore/chabrier-ballade-des-gros-dindons.musicxml",
+    "work": "Chabrier,_Emmanuel/_/Ballade_des_gros_dindons",
+    "imslp_id": "#22635",
+    "imslp_url": "https://imslp.org/wiki/Special:ReverseLookup/22635",
+    "parts": [
+      "Voice",
+      "Piano"
+    ],
+    "measures": 91,
+    "notes": 1498,
+    "off_key_pct": 3.2,
+    "printed_accidental_pct": 1.9,
+    "key_fifths": -1,
+    "meter": "2/4",
+    "license": "CC0-1.0",
+    "source": "OpenScore Lieder Corpus (github.com/OpenScore/Lieder)"
+  },
+  {
+    "file": "openscore/davies-1-the-apology.musicxml",
+    "work": "Davies,_Walford/8_New_Nursery_Rhymes,_Op.23/1_The_Apology",
+    "imslp_id": "#333826",
+    "imslp_url": "https://imslp.org/wiki/Special:ReverseLookup/333826",
+    "parts": [
+      "Soprano",
+      "Alto",
+      "Tenor",
+      "Bass",
+      "Piano (For practice only)"
+    ],
+    "measures": 27,
+    "notes": 625,
+    "off_key_pct": 5.0,
+    "printed_accidental_pct": 3.4,
+    "key_fifths": -3,
+    "meter": "2/2",
+    "license": "CC0-1.0",
+    "source": "OpenScore Lieder Corpus (github.com/OpenScore/Lieder)"
+  },
+  {
+    "file": "openscore/mayer-1-du-bist-wie-eine-blume.musicxml",
+    "work": "Mayer,_Emilie/3_Lieder,_Op.7/1_Du_bist_wie_eine_Blume",
+    "imslp_id": "#133722",
+    "imslp_url": "https://imslp.org/wiki/Special:ReverseLookup/133722",
+    "parts": [
+      "Singstimme Voice",
+      "Pianoforte"
+    ],
+    "measures": 32,
+    "notes": 669,
+    "off_key_pct": 6.6,
+    "printed_accidental_pct": 6.4,
+    "key_fifths": -4,
+    "meter": "4/4",
+    "license": "CC0-1.0",
+    "source": "OpenScore Lieder Corpus (github.com/OpenScore/Lieder)"
+  },
+  {
+    "file": "openscore/joplin-please-say-you-will.musicxml",
+    "work": "Joplin,_Scott/_/Please_Say_You_Will",
+    "imslp_id": "#440659",
+    "imslp_url": "https://imslp.org/wiki/Special:ReverseLookup/440659",
+    "parts": [
+      "Voice",
+      "Piano"
+    ],
+    "measures": 104,
+    "notes": 1119,
+    "off_key_pct": 7.1,
+    "printed_accidental_pct": 5.6,
+    "key_fifths": -2,
+    "meter": "3/4",
+    "license": "CC0-1.0",
+    "source": "OpenScore Lieder Corpus (github.com/OpenScore/Lieder)"
+  },
+  {
+    "file": "openscore/brahms-3-o-tod--wie-bitter-bist-du.musicxml",
+    "work": "Brahms,_Johannes/4_Serious_Songs,_Op.121/3_O_Tod,_wie_bitter_bist_du!",
+    "imslp_id": "#85424",
+    "imslp_url": "https://imslp.org/wiki/Special:ReverseLookup/85424",
+    "parts": [
+      "Singstimme Voice",
+      "Pianoforte"
+    ],
+    "measures": 41,
+    "notes": 904,
+    "off_key_pct": 9.8,
+    "printed_accidental_pct": 8.3,
+    "key_fifths": 1,
+    "meter": "3/2",
+    "license": "CC0-1.0",
+    "source": "OpenScore Lieder Corpus (github.com/OpenScore/Lieder)"
+  },
+  {
+    "file": "openscore/parry-2-good-night.musicxml",
+    "work": "Parry,_Hubert/English_Lyrics_(1st_Set)/2_Good_night",
+    "imslp_id": "#33700",
+    "imslp_url": "https://imslp.org/wiki/Special:ReverseLookup/33700",
+    "parts": [
+      "Voice",
+      "Piano"
+    ],
+    "measures": 29,
+    "notes": 699,
+    "off_key_pct": 11.9,
+    "printed_accidental_pct": 8.4,
+    "key_fifths": -2,
+    "meter": "?",
+    "license": "CC0-1.0",
+    "source": "OpenScore Lieder Corpus (github.com/OpenScore/Lieder)"
+  },
+  {
+    "file": "openscore/bridge-fair-daffodils--h-51.musicxml",
+    "work": "Bridge,_Frank/_/Fair_Daffodils,_H.51",
+    "imslp_id": "#212407",
+    "imslp_url": "https://imslp.org/wiki/Special:ReverseLookup/212407",
+    "parts": [
+      "Voice",
+      "Piano"
+    ],
+    "measures": 43,
+    "notes": 957,
+    "off_key_pct": 14.5,
+    "printed_accidental_pct": 10.9,
+    "key_fifths": 3,
+    "meter": "4/4",
+    "license": "CC0-1.0",
+    "source": "OpenScore Lieder Corpus (github.com/OpenScore/Lieder)"
+  },
+  {
+    "file": "openscore/ferrari-le-sommeil.musicxml",
+    "work": "Ferrari,_Gabrielle/_/Le_Sommeil",
+    "imslp_id": "#575893",
+    "imslp_url": "https://imslp.org/wiki/Special:ReverseLookup/575893",
+    "parts": [
+      "Chant Voice",
+      "Piano"
+    ],
+    "measures": 49,
+    "notes": 885,
+    "off_key_pct": 22.1,
+    "printed_accidental_pct": 14.4,
+    "key_fifths": -3,
+    "meter": "3/4",
+    "license": "CC0-1.0",
+    "source": "OpenScore Lieder Corpus (github.com/OpenScore/Lieder)"
+  },
+  {
+    "file": "openscore/smyth-1-the-clown.musicxml",
+    "work": "Smyth,_Ethel/3_Songs/1_The_Clown",
+    "imslp_id": "#394162",
+    "imslp_url": "https://imslp.org/wiki/Special:ReverseLookup/394162",
+    "parts": [
+      "Voice Gesang",
+      "Piano"
+    ],
+    "measures": 111,
+    "notes": 1644,
+    "off_key_pct": 29.0,
+    "printed_accidental_pct": 19.9,
+    "key_fifths": 1,
+    "meter": "6/8",
+    "license": "CC0-1.0",
+    "source": "OpenScore Lieder Corpus (github.com/OpenScore/Lieder)"
+  },
+  {
+    "file": "openscore/webern-5-ihr-tratet-zu-dem-herde.musicxml",
+    "work": "Webern,_Anton/5_Lieder_nach_Gedichten_von_Stefan_George,_Op.4/5_Ihr_tratet_zu_dem_Herde",
+    "imslp_id": "#28267",
+    "imslp_url": "https://imslp.org/wiki/Special:ReverseLookup/28267",
+    "parts": [
+      "Gesang Voice",
+      "Klavier Piano"
+    ],
+    "measures": 16,
+    "notes": 281,
+    "off_key_pct": 41.3,
+    "printed_accidental_pct": 37.7,
+    "key_fifths": 0,
+    "meter": "2/4",
+    "license": "CC0-1.0",
+    "source": "OpenScore Lieder Corpus (github.com/OpenScore/Lieder)"
+  }
+]
