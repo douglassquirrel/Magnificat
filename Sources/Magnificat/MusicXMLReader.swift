@@ -97,6 +97,11 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
     private var noteIsGrace = false
     private var notePrintedAccidental: Accidental?
     private var directionStaff: Int?
+    /// Whether the hairpin currently open is a crescendo, so its stop can name it.
+    private var openWedgeIsCrescendo = true
+    private var metronomeUnit: String?
+    private var metronomeDots = 0
+    private var metronomePerMinute: String?
     private var pendingDirections: [Direction] = []
     private var noteLyrics: [Lyric] = []
     private var lyricVerse = 1
@@ -161,6 +166,38 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             if elements.dropLast().last == "dynamics" {
                 pendingDirections.append(.dynamic(name))
             }
+        case "wedge":
+            switch attributes["type"] {
+            case "crescendo":
+                openWedgeIsCrescendo = true
+                pendingDirections.append(.wedgeStart(isCrescendo: true))
+            case "diminuendo":
+                openWedgeIsCrescendo = false
+                pendingDirections.append(.wedgeStart(isCrescendo: false))
+            case "stop":
+                pendingDirections.append(.wedgeStop(wasCrescendo: openWedgeIsCrescendo))
+            default:
+                break
+            }
+        case "pedal":
+            switch attributes["type"] {
+            case "start": pendingDirections.append(.pedal(isDown: true))
+            case "stop": pendingDirections.append(.pedal(isDown: false))
+            default: break
+            }
+        case "octave-shift":
+            switch attributes["type"] {
+            case "down": pendingDirections.append(.octaveShiftStart(isDown: true))
+            case "up": pendingDirections.append(.octaveShiftStart(isDown: false))
+            case "stop": pendingDirections.append(.octaveShiftStop)
+            default: break
+            }
+        case "metronome":
+            metronomeUnit = nil
+            metronomeDots = 0
+            metronomePerMinute = nil
+        case "beat-unit-dot":
+            metronomeDots += 1
         case "lyric":
             lyricVerse = Int(attributes["number"] ?? "1") ?? 1
             lyricText = nil
@@ -276,6 +313,17 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             }
         case "words":
             if !value.isEmpty { pendingDirections.append(.words(value)) }
+        case "rehearsal":
+            if !value.isEmpty { pendingDirections.append(.rehearsal(value)) }
+        case "beat-unit":
+            if metronomeUnit == nil { metronomeUnit = value }
+        case "per-minute":
+            metronomePerMinute = value
+        case "metronome":
+            if let unit = metronomeUnit, let rate = metronomePerMinute, !rate.isEmpty {
+                pendingDirections.append(.metronome(beatUnit: unit, dots: metronomeDots,
+                                                    perMinute: rate))
+            }
         case "other-dynamics":
             if !value.isEmpty { pendingDirections.append(.dynamic(value)) }
         case "direction":

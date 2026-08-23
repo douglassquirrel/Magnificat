@@ -5,6 +5,19 @@ public enum Direction: Sendable, Equatable {
     case dynamic(String)
     /// Free text, passed through exactly as written.
     case words(String)
+    /// A hairpin beginning. The kind is carried so its stop can name it.
+    case wedgeStart(isCrescendo: Bool)
+    /// A hairpin ending, naming the hairpin it closes.
+    case wedgeStop(wasCrescendo: Bool)
+    /// The sustaining pedal going down or coming up.
+    case pedal(isDown: Bool)
+    /// An octave transposition beginning, or ending.
+    case octaveShiftStart(isDown: Bool)
+    case octaveShiftStop
+    /// A rehearsal mark.
+    case rehearsal(String)
+    /// A metronome mark: a beat unit, its dots, and a rate.
+    case metronome(beatUnit: String, dots: Int, perMinute: String)
 
     /// The direction spoken as plain text.
     var spokenText: String {
@@ -15,6 +28,23 @@ public enum Direction: Sendable, Equatable {
             return "Dynamic: \(Self.dynamicWord(mark))"
         case .words(let text):
             return text
+        case .wedgeStart(let isCrescendo):
+            return isCrescendo ? "Crescendo begins" : "Diminuendo begins"
+        case .wedgeStop(let wasCrescendo):
+            // <wedge type="stop"/> does not say which hairpin it closes, so the
+            // reader is told, rather than left with a bare "Hairpin ends".
+            return wasCrescendo ? "Crescendo ends" : "Diminuendo ends"
+        case .pedal(let isDown):
+            return isDown ? "Pedal down" : "Pedal up"
+        case .octaveShiftStart(let isDown):
+            return "Octave shift \(isDown ? "down" : "up") begins"
+        case .octaveShiftStop:
+            return "Octave shift ends"
+        case .rehearsal(let mark):
+            return "Rehearsal mark \(mark)"
+        case .metronome(let unit, let dots, let perMinute):
+            let dotted = dots == 1 ? "dotted " : dots == 2 ? "double dotted " : ""
+            return "Tempo: \(dotted)\(unit) note equals \(perMinute)"
         }
     }
 
