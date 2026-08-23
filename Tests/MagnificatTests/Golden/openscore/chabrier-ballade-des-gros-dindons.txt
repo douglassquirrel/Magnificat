@@ -9,76 +9,76 @@ Time signature: 2 4
 Voice
 Measures 1 to 2. Rest.
 Measure 3. Quarter rest. Dotted eighth rest. Dynamic: forte Dynamic: bêtement. A 4, sixteenth, lyric Les. Double barline.
-Measure 4. F 4, eighth, tenuto, lyric gros. A 4, eighth, tenuto, lyric din-. F 4, eighth, tenuto, lyric -dons,. Sixteenth rest. A 4, sixteenth, lyric à.
-Measure 5. G 4, eighth, tenuto, lyric tra-. A 4, eighth, tenuto, lyric -vers. G 4, eighth, tenuto, lyric champs,. Sixteenth rest. A 4, sixteenth, lyric D'un.
+Measure 4. F 4, eighth, tenuto, lyric gros. A 4, eighth, tenuto, lyric din-. F 4, eighth, tenuto, lyric -dons, Sixteenth rest. A 4, sixteenth, lyric à.
+Measure 5. G 4, eighth, tenuto, lyric tra-. A 4, eighth, tenuto, lyric -vers. G 4, eighth, tenuto, lyric champs, Sixteenth rest. A 4, sixteenth, lyric D'un.
 Measure 6. F 4, triplet eighth, lyric pas. G 4, triplet eighth, lyric so-. A 4, triplet eighth, lyric -len-. Crescendo begins. F 4, triplet eighth, lyric -nel. G 4, triplet eighth, lyric et. Crescendo ends. Dynamic: sforzando. A 4, triplet eighth, lyric tran-.
-Measure 7. G 4, quarter, tenuto, lyric -qil-. G 4, eighth, tenuto, lyric -le,. Sixteenth rest. Dynamic: sforzando. A 4, sixteenth, lyric Par.
-Measure 8. F 4, eighth, tenuto, lyric les. A 4, eighth, tenuto, lyric ma-. F 4, eighth, tenuto, lyric -tins,. Sixteenth rest. Dynamic: sforzando. A 4, sixteenth, lyric par.
-Measure 9. G 4, eighth, tenuto, lyric les. A 4, eighth, tenuto, lyric cou-. G 4, triplet eighth, tenuto, lyric -chants,. Dynamic: sforzando. F 4, triplet eighth, lyric Bê-. E 4, triplet eighth, tenuto, lyric -te-.
+Measure 7. G 4, quarter, tenuto, lyric -qil-. G 4, eighth, tenuto, lyric -le, Sixteenth rest. Dynamic: sforzando. A 4, sixteenth, lyric Par.
+Measure 8. F 4, eighth, tenuto, lyric les. A 4, eighth, tenuto, lyric ma-. F 4, eighth, tenuto, lyric -tins, Sixteenth rest. Dynamic: sforzando. A 4, sixteenth, lyric par.
+Measure 9. G 4, eighth, tenuto, lyric les. A 4, eighth, tenuto, lyric cou-. G 4, triplet eighth, tenuto, lyric -chants, Dynamic: sforzando. F 4, triplet eighth, lyric Bê-. E 4, triplet eighth, tenuto, lyric -te-.
 Measure 10. D 4, triplet eighth, slur begins, tenuto, lyric -ment. E 4, triplet eighth, tenuto, lyric mar-. D 4, triplet eighth, slur ends, tenuto, lyric -chent. E 4, eighth, slur begins, lyric à. D 4, eighth, slur ends, lyric la.
-Measure 11. C 4, quarter, tenuto, lyric fi-. C 4, triplet eighth, tenuto, lyric -le,. Triplet eighth rest. Dynamic: mezzo forte. armonioso. F 4, triplet eighth, slur begins, lyric De-.
+Measure 11. C 4, quarter, tenuto, lyric fi-. C 4, triplet eighth, tenuto, lyric -le, Triplet eighth rest. Dynamic: mezzo forte. armonioso. F 4, triplet eighth, slur begins, lyric De-.
 Measure 12. B flat 4, triplet eighth, accent, lyric -vant. C 5, triplet eighth, lyric la. B flat 4, triplet eighth, lyric pas-. B flat 4, triplet eighth, accent, lyric -tou-. C 5, triplet eighth, lyric -re. B flat 4, triplet eighth, lyric qui.
-Measure 13. B flat 4, quarter, slur begins, lyric fi-. G 4, quarter, slur ends, lyric -le,.
+Measure 13. B flat 4, quarter, slur begins, lyric fi-. G 4, quarter, slur ends, lyric -le,
 Measure 14. B flat 4, triplet eighth, lyric En. B flat 4, triplet eighth, lyric fre-. B flat 4, triplet eighth, tenuto, lyric -don-. B flat 4, eighth, tenuto, lyric -nant. Crescendo begins. C 5, eighth, tenuto, lyric de.
-Measure 15. A 4, eighth, tenuto, lyric vieux. B flat 4, eighth, tenuto, lyric fre-. Crescendo ends. C 5, triplet eighth, slur begins, tenuto, lyric -dons,. A 4, triplet eighth, lyric Vont. G 4, triplet eighth, slur ends, lyric en.
+Measure 15. A 4, eighth, tenuto, lyric vieux. B flat 4, eighth, tenuto, lyric fre-. Crescendo ends. C 5, triplet eighth, slur begins, tenuto, lyric -dons, A 4, triplet eighth, lyric Vont. G 4, triplet eighth, slur ends, lyric en.
 Measure 16. F 4, triplet eighth, slur begins, lyric pro-. G 4, triplet eighth, lyric -ces-. F 4, triplet eighth, lyric -si-. D 4, eighth, lyric -on. Crescendo begins. B natural 3, eighth, lyric do-. Crescendo ends.
 Measure 17. Dynamic: pianissimo. Diminuendo begins. F 5, quarter, lyric -ci-. Diminuendo ends. C 5, eighth, slur ends, lyric -le. Dynamic: forte. F 4, eighth, tenuto, lyric Les. Double barline.
 Measure 18. E 4, dotted quarter, tenuto, lyric gros. G 4, dotted quarter, tenuto, lyric din-. Double barline.
-Measure 19. F 4, dotted half, tenuto, lyric -dons!.
+Measure 19. F 4, dotted half, tenuto, lyric -dons!
 Measures 20 to 24. Rest.
 Measure 25. Dotted quarter rest. Eighth rest. Dotted eighth rest. Dynamic: forte. A 4, sixteenth, lyric Ils. Double barline.
 Measure 26. F 4, eighth, lyric vous. A 4, eighth, lyric ont. F 4, dotted eighth, accent, lyric l'air. A 4, sixteenth, lyric de.
 Measure 27. G 4, eighth, lyric gros. A 4, eighth, lyric mar-. G 4, dotted eighth, accent, lyric -chands. A 4, sixteenth, lyric Rem-.
 Measure 28. F 4, triplet eighth, lyric -plis. G 4, triplet eighth, lyric d'u-. A 4, triplet eighth, lyric -ne. Crescendo begins. F 4, triplet eighth, lyric morgue. G 4, triplet eighth, lyric im-. Crescendo ends. Dynamic: sforzando. A 4, triplet eighth, lyric -bé-.
-Measure 29. G 4, quarter, lyric -ci-. G 4, eighth, lyric -le,. Sixteenth rest. A 4, sixteenth, lyric De.
+Measure 29. G 4, quarter, lyric -ci-. G 4, eighth, lyric -le, Sixteenth rest. A 4, sixteenth, lyric De.
 Measure 30. F 4, eighth, lyric bail-. A 4, eighth, lyric -lis. F 4, dotted eighth, accent, lyric ro-. A 4, sixteenth, lyric -gues.
 Measure 31. G 4, eighth, lyric et. A 4, eighth, lyric mé-. G 4, triplet eighth, accent, lyric -chants. F 4, triplet eighth, tenuto, lyric Vous. E 4, triplet eighth, tenuto, lyric re-.
 Measure 32. D 4, triplet eighth, tenuto, lyric -gar-. E 4, triplet eighth, tenuto, lyric -dant. D 4, triplet eighth, tenuto, lyric d'un. E 4, eighth, tenuto, lyric oeil. D 4, eighth, tenuto, lyric hos-.
-Measure 33. C 4, quarter, lyric -ti-. C 4, triplet eighth, lyric -le;. Triplet eighth rest. Dynamic: mezzo forte. F 4, triplet eighth, lyric Leur.
+Measure 33. C 4, quarter, lyric -ti-. C 4, triplet eighth, lyric -le; Triplet eighth rest. Dynamic: mezzo forte. F 4, triplet eighth, lyric Leur.
 Measure 34. B flat 4, triplet eighth, lyric rou-. C 5, triplet eighth, lyric -ge. B flat 4, triplet eighth, lyric pen-. B flat 4, triplet eighth, lyric -de-. C 5, triplet eighth, lyric -loque. B flat 4, triplet eighth, lyric os-.
-Measure 35. B flat 4, quarter, lyric -cil-. G 4, quarter, lyric -le;.
-Measure 36. B flat 4, triplet eighth, accent, lyric Ils. B flat 4, triplet eighth, lyric sem-. B flat 4, triplet eighth, lyric -blent,. B flat 4, eighth, lyric par-. C 5, eighth, lyric -mi.
-Measure 37. A 4, eighth, lyric les. B flat 4, eighth, lyric char-. C 5, triplet eighth, lyric -dons,. A 4, triplet eighth, lyric Gra-. G 4, triplet eighth, lyric -ve-.
+Measure 35. B flat 4, quarter, lyric -cil-. G 4, quarter, lyric -le;
+Measure 36. B flat 4, triplet eighth, accent, lyric Ils. B flat 4, triplet eighth, lyric sem-. B flat 4, triplet eighth, lyric -blent, B flat 4, eighth, lyric par-. C 5, eighth, lyric -mi.
+Measure 37. A 4, eighth, lyric les. B flat 4, eighth, lyric char-. C 5, triplet eighth, lyric -dons, A 4, triplet eighth, lyric Gra-. G 4, triplet eighth, lyric -ve-.
 Measure 38. F 4, triplet eighth, lyric ment. G 4, triplet eighth, lyric te-. F 4, triplet eighth, lyric -nir. D 4, eighth, lyric un. Crescendo begins. B natural 3, eighth, slur begins, lyric con-. Crescendo ends.
-Measure 39. Dynamic: pianissimo. Diminuendo begins. F 5, quarter, lyric -ci-. Diminuendo ends. C 5, eighth, slur ends, lyric -le,. Dynamic: forte. F 4, eighth, tenuto, lyric Les.
+Measure 39. Dynamic: pianissimo. Diminuendo begins. F 5, quarter, lyric -ci-. Diminuendo ends. C 5, eighth, slur ends, lyric -le, Dynamic: forte. F 4, eighth, tenuto, lyric Les.
 Measure 40. E 4, dotted quarter, marcato, lyric gros. G 4, dotted quarter, marcato, lyric din-.
-Measure 41. F 4, dotted half, marcato, lyric -dons!.
+Measure 41. F 4, dotted half, marcato, lyric -dons!
 Measures 42 to 46. Rest.
 Measure 47. Quarter rest. Eighth rest. Dotted eighth rest. Eighth rest. Dynamic: forte. A 4, sixteenth, lyric N'a-. Double barline.
 Measure 48. F 4, eighth, lyric -yant. A 4, eighth, lyric ja-. F 4, dotted eighth, accent, lyric -mais. A 4, sixteenth, lyric trou-.
 Measure 49. G 4, eighth, lyric -vé. A 4, eighth, lyric tou-. G 4, dotted eighth, accent, lyric -chants. A 4, sixteenth, lyric Les.
 Measure 50. F 4, triplet eighth, lyric sons. G 4, triplet eighth, lyric que. A 4, triplet eighth, lyric le. Crescendo begins. F 4, triplet eighth, lyric ros-. G 4, triplet eighth, lyric -ssi-. A 4, triplet eighth, lyric -gnol. Crescendo ends.
-Measure 51. Dynamic: sforzando. G 4, quarter, tenuto, lyric fi-. G 4, eighth, tenuto, lyric -le,. Sixteenth rest. Dynamic: sforzando. A 4, sixteenth, lyric Ils.
-Measure 52. F 4, eighth, tenuto, lyric sui-. A 4, eighth, tenuto, lyric -vent,. F 4, dotted eighth, tenuto, lyric lourds. A 4, sixteenth, lyric et.
-Measure 53. G 4, eighth, lyric tré-. A 4, eighth, lyric -bu-. G 4, triplet eighth, lyric -chants,. F 4, triplet eighth, lyric L'un. E 4, triplet eighth, lyric d'eux.
+Measure 51. Dynamic: sforzando. G 4, quarter, tenuto, lyric fi-. G 4, eighth, tenuto, lyric -le, Sixteenth rest. Dynamic: sforzando. A 4, sixteenth, lyric Ils.
+Measure 52. F 4, eighth, tenuto, lyric sui-. A 4, eighth, tenuto, lyric -vent, F 4, dotted eighth, tenuto, lyric lourds. A 4, sixteenth, lyric et.
+Measure 53. G 4, eighth, lyric tré-. A 4, eighth, lyric -bu-. G 4, triplet eighth, lyric -chants, F 4, triplet eighth, lyric L'un. E 4, triplet eighth, lyric d'eux.
 Measure 54. D 4, triplet eighth, lyric di-. E 4, triplet eighth, lyric -gne. D 4, triplet eighth, lyric comme. E 4, eighth, lyric un. D 4, eighth, lyric é-.
-Measure 55. C 4, quarter, tenuto, lyric di-. C 4, triplet eighth, tenuto, lyric -le,. Triplet eighth rest. F 4, triplet eighth, lyric Et,.
+Measure 55. C 4, quarter, tenuto, lyric di-. C 4, triplet eighth, tenuto, lyric -le, Triplet eighth rest. F 4, triplet eighth, lyric Et,
 Measure 56. B flat 4, triplet eighth, lyric lors-. C 5, triplet eighth, lyric -qu'au. B flat 4, triplet eighth, lyric loin-. B flat 4, triplet eighth, lyric -tain. C 5, triplet eighth, lyric cam-. B flat 4, triplet eighth, lyric -pa-.
 Measure 57. B flat 4, quarter, lyric -ni-. G 4, quarter, lyric -le.
 Measure 58. B flat 4, triplet eighth, lyric L'an-. B flat 4, triplet eighth, lyric -ge-. B flat 4, triplet eighth, lyric -lus. B flat 4, eighth, lyric fait. C 5, eighth, lyric ses.
-Measure 59. A 4, eighth, tenuto, lyric lents. B flat 4, eighth, tenuto, lyric din!. C 5, triplet eighth, tenuto, lyric don!. A 4, triplet eighth, lyric Ils. G 4, triplet eighth, lyric re-.
+Measure 59. A 4, eighth, tenuto, lyric lents. B flat 4, eighth, tenuto, lyric din! C 5, triplet eighth, tenuto, lyric don! A 4, triplet eighth, lyric Ils. G 4, triplet eighth, lyric re-.
 Measure 60. F 4, triplet eighth, lyric -ga-. G 4, triplet eighth, lyric -gnent. F 4, triplet eighth, lyric leur. D 4, eighth, lyric do-. Crescendo begins. B natural 3, eighth, slur begins, lyric -mi-. Crescendo ends.
-Measure 61. Dynamic: pianissimo. Diminuendo begins. F 5, quarter, lyric -ci-. Diminuendo ends. C 5, eighth, slur ends, lyric -le,. Dynamic: forte. F 4, eighth, marcato, lyric les. Double barline.
+Measure 61. Dynamic: pianissimo. Diminuendo begins. F 5, quarter, lyric -ci-. Diminuendo ends. C 5, eighth, slur ends, lyric -le, Dynamic: forte. F 4, eighth, marcato, lyric les. Double barline.
 Measure 62. E 4, dotted quarter, marcato, lyric gros. G 4, dotted quarter, marcato, lyric din-.
-Measure 63. F 4, dotted half, lyric -dons!.
+Measure 63. F 4, dotted half, lyric -dons!
 Measures 64 to 68. Rest.
 Measure 69. Quarter rest. Eighth rest. Dotted eighth rest. Eighth rest. Dynamic: forte. A 4, sixteenth, lyric Prud'. Double barline.
-Measure 70. F 4, eighth, lyric hom-. A 4, eighth, lyric -mes. F 4, dotted eighth, accent, lyric gras,. A 4, sixteenth, lyric leurs.
+Measure 70. F 4, eighth, lyric hom-. A 4, eighth, lyric -mes. F 4, dotted eighth, accent, lyric gras, A 4, sixteenth, lyric leurs.
 Measure 71. G 4, eighth, lyric seuls. A 4, eighth, lyric pen-. G 4, dotted eighth, accent, lyric -chants. A 4, sixteenth, lyric sont.
 Measure 72. F 4, triplet eighth, lyric vers. G 4, triplet eighth, lyric le. A 4, triplet eighth, lyric pra-. F 4, triplet eighth, lyric -tique. G 4, triplet eighth, lyric et. A 4, triplet eighth, lyric l'u.
-Measure 73. G 4, quarter, lyric ti-. G 4, eighth, lyric -le,. Sixteenth rest. A 4, sixteenth, lyric Pour.
-Measure 74. F 4, eighth, lyric eux,. A 4, eighth, lyric l'a-. F 4, dotted eighth, lyric -mour. A 4, sixteenth, lyric et.
+Measure 73. G 4, quarter, lyric ti-. G 4, eighth, lyric -le, Sixteenth rest. A 4, sixteenth, lyric Pour.
+Measure 74. F 4, eighth, lyric eux, A 4, eighth, lyric l'a-. F 4, dotted eighth, lyric -mour. A 4, sixteenth, lyric et.
 Measure 75. G 4, eighth, lyric les. A 4, eighth, lyric doux. G 4, triplet eighth, lyric chants. F 4, triplet eighth, lyric Sont. E 4, triplet eighth, lyric un.
 Measure 76. D 4, triplet eighth, lyric pas-. E 4, triplet eighth, lyric -se-. D 4, triplet eighth, lyric -temps. E 4, eighth, lyric trop. D 4, eighth, lyric fu-.
-Measure 77. C 4, quarter, tenuto, lyric -ti-. C 4, triplet eighth, tenuto, lyric -le,. Triplet eighth rest. F 4, triplet eighth, lyric Bour-.
+Measure 77. C 4, quarter, tenuto, lyric -ti-. C 4, triplet eighth, tenuto, lyric -le, Triplet eighth rest. F 4, triplet eighth, lyric Bour-.
 Measure 78. B flat 4, triplet eighth, lyric -geois. C 5, triplet eighth, lyric de. B flat 4, triplet eighth, lyric la. B flat 4, triplet eighth, lyric gent. C 5, triplet eighth, lyric vo-. B flat 4, triplet eighth, lyric -la-.
 Measure 79. B flat 4, quarter, lyric -ti-. G 4, quarter, lyric -le.
 Measure 80. Dynamic: sforzando. B flat 4, triplet eighth, lyric Ar-. B flat 4, triplet eighth, lyric -ron-. B flat 4, triplet eighth, lyric -dis-. B flat 4, eighth, lyric -sant. C 5, eighth, lyric de.
-Measure 81. A 4, eighth, tenuto, lyric noirs. B flat 4, eighth, tenuto, lyric be-. C 5, triplet eighth, tenuto, lyric -dons,. A 4, triplet eighth, lyric Ils. G 4, triplet eighth, lyric se.
+Measure 81. A 4, eighth, tenuto, lyric noirs. B flat 4, eighth, tenuto, lyric be-. C 5, triplet eighth, tenuto, lyric -dons, A 4, triplet eighth, lyric Ils. G 4, triplet eighth, lyric se.
 Measure 82. F 4, triplet eighth, lyric fi-. G 4, triplet eighth, lyric -chent. F 4, triplet eighth, lyric de. F 4, eighth, lyric toute. Crescendo begins. B natural 3, eighth, slur begins, lyric i-. Crescendo ends.
-Measure 83. Dynamic: pianissimo. Diminuendo begins. F 5, quarter, lyric -dyl-. Diminuendo ends. C 5, eighth, slur ends, lyric -le,. Dynamic: forte. F 4, eighth, marcato, lyric Les. Double barline.
+Measure 83. Dynamic: pianissimo. Diminuendo begins. F 5, quarter, lyric -dyl-. Diminuendo ends. C 5, eighth, slur ends, lyric -le, Dynamic: forte. F 4, eighth, marcato, lyric Les. Double barline.
 Measure 84. E 4, dotted quarter, marcato, lyric gros. G 4, dotted quarter, marcato, lyric din-.
-Measure 85. F 4, dotted half, lyric -dons!.
+Measure 85. F 4, dotted half, lyric -dons!
 Measures 86 to 90. Rest.
 Measure 91. Whole measure rest. Final barline.
 Lyrics

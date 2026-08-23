@@ -192,3 +192,23 @@ func directionMeasure(_ direction: String) -> Data {
     """)
     #expect(try measureLines(xml).first?.contains("Langsam (quarter note ca 48).") == true)
 }
+
+@Test func aMetronomeInsideALargerMarkingDropsTheTempoPrefix() throws {
+    // Found reviewing the Davies golden: "Allegro tranquilo Tempo: half note
+    // equals 96". The words already say it is a tempo; the prefix exists only to
+    // introduce a metronome standing on its own.
+    let compound = directionMeasure("""
+      <direction><direction-type><words>Allegro tranquilo</words></direction-type>
+        <direction-type><metronome><beat-unit>half</beat-unit>
+          <per-minute>96</per-minute></metronome></direction-type></direction>
+    """)
+    #expect(try measureLines(compound).first?
+            .contains("Allegro tranquilo half note equals 96.") == true)
+
+    // Standing alone it keeps the prefix, so the number is not left bare.
+    let alone = directionMeasure("""
+      <direction><direction-type><metronome><beat-unit>half</beat-unit>
+        <per-minute>96</per-minute></metronome></direction-type></direction>
+    """)
+    #expect(try measureLines(alone).first?.contains("Tempo: half note equals 96.") == true)
+}

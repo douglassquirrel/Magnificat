@@ -22,22 +22,22 @@ Measures 14 to 15. Rest.
 Measure 16. Whole measure rest. Double barline.
 Measure 17. Più mosso. Eighth rest. D 4, eighth, lyric La. E 4, sixteenth, lyric cham-. E 4, sixteenth, lyric -bre. G 4, sixteenth, lyric jus-. B 4, sixteenth, lyric -qu'au. D 5, eighth, lyric soir. D 5, eighth, lyric fut.
 Measure 18. A 4, quarter, lyric ble-. A 4, eighth, lyric -le. A 4, sixteenth, lyric d'un. A 4, sixteenth, lyric jeu. G 4, eighth, lyric d'or. A 4, sixteenth, lyric a-. B 4, sixteenth, lyric -é-.
-Measure 19. D 5, dotted eighth, breath mark, lyric -rien,. D 5, sixteenth, lyric sub-. E 5, eighth, lyric -til,. D 5, sixteenth, lyric dé-. E 5, sixteenth, lyric -li-. F sharp 5, eighth, lyric -cat. E 5, sixteenth, lyric et. D 5, sixteenth, lyric mou-.
+Measure 19. D 5, dotted eighth, breath mark, lyric -rien, D 5, sixteenth, lyric sub-. E 5, eighth, lyric -til, D 5, sixteenth, lyric dé-. E 5, sixteenth, lyric -li-. F sharp 5, eighth, lyric -cat. E 5, sixteenth, lyric et. D 5, sixteenth, lyric mou-.
 Measure 20. F sharp 4, dotted half, lyric --vant.
 Measure 21. Whole measure rest.
 Measure 22. Eighth rest. Dynamic: mezzo forte. E flat 4, sixteenth, lyric Tu. E flat 4, sixteenth, lyric ver-. F natural 4, eighth, lyric -ras. F natural 4, sixteenth, lyric du. F natural 4, sixteenth, lyric so-. G 4, eighth, lyric -leil. Crescendo begins. F natural 4, sixteenth, lyric et. G 4, sixteenth, lyric des.
 Measure 23. E flat 5, half, breath mark, lyric fleurs. Dynamic: piano. cédez. E flat 4, eighth, lyric en. E flat 4, eighth, lyric rê-. Crescendo ends.
-Measure 24. D 4, half, lyric -vant;. Eighth rest. a tempo. E 4, eighth, lyric voi-. Double barline.
+Measure 24. D 4, half, lyric -vant; Eighth rest. a tempo. E 4, eighth, lyric voi-. Double barline.
 Measure 25. F natural 4, sixteenth, lyric -ci. F natural 4, sixteenth, lyric le. G 4, sixteenth, lyric cré-. G 4, sixteenth, lyric -pus-. A 4, quarter, tied, lyric -cu-. A 4, eighth, tied from previous, breath mark, lyric -le. A 4, eighth, lyric et. rit. A 4, eighth, lyric la. A 4, eighth, lyric nuit. Double barline.
 Measure 26. a tempo. A 4, half, lyric som-. A 4, quarter, lyric -bre.
 Measure 27. Quarter rest. A 4, half, lyric Dors.
 Measure 28. Quarter rest. A 4, quarter, lyric Il. A 4, quarter, lyric fait.
 Measure 29. rit. A 4, dotted half, lyric noir.
 Measure 30. Tranquillo. Quarter rest. Quarter rest. Dynamic: pianissimo. C 5, eighth, lyric Reste. A 4, eighth, lyric ain-.
-Measure 31. A flat 4, quarter, lyric -si,. Eighth rest. F 4, eighth, lyric les. F 4, eighth, lyric yeux. F 4, eighth, lyric ou-.
-Measure 32. A 4, half, lyric -verts;. Eighth rest. A 4, eighth, lyric je.
-Measure 33. B 4, eighth, lyric sais. B 4, eighth, lyric que. A 4, eighth, lyric près. A 4, eighth, lyric de. D 5, eighth, slur begins, lyric nous,. D 4, eighth, slur ends, lyric tout.
-Measure 34. E 4, eighth, breath mark, lyric bas,. D 4, eighth, lyric la. G 4, eighth, lyric gran-. G 4, eighth, lyric -de. Crescendo begins. B 4, eighth, lyric ro-. D 5, eighth, lyric -se. Crescendo ends.
+Measure 31. A flat 4, quarter, lyric -si, Eighth rest. F 4, eighth, lyric les. F 4, eighth, lyric yeux. F 4, eighth, lyric ou-.
+Measure 32. A 4, half, lyric -verts; Eighth rest. A 4, eighth, lyric je.
+Measure 33. B 4, eighth, lyric sais. B 4, eighth, lyric que. A 4, eighth, lyric près. A 4, eighth, lyric de. D 5, eighth, slur begins, lyric nous, D 4, eighth, slur ends, lyric tout.
+Measure 34. E 4, eighth, breath mark, lyric bas, D 4, eighth, lyric la. G 4, eighth, lyric gran-. G 4, eighth, lyric -de. Crescendo begins. B 4, eighth, lyric ro-. D 5, eighth, lyric -se. Crescendo ends.
 Measure 35. Eighth rest. cresc. E 5, eighth, tied, lyric s'est. E 5, eighth, tied from previous. E 5, eighth, lyric a-. B 4, eighth, lyric -vec. B 4, eighth, lyric dou-.
 Measure 36. E 5, eighth, breath mark, lyric -ceur. E 5, eighth, lyric et. E 4, eighth, lyric tout-. E 4, eighth, lyric -à-. Crescendo begins. A 4, sixteenth, lyric -coup. A 4, sixteenth, lyric é-. C sharp 5, sixteenth, lyric -pa-. E 5, sixteenth, lyric -nou-. Crescendo ends.
 Measure 37. Diminuendo begins. F sharp 5, dotted half, lyric --i-. Diminuendo ends.
@@ -45,11 +45,11 @@ Measure 38. F sharp 4, half, lyric -e. Quarter rest.
 Measure 39. Quarter rest. Quarter rest. Eighth rest. Dynamic: piano. A flat 4, eighth, lyric Tu.
 Measure 40. A flat 4, half, lyric dors. Eighth rest. A flat 4, eighth, lyric Ton.
 Measure 41. dim. sempre. A flat 4, eighth, lyric souf-. A flat 4, eighth, lyric -fle é. A flat 4, eighth, lyric gal. A flat 4, eighth, lyric sou-. A flat 4, sixteenth, lyric -pi-. A flat 4, sixteenth, lyric -re en-. A flat 4, sixteenth, lyric -tre. A flat 4, sixteenth, lyric tes.
-Measure 42. A flat 4, dotted half, lyric dents,.
+Measure 42. A flat 4, dotted half, lyric dents,
 Measure 43. Quarter rest. Quarter rest. Dynamic: piano. A flat 4, eighth, lyric Et. A flat 4, eighth, lyric je. Double barline.
 Measure 44. A flat 5, quarter, lyric sens. E flat 5, eighth, lyric pal-. E flat 5, eighth, lyric -pi-. C 5, triplet eighth, breath mark, lyric -ter. C 5, triplet eighth, lyric la. Crescendo begins. D 5, triplet eighth, lyric té-. E flat 5, triplet eighth, lyric -nè-. Crescendo ends. F 5, triplet eighth, lyric -bre é-. G 5, triplet eighth, lyric -blou-.
 Measure 45. G 5, half, lyric -i-. G 4, quarter, breath mark, lyric -e. Dynamic: pianissimo. G 4, quarter, lyric Et. Double barline.
-Measure 46. G 4, triplet eighth, slur begins, lyric l'om-. F 4, triplet eighth, slur ends. G 4, triplet eighth, lyric -bre,. A flat 4, triplet eighth, slur begins, lyric tout. B flat 4, triplet eighth, slur ends. C 5, triplet eighth, lyric en-. D 5, eighth, breath mark, lyric -tiè-. C 5, eighth, lyric -re,est. Double barline.
+Measure 46. G 4, triplet eighth, slur begins, lyric l'om-. F 4, triplet eighth, slur ends. G 4, triplet eighth, lyric -bre, A flat 4, triplet eighth, slur begins, lyric tout. B flat 4, triplet eighth, slur ends. C 5, triplet eighth, lyric en-. D 5, eighth, breath mark, lyric -tiè-. C 5, eighth, lyric -re,est. Double barline.
 Measure 47. Dynamic: piano. B flat 4, eighth, lyric plei-. G 4, eighth, breath mark, lyric -ne. F 4, eighth, lyric de. Crescendo begins. F 4, eighth, lyric prin-. Double barline.
 Measure 48. F 5, quarter, slur begins, lyric -temps. E flat 5, half, slur ends. Crescendo ends. Crescendo ends. Diminuendo begins.
 Measure 49. Whole measure rest. Final barline.

@@ -381,3 +381,27 @@ func headings(_ xml: Data) throws -> [String] {
     """)
     #expect(try headings(xml) == ["Voice", "Voice, voice 2"])
 }
+
+// Found by scanning the goldens: a lyric carrying the poem's own punctuation was
+// getting the renderer's full stop appended to it, giving "lyric -ne,." and
+// "lyric mag!." — which a screen reader reads as two punctuation marks running
+// together. The file's punctuation already ends the phrase.
+
+@Test func doesNotAddAFullStopAfterPunctuationTheLyricAlreadyCarries() throws {
+    let comma = scoreXML(parts: measureXML("""
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration>
+        <type>quarter</type>
+        <lyric number="1"><syllabic>end</syllabic><text>ne,</text></lyric></note>
+      <note><pitch><step>D</step><octave>5</octave></pitch><duration>4</duration>
+        <type>quarter</type></note>
+    """))
+    #expect(try measureLines(comma)
+            == ["Measure 1. C 5, quarter, lyric -ne, D 5, quarter."])
+
+    let bang = scoreXML(parts: measureXML("""
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration>
+        <type>quarter</type>
+        <lyric number="1"><syllabic>single</syllabic><text>mag!</text></lyric></note>
+    """))
+    #expect(try measureLines(bang) == ["Measure 1. C 5, quarter, lyric mag!"])
+}

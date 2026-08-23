@@ -13,11 +13,11 @@ Measure 4. Half rest. Quarter rest. Dynamic: piano. E flat 4, quarter, lyric Du.
 Measure 5. A flat 4, dotted quarter, lyric bist. A flat 4, eighth, lyric wie. A flat 4, quarter, lyric ei-. A natural 4, quarter, lyric -ne.
 Measure 6. C 5, quarter, lyric Blu-. B flat 4, quarter, lyric -me. Quarter rest. B flat 4, eighth, lyric so. A flat 4, eighth.
 Measure 7. G 4, quarter, lyric hold. B flat 4, quarter, lyric so. E flat 5, quarter, lyric schön. D flat 5, quarter, lyric und.
-Measure 8. C 5, quarter, lyric rein,. Quarter rest. Quarter rest. A flat 4, quarter, lyric ich.
+Measure 8. C 5, quarter, lyric rein, Quarter rest. Quarter rest. A flat 4, quarter, lyric ich.
 Measure 9. E flat 5, dotted quarter, lyric schau'. A flat 4, eighth, lyric dich. A flat 4, quarter, lyric an. B flat 4, quarter, lyric und.
 Measure 10. Diminuendo begins. C 5, dotted quarter, slur begins, lyric Weh-. B flat 4, eighth, slur ends. Diminuendo ends. A flat 4, quarter, lyric -mut. A flat 4, quarter, lyric schleicht.
 Measure 11. D flat 5, quarter, lyric mir. C 5, eighth, lyric in's. B flat 4, eighth. A flat 4, quarter, lyric Herz. G 4, eighth, lyric hin-. F 4, eighth.
-Measure 12. E natural 4, quarter, lyric -ein,. Quarter rest. Quarter rest. E flat 4, quarter, lyric ich.
+Measure 12. E natural 4, quarter, lyric -ein, Quarter rest. Quarter rest. E flat 4, quarter, lyric ich.
 Measure 13. C 5, dotted quarter, lyric schau'. E flat 5, eighth, lyric dich. E flat 5, quarter, lyric an. A flat 4, quarter, lyric und.
 Measure 14. Diminuendo begins. A flat 5, half, lyric Weh-. G 5, quarter, lyric -mut. Diminuendo ends. F 5, quarter, lyric schleicht.
 Measure 15. F 5, dotted quarter, lyric mir. E flat 5, eighth, lyric in's. D flat 5, quarter, lyric Herz. B flat 4, quarter, lyric hin-.

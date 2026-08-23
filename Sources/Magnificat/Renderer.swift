@@ -298,7 +298,7 @@ struct Renderer {
             case .perMeasure:
                 let text = (["Measure \(measure.number)"] + opening
                             + groups.map { phrase(for: $0) } + closing)
-                    .map { $0.hasSuffix(".") ? $0 : $0 + "." }
+                    .map { Self.punctuated($0) }
                     .joined(separator: " ")
                 lines.append(TranscriptLine(text: text, kind: .measure,
                                             partID: part.id,
@@ -412,6 +412,17 @@ struct Renderer {
 }
 
 extension Renderer {
+    /// A phrase with the full stop that separates it from the next — unless it
+    /// already ends in punctuation of its own.
+    ///
+    /// Lyrics carry the poem's punctuation, and a direction may be written
+    /// "poco rit."; appending another stop gave "lyric -ne,." and "poco rit..",
+    /// which a screen reader reads as two marks running together.
+    static func punctuated(_ phrase: String) -> String {
+        guard let last = phrase.last else { return phrase }
+        return ".,!?;:".contains(last) ? phrase : phrase + "."
+    }
+
     /// Each verse of a part given again as continuous running text, so the words
     /// can be read as words rather than one syllable per note. See `SPEC.md` §6.11.
     static func lyricsSummary(of part: Part) -> [TranscriptLine] {

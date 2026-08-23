@@ -56,7 +56,7 @@ Right hand, voice 2 has no measure 7.
 Left hand. E flat 3, triplet eighth, slur begins. G 3, triplet eighth. B flat 3, triplet eighth, slur ends. Quarter rest. E flat 3, triplet eighth, slur begins. G 3, triplet eighth. B flat 3, triplet eighth, slur ends. Quarter rest.
 Left hand, voice 2 has no measure 7.
 Measure 8
-Singstimme, Voice. C 5, quarter, lyric rein,. Quarter rest. Quarter rest. A flat 4, quarter, lyric ich.
+Singstimme, Voice. C 5, quarter, lyric rein, Quarter rest. Quarter rest. A flat 4, quarter, lyric ich.
 Singstimme, Voice, voice 2 has no measure 8.
 Right hand. Quarter rest. A flat 4, triplet eighth, slur begins. E flat 4, triplet eighth. C 4, triplet eighth, slur ends. Quarter rest. A flat 4, triplet eighth, slur begins. E flat 4, triplet eighth. C 4, triplet eighth, slur ends.
 Right hand, voice 2 has no measure 8.
@@ -84,7 +84,7 @@ Right hand, voice 2 has no measure 11.
 Left hand. B flat 2, triplet eighth, slur begins. D flat 3, triplet eighth. F 3, triplet eighth, slur ends. Quarter rest. B natural 2, triplet eighth, slur begins. F 3, triplet eighth. G 3, triplet eighth, slur ends. Quarter rest.
 Left hand, voice 2 has no measure 11.
 Measure 12
-Singstimme, Voice. E natural 4, quarter, lyric -ein,. Quarter rest. Quarter rest. E flat 4, quarter, lyric ich.
+Singstimme, Voice. E natural 4, quarter, lyric -ein, Quarter rest. Quarter rest. E flat 4, quarter, lyric ich.
 Singstimme, Voice, voice 2 has no measure 12.
 Right hand. Quarter rest. C 5, triplet eighth, slur begins. G 4, triplet eighth. E natural 4, triplet eighth, slur ends. Quarter rest. D flat 5, triplet eighth, slur begins. G 4, triplet eighth. E flat 4, triplet eighth, slur ends.
 Right hand, voice 2 has no measure 12.

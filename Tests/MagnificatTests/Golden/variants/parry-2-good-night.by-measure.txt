@@ -15,7 +15,7 @@ Left hand. E flat 3, sixteenth, tied, slur begins, accent. F 3, sixteenth. A 3, 
 Left hand, voice 2. E flat 3, quarter. E flat 3, dotted eighth, tied from previous. D 3, sixteenth, slur ends. C 3, quarter. C 3, dotted eighth, tied from previous. D 3, sixteenth, slur ends.
 Left hand, voice 3 has no measure 1.
 Measure 2
-Voice. C 5, half, lyric night!. Eighth rest. Dynamic: mezzo forte. Crescendo begins. C 5, eighth, lyric Ah. F 5, quarter, tied, lyric no. Crescendo ends.
+Voice. C 5, half, lyric night! Eighth rest. Dynamic: mezzo forte. Crescendo begins. C 5, eighth, lyric Ah. F 5, quarter, tied, lyric no. Crescendo ends.
 Voice, voice 2 has no measure 2.
 Right hand. C 4, sixteenth. F 4, sixteenth. D 5, sixteenth. C 5, sixteenth, slur ends. Sixteenth rest. E flat 4, sixteenth. C 5, sixteenth. G 5, sixteenth. F 5, sixteenth, slur ends. Sixteenth rest.
 Right hand, voice 2 has no measure 2.
@@ -39,7 +39,7 @@ Left hand. G 3, sixteenth, tied, slur begins. B flat 3, sixteenth. E flat 4, six
 Left hand, voice 2. G 3, quarter. G 3, dotted eighth, tied from previous. B flat 3, sixteenth, slur ends. E flat 3, quarter. E flat 3, dotted eighth, tied from previous. A 3, sixteenth.
 Left hand, voice 3 has no measure 4.
 Measure 5
-Voice. D 5, half, lyric -nite;. Half rest.
+Voice. D 5, half, lyric -nite; Half rest.
 Voice, voice 2 has no measure 5.
 Right hand. F sharp 4, sixteenth. A 4, sixteenth. E flat 5, sixteenth. D 5, sixteenth, slur ends. Sixteenth rest. G 4, sixteenth. D 5, sixteenth. A 5, sixteenth. G 5, sixteenth, slur ends. Sixteenth rest.
 Right hand, voice 2 has no measure 5.
@@ -55,7 +55,7 @@ Left hand. D 3, sixteenth, tied, slur begins. A 3, sixteenth. D 4, sixteenth. G 
 Left hand, voice 2. D 3, quarter. D 3, dotted eighth, tied from previous. D 3, sixteenth. G 2, quarter. G 2, dotted eighth, tied from previous. G 3, sixteenth.
 Left hand, voice 3 has no measure 6.
 Measure 7
-Voice. Diminuendo begins. D 5, dotted eighth, lyric -ge-. C 5, sixteenth, lyric -ther. Diminuendo ends. G 4, quarter, lyric still,. Half rest.
+Voice. Diminuendo begins. D 5, dotted eighth, lyric -ge-. C 5, sixteenth, lyric -ther. Diminuendo ends. G 4, quarter, lyric still, Half rest.
 Voice, voice 2 has no measure 7.
 Right hand. E flat 4, sixteenth. G 4, sixteenth. D 5, sixteenth. C 5, sixteenth, slur ends. Sixteenth rest. G 4, sixteenth. C 5, sixteenth. A flat 5, sixteenth. G 5, sixteenth, slur ends. Sixteenth rest.
 Right hand, voice 2 has no measure 7.
@@ -111,7 +111,7 @@ Left hand has no measure 13.
 Left hand, voice 2. B flat 4, dotted quarter. Chord B flat 4, D 5, eighth. Chord B flat 4, C 5, dotted quarter. Chord B flat 4, C 5, eighth.
 Left hand, voice 3. G 4, eighth, tied from previous. G 4, dotted quarter, tied. G 4, eighth, tied from previous. C 4, dotted quarter.
 Measure 14
-Voice. A 4, dotted half, lyric flight?. Quarter rest.
+Voice. A 4, dotted half, lyric flight? Quarter rest.
 Voice, voice 2 has no measure 14.
 Right hand. Chord E natural 5, A 5, sixteenth, slur begins. G 5, eighth. F 5, eighth. E natural 5, eighth. A 5, sixteenth, slur ends. Chord E natural 5, A 5, sixteenth, slur begins. G 5, eighth. F 5, eighth. E natural 5, eighth. A 5, sixteenth, slur ends.
 Right hand, voice 2 has no measure 14.
@@ -119,7 +119,7 @@ Left hand has no measure 14.
 Left hand, voice 2. Chord A 4, C 5, dotted quarter. Chord A 4, C 5, eighth. Chord A 4, C 5, dotted quarter. Chord A 4, C 5, eighth.
 Left hand, voice 3. Eighth rest. F 4, dotted quarter, tied. F 4, eighth, tied from previous. F 4, dotted quarter, tied.
 Measure 15
-Voice. Eighth rest. cresc. F 4, eighth, lyric Be. G 4, eighth, lyric it. F 4, eighth, lyric not. A 4, half, lyric said,.
+Voice. Eighth rest. cresc. F 4, eighth, lyric Be. G 4, eighth, lyric it. F 4, eighth, lyric not. A 4, half, lyric said,
 Voice, voice 2 has no measure 15.
 Right hand. Chord D 5, A 5, sixteenth. G 5, eighth. F 5, eighth. E natural 5, eighth. D 5, sixteenth. Chord E natural 5, A 5, sixteenth. G 5, eighth. F 5, eighth. E natural 5, eighth. A 5, sixteenth.
 Right hand, voice 2 has no measure 15.
@@ -127,7 +127,7 @@ Left hand. cresc.
 Left hand, voice 2. Chord A 4, B natural 4, dotted quarter. Chord A 4, B natural 4, eighth. Chord A 4, C 5, dotted quarter. Chord A 4, C 5, eighth.
 Left hand, voice 3. F 4, eighth, tied from previous. F 4, dotted quarter, accent. Eighth rest. E natural 4, dotted quarter, accent.
 Measure 16
-Voice. B natural 4, quarter, lyric thought,. Crescendo begins. C 5, dotted eighth, lyric un-. Crescendo ends. B natural 4, sixteenth, lyric -der-. E natural 5, half, tied, lyric -stood.
+Voice. B natural 4, quarter, lyric thought, Crescendo begins. C 5, dotted eighth, lyric un-. Crescendo ends. B natural 4, sixteenth, lyric -der-. E natural 5, half, tied, lyric -stood.
 Voice, voice 2 has no measure 16.
 Right hand. cresc. Chord F 5, A 5, sixteenth, slur begins. G 5, eighth. Crescendo begins. F 5, eighth. E natural 5, sixteenth. C sharp 5, sixteenth. Crescendo ends. D 5, sixteenth, slur ends. Diminuendo begins. Chord E natural 5, A 5, E natural 6, sixteenth, slur begins, accent. D 6, eighth. C 6, eighth. B natural 5, sixteenth. G sharp 5, sixteenth. Diminuendo ends. A 5, sixteenth, slur ends.
 Right hand, voice 2 has no measure 16.
@@ -183,7 +183,7 @@ Left hand. G 3, sixteenth, tied, slur begins. B flat 3, sixteenth. E flat 4, six
 Left hand, voice 2. G 3, quarter. G 3, dotted eighth, tied from previous. B flat 3, sixteenth. F 3, quarter. F 3, dotted eighth, tied from previous. B flat 3, sixteenth.
 Left hand, voice 3 has no measure 22.
 Measure 23
-Voice. G 5, dotted half, lyric light,. Quarter rest.
+Voice. G 5, dotted half, lyric light, Quarter rest.
 Voice, voice 2 has no measure 23.
 Right hand. G 4, sixteenth. C 5, sixteenth. A 5, sixteenth. G 5, sixteenth, slur ends. Sixteenth rest. G 4, sixteenth. A 4, sixteenth. D 5, sixteenth. C 5, sixteenth, slur ends. Sixteenth rest.
 Right hand, voice 2 has no measure 23.
@@ -191,7 +191,7 @@ Left hand. E natural 3, sixteenth, tied, slur begins. B flat 3, sixteenth. C 4, 
 Left hand, voice 2. E natural 3, quarter. E natural 3, dotted eighth, tied from previous. B flat 3, sixteenth. E flat 3, quarter. E flat 3, dotted eighth, tied from previous. A 3, sixteenth.
 Left hand, voice 3 has no measure 23.
 Measure 24
-Voice. Eighth rest. Dynamic: piano. Crescendo begins. F sharp 4, eighth, lyric The. A 4, eighth, lyric night. D 5, eighth, lyric is. Crescendo ends. E flat 5, dotted quarter, lyric good;. B natural 4, eighth, lyric be-.
+Voice. Eighth rest. Dynamic: piano. Crescendo begins. F sharp 4, eighth, lyric The. A 4, eighth, lyric night. D 5, eighth, lyric is. Crescendo ends. E flat 5, dotted quarter, lyric good; B natural 4, eighth, lyric be-.
 Voice, voice 2 has no measure 24.
 Right hand. Dynamic: piano. F sharp 4, sixteenth. A 4, sixteenth. E flat 5, sixteenth. D 5, sixteenth, slur ends. Sixteenth rest. F sharp 4, sixteenth. B natural 4, sixteenth. E flat 5, sixteenth. D 5, sixteenth, slur ends. Sixteenth rest.
 Right hand, voice 2 has no measure 24.
@@ -199,7 +199,7 @@ Left hand. D 3, sixteenth, tied, slur begins. A 3, sixteenth. D 4, sixteenth. G 
 Left hand, voice 2. D 3, quarter. D 3, dotted eighth, tied from previous. D 3, sixteenth. G 2, quarter. G 2, dotted eighth, tied from previous. G 3, sixteenth.
 Left hand, voice 3 has no measure 24.
 Measure 25
-Voice. Diminuendo begins. D 5, dotted quarter, lyric -cause,. Diminuendo ends. C 5, eighth, lyric my. G 4, half, tied, lyric love,. dim.
+Voice. Diminuendo begins. D 5, dotted quarter, lyric -cause, Diminuendo ends. C 5, eighth, lyric my. G 4, half, tied, lyric love, dim.
 Voice, voice 2. Dotted half rest. Quarter rest.
 Right hand. E flat 4, sixteenth. G 4, sixteenth. D 5, sixteenth. C 5, sixteenth, slur ends. Sixteenth rest. G 4, sixteenth. C 5, sixteenth. A flat 5, sixteenth. G 5, sixteenth, slur ends. Sixteenth rest.
 Right hand, voice 2 has no measure 25.

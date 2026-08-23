@@ -77,3 +77,47 @@ import Testing
     #expect(!text.hasSuffix("\n\n"))
     #expect(!text.contains("\r"))
 }
+
+// Found while writing the README: restricting to bars 4 to 5 lost the key and
+// meter, because MusicXML states them once in measure 1 and the filter dropped
+// it. The heading then said "No time signature", and the accidental rules lost
+// the key signature they depend on.
+
+@Test func aMeasureRangeKeepsTheAttributesInForceWhenItStarts() throws {
+    let score = try Score(musicXML: Fixture.named("mayer-1-du-bist-wie-eine-blume.musicxml"))
+    let transcript = try score.transcript(measures: 5...6)
+    let heading = transcript.lines.filter { $0.kind == .scoreHeading }.map(\.text)
+    #expect(heading.contains("Key: A flat major, 4 flats"))
+    #expect(heading.contains("Time signature: 4 4"))
+    #expect(!heading.contains("No time signature."))
+}
+
+@Test func aMeasureRangeCarriesTheKeyIntoThePitchNames() throws {
+    // In A flat major the A of bar 5 must read "A natural 4". Without the key it
+    // would read "A 4" — a different note, told to a reader who cannot check.
+    let score = try Score(musicXML: Fixture.named("mayer-1-du-bist-wie-eine-blume.musicxml"))
+    let full = try score.transcript(parts: [.index(1)], measures: 5...5)
+    #expect(full.lines.contains { $0.text.contains("A natural 4") })
+}
+
+@Test func aMeasureRangeStartingMidPieceUsesTheLatestAttributes() throws {
+    // Where a score restates its meter, the range must pick up the restatement
+    // rather than the opening one.
+    let xml = scoreXML(parts: """
+      <part id="P1">
+        <measure number="1"><attributes><divisions>4</divisions>
+          <key><fifths>0</fifths></key>
+          <time><beats>4</beats><beat-type>4</beat-type></time></attributes>
+          <note><rest/><duration>16</duration></note></measure>
+        <measure number="2"><attributes>
+          <key><fifths>-2</fifths></key>
+          <time><beats>3</beats><beat-type>4</beat-type></time></attributes>
+          <note><rest/><duration>12</duration></note></measure>
+        <measure number="3"><note><rest/><duration>12</duration></note></measure>
+      </part>
+    """)
+    let heading = try Score(musicXML: xml).transcript(measures: 3...3)
+        .lines.filter { $0.kind == .scoreHeading }.map(\.text)
+    #expect(heading.contains("Key: B flat major, 2 flats"))
+    #expect(heading.contains("Time signature: 3 4"))
+}

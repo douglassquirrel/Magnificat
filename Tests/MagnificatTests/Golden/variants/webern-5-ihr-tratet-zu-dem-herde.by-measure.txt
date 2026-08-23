@@ -22,7 +22,7 @@ Right hand. Chord F 3, C 4, triplet eighth, tied from previous. Chord G 3, B 3, 
 Right hand, voice 2 has no measure 2.
 Left hand. Chord D 2, E flat 3, triplet eighth, tied from previous. Chord B flat 2, E natural 3, triplet quarter. Chord B natural 2, D 3, eighth, slur ends. Eighth rest. Triplet eighth rest. Chord C 3, E flat 3, triplet quarter, tied, slur begins.
 Measure 3
-Gesang, Voice. C sharp 4, eighth, slur ends, lyric -starb,. Eighth rest. Dynamic: pianissimo. a tempo. G 4, quarter, slur begins, lyric Licht. Crescendo begins. D sharp 4, sixteenth, lyric war. E 4, sixteenth, lyric nur. F 4, sixteenth, lyric an-. Crescendo ends. G 4, sixteenth, lyric -der.
+Gesang, Voice. C sharp 4, eighth, slur ends, lyric -starb, Eighth rest. Dynamic: pianissimo. a tempo. G 4, quarter, slur begins, lyric Licht. Crescendo begins. D sharp 4, sixteenth, lyric war. E 4, sixteenth, lyric nur. F 4, sixteenth, lyric an-. Crescendo ends. G 4, sixteenth, lyric -der.
 Right hand. Crescendo begins. Chord G sharp 3, B 3, quarter, tied from previous. Crescendo ends. Eighth rest. Dynamic: pianissimo. Diminuendo begins. Chord A 3, C 4, eighth, tied, slur begins. Chord A 3, C 4, triplet quarter, tied from previous. Chord G sharp 3, B 3, triplet eighth, tied, slur ends. Diminuendo ends.
 Right hand, voice 2 has no measure 3.
 Left hand. Chord C 3, E flat 3, eighth, tied from previous. Chord B flat 2, D flat 3, eighth, slur ends. Eighth rest. Chord G sharp 2, B natural 2, eighth, tied, slur begins. Chord G sharp 2, B 2, triplet quarter, tied from previous. Chord A 2, C 3, triplet eighth, tied, slur ends, slur begins.
@@ -62,7 +62,7 @@ Right hand. Dynamic: forte. espress. Diminuendo begins. Chord B flat 3, D flat 4
 Right hand, voice 2 has no measure 10.
 Left hand. Chord A flat 2, D 3, G flat 3, quarter, arpeggiated. Chord G 2, C 3, A flat 3, quarter, arpeggiated. Chord G flat 2, B flat 2, G natural 3, quarter, tied, arpeggiated.
 Measure 11
-Gesang, Voice. Eighth rest. Dynamic: mezzo piano. Diminuendo begins. B flat 4, quarter, slur ends, lyric Schein!. Diminuendo ends. Eighth rest. Quarter rest.
+Gesang, Voice. Eighth rest. Dynamic: mezzo piano. Diminuendo begins. B flat 4, quarter, slur ends, lyric Schein! Diminuendo ends. Eighth rest. Quarter rest.
 Right hand. espress. Crescendo begins. Chord B 3, D 4, G sharp 4, quarter, arpeggiated. Crescendo ends. Diminuendo begins. Chord B flat 3, D flat 4, A 4, quarter, arpeggiated. Diminuendo ends. Chord B natural 3, D natural 4, G sharp 4, quarter, arpeggiated.
 Right hand, voice 2 has no measure 11.
 Left hand. Chord G flat 2, B flat 2, G 3, dotted quarter, tied from previous. Dynamic: piano. Crescendo begins. Chord A flat 2, D 3, G flat 3, dotted quarter, slur begins. Crescendo ends.
@@ -72,12 +72,12 @@ Right hand. Dotted eighth rest. Dynamic: piano. A 4, sixteenth, tied, slur begin
 Right hand, voice 2. Quarter rest. Eighth rest. Chord B 3, D 4, quarter. Eighth rest.
 Left hand. Chord G 2, C 3, A flat 3, quarter. Diminuendo begins. Eighth rest. Chord G flat 2, B flat 2, G 3, quarter, slur ends. Diminuendo ends. Eighth rest.
 Measure 13
-Gesang, Voice. Dynamic: pianissimo. tempo I. (quarter note ca 48). D 5, eighth, lyric Mond. B flat 4, eighth, lyric euch. C sharp 4, eighth, slur ends, lyric rät:. Eighth rest. Triplet eighth rest. Dynamic: pianissimo. E 4, triplet eighth, lyric tre-. Crescendo begins. F 4, triplet eighth, lyric -tet.
+Gesang, Voice. Dynamic: pianissimo. tempo I. (quarter note ca 48). D 5, eighth, lyric Mond. B flat 4, eighth, lyric euch. C sharp 4, eighth, slur ends, lyric rät: Eighth rest. Triplet eighth rest. Dynamic: pianissimo. E 4, triplet eighth, lyric tre-. Crescendo begins. F 4, triplet eighth, lyric -tet.
 Right hand. B flat 4, dotted quarter, tied from previous. G 4, quarter, slur ends. B flat 4, eighth, tied, slur begins. Diminuendo begins. Diminuendo ends. Dynamic: triple piano. Dynamic: pianissimo.
 Right hand, voice 2. Triplet eighth rest. Chord B 3, F 4, triplet quarter, tied. Chord B 3, F 4, half, tied from previous, tied.
 Left hand. Triplet eighth rest. Crescendo begins. C 2, triplet eighth, slur begins. F sharp 2, triplet eighth. Crescendo ends. E flat 3, triplet quarter, slur ends. F sharp 2, triplet eighth, slur begins. Diminuendo begins. E flat 3, triplet quarter. B 2, triplet eighth. Diminuendo ends.
 Measure 14
-Gesang, Voice. rit. G flat 4, eighth, lyric weg. Crescendo ends. F 4, eighth, lyric vom. Diminuendo begins. E flat 4, eighth, lyric Her-. D 4, eighth, lyric -de,. Diminuendo ends.
+Gesang, Voice. rit. G flat 4, eighth, lyric weg. Crescendo ends. F 4, eighth, lyric vom. Diminuendo begins. E flat 4, eighth, lyric Her-. D 4, eighth, lyric -de, Diminuendo ends.
 Right hand. Diminuendo begins. Chord B 3, F 4, B flat 4, triplet quarter, tied from previous. Diminuendo ends. Dynamic: triple piano. Chord A flat 3, E 4, G 4, triplet half, tied, slur ends.
 Right hand, voice 2 has no measure 14.
 Left hand. Dynamic: triple piano. D 1, quarter, tied. Pedal down. D 1, triplet eighth, tied from previous, slur ends. Dynamic: triple piano. E flat 3, triplet quarter, tied, slur begins. Pedal up.

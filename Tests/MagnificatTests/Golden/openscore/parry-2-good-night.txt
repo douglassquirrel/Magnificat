@@ -8,30 +8,30 @@ Key: B flat major, 2 flats
 No time signature.
 Voice
 Measure 1. Andante, non troppo lento. Half rest. Quarter rest. Dynamic: piano. F 4, quarter, lyric Good.
-Measure 2. C 5, half, lyric night!. Eighth rest. Dynamic: mezzo forte. Crescendo begins. C 5, eighth, lyric Ah. F 5, quarter, tied, lyric no. Crescendo ends.
+Measure 2. C 5, half, lyric night! Eighth rest. Dynamic: mezzo forte. Crescendo begins. C 5, eighth, lyric Ah. F 5, quarter, tied, lyric no. Crescendo ends.
 Measure 3. F 5, eighth, tied from previous. C 5, eighth, lyric the. A flat 4, dotted eighth, lyric hour. G 4, sixteenth, lyric is. G 4, dotted quarter, accent, lyric ill. F 4, eighth, lyric That.
 Measure 4. F 4, eighth, lyric sev-. E flat 4, eighth, lyric -ers. B flat 4, quarter, tied, lyric those. B flat 4, eighth, tied from previous. Crescendo begins. A 4, eighth, lyric it. B flat 4, dotted eighth, lyric should. C 5, sixteenth, lyric u-. Crescendo ends.
-Measure 5. D 5, half, lyric -nite;. Half rest.
+Measure 5. D 5, half, lyric -nite; Half rest.
 Measure 6. Eighth rest. più tranquillo. F sharp 4, eighth, lyric Let. Crescendo begins. A 4, eighth, lyric us. D 5, eighth, lyric re-. Crescendo ends. E flat 5, dotted quarter, lyric -main. B natural 4, eighth, lyric to-.
-Measure 7. Diminuendo begins. D 5, dotted eighth, lyric -ge-. C 5, sixteenth, lyric -ther. Diminuendo ends. G 4, quarter, lyric still,. Half rest.
+Measure 7. Diminuendo begins. D 5, dotted eighth, lyric -ge-. C 5, sixteenth, lyric -ther. Diminuendo ends. G 4, quarter, lyric still, Half rest.
 Measure 8. G 4, dotted quarter, lyric Then. C 5, eighth, lyric it. B flat 4, eighth, lyric will. A 4, quarter, lyric be. C 5, eighth, lyric good.
 Measure 9. F 5, dotted half, lyric night. Quarter rest.
 Measure 10. Whole measure rest.
 Measure 11. Dynamic: piano. G 4, quarter, lyric How. A 4, eighth, lyric can. G 4, eighth, lyric I. D 5, dotted quarter, lyric call. B flat 4, eighth, lyric the.
 Measure 12. A 4, quarter, lyric lone. Crescendo begins. A 4, quarter, lyric night. Crescendo ends. E natural 5, half, accent, lyric good.
 Measure 13. Eighth rest. Crescendo begins. G 4, eighth, lyric Though. B flat 4, eighth, lyric thy. Crescendo ends. F 5, eighth, lyric sweet. E natural 5, dotted eighth, lyric wish-. Diminuendo begins. G 4, sixteenth, lyric -es. C 5, eighth, lyric wing. B flat 4, eighth, lyric its. Diminuendo ends.
-Measure 14. A 4, dotted half, lyric flight?. Quarter rest.
-Measure 15. Eighth rest. cresc. F 4, eighth, lyric Be. G 4, eighth, lyric it. F 4, eighth, lyric not. A 4, half, lyric said,.
-Measure 16. B natural 4, quarter, lyric thought,. Crescendo begins. C 5, dotted eighth, lyric un-. Crescendo ends. B natural 4, sixteenth, lyric -der-. E natural 5, half, tied, lyric -stood.
+Measure 14. A 4, dotted half, lyric flight? Quarter rest.
+Measure 15. Eighth rest. cresc. F 4, eighth, lyric Be. G 4, eighth, lyric it. F 4, eighth, lyric not. A 4, half, lyric said,
+Measure 16. B natural 4, quarter, lyric thought, Crescendo begins. C 5, dotted eighth, lyric un-. Crescendo ends. B natural 4, sixteenth, lyric -der-. E natural 5, half, tied, lyric -stood.
 Measure 17. E natural 5, eighth, tied from previous. D 5, eighth, lyric that. Diminuendo begins. A 4, eighth, lyric it. F 4, eighth, lyric will. A 4, quarter, lyric be. Diminuendo ends. G 4, quarter, lyric good-.
 Measure 18. C 5, half, lyric -night. Half rest.
 Measure 19. Half rest. Quarter rest. Dynamic: mezzo forte. sostenuto. G 4, quarter, lyric To.
 Measure 20. C 5, half, tied, lyric hearts. C 5, eighth, tied from previous. A 4, eighth, lyric which. G 4, eighth, lyric near. F 4, eighth, lyric each.
 Measure 21. cresc. C 5, dotted eighth, lyric o-. B flat 4, sixteenth, lyric -ther. F 5, half, lyric move. F 4, quarter, lyric From.
 Measure 22. cresc. B flat 4, eighth, lyric eve-. B flat 4, eighth, lyric -nings. E flat 5, quarter, tied, lyric close. E flat 5, eighth, tied from previous. Crescendo begins. D 5, eighth, lyric to. A 4, eighth, lyric morn-. B flat 4, eighth, lyric -ings. Crescendo ends.
-Measure 23. G 5, dotted half, lyric light,. Quarter rest.
-Measure 24. Eighth rest. Dynamic: piano. Crescendo begins. F sharp 4, eighth, lyric The. A 4, eighth, lyric night. D 5, eighth, lyric is. Crescendo ends. E flat 5, dotted quarter, lyric good;. B natural 4, eighth, lyric be-.
-Measure 25. Diminuendo begins. D 5, dotted quarter, lyric -cause,. Diminuendo ends. C 5, eighth, lyric my. G 4, half, tied, lyric love,. dim.
+Measure 23. G 5, dotted half, lyric light, Quarter rest.
+Measure 24. Eighth rest. Dynamic: piano. Crescendo begins. F sharp 4, eighth, lyric The. A 4, eighth, lyric night. D 5, eighth, lyric is. Crescendo ends. E flat 5, dotted quarter, lyric good; B natural 4, eighth, lyric be-.
+Measure 25. Diminuendo begins. D 5, dotted quarter, lyric -cause, Diminuendo ends. C 5, eighth, lyric my. G 4, half, tied, lyric love, dim.
 Measure 26. G 4, eighth, tied from previous. rit. G 4, eighth, lyric they. A 4, eighth, lyric nev-. B flat 4, eighth, lyric -er. C 5, dotted quarter, lyric say. Dynamic: piano. F 4, eighth, lyric good-.
 Measure 27. F 5, whole, lyric -night.
 Measure 28. Whole measure rest.

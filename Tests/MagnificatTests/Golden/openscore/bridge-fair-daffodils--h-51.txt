@@ -9,39 +9,39 @@ Voice
 Measure 1. Allegretto con moto. Whole measure rest.
 Measure 2. Whole measure rest.
 Measure 3. Half rest. Quarter rest. Quarter rest.
-Measure 4. Dynamic: mezzo forte. E 5, half, lyric Fair. F sharp 4, dotted eighth, lyric Daff-. F sharp 4, sixteenth, lyric -o-. B 4, quarter, tied, lyric -dils,.
+Measure 4. Dynamic: mezzo forte. E 5, half, lyric Fair. F sharp 4, dotted eighth, lyric Daff-. F sharp 4, sixteenth, lyric -o-. B 4, quarter, tied, lyric -dils,
 Measure 5. B 4, eighth, tied from previous. D 5, eighth, lyric we. C sharp 5, quarter, tied, lyric weep. C sharp 5, eighth, tied from previous. B 4, eighth, lyric to. A 4, eighth, lyric see. G sharp 4, eighth, lyric You.
 Measure 6. A 4, quarter, slur begins, lyric haste. E 5, eighth, slur ends. D sharp 5, eighth, lyric a-. C sharp 5, quarter, lyric -way. B 4, quarter, lyric so. Double barline.
-Measure 7. Diminuendo begins. B 4, quarter, slur begins, lyric soon;. Diminuendo ends. E 4, quarter, slur ends. Double barline.
+Measure 7. Diminuendo begins. B 4, quarter, slur begins, lyric soon; Diminuendo ends. E 4, quarter, slur ends. Double barline.
 Measure 8. Quarter rest. Dynamic: mezzo piano. E 4, quarter, lyric As. F sharp 4, dotted quarter, lyric yet. F sharp 4, eighth, lyric the.
 Measure 9. Crescendo begins. B 4, eighth, lyric ear-. B 4, eighth, lyric -ly-. C sharp 5, eighth, lyric -ri-. D 5, eighth, lyric -sing. Crescendo ends. C sharp 5, dotted quarter, lyric sun. F sharp 4, eighth, lyric Has. rit.
 Measure 10. a tempo. D 5, quarter, slur begins, lyric not. F sharp 5, eighth, slur ends. E 5, eighth, lyric at-. D 5, quarter, lyric -tained. E 4, quarter, lyric his. Double barline.
 Measure 11. Diminuendo begins. C sharp 5, quarter, slur begins, lyric noon. Diminuendo ends. A 4, quarter, slur ends. Double barline.
-Measure 12. Quarter rest. Dynamic: mezzo forte. E 5, quarter, tenuto, lyric Stay,. D sharp 5, half, tied, lyric stay,.
+Measure 12. Quarter rest. Dynamic: mezzo forte. E 5, quarter, tenuto, lyric Stay, D sharp 5, half, tied, lyric stay,
 Measure 13. D sharp 5, eighth, tied from previous. C sharp 5, eighth, lyric Un-. B 4, eighth, lyric -til. A sharp 4, eighth, lyric the. B 4, eighth, lyric hast-. A sharp 4, eighth, lyric -ing. G sharp 4, eighth, lyric day. B 4, eighth, lyric Has.
 Measure 14. A sharp 4, half, tied, lyric run. A sharp 4, eighth, tied from previous. G sharp 4, eighth, lyric But. A sharp 4, eighth, lyric to. B 4, eighth, lyric the.
-Measure 15. B 4, dotted quarter, lyric e-. Crescendo begins. C sharp 5, eighth, lyric -ven-. D 5, quarter, slur begins, lyric -song;. Crescendo ends. D sharp 5, quarter, slur ends.
-Measure 16. Dynamic: mezzo forte. E 5, half, lyric And,. F sharp 4, dotted quarter, lyric hav-. F sharp 4, eighth, lyric -ing.
-Measure 17. Diminuendo begins. B 4, dotted quarter, lyric pray’d. B 4, eighth, lyric to-. rit. D 5, quarter, slur begins, lyric -ge-. Diminuendo ends. C sharp 5, quarter, slur ends, lyric -ther,.
+Measure 15. B 4, dotted quarter, lyric e-. Crescendo begins. C sharp 5, eighth, lyric -ven-. D 5, quarter, slur begins, lyric -song; Crescendo ends. D sharp 5, quarter, slur ends.
+Measure 16. Dynamic: mezzo forte. E 5, half, lyric And, F sharp 4, dotted quarter, lyric hav-. F sharp 4, eighth, lyric -ing.
+Measure 17. Diminuendo begins. B 4, dotted quarter, lyric pray’d. B 4, eighth, lyric to-. rit. D 5, quarter, slur begins, lyric -ge-. Diminuendo ends. C sharp 5, quarter, slur ends, lyric -ther,
 Measure 18. a tempo. Whole measure rest.
 Measure 19. Dynamic: mezzo piano. C sharp 5, quarter, lyric we. D 5, eighth, lyric Will. E 5, eighth, lyric go. C sharp 5, quarter, lyric with. E 4, dotted eighth, fermata, lyric you. E 4, sixteenth, lyric a-.
 Measure 20. C sharp 5, half, slur begins, lyric -long. E 5, half, tied, slur ends.
 Measure 21. E 5, half, tied from previous. Half rest.
 Measure 22. Half rest. Quarter rest. Quarter rest.
-Measure 23. Dynamic: mezzo forte. E 5, quarter, lyric We. D 5, eighth, lyric have. C natural 5, eighth, lyric short. D 5, dotted eighth, lyric time. D 5, sixteenth, lyric to. B 4, quarter, tied, lyric stay,.
-Measure 24. B 4, eighth, tied from previous. A 4, eighth, lyric as. D 5, quarter, tied, lyric you,. D 5, eighth, tied from previous. C natural 5, eighth, lyric We. B 4, eighth, lyric have. A 4, eighth, lyric as.
-Measure 25. G sharp 4, dotted quarter, lyric short. F sharp 4, eighth, lyric a. Diminuendo begins. B 4, quarter, slur begins, lyric spring;. E 4, quarter, slur ends. Diminuendo ends.
+Measure 23. Dynamic: mezzo forte. E 5, quarter, lyric We. D 5, eighth, lyric have. C natural 5, eighth, lyric short. D 5, dotted eighth, lyric time. D 5, sixteenth, lyric to. B 4, quarter, tied, lyric stay,
+Measure 24. B 4, eighth, tied from previous. A 4, eighth, lyric as. D 5, quarter, tied, lyric you, D 5, eighth, tied from previous. C natural 5, eighth, lyric We. B 4, eighth, lyric have. A 4, eighth, lyric as.
+Measure 25. G sharp 4, dotted quarter, lyric short. F sharp 4, eighth, lyric a. Diminuendo begins. B 4, quarter, slur begins, lyric spring; E 4, quarter, slur ends. Diminuendo ends.
 Measure 26. Eighth rest. Dynamic: mezzo forte. E 5, eighth, lyric As. D 5, eighth, lyric quick. C natural 5, eighth, lyric a. Crescendo begins. B 4, dotted quarter, lyric growth. Crescendo ends. B 4, eighth, lyric to.
-Measure 27. Diminuendo begins. D 5, dotted eighth, lyric meet. D 5, sixteenth, lyric de-. Diminuendo ends. C sharp 5, half, lyric -cay,. dim. B 4, quarter, lyric As. Double barline.
-Measure 28. Dynamic: piano. E 5, eighth, slur begins, lyric you,. D 5, eighth, tied. D 5, quarter, tied from previous, slur ends. Crescendo begins. E 4, quarter, lyric or. Crescendo ends. Double barline.
+Measure 27. Diminuendo begins. D 5, dotted eighth, lyric meet. D 5, sixteenth, lyric de-. Diminuendo ends. C sharp 5, half, lyric -cay, dim. B 4, quarter, lyric As. Double barline.
+Measure 28. Dynamic: piano. E 5, eighth, slur begins, lyric you, D 5, eighth, tied. D 5, quarter, tied from previous, slur ends. Crescendo begins. E 4, quarter, lyric or. Crescendo ends. Double barline.
 Measure 29. Diminuendo begins. C sharp 5, dotted eighth, lyric an-. Diminuendo ends. C sharp 5, sixteenth, lyric -y-. A 4, quarter, lyric -thing. Double barline.
-Measure 30. Quarter rest. Dynamic: mezzo forte. E 5, quarter, lyric We. D sharp 5, dotted quarter, lyric die,. dim. C sharp 5, eighth, lyric as.
-Measure 31. Diminuendo begins. B 4, quarter, lyric your. A sharp 4, quarter, lyric hours. G sharp 4, dotted quarter, lyric do,. Diminuendo ends. Dynamic: piano. A sharp 4, eighth, lyric and.
-Measure 32. tranquillo. B 4, eighth, lyric dry. C sharp 5, eighth, lyric A-. A sharp 4, quarter, tied, lyric -way,. A sharp 4, eighth, tied from previous. G sharp 4, eighth, lyric Like. A sharp 4, eighth, lyric to. B 4, eighth, lyric the.
-Measure 33. B 4, dotted quarter, lyric sum-. C sharp 5, eighth, lyric -mer’s. D 5, quarter, slur begins, lyric rain;. D sharp 5, quarter, slur ends.
-Measure 34. Dynamic: mezzo forte. E 5, half, lyric Or,. F sharp 4, dotted quarter, lyric as. F sharp 4, eighth, lyric the.
+Measure 30. Quarter rest. Dynamic: mezzo forte. E 5, quarter, lyric We. D sharp 5, dotted quarter, lyric die, dim. C sharp 5, eighth, lyric as.
+Measure 31. Diminuendo begins. B 4, quarter, lyric your. A sharp 4, quarter, lyric hours. G sharp 4, dotted quarter, lyric do, Diminuendo ends. Dynamic: piano. A sharp 4, eighth, lyric and.
+Measure 32. tranquillo. B 4, eighth, lyric dry. C sharp 5, eighth, lyric A-. A sharp 4, quarter, tied, lyric -way, A sharp 4, eighth, tied from previous. G sharp 4, eighth, lyric Like. A sharp 4, eighth, lyric to. B 4, eighth, lyric the.
+Measure 33. B 4, dotted quarter, lyric sum-. C sharp 5, eighth, lyric -mer’s. D 5, quarter, slur begins, lyric rain; D sharp 5, quarter, slur ends.
+Measure 34. Dynamic: mezzo forte. E 5, half, lyric Or, F sharp 4, dotted quarter, lyric as. F sharp 4, eighth, lyric the.
 Measure 35. B 4, dotted quarter, lyric pearls. B 4, eighth, lyric of. rall. D 5, quarter, lyric morn-. C sharp 5, quarter, lyric -ing’s.
-Measure 36. Dynamic: pianissimo. E 5, half, slur begins, lyric dew,. D sharp 5, quarter, slur ends. Quarter rest.
+Measure 36. Dynamic: pianissimo. E 5, half, slur begins, lyric dew, D sharp 5, quarter, slur ends. Quarter rest.
 Measure 37. a tempo. Whole measure rest.
 Measure 38. Dynamic: piano. C sharp 5, quarter, lyric Ne’er. D 5, eighth, lyric to. E 5, eighth, lyric be. C sharp 5, quarter, slur begins, lyric found. E 4, dotted eighth, slur ends, fermata. E 4, sixteenth, lyric a-.
 Measure 39. Crescendo begins. C sharp 5, half, slur begins, lyric -gain. E 5, half, tied, slur ends. Crescendo ends.

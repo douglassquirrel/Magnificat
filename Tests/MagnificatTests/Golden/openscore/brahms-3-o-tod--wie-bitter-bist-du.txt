@@ -8,45 +8,45 @@ Key: G major, 1 sharp
 Time signature: 3 2
 Singstimme, Voice
 Measure 0. Pickup measure. Grave. B 3, half, lyric O.
-Measure 1. G 3, half, lyric Tod,. Half rest. E 3, half, lyric o.
-Measure 2. C 3, half, lyric Tod,. Half rest. C sharp 4, half, lyric wie.
+Measure 1. G 3, half, lyric Tod, Half rest. E 3, half, lyric o.
+Measure 2. C 3, half, lyric Tod, Half rest. C sharp 4, half, lyric wie.
 Measure 3. E 4, dotted half, slur begins, lyric bit-. D 4, eighth. C 4, eighth, slur ends. B 3, quarter, lyric -ter. Quarter rest.
 Measure 4. A 3, half, lyric wie. C 4, dotted half, slur begins, lyric bit-. B 3, eighth. A 3, eighth, slur ends.
-Measure 5. G 3, quarter, lyric -ter. B 3, eighth, slur begins, lyric bist. A 3, eighth, slur ends. F sharp 3, half, lyric du,. Half rest.
+Measure 5. G 3, quarter, lyric -ter. B 3, eighth, slur begins, lyric bist. A 3, eighth, slur ends. F sharp 3, half, lyric du, Half rest.
 Measure 6. E 3, quarter, lyric wenn. E 3, quarter, lyric an. C 4, quarter, lyric dich. B 3, eighth, slur begins, lyric ge-. C 4, eighth, slur ends. A 3, eighth, lyric -den-. G sharp 3, eighth, lyric -ket. A 3, quarter, lyric ein.
-Measure 7. B 3, dotted quarter, lyric Mensch,. B 3, eighth, lyric ge-. C 4, eighth, lyric -den-. B 3, eighth, lyric -ket. C 4, quarter, lyric ein. D 4, quarter, lyric Mensch,. Eighth rest. D 3, eighth, lyric der.
+Measure 7. B 3, dotted quarter, lyric Mensch, B 3, eighth, lyric ge-. C 4, eighth, lyric -den-. B 3, eighth, lyric -ket. C 4, quarter, lyric ein. D 4, quarter, lyric Mensch, Eighth rest. D 3, eighth, lyric der.
 Measure 8. B 3, quarter, lyric gu-. A 3, eighth, slur begins, lyric -te. B 3, eighth, slur ends. G 3, eighth, lyric Ta-. G 3, eighth, lyric -ge. F sharp 3, eighth, lyric und. G 3, eighth, lyric ge-. A 3, quarter, lyric -nug. D 3, eighth, lyric hat. A 3, eighth, lyric und.
-Measure 9. D 4, quarter, lyric oh-. C 4, eighth, slur begins, lyric -ne. D 4, eighth, slur ends. B 3, quarter, lyric Sor-. A sharp 3, eighth, slur begins, lyric -ge. B 3, eighth, slur ends. C sharp 4, quarter, lyric le-. F sharp 3, quarter, lyric -bet,.
+Measure 9. D 4, quarter, lyric oh-. C 4, eighth, slur begins, lyric -ne. D 4, eighth, slur ends. B 3, quarter, lyric Sor-. A sharp 3, eighth, slur begins, lyric -ge. B 3, eighth, slur ends. C sharp 4, quarter, lyric le-. F sharp 3, quarter, lyric -bet,
 Measure 10. Eighth rest. F sharp 4, eighth, lyric und. E 4, eighth, lyric dem. D 4, eighth, lyric es. C sharp 4, eighth, slur begins, lyric wohl. E 4, eighth, slur ends. D 4, eighth, lyric geht. B 3, eighth, lyric in. A 3, eighth, slur begins, lyric al-. F sharp 3, eighth, slur ends. G 3, eighth, slur begins, lyric -len. E 3, eighth, slur ends.
 Measure 11. C sharp 3, quarter, lyric Din-. D 3, eighth, lyric -gen. E 3, eighth, lyric Und. F sharp 3, quarter, lyric noch. F sharp 3, quarter, lyric wohl. F sharp 3, quarter, lyric es-. F sharp 3, quarter, lyric -sen.
-Measure 12. B 2, half, lyric mag!. Half rest. B 3, half, lyric O.
-Measure 13. G 3, half, lyric Tod,. Half rest. E 3, half, lyric o.
-Measure 14. C 3, half, lyric Tod,. Half rest. C sharp 4, half, lyric wie.
-Measure 15. Crescendo begins. E 4, dotted half, slur begins, lyric bit-. Crescendo ends. Diminuendo begins. D 4, eighth. C 4, eighth, slur ends. B 3, quarter, lyric -ter,. Quarter rest. Diminuendo ends.
+Measure 12. B 2, half, lyric mag! Half rest. B 3, half, lyric O.
+Measure 13. G 3, half, lyric Tod, Half rest. E 3, half, lyric o.
+Measure 14. C 3, half, lyric Tod, Half rest. C sharp 4, half, lyric wie.
+Measure 15. Crescendo begins. E 4, dotted half, slur begins, lyric bit-. Crescendo ends. Diminuendo begins. D 4, eighth. C 4, eighth, slur ends. B 3, quarter, lyric -ter, Quarter rest. Diminuendo ends.
 Measure 16. Crescendo begins. A 3, half, lyric wie. Crescendo ends. Diminuendo begins. C 4, dotted half, slur begins, lyric -bit-. B 3, eighth. A 3, eighth, slur ends. Diminuendo ends.
 Measure 17. G 3, quarter, lyric -ter. Diminuendo begins. B 3, eighth, slur begins, lyric bist. A 3, eighth, slur ends. F sharp 3, half, lyric du. Half rest. Diminuendo ends. Double barline.
 Measure 18. Whole measure rest.
 Measure 19. Whole rest. Half rest. B 2, half, lyric O.
-Measure 20. G sharp 3, whole, lyric Tod,. Half rest. C sharp 4, half, lyric wie.
+Measure 20. G sharp 3, whole, lyric Tod, Half rest. C sharp 4, half, lyric wie.
 Measure 21. C sharp 4, half, slur begins, lyric wohl. F sharp 3, half, slur ends. Half rest. B 3, half, lyric tust.
 Measure 22. B 3, half, slur begins, lyric du. E 3, half, slur ends. Half rest. A 3, half, lyric dem.
 Measure 23. Crescendo begins. A 3, whole, tied, slur begins, lyric Dürf-. A 3, quarter, tied from previous. Crescendo ends. C sharp 4, quarter, slur ends. Diminuendo begins. B 3, quarter, slur begins, lyric -ti-. A 3, quarter, slur ends. Diminuendo ends.
-Measure 24. G sharp 3, whole, lyric -gen,. Half rest. A 3, quarter, lyric der. B 3, quarter, lyric da.
-Measure 25. Crescendo begins. C sharp 4, half, lyric schwach. G sharp 3, half, lyric und. Crescendo ends. Diminuendo begins. A 3, half, lyric alt. F natural 3, half, lyric ist,. Diminuendo ends.
+Measure 24. G sharp 3, whole, lyric -gen, Half rest. A 3, quarter, lyric der. B 3, quarter, lyric da.
+Measure 25. Crescendo begins. C sharp 4, half, lyric schwach. G sharp 3, half, lyric und. Crescendo ends. Diminuendo begins. A 3, half, lyric alt. F natural 3, half, lyric ist, Diminuendo ends.
 Measure 26. Half rest. Diminuendo begins. C sharp 4, quarter, lyric der. G sharp 3, quarter, lyric in. A 3, quarter, lyric al-. E 3, quarter, lyric -len. F natural 3, quarter, lyric Sor-. D natural 3, quarter, lyric -gen. Diminuendo ends.
-Measure 27. A 3, half, lyric steckt,. Half rest. E 3, quarter, lyric und. D sharp 3, quarter, lyric nichts. D sharp 3, quarter, lyric Bes-. C sharp 3, quarter, lyric -sers.
-Measure 28. Whole rest. Quarter rest. E 3, quarter, lyric zu. D sharp 3, quarter, lyric hof-. C sharp 3, quarter, lyric -fen,.
+Measure 27. A 3, half, lyric steckt, Half rest. E 3, quarter, lyric und. D sharp 3, quarter, lyric nichts. D sharp 3, quarter, lyric Bes-. C sharp 3, quarter, lyric -sers.
+Measure 28. Whole rest. Quarter rest. E 3, quarter, lyric zu. D sharp 3, quarter, lyric hof-. C sharp 3, quarter, lyric -fen,
 Measure 29. Quarter rest. Crescendo begins. C sharp 4, quarter, lyric noch. D sharp 4, quarter, lyric zu. D sharp 4, quarter, lyric er-. Crescendo ends. E 4, quarter, slur begins, lyric -war-. Diminuendo begins. C natural 4, quarter. G sharp 3, quarter. A 3, quarter.
-Measure 30. B 3, quarter. G natural 3, quarter, slur ends. D sharp 3, quarter, slur begins, lyric -ten. E 3, quarter, slur ends. Diminuendo ends. F sharp 3, quarter, fermata, lyric hat!. Quarter rest. B 2, half, lyric O. Double barline.
-Measure 31. Crescendo begins. G sharp 3, whole, lyric Tod,. Crescendo ends. Diminuendo begins. E 3, half, lyric o. Diminuendo ends.
-Measure 32. Crescendo begins. C sharp 4, whole, lyric Tod,. Crescendo ends. Diminuendo begins. F sharp 4, half, lyric wie. Diminuendo ends.
+Measure 30. B 3, quarter. G natural 3, quarter, slur ends. D sharp 3, quarter, slur begins, lyric -ten. E 3, quarter, slur ends. Diminuendo ends. F sharp 3, quarter, fermata, lyric hat! Quarter rest. B 2, half, lyric O. Double barline.
+Measure 31. Crescendo begins. G sharp 3, whole, lyric Tod, Crescendo ends. Diminuendo begins. E 3, half, lyric o. Diminuendo ends.
+Measure 32. Crescendo begins. C sharp 4, whole, lyric Tod, Crescendo ends. Diminuendo begins. F sharp 4, half, lyric wie. Diminuendo ends.
 Measure 33. Crescendo begins. A 3, dotted whole, slur begins, lyric wohl. Crescendo ends.
 Measure 34. C sharp 4, half. Diminuendo begins. B 3, half, slur ends. A 3, half, lyric tust. Diminuendo ends.
-Measure 35. G sharp 3, whole, lyric du,. Half rest.
+Measure 35. G sharp 3, whole, lyric du, Half rest.
 Measure 36. Whole rest. E 4, half, lyric wie.
-Measure 37. F sharp 3, whole, lyric wohl,. Crescendo begins. F sharp 3, half, lyric wie. Crescendo ends.
+Measure 37. F sharp 3, whole, lyric wohl, Crescendo begins. F sharp 3, half, lyric wie. Crescendo ends.
 Measure 38. A 3, half, slur begins, lyric wohl. Diminuendo begins. G sharp 3, half, slur ends. F sharp 3, half, lyric tust. Diminuendo ends.
-Measure 39. E 3, dotted whole, lyric du!.
+Measure 39. E 3, dotted whole, lyric du!
 Measure 40. Whole measure rest. Final barline.
 Lyrics
 Verse 1: O Tod, o Tod, wie bitter wie bitter bist du, wenn an dich gedenket ein Mensch, gedenket ein Mensch, der gute Tage und genug hat und ohne Sorge lebet, und dem es wohl geht in allen Dingen Und noch wohl essen mag! O Tod, o Tod, wie bitter, wiebitter bist du. O Tod, wie wohl tust du dem Dürftigen, der da schwach und alt ist, der in allen Sorgen steckt, und nichts Bessers zu hoffen, noch zu erwarten hat! O Tod, o Tod, wie wohl tust du, wie wohl, wie wohl tust du!

@@ -9,7 +9,7 @@ Time signature: 2 2
 Soprano
 Measure 0
 Pickup measure
-Allegro tranquilo Tempo: half note equals 96
+Allegro tranquilo half note equals 96
 Quarter rest
 Measures 1 to 6. Rest.
 Measure 7
@@ -876,7 +876,7 @@ Piano, (For practice, only)
 Right hand
 Measure 0
 Pickup measure
-Allegro tranquilo Tempo: half note equals 96
+Allegro tranquilo half note equals 96
 Quarter rest
 Measures 1 to 6. Rest.
 Measure 7

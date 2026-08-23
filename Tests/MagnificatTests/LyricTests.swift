@@ -125,7 +125,10 @@ func lyricNote(_ lyric: String) -> Data {
     // leaving it in means invisible whitespace that trimming cannot see.
     let xml = lyricNote("<lyric number=\"1\"><syllabic>single</syllabic>"
                         + "<text>Sommeil\u{00A0}!</text></lyric>")
-    #expect(try measureLines(xml) == ["Measure 1. C 5, quarter, lyric Sommeil !."])
+    // No trailing full stop after the "!": the lyric's own punctuation ends the
+    // phrase. This expectation was written before that rule existed and asserted
+    // "Sommeil !." — the space was the point of the test, not the stop.
+    #expect(try measureLines(xml) == ["Measure 1. C 5, quarter, lyric Sommeil !"])
 }
 
 @Test func stripsZeroWidthCharactersEntirely() throws {

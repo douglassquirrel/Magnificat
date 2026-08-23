@@ -12,14 +12,14 @@ Measure 5. Quarter rest. Dynamic: pianissimo. E 4, quarter, slur begins, lyric J
 Measure 6. Repeat: forward repeat begins here. REFRAIN VALSE. D 5, dotted half, lyric -- pris, verse 2 lyric know.
 Measure 7. C 5, half, lyric ta, verse 2 lyric how. E 5, quarter, lyric dé-, verse 2 lyric I.
 Measure 8. B 4, dotted half, lyric -tres-, verse 2 lyric love.
-Measure 9. A 4, dotted half, slur ends, lyric -se,, verse 2 lyric you,.
+Measure 9. A 4, dotted half, slur ends, lyric -se,, verse 2 lyric you,
 Measure 10. B 4, dotted half, slur begins, lyric Cher, verse 2 lyric Lov-.
 Measure 11. A 4, half, lyric a-, verse 2 lyric -er. E 4, quarter, lyric -mou-, verse 2 lyric di-.
-Measure 12. B 4, dotted half, tied, lyric -- reux,, verse 2 lyric -vine,.
+Measure 12. B 4, dotted half, tied, lyric -- reux,, verse 2 lyric -vine,
 Measure 13. B 4, quarter, tied from previous, slur ends. très lié. D 4, quarter, slur begins, lyric Et, verse 2 lyric And. E 4, quarter, lyric je, verse 2 lyric I.
 Measure 14. G 4, dotted half, tied, lyric cè-, verse 2 lyric swear.
 Measure 15. G 4, quarter, tied from previous, slur ends. D 4, quarter, slur begins, lyric -de à, verse 2 lyric you’ll. E 4, quarter, lyric tes, verse 2 lyric be.
-Measure 16. A 4, dotted half, tied, lyric vœux,, verse 2 lyric mine,.
+Measure 16. A 4, dotted half, tied, lyric vœux,, verse 2 lyric mine,
 Measure 17. A 4, quarter, tied from previous, slur ends. D 4, quarter, slur begins, lyric Fais, verse 2 lyric I’ll. E 4, quarter, lyric de, verse 2 lyric place.
 Measure 18. G 4, half, lyric moi, verse 2 lyric no-. F 4, quarter, tied, lyric ta, verse 2 lyric -one.
 Measure 19. F 4, quarter, tied from previous. G 4, half, lyric maî-, verse 2 lyric a-.
@@ -32,17 +32,17 @@ Measure 25. A 4, half, slur ends, lyric -se,, verse 2 lyric -ting. Quarter rest.
 Measure 26. B 4, dotted half, slur begins, lyric Plus, verse 2 lyric No.
 Measure 27. A 4, half, lyric de, verse 2 lyric more. G 4, quarter, lyric tris-, verse 2 lyric re-.
 Measure 28. A 4, dotted half, lyric -tes-, verse 2 lyric -gret-.
-Measure 29. D 4, quarter, slur ends, lyric -se,, verse 2 lyric -ing,. F 4, quarter, slur begins, lyric J’as-, verse 2 lyric For. G 4, quarter, slur ends.
+Measure 29. D 4, quarter, slur ends, lyric -se,, verse 2 lyric -ing, F 4, quarter, slur begins, lyric J’as-, verse 2 lyric For. G 4, quarter, slur ends.
 Measure 30. Crescendo begins. A 4, quarter, lyric -– pire, verse 2 lyric this. B 4, quarter, lyric à, verse 2 lyric is. C 5, quarter, lyric l’ins-, verse 2 lyric the. Crescendo ends.
 Measure 31. D 5, quarter, lyric -tant, verse 2 lyric mo-. E 5, quarter, lyric pré-, verse 2 lyric -ment. F 5, quarter, lyric -ci-, verse 2 lyric su-.
 Measure 32. G 5, quarter, lyric -eux, verse 2 lyric -blime. E 5, quarter, lyric Où, verse 2 lyric when. C 5, quarter, lyric nous, verse 2 lyric I’ll.
 Measure 33. A 4, quarter, lyric se-, verse 2 lyric hear. C 5, quarter, lyric -rons, verse 2 lyric one. E 5, quarter, lyric heu-, verse 2 lyric more.
-Measure 34. Diminuendo begins. G 4, half, lyric -reux:, verse 2 lyric time:. F 4, quarter, slur ends. Diminuendo ends.
+Measure 34. Diminuendo begins. G 4, half, lyric -reux:, verse 2 lyric time: F 4, quarter, slur ends. Diminuendo ends.
 Measure 35. E 4, quarter, slur begins, lyric Je, verse 2 lyric You. D 4, half, lyric te, verse 2 lyric are.
 Measure 36. First ending begins. C 4, dotted half, tied, lyric veux., verse 2 lyric mine.
 Measure 37. C 4, quarter, tied from previous, slur ends. B 4, quarter, slur begins, lyric Je, verse 2 lyric I. C 5, quarter, slur ends, lyric n’ai, verse 2 lyric have. Ending finishes. Double barline.
 Measure 38. Second ending begins. C 4, dotted half, tied, lyric veux, verse 2 lyric mine.
-Measure 39. C 4, quarter, tied from previous. B 4, quarter, slur begins, lyric Oui,, verse 2 lyric Yes,. C 5, quarter, slur ends, lyric je, verse 2 lyric I. Ending finishes. Double barline.
+Measure 39. C 4, quarter, tied from previous. B 4, quarter, slur begins, lyric Oui,, verse 2 lyric Yes, C 5, quarter, slur ends, lyric je, verse 2 lyric I. Ending finishes. Double barline.
 Measure 40. Third ending begins. C 4, dotted half, tied, lyric veux, verse 2 lyric mine. Ending finishes.
 Measure 41. C 4, quarter, tied from previous. Quarter rest. Quarter rest.
 Measure 42. ralentir. Whole measure rest.
@@ -55,15 +55,15 @@ Measure 50. D 4, quarter, tied from previous, slur ends. Crescendo begins. F sha
 Measure 51. D 5, half, lyric n’ai, verse 2 lyric one. D 5, quarter, tied, lyric qu’u-, verse 2 lyric thought.
 Measure 52. D 5, quarter, tied from previous. D 5, half, lyric -neen-, verse 2 lyric I.
 Measure 53. Diminuendo begins. E 5, dotted half, lyric -vi-, verse 2 lyric treas-. Diminuendo ends.
-Measure 54. D 5, quarter, slur ends, lyric -e:, verse 2 lyric -ure,. B 4, quarter, slur begins, lyric Près, verse 2 lyric next. C 5, quarter, lyric de, verse 2 lyric to.
-Measure 55. E 4, dotted half, tied, lyric toi,, verse 2 lyric you,.
+Measure 54. D 5, quarter, slur ends, lyric -e:, verse 2 lyric -ure, B 4, quarter, slur begins, lyric Près, verse 2 lyric next. C 5, quarter, lyric de, verse 2 lyric to.
+Measure 55. E 4, dotted half, tied, lyric toi,, verse 2 lyric you,
 Measure 56. E 4, quarter, tied from previous, slur ends. E 4, quarter, slur begins, lyric là,, verse 2 lyric I. F sharp 4, quarter, lyric tout, verse 2 lyric shall.
 Measure 57. D 4, dotted half, tied, lyric près,, verse 2 lyric stay.
 Measure 58. D 4, quarter, tied from previous, slur ends. B 4, quarter, slur begins, lyric Vi-, verse 2 lyric tast-. G 4, quarter, lyric -vre, verse 2 lyric -ing.
 Measure 59. Crescendo begins. F sharp 4, half, lyric tou-, verse 2 lyric joy. F sharp 4, quarter, tied, lyric -te, verse 2 lyric with-. Crescendo ends.
 Measure 60. F sharp 4, quarter, tied from previous. F sharp 4, half, lyric ma, verse 2 lyric -out.
 Measure 61. Diminuendo begins. B 4, dotted half, lyric vi-, verse 2 lyric meas-. Diminuendo ends.
-Measure 62. D 5, quarter, slur ends, lyric -e,, verse 2 lyric -ure,. B 4, quarter, slur begins, lyric Que, verse 2 lyric with. C 5, quarter, lyric mon, verse 2 lyric my.
+Measure 62. D 5, quarter, slur ends, lyric -e,, verse 2 lyric -ure, B 4, quarter, slur begins, lyric Que, verse 2 lyric with. C 5, quarter, lyric mon, verse 2 lyric my.
 Measure 63. E 4, dotted half, tied, lyric cœur, verse 2 lyric heart.
 Measure 64. E 4, quarter, tied from previous, slur ends. E 4, quarter, slur begins, lyric soit, verse 2 lyric ev-. F sharp 4, quarter, lyric le, verse 2 lyric -er.
 Measure 65. D 4, dotted half, tied, lyric tien, verse 2 lyric near.
@@ -74,7 +74,7 @@ Measure 69. Diminuendo begins. F sharp 5, dotted half, lyric mien-, verse 2 lyri
 Measure 70. E 5, quarter, slur ends, lyric -ne,, verse 2 lyric me. D 5, quarter, slur begins, lyric Que, verse 2 lyric I’ll. B 4, quarter, lyric ton, verse 2 lyric have.
 Measure 71. E 4, dotted half, tied, lyric corps, verse 2 lyric no.
 Measure 72. E 4, quarter, tied from previous, slur ends. E 4, quarter, slur begins, lyric soit, verse 2 lyric more. F sharp 4, quarter, lyric le, verse 2 lyric to.
-Measure 73. D 4, dotted half, tied, lyric mien,, verse 2 lyric fear,.
+Measure 73. D 4, dotted half, tied, lyric mien,, verse 2 lyric fear,
 Measure 74. D 4, quarter, tied from previous, slur ends. G 4, quarter, slur begins, lyric Et, verse 2 lyric If. F sharp 4, quarter, lyric que, verse 2 lyric your.
 Measure 75. E 4, quarter, lyric tou-, verse 2 lyric two. Crescendo begins. G 4, quarter, lyric -te, verse 2 lyric lov-. C 5, quarter, lyric ma, verse 2 lyric -ing.
 Measure 76. D 5, half, lyric chair, verse 2 lyric arms. Crescendo ends. D 5, quarter, lyric soit, verse 2 lyric en-.
@@ -98,12 +98,12 @@ Measure 93. Diminuendo begins. B 4, dotted half, lyric -res-, verse 2 lyric -vad
 Measure 94. D 5, quarter, slur ends, lyric -se., verse 2 lyric me. B 4, quarter, slur begins, lyric En-, verse 2 lyric There. C 5, quarter, lyric -la-, verse 2 lyric shall.
 Measure 95. E 4, dotted half, tied, lyric -– cés, verse 2 lyric burn.
 Measure 96. E 4, quarter, tied from previous, slur ends. E 4, quarter, slur begins, lyric pour, verse 2 lyric in. F sharp 4, quarter, lyric tou-, verse 2 lyric your.
-Measure 97. D 4, dotted half, tied, lyric -jours, verse 2 lyric heart,.
+Measure 97. D 4, dotted half, tied, lyric -jours, verse 2 lyric heart,
 Measure 98. D 4, quarter, tied from previous, slur ends. Crescendo begins. F sharp 4, quarter, slur begins, lyric Brû-, verse 2 lyric like. G 4, quarter, lyric -lés, verse 2 lyric a. Crescendo ends.
-Measure 99. D 5, half, lyric des, verse 2 lyric warm,. D 5, quarter, tied, lyric mê-, verse 2 lyric glow-.
+Measure 99. D 5, half, lyric des, verse 2 lyric warm, D 5, quarter, tied, lyric mê-, verse 2 lyric glow-.
 Measure 100. D 5, quarter, tied from previous. D 5, half, lyric -mes, verse 2 lyric -ing.
 Measure 101. F sharp 5, dotted half, lyric flam-, verse 2 lyric em-.
-Measure 102. E 5, quarter, slur ends, lyric -mes,, verse 2 lyric -ber,. D 5, quarter, slur begins, lyric Dans, verse 2 lyric one. B 4, quarter, lyric des, verse 2 lyric sweet.
+Measure 102. E 5, quarter, slur ends, lyric -mes,, verse 2 lyric -ber, D 5, quarter, slur begins, lyric Dans, verse 2 lyric one. B 4, quarter, lyric des, verse 2 lyric sweet.
 Measure 103. E 4, dotted half, tied, lyric rê-, verse 2 lyric dream.
 Measure 104. E 4, quarter, tied from previous, slur ends. E 4, quarter, slur begins, lyric -ves, verse 2 lyric set. F sharp 4, quarter, lyric d’a-, verse 2 lyric a-.
 Measure 105. D 4, dotted half, tied, lyric -mours, verse 2 lyric -part.

@@ -13,11 +13,11 @@ Measure 15. Quarter rest. Eighth rest. B flat 4, eighth, lyric Wie.
 Measure 16. C 5, quarter, lyric herr-. B flat 4, eighth, slur begins, lyric -lich. C 5, eighth, slur ends.
 Measure 17. B flat 4, eighth, slur begins, lyric leuch-. A flat 4, eighth, slur ends. G 4, eighth, slur begins, lyric -tet. A flat 4, eighth, slur ends.
 Measure 18. G 4, eighth, slur begins, lyric mir. F 4, eighth, slur ends. E flat 4, eighth, lyric die. G 4, eighth, lyric Na-.
-Measure 19. G 4, quarter, slur begins, lyric -tur,. F 4, eighth, slur ends. F 4, eighth, lyric wie.
+Measure 19. G 4, quarter, slur begins, lyric -tur, F 4, eighth, slur ends. F 4, eighth, lyric wie.
 Measure 20. G 4, quarter, lyric glänzt. A natural 4, quarter, lyric die.
-Measure 21. B flat 4, quarter, lyric Son-. C 5, eighth, lyric -ne,. E flat 5, eighth, lyric wie.
+Measure 21. B flat 4, quarter, lyric Son-. C 5, eighth, lyric -ne, E flat 5, eighth, lyric wie.
 Measure 22. D 5, quarter, lyric lacht. C 5, quarter, lyric die.
-Measure 23. B flat 4, quarter, lyric Flur!. Eighth rest. B flat 4, eighth, lyric Es.
+Measure 23. B flat 4, quarter, lyric Flur! Eighth rest. B flat 4, eighth, lyric Es.
 Measure 24. B flat 4, quarter, lyric drin-. G 4, eighth, slur begins, lyric -gen. E flat 4, eighth, slur ends.
 Measure 25. E flat 5, quarter, lyric Blü-. C 5, eighth, lyric -ten. A flat 4, eighth, lyric aus.
 Measure 26. C 5, eighth, slur begins, lyric je-. B flat 4, eighth, slur ends. A flat 4, eighth, slur begins, lyric -dem. G 4, eighth, slur ends.
@@ -25,55 +25,55 @@ Measure 27. G 4, quarter, slur begins, lyric Zweig. F 4, eighth, slur ends. F 4,
 Measure 28. F 4, quarter, lyric tau-. G 4, eighth, slur begins, lyric -send. A flat 4, eighth, slur ends.
 Measure 29. B flat 4, eighth, slur begins, lyric Stim-. C 5, eighth, slur ends. D 5, eighth, lyric -men. E flat 5, eighth, lyric aus.
 Measure 30. E flat 4, quarter, lyric dem. F 4, quarter, lyric Ge-.
-Measure 31. Grace note: A flat 4, eighth, slur begins. G 4, quarter, slur ends, lyric -sträuch,. Eighth rest. G 4, eighth, lyric und.
+Measure 31. Grace note: A flat 4, eighth, slur begins. G 4, quarter, slur ends, lyric -sträuch, Eighth rest. G 4, eighth, lyric und.
 Measure 32. B flat 4, quarter, lyric Freud'. G 4, eighth, slur begins, lyric und. E flat 4, eighth, slur ends.
 Measure 33. E flat 5, quarter, lyric Won-. C 5, eighth, lyric -ne. A flat 4, eighth, lyric aus.
 Measure 34. C 5, eighth, slur begins, lyric je-. B flat 4, eighth, slur ends. A flat 4, eighth, slur begins, lyric -der. G 4, eighth, slur ends.
-Measure 35. G 4, quarter, slur begins, lyric Brust:. F 4, eighth, slur ends. F 4, eighth, lyric o.
-Measure 36. F 4, quarter, lyric Erd',. G 4, eighth, slur begins, lyric o. A flat 4, eighth, slur ends.
-Measure 37. B flat 4, eighth, slur begins, lyric Son-. C 5, eighth, slur ends. D 5, eighth, lyric -ne,. E flat 5, eighth, lyric o.
-Measure 38. E flat 4, quarter, lyric Glück,. G 4, eighth, slur begins, lyric o. F 4, eighth, slur ends.
-Measure 39. E flat 4, quarter, lyric Lust!. Quarter rest.
+Measure 35. G 4, quarter, slur begins, lyric Brust: F 4, eighth, slur ends. F 4, eighth, lyric o.
+Measure 36. F 4, quarter, lyric Erd', G 4, eighth, slur begins, lyric o. A flat 4, eighth, slur ends.
+Measure 37. B flat 4, eighth, slur begins, lyric Son-. C 5, eighth, slur ends. D 5, eighth, lyric -ne, E flat 5, eighth, lyric o.
+Measure 38. E flat 4, quarter, lyric Glück, G 4, eighth, slur begins, lyric o. F 4, eighth, slur ends.
+Measure 39. E flat 4, quarter, lyric Lust! Quarter rest.
 Measures 40 to 51. Rest.
 Measure 52. Quarter rest. Eighth rest. Dynamic: piano. B flat 4, eighth, lyric O.
-Measure 53. C 5, quarter, lyric Lieb',. B flat 4, eighth, slur begins, lyric o. C 5, eighth, slur ends.
-Measure 54. B flat 4, eighth, slur begins, lyric Lie-. A flat 4, eighth, slur ends. G 4, eighth, lyric -be!. A flat 4, eighth, lyric so.
+Measure 53. C 5, quarter, lyric Lieb', B flat 4, eighth, slur begins, lyric o. C 5, eighth, slur ends.
+Measure 54. B flat 4, eighth, slur begins, lyric Lie-. A flat 4, eighth, slur ends. G 4, eighth, lyric -be! A flat 4, eighth, lyric so.
 Measure 55. G 4, eighth, slur begins, lyric gol-. F 4, eighth, slur ends. E flat 4, eighth, slur begins, lyric -den. G 4, eighth, slur ends.
-Measure 56. G 4, quarter, slur begins, lyric schön,. F 4, eighth, slur ends. F 4, eighth, lyric wie.
+Measure 56. G 4, quarter, slur begins, lyric schön, F 4, eighth, slur ends. F 4, eighth, lyric wie.
 Measure 57. G 4, quarter, lyric Mor-. A natural 4, quarter, lyric -gen-.
 Measure 58. B flat 4, quarter, lyric -wol-. C 5, eighth, lyric -ken. E flat 5, eighth, lyric auf.
 Measure 59. D 5, quarter, lyric je-. C 5, quarter, lyric -nen.
-Measure 60. B flat 4, quarter, lyric Höhn!. Eighth rest. B flat 4, eighth, lyric Du.
+Measure 60. B flat 4, quarter, lyric Höhn! Eighth rest. B flat 4, eighth, lyric Du.
 Measure 61. B flat 4, quarter, lyric seg-. G 4, eighth, slur begins, lyric -nest. E flat 4, eighth, slur ends.
 Measure 62. E flat 5, quarter, lyric herr-. C 5, eighth, lyric -lich. A flat 4, eighth, lyric das.
 Measure 63. C 5, eighth, slur begins, lyric fri-. B flat 4, eighth, slur ends. A flat 4, eighth, slur begins, lyric -sche. G 4, eighth, slur ends.
-Measure 64. G 4, quarter, slur begins, lyric Feld,. F 4, eighth, slur ends. F 4, eighth, lyric im.
+Measure 64. G 4, quarter, slur begins, lyric Feld, F 4, eighth, slur ends. F 4, eighth, lyric im.
 Measure 65. F 4, quarter, lyric Blü-. G 4, eighth, slur begins, lyric -ten-. A flat 4, eighth, slur ends.
 Measure 66. B flat 4, eighth, slur begins, lyric -damp-. C 5, eighth, slur ends. D 5, eighth, lyric -fe. E flat 5, eighth, lyric die.
 Measure 67. E flat 4, quarter, lyric vol-. G 4, eighth, slur begins, lyric -le. F 4, eighth, slur ends.
 Measure 68. E flat 4, quarter, lyric Welt. Eighth rest. Dynamic: forte. B flat 4, eighth, lyric O.
-Measure 69. B flat 4, quarter, lyric Mäd-. G 4, eighth, slur begins, lyric -chen,. E flat 4, eighth, slur ends.
-Measure 70. E flat 5, quarter, lyric Mäd-. C 5, eighth, lyric -chen,. A flat 4, eighth, lyric wie.
+Measure 69. B flat 4, quarter, lyric Mäd-. G 4, eighth, slur begins, lyric -chen, E flat 4, eighth, slur ends.
+Measure 70. E flat 5, quarter, lyric Mäd-. C 5, eighth, lyric -chen, A flat 4, eighth, lyric wie.
 Measure 71. C 5, eighth, slur begins, lyric lieb'. B flat 4, eighth, slur ends. A flat 4, eighth, slur begins, lyric ich. G 4, eighth, slur ends.
-Measure 72. G 4, quarter, slur begins, lyric dich!. F 4, eighth, slur ends. F 4, eighth, lyric wie.
+Measure 72. G 4, quarter, slur begins, lyric dich! F 4, eighth, slur ends. F 4, eighth, lyric wie.
 Measure 73. F 4, quarter, lyric blickt. G 4, eighth, slur begins, lyric dein. A flat 4, eighth, slur ends.
-Measure 74. B flat 4, eighth, slur begins, lyric Au-. C 5, eighth, slur ends. D 5, eighth, lyric -ge,. E flat 5, eighth, lyric wie.
+Measure 74. B flat 4, eighth, slur begins, lyric Au-. C 5, eighth, slur ends. D 5, eighth, lyric -ge, E flat 5, eighth, lyric wie.
 Measure 75. E flat 4, quarter, lyric liebst. G 4, eighth, slur begins, lyric du. F 4, eighth, slur ends.
-Measure 76. E flat 4, quarter, lyric mich!. Quarter rest.
+Measure 76. E flat 4, quarter, lyric mich! Quarter rest.
 Measures 77 to 88. Rest.
 Measure 89. Quarter rest. Eighth rest. B flat 4, eighth, lyric So.
 Measure 90. C 5, quarter, lyric liebt. B flat 4, eighth, slur begins, lyric die. C 5, eighth, slur ends.
 Measure 91. B flat 4, eighth, slur begins, lyric Ler-. A flat 4, eighth, slur ends. G 4, eighth, lyric -che. A flat 4, eighth, lyric Ge-.
 Measure 92. G 4, eighth, slur begins, lyric -sang. F 4, eighth, slur ends. E flat 4, eighth, slur begins, lyric und. G 4, eighth, slur ends.
-Measure 93. G 4, quarter, slur begins, lyric Luft,. F 4, eighth, slur ends. F 4, eighth, lyric und.
+Measure 93. G 4, quarter, slur begins, lyric Luft, F 4, eighth, slur ends. F 4, eighth, lyric und.
 Measure 94. G 4, quarter, lyric Mor-. A natural 4, quarter, lyric -gen-.
 Measure 95. B flat 4, quarter, lyric -blu-. C 5, eighth, lyric -men. E flat 5, eighth, lyric den.
 Measure 96. D 5, quarter, lyric Him-. C 5, quarter, lyric -mels-.
-Measure 97. B flat 4, quarter, lyric -duft,. Eighth rest. B flat 4, eighth, lyric wie.
+Measure 97. B flat 4, quarter, lyric -duft, Eighth rest. B flat 4, eighth, lyric wie.
 Measure 98. B flat 4, quarter, lyric ich. G 4, eighth, slur begins, lyric dich. E flat 4, eighth, slur ends.
 Measure 99. E flat 5, quarter, lyric lie-. C 5, eighth, lyric -be. A flat 4, eighth, lyric mit.
 Measure 100. C 5, eighth, slur begins, lyric war-. B flat 4, eighth, slur ends. A flat 4, eighth, slur begins, lyric -mem. G 4, eighth, slur ends.
-Measure 101. G 4, quarter, slur begins, lyric Blut,. F 4, eighth, slur ends. F 4, eighth, lyric die.
+Measure 101. G 4, quarter, slur begins, lyric Blut, F 4, eighth, slur ends. F 4, eighth, lyric die.
 Measure 102. F 4, quarter, lyric du. G 4, eighth, slur begins, lyric mir. A flat 4, eighth, slur ends.
 Measure 103. B flat 4, eighth, slur begins, lyric Ju-. C 5, eighth, slur ends. D 5, eighth, lyric -gend. E flat 5, eighth, lyric und.
 Measure 104. E flat 4, quarter, lyric Freud’. F 4, quarter, lyric und.
@@ -83,17 +83,17 @@ Measure 107. B flat 4, eighth, slur begins, lyric Lie-. C 5, eighth, slur ends. 
 Measure 108. E flat 4, quarter, lyric Tän-. G 4, eighth, slur begins, lyric -zen. F 4, eighth, slur ends.
 Measure 109. E flat 4, quarter, lyric giebst. Eighth rest. B flat 4, eighth, lyric Sei.
 Measure 110. B flat 4, eighth, slur begins, lyric e-. A flat 4, eighth, slur ends. G 4, eighth, slur begins, lyric -wig. F 4, eighth, slur ends.
-Measure 111. G 4, quarter, lyric glück-. E flat 4, eighth, lyric -lich,. B flat 4, eighth, lyric wie.
+Measure 111. G 4, quarter, lyric glück-. E flat 4, eighth, lyric -lich, B flat 4, eighth, lyric wie.
 Measure 112. B flat 4, eighth, slur begins, lyric du. A flat 4, eighth, slur ends. G 4, eighth, slur begins, lyric mich. F 4, eighth, slur ends.
-Measure 113. G 4, quarter, lyric liebst,. Eighth rest. Dynamic: forte. E flat 5, eighth, lyric sei.
+Measure 113. G 4, quarter, lyric liebst, Eighth rest. Dynamic: forte. E flat 5, eighth, lyric sei.
 Measure 114. E flat 5, quarter, lyric e-. C 5, eighth, slur begins, lyric -wig. A flat 4, eighth, slur ends.
-Measure 115. G 4, quarter, lyric glück-. G 4, eighth, lyric -lich,. B flat 4, eighth, lyric wie.
+Measure 115. G 4, quarter, lyric glück-. G 4, eighth, lyric -lich, B flat 4, eighth, lyric wie.
 Measure 116. B flat 4, eighth, slur begins, lyric du. A flat 4, eighth, slur ends. G 4, eighth, slur begins, lyric mich. F 4, eighth, slur ends.
-Measure 117. G 4, quarter, lyric liebst,. D 5, eighth, slur begins, lyric sei. E flat 5, eighth, slur ends.
+Measure 117. G 4, quarter, lyric liebst, D 5, eighth, slur begins, lyric sei. E flat 5, eighth, slur ends.
 Measure 118. D 5, eighth, slur begins, lyric e-. E flat 5, eighth, slur ends. C 5, eighth, slur begins, lyric -wig. A flat 4, eighth, slur ends.
-Measure 119. A flat 4, eighth, slur begins, lyric glück-. G 4, eighth, slur ends. G 4, eighth, lyric -lich,. B flat 4, eighth, lyric wie.
+Measure 119. A flat 4, eighth, slur begins, lyric glück-. G 4, eighth, slur ends. G 4, eighth, lyric -lich, B flat 4, eighth, lyric wie.
 Measure 120. B flat 4, eighth, slur begins, lyric du. A flat 4, eighth, slur ends. G 4, eighth, slur begins, lyric mich. F 4, eighth, slur ends.
-Measure 121. E flat 4, quarter, lyric liebst!. Quarter rest.
+Measure 121. E flat 4, quarter, lyric liebst! Quarter rest.
 Measures 122 to 125. Rest.
 Measure 126. Quarter rest. Eighth rest. Final barline.
 Lyrics

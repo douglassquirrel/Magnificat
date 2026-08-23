@@ -7,11 +7,11 @@ From 8 New Nursery Rhymes, Op.23, number 1
 Key: E flat major, 3 flats
 Time signature: 2 2
 Measure 0
-Soprano. Pickup measure. Allegro tranquilo Tempo: half note equals 96. Quarter rest.
+Soprano. Pickup measure. Allegro tranquilo half note equals 96. Quarter rest.
 Alto. Pickup measure. Quarter rest.
 Tenor. Pickup measure. Dynamic: piano. E flat 3, eighth, lyric When. F 3, eighth, lyric I.
 Bass. Pickup measure. Dynamic: piano. E flat 3, eighth, lyric When. B flat 2, eighth, lyric I.
-Right hand. Pickup measure. Allegro tranquilo Tempo: half note equals 96. Quarter rest.
+Right hand. Pickup measure. Allegro tranquilo half note equals 96. Quarter rest.
 Right hand, voice 2 has no measure 0.
 Left hand. Pickup measure. E flat 3, eighth. F 3, eighth.
 Left hand, voice 2. E flat 3, eighth. B flat 2, eighth.
@@ -36,8 +36,8 @@ Left hand, voice 2. G 3, quarter. E flat 3, quarter. G 3, eighth. F 3, eighth. E
 Measure 3
 Soprano. Whole measure rest.
 Alto. Whole measure rest.
-Tenor. E flat 3, quarter, staccato, lyric wit,. Quarter rest. Quarter rest. E flat 3, eighth, staccato, lyric It. F 3, eighth, staccato, lyric is.
-Bass. E flat 3, quarter, staccato, lyric wit,. Quarter rest. Quarter rest. G 2, eighth, staccato, lyric It. B flat 2, eighth, staccato, lyric is.
+Tenor. E flat 3, quarter, staccato, lyric wit, Quarter rest. Quarter rest. E flat 3, eighth, staccato, lyric It. F 3, eighth, staccato, lyric is.
+Bass. E flat 3, quarter, staccato, lyric wit, Quarter rest. Quarter rest. G 2, eighth, staccato, lyric It. B flat 2, eighth, staccato, lyric is.
 Right hand. Whole measure rest.
 Right hand, voice 2 has no measure 3.
 Left hand. E flat 3, quarter, staccato. Quarter rest. Quarter rest. E flat 3, eighth, staccato. F 3, eighth, staccato.
@@ -45,7 +45,7 @@ Left hand, voice 2. E flat 3, quarter, staccato. G 2, eighth, staccato. B flat 2
 Measure 4
 Soprano. Whole measure rest.
 Alto. Whole measure rest.
-Tenor. G 3, quarter, lyric some-. A flat 3, dotted eighth, lyric -time. A flat 3, sixteenth, lyric a-. B flat 3, quarter, lyric -go,. (sadly). Crescendo begins. C 4, eighth, lyric And. D 4, eighth, lyric I’ve. Crescendo ends.
+Tenor. G 3, quarter, lyric some-. A flat 3, dotted eighth, lyric -time. A flat 3, sixteenth, lyric a-. B flat 3, quarter, lyric -go, (sadly). Crescendo begins. C 4, eighth, lyric And. D 4, eighth, lyric I’ve. Crescendo ends.
 Bass. E flat 3, quarter, lyric some-. F 3, dotted eighth, lyric -time. F 3, sixteenth, lyric a-. G 3, quarter, lyric -go. (sadly). Crescendo begins. A flat 3, eighth, lyric And. F 3, eighth, lyric I’ve. Crescendo ends.
 Right hand. Whole measure rest.
 Right hand, voice 2 has no measure 4.
@@ -63,8 +63,8 @@ Left hand, voice 2. G 3, half. F 3, half.
 Measure 6
 Soprano. Whole measure rest.
 Alto. Whole measure rest.
-Tenor. C 4, dotted half, lyric yet;.
-Bass. E flat 3, dotted half, lyric yet;.
+Tenor. C 4, dotted half, lyric yet;
+Bass. E flat 3, dotted half, lyric yet;
 Right hand. Whole measure rest.
 Right hand, voice 2 has no measure 6.
 Left hand. C 4, dotted half.
@@ -97,19 +97,19 @@ Right hand, voice 2. E flat 4, quarter. E flat 4, quarter.
 Left hand. B flat 3, quarter. B flat 3, quarter. B flat 3, quarter. B flat 3, quarter.
 Left hand, voice 2. G 3, quarter. E flat 3, quarter. G 3, eighth. F 3, eighth. E flat 3, eighth. B flat 2, eighth.
 Measure 10
-Soprano. E flat 4, quarter, staccato, lyric wit,. Quarter rest. Quarter rest. E flat 4, eighth, staccato, lyric It. F 4, eighth, staccato, lyric is.
-Alto. E flat 4, quarter, staccato, lyric wit,. Quarter rest. Quarter rest. E flat 4, eighth, staccato, lyric It. D 4, eighth, staccato, lyric is.
-Tenor. B flat 3, quarter, staccato, lyric wit,. Quarter rest. Quarter rest. B flat 3, eighth, staccato, lyric It. B flat 3, eighth, staccato, lyric is.
-Bass. E flat 3, quarter, staccato, lyric wit,. Quarter rest. Quarter rest. E flat 3, eighth, staccato, lyric It. B flat 2, eighth, staccato, lyric is.
+Soprano. E flat 4, quarter, staccato, lyric wit, Quarter rest. Quarter rest. E flat 4, eighth, staccato, lyric It. F 4, eighth, staccato, lyric is.
+Alto. E flat 4, quarter, staccato, lyric wit, Quarter rest. Quarter rest. E flat 4, eighth, staccato, lyric It. D 4, eighth, staccato, lyric is.
+Tenor. B flat 3, quarter, staccato, lyric wit, Quarter rest. Quarter rest. B flat 3, eighth, staccato, lyric It. B flat 3, eighth, staccato, lyric is.
+Bass. E flat 3, quarter, staccato, lyric wit, Quarter rest. Quarter rest. E flat 3, eighth, staccato, lyric It. B flat 2, eighth, staccato, lyric is.
 Right hand. E flat 4, quarter, staccato. Quarter rest. Quarter rest. E flat 4, eighth, staccato. Chord D 4, F 4, eighth, staccato.
 Right hand, voice 2 has no measure 10.
 Left hand. B flat 3, quarter, staccato. Quarter rest. Quarter rest. B flat 3, quarter.
 Left hand, voice 2. E flat 3, quarter, staccato. E flat 3, eighth, staccato. B flat 2, eighth, staccato.
 Measure 11
-Soprano. G 4, quarter, lyric some-. Crescendo begins. A flat 4, dotted eighth, lyric -time. A flat 4, sixteenth, lyric a-. B flat 4, quarter, lyric -go,. Crescendo ends. C 5, eighth, lyric and. D 5, eighth, lyric I’ve.
-Alto. E flat 4, quarter, lyric some-. Crescendo begins. D 4, dotted eighth, lyric -time. D 4, sixteenth, lyric a-. E flat 4, quarter, lyric -go,. Crescendo ends. E flat 4, eighth, lyric and. A flat 4, eighth, lyric I’ve.
-Tenor. B flat 3, quarter, lyric some-. Crescendo begins. B flat 3, dotted eighth, lyric -time. B flat 3, sixteenth, lyric a-. B flat 3, quarter, lyric -go,. Crescendo ends. E flat 4, eighth, lyric and. D 4, eighth, lyric I’ve.
-Bass. E flat 3, quarter, lyric some-. Crescendo begins. F 3, dotted eighth, lyric -time. F 3, sixteenth, lyric a-. G 3, quarter, lyric -go,. Crescendo ends. A flat 3, eighth, lyric and. F 3, eighth, lyric I’ve.
+Soprano. G 4, quarter, lyric some-. Crescendo begins. A flat 4, dotted eighth, lyric -time. A flat 4, sixteenth, lyric a-. B flat 4, quarter, lyric -go, Crescendo ends. C 5, eighth, lyric and. D 5, eighth, lyric I’ve.
+Alto. E flat 4, quarter, lyric some-. Crescendo begins. D 4, dotted eighth, lyric -time. D 4, sixteenth, lyric a-. E flat 4, quarter, lyric -go, Crescendo ends. E flat 4, eighth, lyric and. A flat 4, eighth, lyric I’ve.
+Tenor. B flat 3, quarter, lyric some-. Crescendo begins. B flat 3, dotted eighth, lyric -time. B flat 3, sixteenth, lyric a-. B flat 3, quarter, lyric -go, Crescendo ends. E flat 4, eighth, lyric and. D 4, eighth, lyric I’ve.
+Bass. E flat 3, quarter, lyric some-. Crescendo begins. F 3, dotted eighth, lyric -time. F 3, sixteenth, lyric a-. G 3, quarter, lyric -go, Crescendo ends. A flat 3, eighth, lyric and. F 3, eighth, lyric I’ve.
 Right hand. Chord E flat 4, G 4, quarter. Crescendo begins. A flat 4, dotted eighth. A flat 4, sixteenth. B flat 4, quarter. Crescendo ends. C 5, eighth. Chord A flat 4, D 5, eighth.
 Right hand, voice 2. D 4, quarter. E flat 4, quarter.
 Left hand. B flat 3, dotted half. E flat 4, eighth. D 4, eighth.
@@ -124,46 +124,46 @@ Right hand, voice 2. G 4, half. F 4, half.
 Left hand. C 4, half. Half rest.
 Left hand, voice 2. G 3, half. A natural 3, quarter, slur begins. B natural 3, quarter, slur ends.
 Measure 13
-Soprano. C 5, half, lyric yet;. dim. Diminuendo begins. C 5, half, lyric Nor.
-Alto. G 4, half, lyric yet;. dim. Diminuendo begins. G 4, half, lyric Nor.
-Tenor. E flat 4, half, lyric yet;. dim. Diminuendo begins. E flat 4, half, lyric Nor.
-Bass. C 4, half, lyric yet;. dim. Diminuendo begins. E flat 3, half, lyric Nor.
+Soprano. C 5, half, lyric yet; dim. Diminuendo begins. C 5, half, lyric Nor.
+Alto. G 4, half, lyric yet; dim. Diminuendo begins. G 4, half, lyric Nor.
+Tenor. E flat 4, half, lyric yet; dim. Diminuendo begins. E flat 4, half, lyric Nor.
+Bass. C 4, half, lyric yet; dim. Diminuendo begins. E flat 3, half, lyric Nor.
 Right hand. Chord G 4, C 5, half. dim. Diminuendo begins. Chord G 4, C 5, half.
 Right hand, voice 2. E flat 4, half. E flat 4, half.
 Left hand. C 4, half. E flat 3, half.
 Left hand, voice 2 has no measure 13.
 Measure 14
-Soprano. C 5, eighth, lyric ev-. C 5, eighth, lyric -er,. B flat 4, eighth, lyric ev-. B flat 4, eighth, lyric -er,. A flat 4, quarter, lyric shall. A flat 4, quarter, lyric un-.
-Alto. G 4, eighth, lyric ev-. G 4, eighth, lyric -er,. F 4, eighth, lyric ev-. F 4, eighth, lyric -er,. E flat 4, quarter, lyric shall. E natural 4, quarter, lyric un-.
-Tenor. E flat 4, eighth, lyric ev-. E flat 4, eighth, lyric -er,. D flat 4, eighth, lyric ev-. D flat 4, eighth, lyric -er,. C 4, quarter, lyric shall. C 4, quarter, lyric un-.
-Bass. E flat 3, eighth, lyric ev-. E flat 3, eighth, lyric -er,. F 3, eighth, lyric ev-. G 3, eighth, lyric -er,. A flat 3, quarter. C 3, quarter, lyric un-.
+Soprano. C 5, eighth, lyric ev-. C 5, eighth, lyric -er, B flat 4, eighth, lyric ev-. B flat 4, eighth, lyric -er, A flat 4, quarter, lyric shall. A flat 4, quarter, lyric un-.
+Alto. G 4, eighth, lyric ev-. G 4, eighth, lyric -er, F 4, eighth, lyric ev-. F 4, eighth, lyric -er, E flat 4, quarter, lyric shall. E natural 4, quarter, lyric un-.
+Tenor. E flat 4, eighth, lyric ev-. E flat 4, eighth, lyric -er, D flat 4, eighth, lyric ev-. D flat 4, eighth, lyric -er, C 4, quarter, lyric shall. C 4, quarter, lyric un-.
+Bass. E flat 3, eighth, lyric ev-. E flat 3, eighth, lyric -er, F 3, eighth, lyric ev-. G 3, eighth, lyric -er, A flat 3, quarter. C 3, quarter, lyric un-.
 Right hand. C 5, eighth. C 5, eighth. B flat 4, eighth. B flat 4, eighth. A flat 4, quarter. A flat 4, quarter.
 Right hand, voice 2. G 4, quarter. F 4, quarter. E flat 4, quarter. E natural 4, quarter.
 Left hand. E flat 4, quarter. D flat 4, quarter. C 4, half, tied.
 Left hand, voice 2. E flat 3, eighth. E flat 3, eighth. F 3, eighth. G 3, eighth. A flat 3, quarter. C 3, quarter.
 Measure 15
-Soprano. A flat 4, quarter, lyric -til. G 4, eighth, lyric that. G 4, eighth, lyric I. F 4, quarter, lyric die,. Diminuendo ends Dynamic: pianissimo. F 4, eighth, lyric For. F 4, eighth, lyric the.
-Alto. F 4, quarter, lyric -til. C 4, eighth, lyric that. C 4, eighth, lyric I. C 4, quarter, lyric die,. Diminuendo ends Dynamic: pianissimo. C 4, eighth, lyric For. C 4, eighth, lyric the.
-Tenor. C 4, quarter, lyric -til. B flat 3, eighth, lyric that. B flat 3, eighth, lyric I. A flat 3, quarter, lyric die,. Diminuendo ends Dynamic: pianissimo. A flat 3, eighth, lyric For. A flat 3, eighth, lyric the.
-Bass. C 3, quarter, lyric -til. D 3, eighth, lyric that. E natural 3, eighth, lyric I. F 3, quarter, lyric die,. Diminuendo ends Dynamic: pianissimo. A flat 2, eighth, lyric For. A flat 2, eighth, lyric the.
+Soprano. A flat 4, quarter, lyric -til. G 4, eighth, lyric that. G 4, eighth, lyric I. F 4, quarter, lyric die, Diminuendo ends Dynamic: pianissimo. F 4, eighth, lyric For. F 4, eighth, lyric the.
+Alto. F 4, quarter, lyric -til. C 4, eighth, lyric that. C 4, eighth, lyric I. C 4, quarter, lyric die, Diminuendo ends Dynamic: pianissimo. C 4, eighth, lyric For. C 4, eighth, lyric the.
+Tenor. C 4, quarter, lyric -til. B flat 3, eighth, lyric that. B flat 3, eighth, lyric I. A flat 3, quarter, lyric die, Diminuendo ends Dynamic: pianissimo. A flat 3, eighth, lyric For. A flat 3, eighth, lyric the.
+Bass. C 3, quarter, lyric -til. D 3, eighth, lyric that. E natural 3, eighth, lyric I. F 3, quarter, lyric die, Diminuendo ends Dynamic: pianissimo. A flat 2, eighth, lyric For. A flat 2, eighth, lyric the.
 Right hand. A flat 4, quarter. G 4, eighth. G 4, eighth. F 4, quarter. Diminuendo ends Dynamic: pianissimo. F 4, eighth. F 4, eighth.
 Right hand, voice 2. F 4, quarter. C 4, half. C 4, quarter.
 Left hand. C 4, quarter, tied from previous. B flat 3, quarter. A flat 3, quarter. A flat 3, quarter.
 Left hand, voice 2. C 3, quarter. D 3, eighth. E natural 3, eighth. F 3, quarter. A flat 2, eighth. A flat 2, eighth.
 Measure 16
 Soprano. F 4, half, lyric long-. F 4, quarter, lyric -er. F 4, quarter, lyric I.
-Alto. D flat 4, quarter, lyric long-. C 4, eighth, lyric -er. C 4, eighth, lyric I. D flat 4, quarter, lyric live,. C 4, eighth, lyric for. C 4, eighth, lyric the.
+Alto. D flat 4, quarter, lyric long-. C 4, eighth, lyric -er. C 4, eighth, lyric I. D flat 4, quarter, lyric live, C 4, eighth, lyric for. C 4, eighth, lyric the.
 Tenor. A flat 3, whole, tied, lyric long-.
-Bass. D flat 3, quarter, lyric long-. A flat 2, eighth, lyric -er. A flat 2, eighth, lyric I. D flat 3, quarter, lyric live,. A flat 2, eighth, lyric for. A flat 2, eighth, lyric the.
+Bass. D flat 3, quarter, lyric long-. A flat 2, eighth, lyric -er. A flat 2, eighth, lyric I. D flat 3, quarter, lyric live, A flat 2, eighth, lyric for. A flat 2, eighth, lyric the.
 Right hand. F 4, half. F 4, quarter. F 4, quarter.
 Right hand, voice 2. D flat 4, quarter. C 4, eighth. C 4, eighth. D flat 4, quarter. C 4, eighth. C 4, eighth.
 Left hand. A flat 3, whole, tied.
 Left hand, voice 2. D flat 3, quarter. A flat 2, eighth. A flat 2, eighth. D flat 3, quarter. A flat 2, eighth. A flat 2, eighth.
 Measure 17
-Soprano. F 4, half, lyric live,. F 4, half, lyric the.
+Soprano. F 4, half, lyric live, F 4, half, lyric the.
 Alto. D flat 4, quarter, lyric long-. C 4, eighth, lyric -er. C 4, eighth, lyric I. D flat 4, quarter, lyric live. E flat 4, eighth, slur begins, lyric the. D flat 4, eighth, slur ends.
 Tenor. A flat 3, whole, tied from previous, tied.
-Bass. D flat 3, quarter, lyric long-. A flat 2, eighth, lyric -er. A flat 2, eighth, lyric I. D flat 3, quarter, lyric live,. Crescendo begins. A flat 2, eighth, lyric the. B flat 2, eighth.
+Bass. D flat 3, quarter, lyric long-. A flat 2, eighth, lyric -er. A flat 2, eighth, lyric I. D flat 3, quarter, lyric live, Crescendo begins. A flat 2, eighth, lyric the. B flat 2, eighth.
 Right hand. F 4, half. F 4, half. Crescendo begins.
 Right hand, voice 2. D flat 4, quarter. C 4, eighth. C 4, eighth. D flat 4, quarter. E flat 4, eighth. D flat 4, eighth.
 Left hand. A flat 3, whole, tied from previous, tied.
@@ -172,25 +172,25 @@ Measure 18
 Soprano. F 4, half, lyric long-. F 4, quarter, lyric -er. F 4, quarter, lyric I.
 Alto. C 4, half, lyric long-. C 4, quarter, lyric -er. C 4, quarter, lyric I.
 Tenor. A flat 3, half, tied from previous. A flat 3, quarter, lyric -er. A flat 3, quarter, lyric I.
-Bass. C 3, quarter, lyric long-. D 3, eighth, lyric -er. E natural 3, eighth, lyric I. F 3, eighth, slur begins, lyric live,. G 3, eighth, slur ends. Crescendo ends. A flat 3, eighth, slur begins, lyric the. B flat 3, eighth, slur ends.
+Bass. C 3, quarter, lyric long-. D 3, eighth, lyric -er. E natural 3, eighth, lyric I. F 3, eighth, slur begins, lyric live, G 3, eighth, slur ends. Crescendo ends. A flat 3, eighth, slur begins, lyric the. B flat 3, eighth, slur ends.
 Right hand. Chord C 4, F 4, half. Chord A flat 3, C 4, F 4, quarter. Crescendo ends. Chord A flat 3, C 4, F 4, quarter.
 Right hand, voice 2 has no measure 18.
 Left hand. A flat 3, half, tied from previous. Half rest.
 Left hand, voice 2. C 3, quarter. D 3, eighth. E natural 3, eighth. F 3, eighth, slur begins. G 3, eighth, slur ends. A flat 3, eighth, slur begins. B flat 3, eighth, slur ends.
 Measure 19
-Soprano. F 4, dotted half, lyric live,. F 4, quarter, lyric the.
-Alto. C 4, dotted half, lyric live,. C 4, quarter, lyric the.
-Tenor. A flat 3, dotted half, lyric live,. A flat 3, quarter, lyric the.
+Soprano. F 4, dotted half, lyric live, F 4, quarter, lyric the.
+Alto. C 4, dotted half, lyric live, C 4, quarter, lyric the.
+Tenor. A flat 3, dotted half, lyric live, A flat 3, quarter, lyric the.
 Bass. Dynamic: forte. C 4, quarter, slur begins, lyric more. A flat 3, quarter, slur ends. F 3, quarter, accent, lyric fool. C 3, quarter, lyric am.
 Right hand. Dynamic: forte. Chord A flat 3, C 4, F 4, dotted half. Chord A flat 3, C 4, F 4, quarter.
 Right hand, voice 2 has no measure 19.
 Left hand. C 4, quarter, slur begins. A flat 3, quarter, slur ends. F 3, quarter, accent. C 3, quarter.
 Left hand, voice 2 has no measure 19.
 Measure 20
-Soprano. Diminuendo begins. A flat 4, half, slur begins, lyric more,. Diminuendo ends. F 4, half, tied, slur ends.
-Alto. Diminuendo begins. F 4, half, slur begins, lyric more,. Diminuendo ends. C 4, half, tied, slur ends.
-Tenor. Diminuendo begins. C 4, half, slur begins, lyric more,. Diminuendo ends. A flat 3, half, tied, slur ends.
-Bass. Dynamic: forte. Diminuendo begins. F 2, whole, tied, lyric I,. Diminuendo ends.
+Soprano. Diminuendo begins. A flat 4, half, slur begins, lyric more, Diminuendo ends. F 4, half, tied, slur ends.
+Alto. Diminuendo begins. F 4, half, slur begins, lyric more, Diminuendo ends. C 4, half, tied, slur ends.
+Tenor. Diminuendo begins. C 4, half, slur begins, lyric more, Diminuendo ends. A flat 3, half, tied, slur ends.
+Bass. Dynamic: forte. Diminuendo begins. F 2, whole, tied, lyric I, Diminuendo ends.
 Right hand. Diminuendo begins. Chord C 4, F 4, A flat 4, half, slur begins. Diminuendo ends. Chord A flat 3, C 4, F 4, half, tied, slur ends.
 Right hand, voice 2 has no measure 20.
 Left hand. F 2, whole, tied.
@@ -214,18 +214,18 @@ Right hand, voice 2. Quarter rest. E flat 4, quarter. E flat 4, quarter. C 5, qu
 Left hand. G 3, quarter. A flat 3, eighth. B flat 3, eighth. C 4, quarter. E flat 4, quarter.
 Left hand, voice 2. C 3, quarter. C 3, eighth. C 3, eighth. C 4, quarter. A flat 3, quarter.
 Measure 23
-Soprano. Diminuendo begins. E flat 5, half, slur begins, lyric more,. B flat 4, half, slur ends.
-Alto. Diminuendo begins. B flat 4, half, slur begins, lyric more,. G 4, half, slur ends.
-Tenor. Diminuendo begins. E flat 4, whole, lyric more,. Diminuendo ends.
+Soprano. Diminuendo begins. E flat 5, half, slur begins, lyric more, B flat 4, half, slur ends.
+Alto. Diminuendo begins. B flat 4, half, slur begins, lyric more, G 4, half, slur ends.
+Tenor. Diminuendo begins. E flat 4, whole, lyric more, Diminuendo ends.
 Bass. Diminuendo begins. G 3, half, slur begins, lyric more. E flat 3, half, slur ends. Diminuendo ends.
 Right hand. Diminuendo begins. E flat 5, half, slur begins. B flat 4, half, slur ends. Diminuendo ends.
 Right hand, voice 2. B flat 4, half, slur begins. G 4, half, slur ends.
 Left hand. E flat 4, whole.
 Left hand, voice 2. G 3, half. E flat 3, half.
 Measure 24
-Soprano. Dynamic: piano. G 4, quarter, staccato, lyric m,. Diminuendo ends. Quarter rest. G 4, quarter, staccato, lyric m,. Quarter rest.
-Alto. Dynamic: piano. D 4, quarter, staccato, lyric m,. Diminuendo ends. Quarter rest. D 4, quarter, staccato, lyric m,. Quarter rest.
-Tenor. Dynamic: piano. B flat 3, quarter, staccato, lyric m,. Quarter rest. B flat 3, quarter, staccato, lyric m,. Quarter rest.
+Soprano. Dynamic: piano. G 4, quarter, staccato, lyric m, Diminuendo ends. Quarter rest. G 4, quarter, staccato, lyric m, Quarter rest.
+Alto. Dynamic: piano. D 4, quarter, staccato, lyric m, Diminuendo ends. Quarter rest. D 4, quarter, staccato, lyric m, Quarter rest.
+Tenor. Dynamic: piano. B flat 3, quarter, staccato, lyric m, Quarter rest. B flat 3, quarter, staccato, lyric m, Quarter rest.
 Bass. Dynamic: pianissimo. B flat 3, half, lyric fool. B flat 2, half, lyric am.
 Right hand. Dynamic: piano. Chord D 4, G 4, quarter, staccato. Quarter rest. Chord B flat 3, D 4, G 4, quarter, staccato. Quarter rest.
 Right hand, voice 2 has no measure 24.
@@ -235,7 +235,7 @@ Measure 25
 Soprano. First ending begins. G 4, dotted half, lyric m. Ending finishes. Repeat: go back to the start of measure 7. Final barline.
 Alto. E flat 4, dotted half, lyric m. Repeat: go back to the start of measure 7. Final barline.
 Tenor. B flat 3, dotted half, lyric m. Repeat: go back to the start of measure 7. Final barline.
-Bass. E flat 3, dotted half, lyric I!. Repeat: go back to the start of measure 7. Final barline.
+Bass. E flat 3, dotted half, lyric I! Repeat: go back to the start of measure 7. Final barline.
 Right hand. Chord E flat 4, G 4, dotted half. Repeat: go back to the start of measure 7. Final barline.
 Right hand, voice 2 has no measure 25.
 Left hand. Chord E flat 3, B flat 3, dotted half. Repeat: go back to the start of measure 7. Final barline.
@@ -244,7 +244,7 @@ Measure 26
 Soprano. Second ending begins. Diminuendo begins. G 4, whole, fermata, lyric m.______. Diminuendo ends. Ending finishes. Final barline.
 Alto. Diminuendo begins. G 4, whole, fermata, lyric m.______. Diminuendo ends. Final barline.
 Tenor. Diminuendo begins. B flat 3, whole, fermata, lyric m.______. Diminuendo ends. Final barline.
-Bass. Diminuendo begins. E flat 3, whole, fermata, lyric I!. Diminuendo ends. Final barline.
+Bass. Diminuendo begins. E flat 3, whole, fermata, lyric I! Diminuendo ends. Final barline.
 Right hand. Diminuendo begins. Chord E flat 4, G 4, whole, fermata. Diminuendo ends. Final barline.
 Right hand, voice 2 has no measure 26.
 Left hand. Chord E flat 3, B flat 3, whole, fermata. Final barline.

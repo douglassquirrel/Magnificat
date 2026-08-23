@@ -90,11 +90,40 @@ extension Score {
             }
             subset.parts = subset.parts.map { part in
                 var trimmed = part
+                // What is in force where the range begins. MusicXML states
+                // divisions, key and meter once and leaves them standing, so a
+                // range that starts later would otherwise lose all three — the
+                // heading would say "No time signature" and the accidental rules
+                // would lose the key they depend on.
+                var carried = MeasureAttributes()
+                for measure in part.measures {
+                    if let number = Int(measure.number), measures.contains(number) { break }
+                    if let stated = measure.attributes {
+                        if let divisions = stated.divisions { carried.divisions = divisions }
+                        if let key = stated.key { carried.key = key }
+                        if let time = stated.time { carried.time = time }
+                        if let staves = stated.staves { carried.staves = staves }
+                    }
+                }
+
                 trimmed.measures = part.measures.filter { measure in
                     // A measure whose number is not a plain integer — MusicXML
                     // allows "12a" — is kept rather than silently dropped.
                     guard let number = Int(measure.number) else { return true }
                     return measures.contains(number)
+                }
+
+                // Anything the first kept measure already restates wins.
+                if !carried.isEmpty, var first = trimmed.measures.first {
+                    var merged = carried
+                    if let stated = first.attributes {
+                        if let divisions = stated.divisions { merged.divisions = divisions }
+                        if let key = stated.key { merged.key = key }
+                        if let time = stated.time { merged.time = time }
+                        if let staves = stated.staves { merged.staves = staves }
+                    }
+                    first.attributes = merged
+                    trimmed.measures[0] = first
                 }
                 return trimmed
             }

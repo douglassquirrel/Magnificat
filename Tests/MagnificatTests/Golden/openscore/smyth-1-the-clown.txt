@@ -7,24 +7,24 @@ From 3 Songs, number 1
 Key: G major, 1 sharp
 Time signature: 6 8
 Voice, Gesang
-Measure 1. Allegro non troppo Tempo: dotted quarter note equals 80. Whole measure rest.
+Measure 1. Allegro non troppo dotted quarter note equals 80. Whole measure rest.
 Measure 2. Quarter rest. Eighth rest. Eighth rest. Dynamic: piano. E 4, eighth, lyric There, verse 2 lyric War. E 4, eighth, lyric was, verse 2 lyric ein.
 Measure 3. E 4, dotted eighth, lyric once, verse 2 lyric ar-. E 4, sixteenth, lyric a, verse 2 lyric -mer. E 4, eighth, lyric poor, verse 2 lyric Hans-. E 4, quarter, lyric clown, verse 2 lyric -wurst. E 4, eighth, lyric all, verse 2 lyric in.
-Measure 4. B 4, quarter, lyric dressed, verse 2 lyric wei-. B 4, eighth, lyric in, verse 2 lyric -ssem. B 4, dotted quarter, tied, lyric white, verse 2 lyric Kleid,.
+Measure 4. B 4, quarter, lyric dressed, verse 2 lyric wei-. B 4, eighth, lyric in, verse 2 lyric -ssem. B 4, dotted quarter, tied, lyric white, verse 2 lyric Kleid,
 Measure 5. B 4, dotted quarter, tied from previous. Quarter rest. B 4, eighth, lyric And.
 Measure 6. A 4, dotted eighth, lyric chained, verse 2 lyric Ker-. A 4, sixteenth, lyric to, verse 2 lyric -ker. A 4, eighth, lyric the, verse 2 lyric und. A 4, quarter, lyric dun-, verse 2 lyric Ket-. Crescendo begins. A 4, eighth, lyric -geon, verse 2 lyric -ten.
-Measure 7. F sharp 4, dotted half, tied, lyric bars, verse 2 lyric gehn;.
+Measure 7. F sharp 4, dotted half, tied, lyric bars, verse 2 lyric gehn;
 Measure 8. F sharp 4, dotted quarter, tied from previous. Crescendo ends. Diminuendo begins. G 4, quarter, lyric And, verse 2 lyric und. F sharp 4, eighth, lyric he, verse 2 lyric er. Diminuendo ends.
 Measure 9. Dynamic: piano. E 4, quarter, lyric danced, verse 2 lyric tanzt. E 4, eighth, lyric all, verse 2 lyric bei. E 4, dotted eighth, lyric day, verse 2 lyric Tag. E 4, sixteenth, lyric and, verse 2 lyric und. E 4, eighth, lyric he, verse 2 lyric zu.
-Measure 10. B 4, quarter, lyric danced, verse 2 lyric nächt’-. B 4, eighth, lyric all, verse 2 lyric -ger. B 4, dotted quarter, tied, lyric night, verse 2 lyric Zeit,.
+Measure 10. B 4, quarter, lyric danced, verse 2 lyric nächt’-. B 4, eighth, lyric all, verse 2 lyric -ger. B 4, dotted quarter, tied, lyric night, verse 2 lyric Zeit,
 Measure 11. B 4, eighth, tied from previous. Eighth rest. Eighth rest. Eighth rest. Sixteenth rest. B 4, sixteenth, lyric To, verse 2 lyric wenn. B 4, eighth, lyric the, verse 2 lyric die.
 Measure 12. Rehearsal mark 1. D 5, dotted eighth, lyric sound, verse 2 lyric Ster-. cresc. D 5, sixteenth, lyric of, verse 2 lyric -ne. D 5, eighth, lyric the, verse 2 lyric im. C sharp 5, eighth, lyric dan-, verse 2 lyric Tanz. D 5, eighth. B 4, eighth, lyric -cing, verse 2 lyric sich.
 Measure 13. E 5, dotted half, tied, lyric stars., verse 2 lyric drehn.
-Measure 14. E 5, eighth, tied from previous. Eighth rest. Dynamic: forte. A 4, eighth, lyric O, verse 2 lyric O. A 4, dotted quarter, tied, lyric clown,, verse 2 lyric Narr,.
-Measure 15. A 4, dotted eighth, tied from previous. Dynamic: piano. G 4, sixteenth, lyric sil-, verse 2 lyric dum-. F natural 4, eighth, lyric -ly, verse 2 lyric -mer. G 4, quarter, lyric clown,, verse 2 lyric Narr,. G 4, eighth, lyric O, verse 2 lyric wo-.
-Measure 16. A 4, dotted eighth, lyric why, verse 2 lyric -rauf. G 4, sixteenth, lyric do, verse 2 lyric du. F natural 4, eighth, lyric you, verse 2 lyric nur. G 4, quarter, lyric dance?, verse 2 lyric baust?. G 4, eighth, lyric You, verse 2 lyric Fliehst.
+Measure 14. E 5, eighth, tied from previous. Eighth rest. Dynamic: forte. A 4, eighth, lyric O, verse 2 lyric O. A 4, dotted quarter, tied, lyric clown,, verse 2 lyric Narr,
+Measure 15. A 4, dotted eighth, tied from previous. Dynamic: piano. G 4, sixteenth, lyric sil-, verse 2 lyric dum-. F natural 4, eighth, lyric -ly, verse 2 lyric -mer. G 4, quarter, lyric clown,, verse 2 lyric Narr, G 4, eighth, lyric O, verse 2 lyric wo-.
+Measure 16. A 4, dotted eighth, lyric why, verse 2 lyric -rauf. G 4, sixteenth, lyric do, verse 2 lyric du. F natural 4, eighth, lyric you, verse 2 lyric nur. G 4, quarter, lyric dance?, verse 2 lyric baust? G 4, eighth, lyric You, verse 2 lyric Fliehst.
 Measure 17. cresc. A 4, dotted eighth, lyric know, verse 2 lyric nim-. B 4, sixteenth, lyric you, verse 2 lyric -mer. C 5, eighth, lyric can, verse 2 lyric aus. C 5, eighth, lyric ne-, verse 2 lyric dunk-. B 4, eighth, lyric -ver, verse 2 lyric -lem. A 4, eighth, lyric be, verse 2 lyric Ge-.
-Measure 18. B 4, dotted quarter, lyric free, verse 2 lyric -lass,. Eighth rest. B 4, eighth, lyric You, verse 2 lyric bleibst. B 4, eighth, lyric are, verse 2 lyric ge-.
+Measure 18. B 4, dotted quarter, lyric free, verse 2 lyric -lass, Eighth rest. B 4, eighth, lyric You, verse 2 lyric bleibst. B 4, eighth, lyric are, verse 2 lyric ge-.
 Measure 19. Rehearsal mark 2. Dynamic: forte. D sharp 5, dotted eighth, lyric tied, verse 2 lyric -fes-. A sharp 4, sixteenth, lyric by, verse 2 lyric -selt. A natural 4, eighth, lyric the, verse 2 lyric am. D sharp 4, dotted eighth, lyric leg, verse 2 lyric Fuss. E sharp 4, sixteenth, lyric to, verse 2 lyric von. F sharp 4, eighth, lyric the, verse 2 lyric des.
 Measure 20. E sharp 4, quarter, lyric strings, verse 2 lyric Schick-. E sharp 4, eighth, lyric of, verse 2 lyric -sals. D sharp 5, dotted quarter, tied, lyric chance, verse 2 lyric Faust.
 Measure 21. D sharp 5, dotted quarter, tied from previous, tied. D sharp 5, eighth, tied from previous. Dynamic: piano. D sharp 5, eighth, lyric Yet, verse 2 lyric Und. D sharp 5, eighth, lyric you, verse 2 lyric du.
@@ -33,13 +33,13 @@ Measure 23. D sharp 5, dotted half, tied, lyric flea, verse 2 lyric Glas.
 Measure 24. D sharp 5, dotted quarter, tied from previous. Quarter rest. Eighth rest.
 Measure 25. Quarter rest. Eighth rest. Dynamic: piano. D sharp 4, dotted quarter, lyric My, verse 2 lyric Schwer.
 Measure 26. Rehearsal mark 3. E 4, quarter, lyric chain, verse 2 lyric drückt. E 4, eighth, lyric is, verse 2 lyric die. E 4, dotted eighth, lyric hea-, verse 2 lyric Ket-. E 4, sixteenth, lyric -vy,, verse 2 lyric -te. E 4, eighth, lyric my, verse 2 lyric mich.
-Measure 27. B 4, quarter, lyric cell, verse 2 lyric ar-. B 4, eighth, lyric is, verse 2 lyric -men. B 4, dotted quarter, tied, lyric dark, verse 2 lyric Wicht,.
+Measure 27. B 4, quarter, lyric cell, verse 2 lyric ar-. B 4, eighth, lyric is, verse 2 lyric -men. B 4, dotted quarter, tied, lyric dark, verse 2 lyric Wicht,
 Measure 28. B 4, quarter, tied from previous. Eighth rest. B 4, dotted quarter, accent, lyric I, verse 2 lyric dem.
 Measure 29. A 4, dotted eighth, lyric know, verse 2 lyric nim-. A 4, sixteenth, lyric I, verse 2 lyric -mer. A 4, eighth, lyric can, verse 2 lyric die. Crescendo begins. A 4, eighth, lyric ne-, verse 2 lyric Frei-. A 4, eighth, lyric -ver. A 4, eighth, lyric be, verse 2 lyric -heit.
-Measure 30. F sharp 4, dotted half, tied, lyric free, verse 2 lyric lacht,.
+Measure 30. F sharp 4, dotted half, tied, lyric free, verse 2 lyric lacht,
 Measure 31. F sharp 4, quarter, tied from previous. Crescendo ends. Eighth rest. Dynamic: pianissimo. B 3, quarter, lyric In, verse 2 lyric doch. B 3, eighth, lyric my, verse 2 lyric mein.
-Measure 32. Rehearsal mark 4. G sharp 4, dotted eighth, lyric heart,, verse 2 lyric Herz,. A 4, sixteenth, lyric in, verse 2 lyric o. B 4, eighth, lyric my, verse 2 lyric mein. A 4, dotted eighth, lyric heart, verse 2 lyric Herz. B 4, sixteenth, lyric there's, verse 2 lyric ist. C sharp 5, eighth, lyric a, verse 2 lyric ein.
-Measure 33. B 4, quarter, lyric dan-, verse 2 lyric tan-. A 4, eighth, lyric -cing, verse 2 lyric -zend. A 4, dotted quarter, tied, lyric spark, verse 2 lyric Licht,.
+Measure 32. Rehearsal mark 4. G sharp 4, dotted eighth, lyric heart,, verse 2 lyric Herz, A 4, sixteenth, lyric in, verse 2 lyric o. B 4, eighth, lyric my, verse 2 lyric mein. A 4, dotted eighth, lyric heart, verse 2 lyric Herz. B 4, sixteenth, lyric there's, verse 2 lyric ist. C sharp 5, eighth, lyric a, verse 2 lyric ein.
+Measure 33. B 4, quarter, lyric dan-, verse 2 lyric tan-. A 4, eighth, lyric -cing, verse 2 lyric -zend. A 4, dotted quarter, tied, lyric spark, verse 2 lyric Licht,
 Measure 34. A 4, quarter, tied from previous. Eighth rest. B 3, quarter, lyric And, verse 2 lyric und. B 3, eighth, lyric the, verse 2 lyric in.
 Measure 35. G sharp 4, quarter, lyric stars, verse 2 lyric Ster-. B 4, eighth, lyric make, verse 2 lyric -nen. A 4, dotted eighth, lyric mu-, verse 2 lyric singt. B 4, sixteenth, lyric -sic, verse 2 lyric mir. C sharp 5, eighth, lyric for, verse 2 lyric die.
 Measure 36. B 4, quarter, slur begins, lyric me, verse 2 lyric Nacht. A 4, eighth, tied. A 4, quarter, tied from previous, slur ends. Eighth rest.
@@ -48,19 +48,19 @@ Measure 38. D 5, dotted eighth, lyric muf-, verse 2 lyric lasst. D 5, sixteenth,
 Measure 39. G 4, sixteenth, lyric ri-. G 4, dotted eighth, lyric -vet. G 4, eighth, lyric my. C 5, dotted quarter, tied, lyric chains, verse 2 lyric Turm.
 Measure 40. Rehearsal mark 5. C 5, quarter, tied from previous. Dynamic: mezzo forte. A flat 4, eighth, lyric And, verse 2 lyric und. Crescendo begins. D flat 5, dotted eighth, lyric fet-, verse 2 lyric schmie-. D flat 5, sixteenth, lyric -ter, verse 2 lyric -det. D flat 5, eighth, lyric my, verse 2 lyric in. Crescendo ends.
 Measure 41. F natural 5, dotted quarter, accent, lyric feet, verse 2 lyric Ket-. C 5, quarter, accent, lyric and, verse 2 lyric -ten. C 5, eighth, lyric my, verse 2 lyric mich.
-Measure 42. E 5, dotted half, tied, accent, lyric hands, verse 2 lyric ganz,.
+Measure 42. E 5, dotted half, tied, accent, lyric hands, verse 2 lyric ganz,
 Measure 43. E 5, dotted quarter, tied from previous. Quarter rest. Dynamic: fortissimo. E 4, eighth, lyric My, verse 2 lyric die.
 Measure 44. E 5, dotted eighth, lyric soul, verse 2 lyric See-. E 5, sixteenth, lyric is, verse 2 lyric -le. E 5, eighth, lyric a, verse 2 lyric ist. D sharp 5, quarter, lyric horse, verse 2 lyric frei. D sharp 5, eighth, lyric of, verse 2 lyric und.
 Measure 45. D 5, dotted eighth, lyric foam, verse 2 lyric jagt. D 5, sixteenth, lyric with-, verse 2 lyric mit. C sharp 5, eighth, lyric -out, verse 2 lyric dem. F sharp 5, dotted quarter, tied, accent, lyric reins, verse 2 lyric Sturm.
 Measure 46. F sharp 5, quarter, tied from previous. Dynamic: piano. C sharp 5, eighth, lyric That, verse 2 lyric in. C sharp 5, dotted eighth, lyric dan-, verse 2 lyric se-. Crescendo begins. D sharp 5, sixteenth, lyric -ces, verse 2 lyric -li-. B 4, eighth, lyric on, verse 2 lyric -gen. Crescendo ends.
-Measure 47. Rehearsal mark 6. F sharp 5, quarter, lyric death-, verse 2 lyric Höhn,. F sharp 4, eighth, lyric -less, verse 2 lyric zum. B 4, dotted quarter, tied, lyric sands, verse 2 lyric Tanz,.
+Measure 47. Rehearsal mark 6. F sharp 5, quarter, lyric death-, verse 2 lyric Höhn, F sharp 4, eighth, lyric -less, verse 2 lyric zum. B 4, dotted quarter, tied, lyric sands, verse 2 lyric Tanz,
 Measure 48. Diminuendo begins. B 4, dotted half, tied from previous, tied.
 Measure 49. B 4, eighth, tied from previous. Diminuendo ends. Eighth rest. Dynamic: piano. E 4, eighth, lyric my, verse 2 lyric die. E 4, dotted eighth, lyric soul, verse 2 lyric See-. F sharp 4, sixteenth, lyric is, verse 2 lyric -le. G sharp 4, eighth, lyric a, verse 2 lyric ist.
 Measure 50. A 4, quarter, lyric horse, verse 2 lyric frei. D 5, eighth, lyric of, verse 2 lyric und. cresc. D 5, dotted quarter, tied, lyric foam, verse 2 lyric jagt.
 Measure 51. D 5, quarter, tied from previous. C sharp 5, eighth, lyric that, verse 2 lyric in. B 4, dotted eighth, lyric dan-, verse 2 lyric se-. A 4, sixteenth, lyric -ces, verse 2 lyric -li-. G sharp 4, eighth, lyric on, verse 2 lyric -gen.
-Measure 52. F sharp 5, dotted half, slur begins, lyric -death-, verse 2 lyric Höhn,.
+Measure 52. F sharp 5, dotted half, slur begins, lyric -death-, verse 2 lyric Höhn,
 Measure 53. G 5, dotted quarter, tied. G 5, quarter, tied from previous, slur ends. G 4, eighth, lyric -less, verse 2 lyric zum.
-Measure 54. Rehearsal mark 7. C 5, dotted half, tied, lyric sands, verse 2 lyric Tanz,.
+Measure 54. Rehearsal mark 7. C 5, dotted half, tied, lyric sands, verse 2 lyric Tanz,
 Measure 55. C 5, dotted quarter, tied from previous. Dynamic: mezzo forte. E flat 5, dotted quarter, lyric My, verse 2 lyric die.
 Measure 56. C 5, dotted eighth, lyric soul, verse 2 lyric See-. C 5, sixteenth, lyric is, verse 2 lyric -le. C 5, eighth, lyric a, verse 2 lyric ist. B flat 4, dotted quarter, tied, lyric horse, verse 2 lyric frei.
 Measure 57. B flat 4, quarter, tied from previous. A flat 4, eighth, lyric of, verse 2 lyric und. B flat 4, dotted eighth, lyric foam, verse 2 lyric jagt. A flat 4, sixteenth, lyric with-, verse 2 lyric in. B flat 4, eighth, lyric -out, verse 2 lyric se-.
@@ -68,15 +68,15 @@ Measure 58. C 5, dotted half, tied, lyric reins, verse 2 lyric -Sturm.
 Measure 59. C 5, dotted quarter, tied from previous. Eighth rest. Crescendo begins. E flat 4, eighth, slur begins, lyric that, verse 2 lyric in. C 5, eighth, slur ends. Crescendo ends.
 Measure 60. D flat 5, dotted quarter, slur begins, accent, lyric dan-, verse 2 lyric se-. C 5, dotted eighth, slur ends. A flat 4, sixteenth, lyric -ces, verse 2 lyric -li-. F natural 4, eighth, lyric on, verse 2 lyric -gen.
 Measure 61. A flat 4, dotted quarter, lyric death-, verse 2 lyric Höhn. B flat 4, dotted quarter, lyric -less, verse 2 lyric zum.
-Measure 62. Rehearsal mark 8. dim. C 5, dotted half, tied, lyric sands, verse 2 lyric Tanz,.
+Measure 62. Rehearsal mark 8. dim. C 5, dotted half, tied, lyric sands, verse 2 lyric Tanz,
 Measure 63. C 5, dotted half, tied from previous, tied. Double barline.
-Measure 64. C natural 5, eighth, tied from previous. Eighth rest. Dynamic: piano. B 4, eighth, lyric that, verse 2 lyric zum. E 5, dotted quarter, tied, slur begins, lyric dan-, verse 2 lyric Tanz,.
+Measure 64. C natural 5, eighth, tied from previous. Eighth rest. Dynamic: piano. B 4, eighth, lyric that, verse 2 lyric zum. E 5, dotted quarter, tied, slur begins, lyric dan-, verse 2 lyric Tanz,
 Measure 65. E 5, dotted eighth, tied from previous. C sharp 5, sixteenth. E 5, eighth. D sharp 5, dotted quarter, tied.
 Measure 66. D sharp 5, quarter, tied from previous, slur ends. B 4, eighth, lyric -ces, verse 2 lyric zum. D natural 5, dotted quarter, tied, slur begins, lyric dan-, verse 2 lyric Tan-.
 Measure 67. D natural 5, dotted quarter, tied from previous, tied. cresc. D natural 5, dotted eighth, tied from previous. B 4, sixteenth. D natural 5, eighth.
 Measure 68. C natural 5, dotted quarter, slur ends. F natural 4, quarter, lyric -ces, verse 2 lyric -ze. F natural 4, eighth, lyric on, verse 2 lyric in.
 Measure 69. B flat 4, dotted quarter, lyric death-, verse 2 lyric sel’-. B natural 4, dotted quarter, lyric -less, verse 2 lyric -gen.
-Measure 70. Rehearsal mark 9. Dynamic: forte. D sharp 5, dotted quarter, slur begins, accent, lyric sands, verse 2 lyric Höhn,. E 5, dotted quarter, tied.
+Measure 70. Rehearsal mark 9. Dynamic: forte. D sharp 5, dotted quarter, slur begins, accent, lyric sands, verse 2 lyric Höhn, E 5, dotted quarter, tied.
 Measure 71. E 5, eighth, tied from previous, slur ends. Eighth rest. Eighth rest. Quarter rest. Eighth rest.
 Measure 72. Quarter rest. Eighth rest. Dynamic: mezzo forte. D natural 5, dotted quarter, tied, slur begins, lyric dan-, verse 2 lyric Tan-.
 Measure 73. D natural 5, dotted quarter, tied from previous, tied. D natural 5, dotted eighth, tied from previous. B flat 4, sixteenth. D natural 5, eighth.
@@ -84,7 +84,7 @@ Measure 74. dim. C sharp 5, dotted quarter, tied. C sharp 5, dotted eighth, tied
 Measure 75. G natural 4, dotted quarter, slur ends. G natural 4, quarter, lyric -ces, verse 2 lyric -ze. Eighth rest.
 Measure 76. Quarter rest. Eighth rest. Dynamic: piano. G natural 4, dotted quarter, lyric on, verse 2 lyric in.
 Measure 77. Diminuendo begins. F natural 4, dotted quarter, lyric death-, verse 2 lyric sel’-. F natural 4, dotted quarter, lyric -less, verse 2 lyric -gen. Diminuendo ends.
-Measure 78. Rehearsal mark 10. Dynamic: pianissimo. E 4, dotted half, tied, lyric sands, verse 2 lyric Höhn,.
+Measure 78. Rehearsal mark 10. Dynamic: pianissimo. E 4, dotted half, tied, lyric sands, verse 2 lyric Höhn,
 Measure 79. E 4, dotted half, tied from previous.
 Measure 80. Whole measure rest.
 Measure 81. Quarter rest. Dynamic: piano. B 4, eighth, lyric my, verse 2 lyric die. B 4, dotted quarter, tied, lyric soul, verse 2 lyric See-.
@@ -94,7 +94,7 @@ Measure 84. B 4, dotted quarter, tied, lyric reins, verse 2 lyric -Sturm. B 4, q
 Measure 85. G natural 5, dotted quarter, slur begins, lyric dan-, verse 2 lyric Tan-. F sharp 5, dotted quarter, tied, slur ends.
 Measure 86. F sharp 5, quarter, tied from previous. E 5, eighth. D sharp 5, dotted eighth, inverted mordent. C sharp 5, sixteenth. B 4, eighth.
 Measure 87. E 5, dotted eighth, slur ends. Diminuendo begins. B 4, sixteenth, lyric -ces, verse 2 lyric -ze. A 4, eighth, lyric on, verse 2 lyric in. G sharp 4, quarter, lyric death-, verse 2 lyric sel’-. F sharp 4, eighth, lyric -less, verse 2 lyric -gen.
-Measure 88. E 4, dotted half, lyric sands, verse 2 lyric Höhn,. Diminuendo ends.
+Measure 88. E 4, dotted half, lyric sands, verse 2 lyric Höhn, Diminuendo ends.
 Measure 89. Rehearsal mark 11. Whole measure rest.
 Measure 90. Quarter rest. Dynamic: piano. Crescendo begins. F natural 4, eighth, lyric Oh, verse 2 lyric O. F natural 4, dotted eighth, lyric muf-, verse 2 lyric lasst. F natural 4, sixteenth, lyric -fle, verse 2 lyric mich. F natural 4, eighth, lyric my, verse 2 lyric er-. Crescendo ends.
 Measure 91. F sharp 4, dotted half, accent, lyric cell, verse 2 lyric -stickt.

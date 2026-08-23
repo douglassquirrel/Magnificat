@@ -30,7 +30,11 @@ public enum Direction: Sendable, Equatable {
     /// direction carry the spacing that holds them apart, and trimming them
     /// before joining ran "Langsam (" into " ca 48)".
     var spokenText: String {
-        Self.tidied(rawSpokenText)
+        // The "Tempo:" prefix introduces a metronome standing on its own. Inside
+        // a larger marking the words already say it is a tempo, and the prefix
+        // gave "Allegro tranquilo Tempo: half note equals 96".
+        if case .metronome = self { return "Tempo: " + Self.tidied(rawSpokenText) }
+        return Self.tidied(rawSpokenText)
     }
 
     /// Whether two fragments of a compound marking need a space between them.
@@ -75,7 +79,7 @@ public enum Direction: Sendable, Equatable {
         case .metronome(let unit, let dots, let perMinute):
             let dotted = dots == 1 ? "dotted " : dots == 2 ? "double dotted " : ""
             guard !perMinute.isEmpty else { return "\(dotted)\(unit) note" }
-            return "Tempo: \(dotted)\(unit) note equals \(perMinute)"
+            return "\(dotted)\(unit) note equals \(perMinute)"
         case .compound(let directions):
             // Fragments of one marking. Separating them with a full stop turned
             // "Langsam (quarter note ca 48)" into "Langsam (. ca 48)"; joining
