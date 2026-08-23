@@ -2,61 +2,37 @@
 
 The running record of how this library got built. `CLAUDE.md` §Diary governs this file.
 
-**If you are picking this up cold:** read `## Where things stand` immediately below, then
-`SPEC.md`. The `## Log` further down is history — read it when you need to know *why*
-something is the way it is, not to find out where the work is.
-
----
-
-## Where things stand
+**If you are picking this up cold:** read `## Where things stand
 
 *Rewritten in place every session. Last updated 23 August 2026.*
 
-**No library code exists yet, deliberately.** The specification phase is complete and
-`SPEC.md` is settled; the next action is the first red-green cycle.
+**Building. 26 tests, all green.** The renderer's value layer is done; the parser has not
+been started.
 
 | | |
 | --- | --- |
-| `SPEC.md` | **Settled**, no open questions. §14 is a decision log of every decision and where it lives. |
-| `CLAUDE.md` | Build guide, written by the user. Amended once: the diary rule (§Diary). |
-| Fixtures | **31 MusicXML files** in `Tests/MagnificatTests/Fixtures/`, all well-formed, all parse. |
-| `docs/validation-experiment.md` | The one experiment run so far. Settled `SPEC.md` §6.15. |
-| Swift package | **Not created.** No `Package.swift`, no `Sources/`, no tests. |
-| Build / test | Nothing to run yet. |
-
-**Toolchain on this machine:** Swift 6.3.3, Xcode 26.5 with iOS 26.5 and macOS 26.5 SDKs.
-Swift 6 means the suite uses **Swift Testing** (`import Testing`, `@Test`, `#expect`), per
-`CLAUDE.md` §Testing. Note that KunstDerFuge's `HANDOVER.md` says this machine has no Xcode —
-that was true when it was written and is **no longer true**.
+| `SPEC.md` | Settled. §14 is a decision log. |
+| Package | `swift build` and `swift test` both clean. Swift Testing, no dependencies. |
+| Built | `Pitch`, `Step`, `KeySignature`, `AccidentalContext`, `AccidentalStyle`, `Accidental`, `NoteType`, `Tuplet`, `Duration`. |
+| Tested | 26 tests: pitch spelling (§6.2), key signatures, accidental state, durations (§6.3). |
+| **Not built** | **The parser.** No XML is read yet. Also: rests, chords, events, measures, directions, notations, lyrics, heading, layout, anomalies, CLI, README, goldens. |
 
 ### Next step
 
-Create the SwiftPM skeleton, then begin the TDD loop at **note naming and accidental state**
-(`SPEC.md` §6.2). That is deliberately first: it is where the subtle, plausible-looking
-wrongness lives — key signature plus measure-local accidentals, cancelled at the barline,
-shared across voices and staves of a part, and surviving a tie across a barline. Everything
-else in the renderer is easier and can lean on it.
+**The parser.** Everything so far renders hand-built values, which is the deliberate two-layer
+split in `SPEC.md` §4 — but nothing yet proves a `<pitch>` element reaches `Pitch` correctly.
+Three kinds of parser test, in this order:
 
-Suggested order after that: durations (§6.3) → rests (§6.4) → chords (§6.5) → the event stream
-and `<backup>`/`<forward>` (§6.6) → measures and barlines (§6.12) → directions (§6.9) →
-notations (§6.10) → lyrics (§6.11) → heading (§6.13) → layout and density (§6.7, §6.8) →
-anomalies (§6.15) → CLI → README.
+1. **Small complete MusicXML documents inline in the test.** Not fragments — a fragment does
+   not parse — but minimal `score-partwise` documents of a few lines, each provoking one thing:
+   a missing `<voice>`, a `<backup>`, a note with no `<type>`, malformed input.
+2. **Integration tests over the 31 real fixtures**, where assumptions about real-world MusicXML
+   get falsified.
+3. **Golden transcripts** (§7.7), once there is a transcript to golden.
 
-### Known traps, all paid for already — do not rediscover these
-
-- **`XMLDocument` does not exist on iOS.** Use `XMLParser` (SAX), which is in Foundation
-  everywhere. Reaching for the DOM API compiles on the Mac and breaks the iOS build.
-- **Machine-generated MusicXML is nothing like the hand-made kind.** Part names are usually
-  blank, part IDs are 32-character hashes, a piano grand staff arrives as two separate
-  one-staff parts, and most notes carry no `<staff>` and no `<voice>`. Both defaults are 1.
-  See `Tests/MagnificatTests/Fixtures/README.md`.
-- **8 of the 19 machine files have no DOCTYPE.** A DOCTYPE is optional; the root element
-  decides. Do not require one.
-- **Do not add schema validation.** It was measured and set aside — `SPEC.md` §6.15 and
-  `docs/validation-experiment.md`. It passes five of seven musical corruptions.
-- **Never resolve external entities.** A MusicXML DOCTYPE points at `musicxml.org`, and a
-  resolver will fetch it. That would be a silent network request in a library that promises
-  never to make one.
+Then: rests (§6.4) → chords (§6.5) → event stream and backup/forward (§6.6) → measures and
+barlines (§6.12) → directions (§6.9) → notations (§6.10) → lyrics (§6.11) → heading (§6.13) →
+layout and density (§6.7, §6.8) → anomalies (§6.15) → CLI → README.
 
 ---
 
@@ -220,3 +196,58 @@ every measure carrying an anomaly. Review state is recorded in
 
 **State.** `SPEC.md` settled at 800 lines with no open questions. `CLAUDE.md` amended with the
 diary rule. This file created. **Still no code — the user is reading the spec first.**
+
+---
+
+### 23 August 2026 — Pitch spelling and accidental state (§6.2)
+
+**Goal.** The first behaviour, chosen because it is where plausible-looking wrongness lives.
+
+**Cycles.** Eight, each red before green: bare letter and octave; single accidentals; double
+accidentals; key-signature alteration; the natural rule; measure-local accidental state;
+barline cancellation; the `.asPrinted` style.
+
+**Decision / surprise — this one changed the design.** Before writing the accidental machinery
+I checked what `<alter>` actually means in the fixtures: **7,451 altered notes, and not one
+case of a non-natural printed accidental without an `<alter>`**. MusicXML's `<alter>` is the
+*sounding* alteration, already resolved by the exporter; `<accidental>` is only the printed
+symbol. So `.sounding` reads `<alter>` directly and needs no key-signature arithmetic to spell
+a pitch.
+
+The key signature is still needed, but for a narrower job than `SPEC.md` §6.2 implies: deciding
+when the word `natural` is worth saying. A bare letter has to mean "unaltered, and nothing in
+force would have altered it", so `A` in A flat major must be `A natural 4` while `C` in the
+same key is just `C 5` — which is exactly what §7.1, verified against the file, expects.
+
+**Also worth keeping.** The octave-scoping test passed the moment it was written, because
+nothing was recorded yet. Rather than delete it or shrug, it was mutation-checked: keying
+accidentals on step alone makes it fail with `"C natural 5" == "C 5"`. It does guard what it
+claims to. Vacuous-on-arrival tests are worth this check rather than a note.
+
+**State.** 15 tests green.
+
+---
+
+### 23 August 2026 — Durations (§6.3)
+
+**Goal.** Name a note value in American terms, with dots, tuplets, and inference.
+
+**Cycles.** Four: type names; dots; tuplets; inference from divisions.
+
+**Decision / surprise.** Each rule was checked against the corpus first rather than designed
+from the spec alone, and each check changed something:
+
+- **Dots reach two, never three** (1,267 single, 2 double, 18,428 plain). Three dots is legal
+  MusicXML though, so it is named `half with 3 dots` rather than silently dropped.
+- **Tuplet ratios are 3:2, 6:4, 4:6, 2:1 and 2:3.** So 6:4 must be `sextuplet`, not `triplet` —
+  reducing the ratio first would have named it wrongly. Named: duplet, triplet, quintuplet,
+  sextuplet. Everything else takes the ratio form, including 7:4, following §6.3's own example.
+- **music21 emits `<time-modification>` of 1:1** — a modification that modifies nothing.
+  Speaking "1 in the time of 1" would be noise, so a trivial ratio is ignored.
+- Inference is done in **exact integer arithmetic**, never floating point, and tries longest
+  value first so a length is named by the largest note that fits it rather than by an
+  equivalent with more dots. Where nothing fits exactly it says `duration 5 divisions` rather
+  than guessing, as §6.3 requires. `perQuarter: 0` is guarded — dividing by a `<divisions>` of
+  zero would crash on a file that could plausibly exist.
+
+**State.** 26 tests green. Parser next.
