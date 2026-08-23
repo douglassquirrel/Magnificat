@@ -18,6 +18,9 @@ public struct Note: Sendable, Equatable {
     /// The accidental the score prints, which is independent of `pitch.alter`:
     /// a note may sound flat with nothing printed. See `SPEC.md` §6.2.
     public var printedAccidental: Accidental?
+    /// Where this note starts, in divisions from the start of the measure.
+    /// Resolved from `<backup>` and `<forward>` while parsing.
+    public var onset: Int = 0
 }
 
 /// A silence.
@@ -30,12 +33,40 @@ public struct Rest: Sendable, Equatable {
     public var voice: Int = 1
     /// The staff this rest is written on. Defaults to 1.
     public var staff: Int = 1
+    /// Where this rest starts, in divisions from the start of the measure.
+    public var onset: Int = 0
 }
 
 /// One thing that happens in a measure, in reading order.
 public enum MusicalEvent: Sendable, Equatable {
     case note(Note)
     case rest(Rest)
+}
+
+extension MusicalEvent {
+    /// Where this event starts, in divisions from the start of the measure.
+    public var onset: Int {
+        switch self {
+        case .note(let note): return note.onset
+        case .rest(let rest): return rest.onset
+        }
+    }
+
+    /// The voice this event belongs to.
+    public var voice: Int {
+        switch self {
+        case .note(let note): return note.voice
+        case .rest(let rest): return rest.voice
+        }
+    }
+
+    /// The staff this event is written on.
+    public var staff: Int {
+        switch self {
+        case .note(let note): return note.staff
+        case .rest(let rest): return rest.staff
+        }
+    }
 }
 
 /// A time signature. A score may have none at all — the Parry in the fixtures

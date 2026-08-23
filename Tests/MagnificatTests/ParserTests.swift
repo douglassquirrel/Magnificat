@@ -195,3 +195,62 @@ func measureXML(_ body: String, number: String = "1", divisions: Int = 4) -> Str
     #expect(measures[0].isPickup)
     #expect(measures[1].isPickup == false)
 }
+
+// SPEC.md §6.6 — <backup> and <forward> are resolved during parsing and never
+// appear in the output; their only job is to place events at the right time.
+// This is the mechanism a piano grand staff is written with.
+
+@Test func backupReturnsTheCursorSoASecondVoiceStartsWhereTheFirstDid() throws {
+    let xml = scoreXML(parts: measureXML("""
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration>
+        <type>quarter</type><voice>1</voice><staff>1</staff></note>
+      <note><pitch><step>D</step><octave>5</octave></pitch><duration>4</duration>
+        <type>quarter</type><voice>1</voice><staff>1</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>8</duration>
+        <type>half</type><voice>5</voice><staff>2</staff></note>
+    """))
+    let events = try #require(Score(musicXML: xml).parts.first?.measures.first?.events)
+    #expect(events.count == 3, "backup must not become an event of its own")
+    let onsets = events.map(\.onset)
+    #expect(onsets == [0, 4, 0])
+}
+
+@Test func chordMembersShareTheOnsetOfTheNoteTheySoundWith() throws {
+    let xml = scoreXML(parts: measureXML("""
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>4</duration>
+        <type>quarter</type></note>
+      <note><chord/><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration>
+        <type>quarter</type></note>
+      <note><pitch><step>B</step><octave>4</octave></pitch><duration>4</duration>
+        <type>quarter</type></note>
+    """))
+    let events = try #require(Score(musicXML: xml).parts.first?.measures.first?.events)
+    #expect(events.map(\.onset) == [0, 0, 4])
+}
+
+@Test func forwardSkipsTimeWithoutProducingAnEvent() throws {
+    let xml = scoreXML(parts: measureXML("""
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>4</duration>
+        <type>quarter</type></note>
+      <forward><duration>4</duration></forward>
+      <note><pitch><step>B</step><octave>4</octave></pitch><duration>4</duration>
+        <type>quarter</type></note>
+    """))
+    let events = try #require(Score(musicXML: xml).parts.first?.measures.first?.events)
+    #expect(events.count == 2)
+    #expect(events.map(\.onset) == [0, 8])
+}
+
+@Test func graceNotesDoNotAdvanceTheCursor() throws {
+    // A grace note is ornamental and carries no duration; letting it advance the
+    // cursor would push every following note out of place.
+    let xml = scoreXML(parts: measureXML("""
+      <note><grace/><pitch><step>B</step><octave>4</octave></pitch>
+        <type>eighth</type></note>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>4</duration>
+        <type>quarter</type></note>
+    """))
+    let events = try #require(Score(musicXML: xml).parts.first?.measures.first?.events)
+    #expect(events.map(\.onset) == [0, 0])
+}

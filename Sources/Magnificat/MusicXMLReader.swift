@@ -69,6 +69,12 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
     private var measureIsPickup = false
     private var attributes = MeasureAttributes()
     private var events: [MusicalEvent] = []
+    /// Position within the measure, in divisions. `<backup>` moves it back so a
+    /// second voice can start where the first did; `<forward>` skips a gap.
+    private var cursor = 0
+    /// Where the previous non-chord event started, so chord members can share it.
+    private var lastOnset = 0
+    private var shiftDuration: Int?
     private var keyFifths: Int?
     private var keyMode: String?
     private var timeBeats: Int?
@@ -122,6 +128,10 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             measureIsPickup = attributes["implicit"] == "yes"
             self.attributes = MeasureAttributes()
             events = []
+            cursor = 0
+            lastOnset = 0
+        case "backup", "forward":
+            shiftDuration = nil
         case "attributes":
             keyFifths = nil
             keyMode = nil
@@ -182,7 +192,18 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             }
             noteOctave = octave
         case "duration":
-            noteDuration = Int(value)
+            // <duration> appears inside <note>, <backup> and <forward> alike.
+            if elements.dropLast().last == "backup" || elements.dropLast().last == "forward" {
+                shiftDuration = Int(value)
+            } else {
+                noteDuration = Int(value)
+            }
+        case "backup":
+            cursor = max(0, cursor - (shiftDuration ?? 0))
+            shiftDuration = nil
+        case "forward":
+            cursor += shiftDuration ?? 0
+            shiftDuration = nil
         case "type":
             noteType = NoteType(musicXML: value)
         case "voice":
@@ -261,6 +282,14 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
     }
 
     private func appendNote() {
+        // A chord member sounds with the note before it, so it shares that onset
+        // and does not advance the cursor. A grace note has no duration at all.
+        let onset = noteIsChordMember ? lastOnset : cursor
+        if !noteIsChordMember && !noteIsGrace {
+            lastOnset = cursor
+            cursor += noteDuration ?? 0
+        }
+
         var tuplet: Tuplet?
         if let actual = tupletActual, let normal = tupletNormal {
             tuplet = Tuplet(actual: actual, normal: normal)
@@ -270,7 +299,8 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
         if noteIsRest {
             events.append(.rest(Rest(duration: duration,
                                      isWholeMeasure: noteIsWholeMeasureRest,
-                                     voice: noteVoice, staff: noteStaff)))
+                                     voice: noteVoice, staff: noteStaff,
+                                     onset: onset)))
             return
         }
         guard let step = noteStep, let octave = noteOctave else { return }
@@ -278,6 +308,6 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             pitch: Pitch(step: step, alter: noteAlter, octave: octave),
             duration: duration, voice: noteVoice, staff: noteStaff,
             isChordMember: noteIsChordMember, isGrace: noteIsGrace,
-            printedAccidental: notePrintedAccidental)))
+            printedAccidental: notePrintedAccidental, onset: onset)))
     }
 }

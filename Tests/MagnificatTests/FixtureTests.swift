@@ -103,3 +103,31 @@ func openScoreManifest() throws -> [ManifestEntry] {
         }
     }
 }
+
+@Test func backupPlacesBothHandsOfARealGrandStaffAtTheStartOfTheMeasure() throws {
+    // Verifies on real data what the synthetic backup test verifies synthetically.
+    // Without <backup> handling the left hand would start after the right hand
+    // ended, rather than alongside it.
+    let score = try Score(musicXML: Fixture.named("mayer-1-du-bist-wie-eine-blume.musicxml"))
+    let piano = try #require(score.parts.last)
+    let measure = try #require(piano.measures.first)
+
+    let rightHand = measure.events.filter { $0.staff == 1 }
+    let leftHand = measure.events.filter { $0.staff == 2 }
+    #expect(!rightHand.isEmpty)
+    #expect(!leftHand.isEmpty)
+    #expect(rightHand.first?.onset == 0)
+    #expect(leftHand.first?.onset == 0, "the left hand must start with the right, not after it")
+}
+
+@Test func everyEventOnsetStaysInsideItsMeasure() throws {
+    // A negative onset would mean a backup ran past the start of the measure.
+    for (name, data) in Fixture.all {
+        let score = try Score(musicXML: data)
+        for part in score.parts {
+            for measure in part.measures where measure.events.contains(where: { $0.onset < 0 }) {
+                Issue.record("\(name) part \(part.id) measure \(measure.number) has a negative onset")
+            }
+        }
+    }
+}
