@@ -500,8 +500,17 @@ validation catches."* (`../KunstDerFuge/docs/prototype-results.md`).
 **What Magnificat does instead** — musical coherence checks, which the schema cannot express
 and which map directly onto what a reader would be misled by:
 
-- Each measure's voices are checked against the prevailing time signature, and a measure whose
-  durations do not add up is reported.
+- Each measure's voices are checked against the prevailing time signature, and a measure
+  holding **more** than its meter allows is reported. **Short measures are not reported** —
+  corrected 23 August 2026 after the check fired on correct music. A short bar is routine: a
+  pickup, the bar before a repeat, the bar closing a first ending. The Davies holds 12
+  divisions in bar 6 and 4 in bar 7, which sum to a full bar across a repeat barline. Telling
+  a legitimate short bar from a defective one needs the repeat structure modelled, which is
+  out of scope, and an anomaly that fires on correct music trains a reader to ignore
+  anomalies. An overfull bar is unambiguous, so that is what is reported.
+- The check measures **where a voice ends**, not the sum of its durations: `<forward>` skips
+  time without producing an event, so a voice that rests by skipping rather than by writing
+  rests would look short if durations were simply added up.
 - `<staff>` and `<voice>` references outside the part's declared staves are reported.
 - A `<duration>` that contradicts its `<type>` under the prevailing `<divisions>` is reported.
 - A `<backup>` that would move before the start of the measure is reported.

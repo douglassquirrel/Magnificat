@@ -24,9 +24,16 @@ struct Renderer {
     }
 
     func render(_ score: Score) -> Transcript {
+        let anomalies = score.coherenceAnomalies()
         switch options.layout {
-        case .byPart: return Transcript(lines: heading(for: score) + byPart(score))
-        case .byMeasure: return Transcript(lines: heading(for: score) + byMeasure(score))
+        case .byPart:
+            return Transcript(lines: heading(for: score) + byPart(score),
+                              anomalies: anomalies)
+        case .byMeasure:
+            var missing: [Anomaly] = []
+            let lines = byMeasure(score, missing: &missing)
+            return Transcript(lines: heading(for: score) + lines,
+                              anomalies: anomalies + missing)
         }
     }
 
@@ -60,7 +67,7 @@ struct Renderer {
     ///
     /// Every line names its stream, because a reader stepping through cannot
     /// otherwise tell whose line they are on. See `SPEC.md` §6.7.
-    private func byMeasure(_ score: Score) -> [TranscriptLine] {
+    private func byMeasure(_ score: Score, missing: inout [Anomaly]) -> [TranscriptLine] {
         // Render each stream once, then interleave what came out.
         var rendered: [(part: Part, stream: Stream, byNumber: [String: [TranscriptLine]])] = []
         var order: [String] = []
@@ -90,6 +97,10 @@ struct Renderer {
                     lines.append(TranscriptLine(
                         text: "\(entry.stream.label) has no measure \(number).",
                         kind: .measure, partID: entry.part.id, measureNumber: number))
+                    missing.append(Anomaly(
+                        kind: .missingMeasureInPart, partID: entry.part.id,
+                        measureNumber: number,
+                        detail: "\(entry.stream.label) has no measure \(number)"))
                     continue
                 }
                 for line in measureLines {

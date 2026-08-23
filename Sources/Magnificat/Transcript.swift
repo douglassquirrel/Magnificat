@@ -64,9 +64,13 @@ public struct TranscriptLine: Sendable, Equatable {
 public struct Transcript: Sendable, Equatable {
     /// The lines, in reading order.
     public var lines: [TranscriptLine]
+    /// Musical incoherence found while rendering. Never fatal; empty for a clean
+    /// file. See `SPEC.md` §6.15.
+    public var anomalies: [Anomaly]
 
-    public init(lines: [TranscriptLine]) {
+    public init(lines: [TranscriptLine], anomalies: [Anomaly] = []) {
         self.lines = lines
+        self.anomalies = anomalies
     }
 
     /// The transcript as plain text: lines joined with `\n`, one trailing newline,
