@@ -4,35 +4,40 @@ The running record of how this library got built. `CLAUDE.md` §Diary governs th
 
 **If you are picking this up cold:** read `## Where things stand
 
-*Rewritten in place every session. Last updated 23 August 2026.*
+*Rewritten in place every session. Last updated 24 August 2026.*
 
-**Building. 26 tests, all green.** The renderer's value layer is done; the parser has not
-been started.
+**The library is built and complete.** 196 tests, all green. `swift build`,
+`swift test --enable-code-coverage` and `swift run MagnificatCLI --help` all succeed.
 
 | | |
 | --- | --- |
-| `SPEC.md` | Settled. §14 is a decision log. |
-| Package | `swift build` and `swift test` both clean. Swift Testing, no dependencies. |
-| Built | `Pitch`, `Step`, `KeySignature`, `AccidentalContext`, `AccidentalStyle`, `Accidental`, `NoteType`, `Tuplet`, `Duration`. |
-| Tested | 26 tests: pitch spelling (§6.2), key signatures, accidental state, durations (§6.3). |
-| **Not built** | **The parser.** No XML is read yet. Also: rests, chords, events, measures, directions, notations, lyrics, heading, layout, anomalies, CLI, README, goldens. |
+| `SPEC.md` | Settled. §14 is a decision log. Amended five times while building — each amendment says why, in place. |
+| Library | `Sources/Magnificat/`, Foundation only. Verified to compile for `arm64-apple-ios16.0`, the iOS simulator, and macOS. |
+| CLI | `Sources/MagnificatCLI/`. Every flag in `SPEC.md` §12, distinct exit codes, 18 tests. |
+| Tests | **196**, four layers: units, parser tests on complete inline documents, integration over 31 real files, and 49 goldens plus invariants. |
+| Coverage | **98.2% of lines**, 93.1% of regions. `CLAUDE.md` asks for ≥90%. |
+| `README.md` | Complete. Every Swift snippet is also a test, verbatim, so it cannot rot. |
+| Goldens | 49, all reviewed. `Tests/MagnificatTests/Golden/README.md` records the depth of each. |
 
-### Next step
+### What is not done
 
-**The parser.** Everything so far renders hand-built values, which is the deliberate two-layer
-split in `SPEC.md` §4 — but nothing yet proves a `<pitch>` element reaches `Pitch` correctly.
-Three kinds of parser test, in this order:
+- **No blind or low-vision musician has read a word of the output.** Everything has been
+  checked by eye — the one sense the output exists not to need. This is the most valuable
+  review remaining and nothing substitutes for it.
+- **Key naming asserts a mode the file did not state.** `SPEC.md` §6.13 gives the major name
+  when `<mode>` is absent, so the Brahms — in E minor — reads `Key: G major, 1 sharp`, and the
+  atonal Webern reads `Key: C major, no sharps or flats`. The count is right and the name is a
+  guess. Naming the altered notes instead (`Key: 4 flats: B flat, E flat, A flat, D flat`)
+  would assert nothing and tell a player more, but it changes §7.5 and every golden, so it is
+  the user's call rather than a fix to slip in.
+- **`transcribe()` has no streaming form.** The largest fixture renders in well under a second,
+  so nothing yet needs one.
 
-1. **Small complete MusicXML documents inline in the test.** Not fragments — a fragment does
-   not parse — but minimal `score-partwise` documents of a few lines, each provoking one thing:
-   a missing `<voice>`, a `<backup>`, a note with no `<type>`, malformed input.
-2. **Integration tests over the 31 real fixtures**, where assumptions about real-world MusicXML
-   get falsified.
-3. **Golden transcripts** (§7.7), once there is a transcript to golden.
+### Where to start reading the code
 
-Then: rests (§6.4) → chords (§6.5) → event stream and backup/forward (§6.6) → measures and
-barlines (§6.12) → directions (§6.9) → notations (§6.10) → lyrics (§6.11) → heading (§6.13) →
-layout and density (§6.7, §6.8) → anomalies (§6.15) → CLI → README.
+`Sources/Magnificat/AccidentalContext.swift` and `Renderer.swift` hold the subtlety. The
+parser is long but flat. `Coherence.swift` is where the anomaly checks live, and its comments
+record which real file falsified each earlier version of them.
 
 ---
 
@@ -251,3 +256,122 @@ from the spec alone, and each check changed something:
   zero would crash on a file that could plausibly exist.
 
 **State.** 26 tests green. Parser next.
+
+---
+
+### 23 August 2026 — The parser, and a cross-check that cannot flatter itself
+
+**Goal.** Read MusicXML into the score model.
+
+**Cycles.** Five, plus the error cases. Tested three ways, as promised to the user when they
+asked — mid-work — whether the tests were exercising any parsing at all. They were not, at
+that point: the first fifteen tests ran on hand-built values. The answer was to say so
+plainly and to name the three layers that were coming.
+
+**Decision / surprise.** The strongest test available turned out to be OpenScore's own
+`manifest.json`, which records note and measure counts **computed independently of this
+library**. A golden that this library generates can drift to match a bug; that manifest
+cannot. All twelve agree exactly.
+
+Getting them to agree is what found grace notes: the manifest counts pitched notes and
+excludes graces, and matching it required parsing `<grace/>` — which the model needed anyway,
+since a grace note carries no duration and must stay out of the timing arithmetic.
+
+**State.** 42 tests green.
+
+---
+
+### 23 August 2026 — Rendering, and a spec violation I introduced myself
+
+**Goal.** Measures, chords, streams, layouts, densities, directions, notations, lyrics.
+
+**Decision / surprise — the one worth remembering.** Splitting a part into streams broke
+`SPEC.md` §6.2 without breaking a single test. An accidental is in force across every voice
+and staff of a part until the barline, but streams render one after another, so accidental
+state that follows the rendering order never reaches the other hand: a C sharp in the right
+hand left a C in the left reading `C 4` instead of `C natural 4`. Pitch names are now settled
+for the whole part, measure by measure across all voices, before any stream is rendered.
+
+The red test is two notes. It is the kind of defect this library exists to prevent — a
+confident, plausible, wrong instruction to somebody who cannot check it — and no unit test
+would have caught it, because every unit was right.
+
+**Also found by tests.** Giving directions a synthetic voice number invented a phantom stream
+carrying nothing but directions. And a stream emitted a bare `Measure 4.` for every measure it
+was silent in — the Mayer's vocal line has a second voice with seven notes across 32 measures,
+so the transcript filled with lines that said nothing. `SPEC.md` §6.6 gained that rule.
+
+**State.** With those fixed, `SPEC.md` §7.1 to §7.5 render verbatim from the real file. They
+were written and hand-verified against the XML before any renderer existed, so they are ground
+truth for the whole pipeline rather than a restatement of what the code does.
+
+---
+
+### 23 August 2026 — Anomalies, and a check that fired on correct music
+
+**Goal.** The coherence checks that replace schema validation (§6.15).
+
+**Decision / surprise.** The first version reported any measure whose durations did not match
+its meter. It fired on the Davies — which is correct music. Bar 6 holds 12 divisions and bar 7
+holds 4, and they sum to a full bar across a repeat barline. Short bars are routine: a pickup,
+the bar before a repeat, the bar closing a first ending. Telling a legitimate one from a
+defective one needs the repeat structure modelled, which is out of scope.
+
+**An anomaly that fires on correct music trains a reader to ignore anomalies**, which is worse
+than not checking at all. Only overfull bars are reported now — those are unambiguous.
+
+A second version summed each voice's durations and still fired, because `<forward>` skips time
+without producing an event: a voice resting by skipping rather than by writing rests looked
+short. The check now measures where a voice *ends*.
+
+The assertion that found both was "no hand-made fixture reports anything". All twelve
+OpenScore files are silent; all 114 warnings across the corpus come from OMR output. The
+loudest, 95 of them, is a file that declares `divisions=4` and then writes bar 4 as though it
+were 8 — real incoherence, which the schema passes.
+
+**State.** 129 tests green.
+
+---
+
+### 23–24 August 2026 — Golden review, which found seven defects
+
+**Goal.** 49 goldens, and the review `SPEC.md` §7.7 requires before any of them is committed.
+
+**Decision / surprise.** This is the entry to read if you read only one. **Every one of these
+defects was in output that the entire unit suite passed**, and every one would have reached a
+reader who could not check it:
+
+1. The Webern's tempo is one `<direction>` split across three `<direction-type>` elements —
+   `"Langsam ("`, a metronome with an empty `<per-minute/>`, then `"ca 48)"`. Rendering them as
+   separate phrases gave `Langsam (. ca 48)` and dropped the metronome; joining them raw gave
+   `quarter noteca 48`, because the space between them was the glyph's own width.
+2. `poco rit.` rendered as `poco rit..`
+3. **A SMuFL music glyph inside `<words>`, and two more inside a `<lyric>` in the Satie** —
+   Private Use codepoints reaching the transcript as invisible characters. This is exactly the
+   failure §7.8's invariant test was written to catch, found in the wild on the second file
+   reviewed.
+4. The Parry printed `Voice` twice, because its vocal line has a second voice and the first
+   stream's label is the part name.
+5. `Allegro tranquilo Tempo: half note equals 96` — a prefix that only makes sense on a
+   metronome standing alone.
+6. A lyric carrying the poem's own comma got the renderer's full stop appended: `lyric -ne,.`,
+   across 247 lines. Found by scanning every golden for doubled punctuation rather than by
+   reading, which is worth doing before reading: it focuses the eye.
+7. Restricting to a measure range lost the key, meter and divisions, because MusicXML states
+   them once and leaves them standing. The heading said `No time signature`, and the accidental
+   rules lost the key they depend on. Found while capturing output for the README.
+
+**The invariant test itself had to be corrected.** It forbade smart quotes everywhere, and
+Bridge's lyrics spell *daffodils'* with a typographic apostrophe while Smyth's credit carries
+an en dash. Rewriting either would be editing what the file says. The deny-list is now split:
+music glyphs and zero-width characters are forbidden **everywhere**, typographic punctuation
+only in the words Magnificat itself writes. Provenance is checked structurally — every
+non-ASCII character in a transcript must appear in something the file supplied — rather than
+guessed from the line, because at per-measure density one line holds both.
+
+**Lesson, for whoever is next.** The unit tests were not wrong; they were complete for what
+they described. What they could not do is notice that the *whole* was odd — a doubled heading,
+an invisible character, a dangling parenthesis. Reading the output found seven things that
+1,000 assertions did not. Keep the review requirement.
+
+**State.** 196 tests green, 98.2% line coverage, README complete, CLI working.
