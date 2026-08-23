@@ -13,4 +13,8 @@ public enum TranscriptionError: Error, Equatable {
     case emptyScore
     /// An element carried a value that cannot mean anything.
     case invalidValue(element: String, value: String)
+    /// A part was asked for that the score does not have.
+    case unknownPart(String)
+    /// A measure range was asked for that lies outside the score.
+    case measureRangeOutOfBounds(requested: ClosedRange<Int>, available: ClosedRange<Int>)
 }
