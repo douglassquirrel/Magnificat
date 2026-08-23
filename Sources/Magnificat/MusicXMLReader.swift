@@ -103,6 +103,13 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
     private var metronomeDots = 0
     private var metronomePerMinute: String?
     private var pendingDirections: [Direction] = []
+    private var noteTie = TieState()
+    private var noteSlur = SlurState()
+    private var noteArticulations: [Articulation] = []
+    private var noteOrnaments: [Ornament] = []
+    private var noteIsArpeggiated = false
+    private var noteHasFermata = false
+    private var noteIsCue = false
     private var noteLyrics: [Lyric] = []
     private var lyricVerse = 1
     private var lyricText: String?
@@ -158,6 +165,33 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             noteIsChordMember = true
         case "grace":
             noteIsGrace = true
+        case "cue":
+            noteIsCue = true
+        case "tie", "tied":
+            switch attributes["type"] {
+            case "start": noteTie.starts = true
+            case "stop": noteTie.stops = true
+            default: break
+            }
+        case "slur":
+            switch attributes["type"] {
+            case "start": noteSlur.begins = true
+            case "stop": noteSlur.ends = true
+            default: break
+            }
+        case "arpeggiate":
+            noteIsArpeggiated = true
+        case "fermata":
+            noteHasFermata = true
+        case "staccato", "staccatissimo", "accent", "strong-accent", "tenuto",
+             "breath-mark":
+            if let articulation = Articulation(musicXML: name) {
+                noteArticulations.append(articulation)
+            }
+        case "trill-mark", "mordent", "inverted-mordent", "turn", "inverted-turn":
+            if let ornament = Ornament(musicXML: name) {
+                noteOrnaments.append(ornament)
+            }
         case "direction":
             pendingDirections = []
             directionStaff = nil
@@ -394,6 +428,13 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
         tupletActual = nil
         tupletNormal = nil
         noteLyrics = []
+        noteTie = TieState()
+        noteSlur = SlurState()
+        noteArticulations = []
+        noteOrnaments = []
+        noteIsArpeggiated = false
+        noteHasFermata = false
+        noteIsCue = false
         lyricText = nil
         lyricSyllabic = .single
     }
@@ -426,6 +467,9 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             duration: duration, voice: noteVoice, staff: noteStaff,
             isChordMember: noteIsChordMember, isGrace: noteIsGrace,
             printedAccidental: notePrintedAccidental, onset: onset,
-            lyrics: noteLyrics.sorted { $0.verse < $1.verse })))
+            lyrics: noteLyrics.sorted { $0.verse < $1.verse },
+            tie: noteTie, slur: noteSlur, articulations: noteArticulations,
+            ornaments: noteOrnaments, isArpeggiated: noteIsArpeggiated,
+            hasFermata: noteHasFermata, isCue: noteIsCue)))
     }
 }

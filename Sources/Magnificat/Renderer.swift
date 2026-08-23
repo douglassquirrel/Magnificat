@@ -301,9 +301,15 @@ struct Renderer {
             // The duration belongs to the chord as a whole; take it from the note
             // the file wrote first, which is the one that carries the timing.
             let duration = sounding[0].note.duration.spokenName
-            let head = names.count == 1
+            let lead = sounding[0].note
+            var head = names.count == 1
                 ? "\(names[0]), \(duration)"
                 : "Chord \(names.joined(separator: ", ")), \(duration)"
+            // Grace and cue notes are prefixed rather than suffixed: a reader
+            // needs to know what kind of note it is before hearing the pitch.
+            if lead.isGrace { head = "Grace note: " + head }
+            if lead.isCue { head = "Cue note: " + head }
+            head += Self.notationPhrase(for: lead, chord: sounding.map(\.note))
             // Lyrics belong to the note the file wrote first; a chord is sung on
             // one syllable, not one per note.
             return withLyrics ? head + Self.lyricPhrase(sounding[0].note.lyrics) : head
@@ -312,6 +318,22 @@ struct Renderer {
 }
 
 extension Renderer {
+    /// The notations attached to a note, in the fixed order `SPEC.md` §6.10 sets:
+    /// tie, slur, articulations, ornament, arpeggio, fermata.
+    static func notationPhrase(for note: Note, chord: [Note]) -> String {
+        var parts: [String] = []
+        if note.tie.stops { parts.append("tied from previous") }
+        if note.tie.starts { parts.append("tied") }
+        if note.slur.ends { parts.append("slur ends") }
+        if note.slur.begins { parts.append("slur begins") }
+        parts += note.articulations.map(\.spokenWord)
+        parts += note.ornaments.map(\.spokenWord)
+        // Any note of a chord may carry the arpeggio or fermata mark.
+        if chord.contains(where: \.isArpeggiated) { parts.append("arpeggiated") }
+        if chord.contains(where: \.hasFermata) { parts.append("fermata") }
+        return parts.map { ", " + $0 }.joined()
+    }
+
     /// The lyrics of a note, appended to its phrase. No quotation marks: many
     /// screen readers announce them. See `SPEC.md` §6.1 and §6.11.
     static func lyricPhrase(_ lyrics: [Lyric]) -> String {

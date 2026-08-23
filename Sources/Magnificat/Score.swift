@@ -23,6 +23,20 @@ public struct Note: Sendable, Equatable {
     public var onset: Int = 0
     /// The syllables sung on this note, one per verse, in verse order.
     public var lyrics: [Lyric] = []
+    /// Whether this note starts or continues a tie.
+    public var tie: TieState = TieState()
+    /// Whether a slur begins or ends here.
+    public var slur: SlurState = SlurState()
+    /// Articulations, in the order the file gives them.
+    public var articulations: [Articulation] = []
+    /// Ornaments, named and never realised into notes.
+    public var ornaments: [Ornament] = []
+    /// True when the chord is rolled rather than struck together.
+    public var isArpeggiated: Bool = false
+    /// True when the note is held under a fermata.
+    public var hasFermata: Bool = false
+    /// True for a cue note — an editorial cue, not part of this player's line.
+    public var isCue: Bool = false
 }
 
 /// A silence.
