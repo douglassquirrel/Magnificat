@@ -14,6 +14,19 @@ public enum AccidentalStyle: Sendable, Equatable {
 public enum Accidental: Sendable, Equatable {
     case flat, sharp, natural, doubleFlat, doubleSharp
 
+    /// Reads MusicXML's `<accidental>` spelling. Returns `nil` for values this
+    /// library does not name, which are skipped rather than refused.
+    init?(musicXML: String) {
+        switch musicXML {
+        case "flat": self = .flat
+        case "sharp": self = .sharp
+        case "natural": self = .natural
+        case "flat-flat", "double-flat": self = .doubleFlat
+        case "double-sharp", "sharp-sharp": self = .doubleSharp
+        default: return nil
+        }
+    }
+
     /// The accidental as an English word.
     var spokenWord: String {
         switch self {

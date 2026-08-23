@@ -1,0 +1,153 @@
+import Foundation
+import Testing
+@testable import Magnificat
+
+/// Wraps `body` in the smallest complete `score-partwise` document that parses.
+/// Complete, not a fragment — a fragment is not XML and would test nothing.
+func scoreXML(parts: String, partList: String? = nil) -> Data {
+    let list = partList ?? #"<score-part id="P1"><part-name>Voice</part-name></score-part>"#
+    return Data("""
+    <?xml version="1.0" encoding="UTF-8"?>
+    <score-partwise version="4.0">
+      <part-list>\(list)</part-list>
+      \(parts)
+    </score-partwise>
+    """.utf8)
+}
+
+/// A measure containing exactly `body`, with a divisions declaration.
+func measureXML(_ body: String, number: String = "1", divisions: Int = 4) -> String {
+    """
+    <part id="P1"><measure number="\(number)">
+      <attributes><divisions>\(divisions)</divisions></attributes>
+      \(body)
+    </measure></part>
+    """
+}
+
+@Test func readsThePartListIntoNamedParts() throws {
+    let score = try Score(musicXML: scoreXML(parts: measureXML("")))
+    #expect(score.parts.count == 1)
+    #expect(score.parts.first?.id == "P1")
+    #expect(score.parts.first?.name == "Voice")
+}
+
+@Test func readsAPitchedNote() throws {
+    let xml = scoreXML(parts: measureXML("""
+      <note><pitch><step>C</step><octave>4</octave></pitch>
+        <duration>4</duration><type>whole</type></note>
+    """))
+    let score = try Score(musicXML: xml)
+    let events = try #require(score.parts.first?.measures.first?.events)
+    #expect(events.count == 1)
+    guard case .note(let note) = events[0] else {
+        Issue.record("expected a note, got \(events[0])")
+        return
+    }
+    #expect(note.pitch == Pitch(step: .c, alter: 0, octave: 4))
+    #expect(note.duration.type == .whole)
+    #expect(note.duration.divisions == 4)
+}
+
+@Test func readsARestAsARestRatherThanANote() throws {
+    let xml = scoreXML(parts: measureXML("""
+      <note><rest/><duration>2</duration><type>half</type></note>
+    """))
+    let events = try #require(Score(musicXML: xml).parts.first?.measures.first?.events)
+    guard case .rest(let rest) = events.first else {
+        Issue.record("expected a rest, got \(String(describing: events.first))")
+        return
+    }
+    #expect(rest.duration.type == .half)
+    #expect(rest.isWholeMeasure == false)
+}
+
+@Test func readsAWholeMeasureRest() throws {
+    // <rest measure="yes"/> means "a bar's rest", whatever the time signature.
+    let xml = scoreXML(parts: measureXML("""
+      <note><rest measure="yes"/><duration>16</duration></note>
+    """))
+    let events = try #require(Score(musicXML: xml).parts.first?.measures.first?.events)
+    guard case .rest(let rest) = events.first else {
+        Issue.record("expected a rest")
+        return
+    }
+    #expect(rest.isWholeMeasure)
+}
+
+// SPEC.md §6.6 — <voice> and <staff> are optional in practice. In the OMR fixtures
+// 3,317 of 6,494 notes carry no <voice> and 6,170 carry no <staff>; a parser that
+// required either would reject most real machine output.
+
+@Test func readsVoiceAndStaffWhenGiven() throws {
+    let xml = scoreXML(parts: measureXML("""
+      <note><pitch><step>G</step><octave>3</octave></pitch><duration>4</duration>
+        <type>whole</type><voice>2</voice><staff>2</staff></note>
+    """))
+    let events = try #require(Score(musicXML: xml).parts.first?.measures.first?.events)
+    guard case .note(let note) = events.first else { Issue.record("expected a note"); return }
+    #expect(note.voice == 2)
+    #expect(note.staff == 2)
+}
+
+@Test func defaultsVoiceAndStaffToOneWhenAbsent() throws {
+    let xml = scoreXML(parts: measureXML("""
+      <note><pitch><step>G</step><octave>3</octave></pitch><duration>4</duration>
+        <type>whole</type></note>
+    """))
+    let events = try #require(Score(musicXML: xml).parts.first?.measures.first?.events)
+    guard case .note(let note) = events.first else { Issue.record("expected a note"); return }
+    #expect(note.voice == 1)
+    #expect(note.staff == 1)
+}
+
+@Test func marksTheSecondAndLaterNotesOfAChord() throws {
+    // MusicXML marks chord members after the first with <chord/>.
+    let xml = scoreXML(parts: measureXML("""
+      <note><pitch><step>A</step><alter>-1</alter><octave>4</octave></pitch>
+        <duration>4</duration><type>whole</type></note>
+      <note><chord/><pitch><step>A</step><alter>-1</alter><octave>5</octave></pitch>
+        <duration>4</duration><type>whole</type></note>
+    """))
+    let events = try #require(Score(musicXML: xml).parts.first?.measures.first?.events)
+    #expect(events.count == 2)
+    guard case .note(let first) = events[0], case .note(let second) = events[1] else {
+        Issue.record("expected two notes"); return
+    }
+    #expect(first.isChordMember == false)
+    #expect(second.isChordMember)
+}
+
+@Test func readsAugmentationDots() throws {
+    let xml = scoreXML(parts: measureXML("""
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>6</duration>
+        <type>quarter</type><dot/></note>
+    """))
+    let events = try #require(Score(musicXML: xml).parts.first?.measures.first?.events)
+    guard case .note(let note) = events.first else { Issue.record("expected a note"); return }
+    #expect(note.duration.dots == 1)
+}
+
+@Test func readsATupletRatio() throws {
+    let xml = scoreXML(parts: measureXML("""
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>2</duration>
+        <type>eighth</type>
+        <time-modification><actual-notes>3</actual-notes>
+          <normal-notes>2</normal-notes></time-modification></note>
+    """))
+    let events = try #require(Score(musicXML: xml).parts.first?.measures.first?.events)
+    guard case .note(let note) = events.first else { Issue.record("expected a note"); return }
+    #expect(note.duration.tuplet == Tuplet(actual: 3, normal: 2))
+}
+
+@Test func readsThePrintedAccidentalSeparatelyFromTheAlteration() throws {
+    // The two are independent: a note may sound flat with nothing printed.
+    let xml = scoreXML(parts: measureXML("""
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>4</duration>
+        <type>whole</type><accidental>natural</accidental></note>
+    """))
+    let events = try #require(Score(musicXML: xml).parts.first?.measures.first?.events)
+    guard case .note(let note) = events.first else { Issue.record("expected a note"); return }
+    #expect(note.printedAccidental == .natural)
+    #expect(note.pitch.alter == 0)
+}
