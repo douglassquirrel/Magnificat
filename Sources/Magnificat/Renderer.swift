@@ -144,12 +144,34 @@ struct Renderer {
             // through the stream would meet dozens of them.
             guard !items.isEmpty else { continue }
 
-            let phrases = Self.group(items).map(phrase(for:))
-            let text = (["Measure \(measure.number)"] + phrases)
-                .map { $0 + "." }
-                .joined(separator: " ")
-            lines.append(TranscriptLine(text: text, kind: .measure,
-                                        partID: part.id, measureNumber: measure.number))
+            let groups = Self.group(items)
+            switch options.density {
+            case .perMeasure:
+                let text = (["Measure \(measure.number)"] + groups.map { phrase(for: $0) })
+                    .map { $0 + "." }
+                    .joined(separator: " ")
+                lines.append(TranscriptLine(text: text, kind: .measure,
+                                            partID: part.id,
+                                            measureNumber: measure.number))
+
+            case .perEvent:
+                lines.append(TranscriptLine(text: "Measure \(measure.number)",
+                                            kind: .measure, partID: part.id,
+                                            measureNumber: measure.number))
+                for group in groups {
+                    lines.append(TranscriptLine(text: phrase(for: group, withLyrics: false),
+                                                kind: .event, partID: part.id,
+                                                measureNumber: measure.number))
+                    // A lyric gets its own line so a singer can step word by word.
+                    for lyric in Self.lyrics(of: group) {
+                        let prefix = lyric.verse == 1
+                            ? "Lyric: " : "Verse \(lyric.verse) lyric: "
+                        lines.append(TranscriptLine(text: prefix + lyric.hyphenated,
+                                                    kind: .event, partID: part.id,
+                                                    measureNumber: measure.number))
+                    }
+                }
+            }
         }
         return lines
     }
@@ -189,8 +211,14 @@ struct Renderer {
         return groups
     }
 
+    /// The lyrics attached to a group, if any.
+    static func lyrics(of group: EventGroup) -> [Lyric] {
+        guard case .notes(let sounding) = group else { return [] }
+        return sounding[0].note.lyrics
+    }
+
     /// One group, spoken. No trailing full stop: the caller punctuates.
-    private func phrase(for group: EventGroup) -> String {
+    private func phrase(for group: EventGroup, withLyrics: Bool = true) -> String {
         switch group {
         case .direction(let direction):
             return direction.spokenText
@@ -212,7 +240,7 @@ struct Renderer {
                 : "Chord \(names.joined(separator: ", ")), \(duration)"
             // Lyrics belong to the note the file wrote first; a chord is sung on
             // one syllable, not one per note.
-            return head + Self.lyricPhrase(sounding[0].note.lyrics)
+            return withLyrics ? head + Self.lyricPhrase(sounding[0].note.lyrics) : head
         }
     }
 }

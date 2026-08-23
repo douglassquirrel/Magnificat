@@ -197,3 +197,47 @@ func headings(_ xml: Data) throws -> [String] {
                                       "Measure 2. D 5, quarter.",
                                       "Measure 2. F 4, quarter."])
 }
+
+// SPEC.md §6.8 and §7.2 — at .perEvent density a measure line is followed by one
+// line per event, which is what a braille display and note-by-note navigation
+// need. Lyrics get their own line rather than trailing the note.
+
+@Test func spec7point2_theSameMeasureAtPerEventDensity() throws {
+    let transcript = try mayer(TranscriptOptions(density: .perEvent))
+    let got = transcript.lines.filter {
+        $0.partID == "P1" && $0.measureNumber == "5"
+            && ($0.kind == .measure || $0.kind == .event)
+    }.map(\.text)
+    #expect(got == [
+        "Measure 5",
+        "A flat 4, dotted quarter",
+        "Lyric: bist",
+        "A flat 4, eighth",
+        "Lyric: wie",
+        "A flat 4, quarter",
+        "Lyric: ei-",
+        "A natural 4, quarter",
+        "Lyric: -ne",
+    ])
+}
+
+@Test func perEventPutsEachRestAndDirectionOnItsOwnLine() throws {
+    let xml = scoreXML(parts: measureXML("""
+      <direction><direction-type><dynamics><f/></dynamics></direction-type></direction>
+      <note><rest/><duration>4</duration><type>quarter</type></note>
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration>
+        <type>quarter</type></note>
+    """))
+    let transcript = try Score(musicXML: xml)
+        .transcript(options: TranscriptOptions(density: .perEvent))
+    let got = transcript.lines.filter { $0.kind == .measure || $0.kind == .event }
+    #expect(got.map(\.text) == ["Measure 1", "Dynamic: forte", "Quarter rest", "C 5, quarter"])
+}
+
+@Test func perEventNumbersEveryLineWithItsMeasure() throws {
+    // A host app navigates by these, so every event line must carry its measure.
+    let transcript = try mayer(TranscriptOptions(density: .perEvent))
+    let events = transcript.lines.filter { $0.kind == .event }
+    #expect(!events.isEmpty)
+    #expect(events.allSatisfy { $0.measureNumber != nil && $0.partID != nil })
+}
