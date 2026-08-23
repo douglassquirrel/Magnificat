@@ -59,6 +59,7 @@ struct Renderer {
                 }
                 lines += renderMeasures(of: part, stream: stream, names: names)
             }
+            lines += Self.lyricsSummary(of: part)
         }
         return lines
     }
@@ -408,6 +409,35 @@ struct Renderer {
 }
 
 extension Renderer {
+    /// Each verse of a part given again as continuous running text, so the words
+    /// can be read as words rather than one syllable per note. See `SPEC.md` §6.11.
+    static func lyricsSummary(of part: Part) -> [TranscriptLine] {
+        var byVerse: [Int: [Lyric]] = [:]
+        for measure in part.measures {
+            for event in measure.events {
+                guard case .note(let note) = event else { continue }
+                for lyric in note.lyrics { byVerse[lyric.verse, default: []].append(lyric) }
+            }
+        }
+        guard !byVerse.isEmpty else { return [] }
+
+        var lines = [TranscriptLine(text: "Lyrics", kind: .lyricsSummary, partID: part.id)]
+        for verse in byVerse.keys.sorted() {
+            var text = ""
+            for lyric in byVerse[verse] ?? [] {
+                // A syllable that continues into the next joins it without a
+                // space; anything else starts a new word.
+                if !text.isEmpty && !lyric.syllabic.continuesFromPrevious {
+                    text += " "
+                }
+                text += lyric.text
+            }
+            lines.append(TranscriptLine(text: "Verse \(verse): \(text)",
+                                        kind: .lyricsSummary, partID: part.id))
+        }
+        return lines
+    }
+
     /// The notations attached to a note, in the fixed order `SPEC.md` §6.10 sets:
     /// tie, slur, articulations, ornament, arpeggio, fermata.
     static func notationPhrase(for note: Note, chord: [Note]) -> String {

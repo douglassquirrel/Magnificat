@@ -53,3 +53,55 @@ func lyricNote(_ lyric: String) -> Data {
     let xml = lyricNote("")
     #expect(try measureLines(xml) == ["Measure 1. C 5, quarter."])
 }
+
+// SPEC.md §6.11 — after each part that has lyrics, the verses are given again as
+// continuous running text, so the words can be read as words rather than as one
+// syllable per note.
+
+@Test func givesEachVerseAgainAsRunningText() throws {
+    let xml = scoreXML(parts: measureXML("""
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>2</duration>
+        <type>eighth</type>
+        <lyric number="1"><syllabic>begin</syllabic><text>Blu</text></lyric></note>
+      <note><pitch><step>D</step><octave>5</octave></pitch><duration>2</duration>
+        <type>eighth</type>
+        <lyric number="1"><syllabic>end</syllabic><text>me</text></lyric></note>
+      <note><pitch><step>E</step><octave>5</octave></pitch><duration>2</duration>
+        <type>eighth</type>
+        <lyric number="1"><syllabic>single</syllabic><text>so</text></lyric></note>
+    """))
+    let summary = try Score(musicXML: xml).transcript()
+        .lines.filter { $0.kind == .lyricsSummary }.map(\.text)
+    #expect(summary == ["Lyrics", "Verse 1: Blume so"])
+}
+
+@Test func keepsVersesApartInTheSummary() throws {
+    let xml = scoreXML(parts: measureXML("""
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration>
+        <type>quarter</type>
+        <lyric number="1"><syllabic>single</syllabic><text>Du</text></lyric>
+        <lyric number="2"><syllabic>single</syllabic><text>Sie</text></lyric></note>
+    """))
+    let summary = try Score(musicXML: xml).transcript()
+        .lines.filter { $0.kind == .lyricsSummary }.map(\.text)
+    #expect(summary == ["Lyrics", "Verse 1: Du", "Verse 2: Sie"])
+}
+
+@Test func aPartWithNoLyricsGetsNoSummary() throws {
+    let xml = scoreXML(parts: measureXML("""
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration>
+        <type>quarter</type></note>
+    """))
+    #expect(try Score(musicXML: xml).transcript()
+        .lines.allSatisfy { $0.kind != .lyricsSummary })
+}
+
+@Test func theMayerSummaryReadsAsGermanRatherThanAsSyllables() throws {
+    let summary = try mayer().lines
+        .filter { $0.kind == .lyricsSummary && $0.text.hasPrefix("Verse 1") }
+        .map(\.text).first
+    let text = try #require(summary)
+    #expect(text.hasPrefix("Verse 1: Du bist wie eine Blume so "))
+    // Syllables must be rejoined, not left hyphenated.
+    #expect(!text.contains("-"))
+}
