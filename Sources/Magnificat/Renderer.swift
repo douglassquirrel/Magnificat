@@ -24,7 +24,16 @@ struct Renderer {
     }
 
     func render(_ score: Score) -> Transcript {
-        var lines = heading(for: score)
+        switch options.layout {
+        case .byPart: return Transcript(lines: heading(for: score) + byPart(score))
+        case .byMeasure: return Transcript(lines: heading(for: score) + byMeasure(score))
+        }
+    }
+
+    /// The whole of one stream, then the whole of the next. The commonest task is
+    /// learning one line, so this is the default. See `SPEC.md` §6.7.
+    private func byPart(_ score: Score) -> [TranscriptLine] {
+        var lines: [TranscriptLine] = []
         for (index, part) in score.parts.enumerated() {
             let name = Self.name(of: part, at: index)
             lines.append(TranscriptLine(text: name, kind: .partHeading, partID: part.id))
@@ -44,7 +53,64 @@ struct Renderer {
                 lines += renderMeasures(of: part, stream: stream, names: names)
             }
         }
-        return Transcript(lines: lines)
+        return lines
+    }
+
+    /// Measure 1 of every stream, then measure 2 — for fitting the parts together.
+    ///
+    /// Every line names its stream, because a reader stepping through cannot
+    /// otherwise tell whose line they are on. See `SPEC.md` §6.7.
+    private func byMeasure(_ score: Score) -> [TranscriptLine] {
+        // Render each stream once, then interleave what came out.
+        var rendered: [(part: Part, stream: Stream, byNumber: [String: [TranscriptLine]])] = []
+        var order: [String] = []
+
+        for (index, part) in score.parts.enumerated() {
+            let name = Self.name(of: part, at: index)
+            let names = spokenNames(for: part)
+            for measure in part.measures where !order.contains(measure.number) {
+                order.append(measure.number)
+            }
+            for stream in Self.streams(of: part, partName: name) {
+                let lines = renderMeasures(of: part, stream: stream, names: names)
+                rendered.append((part, stream,
+                                 Dictionary(grouping: lines) { $0.measureNumber ?? "" }))
+            }
+        }
+
+        var lines: [TranscriptLine] = []
+        for number in order {
+            lines.append(TranscriptLine(text: "Measure \(number)", kind: .measure,
+                                        measureNumber: number))
+            for entry in rendered {
+                guard let measureLines = entry.byNumber[number] else {
+                    // A stream that has no such measure is announced. OMR output is
+                    // often ragged, and silence would read as a bar of rest, which
+                    // is a different piece of music.
+                    lines.append(TranscriptLine(
+                        text: "\(entry.stream.label) has no measure \(number).",
+                        kind: .measure, partID: entry.part.id, measureNumber: number))
+                    continue
+                }
+                for line in measureLines {
+                    let body = Self.withoutMeasurePrefix(line.text, number)
+                    lines.append(TranscriptLine(
+                        text: body.isEmpty ? entry.stream.label
+                                           : "\(entry.stream.label). \(body)",
+                        kind: line.kind, partID: line.partID, measureNumber: number))
+                }
+            }
+        }
+        return lines
+    }
+
+    /// Strips the "Measure 5. " that byPart lines carry: under .byMeasure the
+    /// number is already on its own line above.
+    static func withoutMeasurePrefix(_ text: String, _ number: String) -> String {
+        let prefix = "Measure \(number). "
+        if text.hasPrefix(prefix) { return String(text.dropFirst(prefix.count)) }
+        if text == "Measure \(number)" { return "" }
+        return text
     }
 
     // MARK: - Naming parts and streams

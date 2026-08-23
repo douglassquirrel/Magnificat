@@ -241,3 +241,75 @@ func headings(_ xml: Data) throws -> [String] {
     #expect(!events.isEmpty)
     #expect(events.allSatisfy { $0.measureNumber != nil && $0.partID != nil })
 }
+
+// SPEC.md §6.7 — .byMeasure gives measure 1 of every stream, then measure 2, for
+// working out how the parts fit together. Each line names its stream: without
+// that a reader cannot tell whose line they are on.
+
+@Test func byMeasureInterleavesTheStreams() throws {
+    let xml = scoreXML(parts: """
+      <part id="P1">
+      <measure number="1">
+        <attributes><divisions>4</divisions><staves>2</staves></attributes>
+        <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration>
+          <type>quarter</type><voice>1</voice><staff>1</staff></note>
+        <backup><duration>4</duration></backup>
+        <note><pitch><step>C</step><octave>3</octave></pitch><duration>4</duration>
+          <type>quarter</type><voice>5</voice><staff>2</staff></note>
+      </measure>
+      <measure number="2">
+        <note><pitch><step>D</step><octave>5</octave></pitch><duration>4</duration>
+          <type>quarter</type><voice>1</voice><staff>1</staff></note>
+        <backup><duration>4</duration></backup>
+        <note><pitch><step>D</step><octave>3</octave></pitch><duration>4</duration>
+          <type>quarter</type><voice>5</voice><staff>2</staff></note>
+      </measure></part>
+    """, partList: #"<score-part id="P1"><part-name>Piano</part-name></score-part>"#)
+
+    let transcript = try Score(musicXML: xml)
+        .transcript(options: TranscriptOptions(layout: .byMeasure))
+    let got = transcript.lines.filter { $0.kind == .measure }.map(\.text)
+    #expect(got == [
+        "Measure 1",
+        "Right hand. C 5, quarter.",
+        "Left hand. C 3, quarter.",
+        "Measure 2",
+        "Right hand. D 5, quarter.",
+        "Left hand. D 3, quarter.",
+    ])
+}
+
+@Test func byMeasureAnnouncesAStreamThatHasNoSuchMeasure() throws {
+    // OMR output is often ragged: one part ends several bars before another.
+    // Silence would read as a bar of rest, which is a different piece of music.
+    let xml = scoreXML(parts: """
+      <part id="P1">
+        <measure number="1"><attributes><divisions>4</divisions></attributes>
+          <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration>
+            <type>quarter</type></note></measure>
+        <measure number="2">
+          <note><pitch><step>D</step><octave>5</octave></pitch><duration>4</duration>
+            <type>quarter</type></note></measure>
+      </part>
+      <part id="P2">
+        <measure number="1"><attributes><divisions>4</divisions></attributes>
+          <note><pitch><step>G</step><octave>3</octave></pitch><duration>4</duration>
+            <type>quarter</type></note></measure>
+      </part>
+    """, partList: """
+      <score-part id="P1"><part-name>Voice</part-name></score-part>
+      <score-part id="P2"><part-name>Cello</part-name></score-part>
+    """)
+
+    let transcript = try Score(musicXML: xml)
+        .transcript(options: TranscriptOptions(layout: .byMeasure))
+    let got = transcript.lines.filter { $0.kind == .measure }.map(\.text)
+    #expect(got == [
+        "Measure 1",
+        "Voice. C 5, quarter.",
+        "Cello. G 3, quarter.",
+        "Measure 2",
+        "Voice. D 5, quarter.",
+        "Cello has no measure 2.",
+    ])
+}
