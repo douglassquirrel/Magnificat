@@ -191,8 +191,14 @@ struct Renderer {
     private func renderMeasures(of part: Part, stream: Stream,
                                 names: [[String]]) -> [TranscriptLine] {
         var lines: [TranscriptLine] = []
+        // A backward repeat says only "go back"; the measure it returns to is the
+        // last forward repeat, or the start of the part when there is none.
+        var repeatTarget = part.measures.first?.number ?? "1"
 
         for (index, measure) in part.measures.enumerated() {
+            if measure.barlines.contains(where: { $0.repeatDirection == .forward }) {
+                repeatTarget = measure.number
+            }
             let spoken = names[index]
             let items = measure.events.indices.compactMap { position -> Item? in
                 let event = measure.events[position]
@@ -211,9 +217,22 @@ struct Renderer {
             guard !items.isEmpty else { continue }
 
             let groups = Self.group(items)
+            // Barlines and the pickup marker belong to the measure, not to any one
+            // stream, so only the stream that carries directions speaks them.
+            let opening = stream.carriesDirections
+                ? (measure.isPickup ? ["Pickup measure"] : [])
+                    + measure.barlines.filter { $0.location == .left }
+                        .flatMap { $0.spokenPhrases(repeatTarget: repeatTarget) }
+                : []
+            let closing = stream.carriesDirections
+                ? measure.barlines.filter { $0.location == .right }
+                    .flatMap { $0.spokenPhrases(repeatTarget: repeatTarget) }
+                : []
+
             switch options.density {
             case .perMeasure:
-                let text = (["Measure \(measure.number)"] + groups.map { phrase(for: $0) })
+                let text = (["Measure \(measure.number)"] + opening
+                            + groups.map { phrase(for: $0) } + closing)
                     .map { $0 + "." }
                     .joined(separator: " ")
                 lines.append(TranscriptLine(text: text, kind: .measure,
@@ -224,6 +243,11 @@ struct Renderer {
                 lines.append(TranscriptLine(text: "Measure \(measure.number)",
                                             kind: .measure, partID: part.id,
                                             measureNumber: measure.number))
+                for phrase in opening {
+                    lines.append(TranscriptLine(text: phrase, kind: .event,
+                                                partID: part.id,
+                                                measureNumber: measure.number))
+                }
                 for group in groups {
                     lines.append(TranscriptLine(text: phrase(for: group, withLyrics: false),
                                                 kind: .event, partID: part.id,
@@ -236,6 +260,11 @@ struct Renderer {
                                                     kind: .event, partID: part.id,
                                                     measureNumber: measure.number))
                     }
+                }
+                for phrase in closing {
+                    lines.append(TranscriptLine(text: phrase, kind: .event,
+                                                partID: part.id,
+                                                measureNumber: measure.number))
                 }
             }
         }

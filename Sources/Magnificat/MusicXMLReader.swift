@@ -96,6 +96,8 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
     private var noteIsChordMember = false
     private var noteIsGrace = false
     private var notePrintedAccidental: Accidental?
+    private var measureBarlines: [Barline] = []
+    private var currentBarline: Barline?
     private var directionStaff: Int?
     /// Whether the hairpin currently open is a crescendo, so its stop can name it.
     private var openWedgeIsCrescendo = true
@@ -152,6 +154,25 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             events = []
             cursor = 0
             lastOnset = 0
+            measureBarlines = []
+        case "barline":
+            var barline = Barline()
+            barline.location = attributes["location"] == "left" ? .left : .right
+            currentBarline = barline
+        case "repeat":
+            switch attributes["direction"] {
+            case "forward": currentBarline?.repeatDirection = .forward
+            case "backward": currentBarline?.repeatDirection = .backward
+            default: break
+            }
+        case "ending":
+            currentBarline?.endingNumber = attributes["number"]
+            switch attributes["type"] {
+            case "start": currentBarline?.endingType = .start
+            case "stop": currentBarline?.endingType = .stop
+            case "discontinue": currentBarline?.endingType = .discontinue
+            default: break
+            }
         case "backup", "forward":
             shiftDuration = nil
         case "attributes":
@@ -259,6 +280,11 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
         let value = text.trimmingCharacters(in: .whitespacesAndNewlines)
 
         switch name {
+        case "bar-style":
+            currentBarline?.style = value
+        case "barline":
+            if let barline = currentBarline { measureBarlines.append(barline) }
+            currentBarline = nil
         case "work-title":
             metadata.workTitle = value.isEmpty ? nil : value
         case "movement-title":
@@ -391,7 +417,8 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             measures.append(Measure(number: measureNumber,
                                     isPickup: measureIsPickup,
                                     attributes: attributes.isEmpty ? nil : attributes,
-                                    events: events))
+                                    events: events,
+                                    barlines: measureBarlines))
         case "part":
             if let id = currentPartID {
                 parts.append(Part(id: id, name: partNames[id], measures: measures))

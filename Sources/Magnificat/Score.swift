@@ -144,6 +144,8 @@ public struct Measure: Sendable, Equatable {
     public var attributes: MeasureAttributes?
     /// The events of the measure, in reading order.
     public var events: [MusicalEvent] = []
+    /// The barlines this measure carries, left and right.
+    public var barlines: [Barline] = []
 }
 
 /// One part of a score — a singer's line, or a pianist's grand staff.
