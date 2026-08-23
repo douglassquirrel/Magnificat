@@ -9,6 +9,13 @@ extension Score {
     ///
     /// - Throws: ``TranscriptionError``.
     public init(musicXML data: Data) throws {
+        // A .mxl is a zip archive. SPEC.md §13 makes unzipping a non-goal, so it
+        // is detected by its signature and refused clearly, rather than reaching
+        // the XML parser and being reported as malformed.
+        if data.starts(with: [0x50, 0x4B, 0x03, 0x04]) {
+            throw TranscriptionError.unsupportedFormat("compressed .mxl")
+        }
+
         let handler = MusicXMLHandler()
         let parser = XMLParser(data: data)
         parser.delegate = handler
@@ -25,7 +32,13 @@ extension Score {
                 message: error?.localizedDescription ?? "could not be parsed")
         }
         if let failure = handler.failure { throw failure }
-        self = handler.makeScore()
+
+        let score = handler.makeScore()
+        guard !score.parts.isEmpty,
+              score.parts.contains(where: { !$0.measures.isEmpty }) else {
+            throw TranscriptionError.emptyScore
+        }
+        self = score
     }
 }
 
@@ -53,7 +66,13 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
 
     // The measure being read.
     private var measureNumber = ""
+    private var measureIsPickup = false
+    private var attributes = MeasureAttributes()
     private var events: [MusicalEvent] = []
+    private var keyFifths: Int?
+    private var keyMode: String?
+    private var timeBeats: Int?
+    private var timeBeatType: Int?
 
     // The note being read.
     private var noteStep: Step?
@@ -100,7 +119,14 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             measures = []
         case "measure":
             measureNumber = attributes["number"] ?? ""
+            measureIsPickup = attributes["implicit"] == "yes"
+            self.attributes = MeasureAttributes()
             events = []
+        case "attributes":
+            keyFifths = nil
+            keyMode = nil
+            timeBeats = nil
+            timeBeatType = nil
         case "note":
             resetNote()
         case "chord":
@@ -142,11 +168,19 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             currentScorePartID = nil
 
         case "step":
-            noteStep = Step(rawValue: value.uppercased())
+            guard let step = Step(rawValue: value.uppercased()) else {
+                fail(.invalidValue(element: "step", value: value), on: parser)
+                return
+            }
+            noteStep = step
         case "alter":
             noteAlter = Int(value) ?? 0
         case "octave":
-            noteOctave = Int(value)
+            guard let octave = Int(value) else {
+                fail(.invalidValue(element: "octave", value: value), on: parser)
+                return
+            }
+            noteOctave = octave
         case "duration":
             noteDuration = Int(value)
         case "type":
@@ -155,6 +189,26 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             noteVoice = Int(value) ?? 1
         case "staff":
             noteStaff = Int(value) ?? 1
+        case "divisions":
+            attributes.divisions = Int(value)
+        case "fifths":
+            keyFifths = Int(value)
+        case "mode":
+            keyMode = value.isEmpty ? nil : value
+        case "beats":
+            timeBeats = Int(value)
+        case "beat-type":
+            timeBeatType = Int(value)
+        case "staves":
+            attributes.staves = Int(value)
+        case "key":
+            if let fifths = keyFifths {
+                attributes.key = KeySignature(fifths: fifths, mode: keyMode)
+            }
+        case "time":
+            if let beats = timeBeats, let beatType = timeBeatType {
+                attributes.time = TimeSignature(beats: beats, beatType: beatType)
+            }
         case "accidental":
             notePrintedAccidental = Accidental(musicXML: value)
         case "actual-notes":
@@ -165,7 +219,10 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
         case "note":
             appendNote()
         case "measure":
-            measures.append(Measure(number: measureNumber, events: events))
+            measures.append(Measure(number: measureNumber,
+                                    isPickup: measureIsPickup,
+                                    attributes: attributes.isEmpty ? nil : attributes,
+                                    events: events))
         case "part":
             if let id = currentPartID {
                 parts.append(Part(id: id, name: partNames[id], measures: measures))
@@ -174,6 +231,13 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
         default:
             break
         }
+    }
+
+    /// Records a fatal problem and stops parsing. `didEndElement`'s `defer` still
+    /// runs, so the element stack stays consistent.
+    private func fail(_ error: TranscriptionError, on parser: XMLParser) {
+        if failure == nil { failure = error }
+        parser.abortParsing()
     }
 
     // MARK: - Building

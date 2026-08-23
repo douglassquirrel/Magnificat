@@ -38,12 +38,49 @@ public enum MusicalEvent: Sendable, Equatable {
     case rest(Rest)
 }
 
+/// A time signature. A score may have none at all — the Parry in the fixtures
+/// does not — and its absence is information, not a default of 4/4.
+public struct TimeSignature: Sendable, Equatable {
+    /// The upper number.
+    public var beats: Int
+    /// The lower number.
+    public var beatType: Int
+
+    public init(beats: Int, beatType: Int) {
+        self.beats = beats
+        self.beatType = beatType
+    }
+}
+
+/// What a measure restates about the music: divisions, key, meter, staff count.
+/// Present only on measures where the file says something; scores restate these
+/// mid-piece routinely.
+public struct MeasureAttributes: Sendable, Equatable {
+    /// Divisions per quarter note, for duration arithmetic.
+    public var divisions: Int?
+    /// The key signature from this measure onwards.
+    public var key: KeySignature?
+    /// The meter from this measure onwards.
+    public var time: TimeSignature?
+    /// How many staves this part uses. Two means a grand staff.
+    public var staves: Int?
+
+    /// True when the file said nothing worth recording.
+    var isEmpty: Bool {
+        divisions == nil && key == nil && time == nil && staves == nil
+    }
+}
+
 /// One measure of one part.
 public struct Measure: Sendable, Equatable {
     /// The number as printed. MusicXML numbers are strings: `0`, `1`, `12a`.
     public var number: String
+    /// True for a pickup measure — MusicXML's `implicit="yes"`.
+    public var isPickup: Bool = false
+    /// What this measure restates, if anything.
+    public var attributes: MeasureAttributes?
     /// The events of the measure, in reading order.
-    public var events: [MusicalEvent]
+    public var events: [MusicalEvent] = []
 }
 
 /// One part of a score — a singer's line, or a pianist's grand staff.

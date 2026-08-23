@@ -151,3 +151,47 @@ func measureXML(_ body: String, number: String = "1", divisions: Int = 4) -> Str
     #expect(note.printedAccidental == .natural)
     #expect(note.pitch.alter == 0)
 }
+
+// SPEC.md §6.13, §6.14 — attributes may be restated mid-piece; Ferrari restates
+// the key eight times and Webern the meter twenty.
+
+@Test func readsDivisionsKeyAndTimeFromAttributes() throws {
+    let xml = scoreXML(parts: """
+      <part id="P1"><measure number="1">
+        <attributes><divisions>12</divisions>
+          <key><fifths>-4</fifths></key>
+          <time><beats>3</beats><beat-type>4</beat-type></time>
+          <staves>2</staves></attributes>
+      </measure></part>
+    """)
+    let measure = try #require(Score(musicXML: xml).parts.first?.measures.first)
+    #expect(measure.attributes?.divisions == 12)
+    #expect(measure.attributes?.key == KeySignature(fifths: -4))
+    #expect(measure.attributes?.time == TimeSignature(beats: 3, beatType: 4))
+    #expect(measure.attributes?.staves == 2)
+}
+
+@Test func aMeasureWithNoAttributesElementCarriesNone() throws {
+    let xml = scoreXML(parts: "<part id=\"P1\"><measure number=\"2\"></measure></part>")
+    let measure = try #require(Score(musicXML: xml).parts.first?.measures.first)
+    #expect(measure.attributes == nil)
+}
+
+@Test func readsAScoreThatNeverStatesATimeSignature() throws {
+    // The Parry has no <time> element anywhere. Its absence is information.
+    let score = try Score(musicXML: Fixture.named("parry-2-good-night.musicxml"))
+    let times = score.parts.flatMap(\.measures).compactMap { $0.attributes?.time }
+    #expect(times.isEmpty)
+    #expect(!score.parts.isEmpty)
+}
+
+@Test func marksAPickupMeasureAsImplicit() throws {
+    let xml = scoreXML(parts: """
+      <part id="P1"><measure number="0" implicit="yes"></measure>
+      <measure number="1"></measure></part>
+    """)
+    let measures = try #require(Score(musicXML: xml).parts.first?.measures)
+    #expect(measures[0].number == "0")
+    #expect(measures[0].isPickup)
+    #expect(measures[1].isPickup == false)
+}
