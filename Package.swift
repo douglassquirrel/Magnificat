@@ -13,7 +13,7 @@ let package = Package(
         .executableTarget(name: "MagnificatCLI", dependencies: ["Magnificat"]),
         .testTarget(
             name: "MagnificatTests",
-            dependencies: ["Magnificat"],
+            dependencies: ["Magnificat", "MagnificatCLI"],
             resources: [.copy("Fixtures")]
         ),
     ]
