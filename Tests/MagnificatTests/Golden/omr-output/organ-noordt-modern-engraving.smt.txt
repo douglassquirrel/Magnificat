@@ -1,0 +1,73 @@
+Music21 Fragment
+Music21
+2 parts: Part 1; Part 2
+22 measures
+Key: F major, 1 flat
+Time signature: 4 4
+Part 1
+Measure 1. F 4, whole.
+Measure 0. G 4, half. A 4, half.
+Measure 0. B flat 4, whole.
+Measure 0. F 4, whole.
+Measure 0. D 5, half. Half rest.
+Measure 0. C 5, half. B flat 4, half.
+Measure 0. D 4, dotted eighth, tied from previous. A 4, whole.
+Measure 0. C 4, dotted eighth, tied from previous. G 4, whole.
+Measure 0. C 4, dotted eighth, tied from previous. B flat 4, half. B flat 4, half.
+Measure 0. A 4, whole.
+Measure 0. Dotted half rest. Quarter rest.
+Measure 0. C 5, whole.
+Measure 0. A 4, eighth, tied from previous. B flat 4, dotted quarter. A 4, eighth. G 4, half.
+Measure 0. E 4, eighth, tied from previous. A 4, whole.
+Measure 0. D 4, sixteenth, tied from previous. G 4, whole.
+Measure 0. B flat 3, sixteenth, tied from previous. A 4, half. B flat 4, half.
+Measure 0. G 4, sixteenth, tied from previous, tied. G 4, quarter. A 4, quarter. G 4, half.
+Measure 0. F 4, sixteenth, tied from previous. Chord F 4, A 4, whole. Double barline.
+Measure 0. G 4, whole.
+Measure 0. A 4, half. B flat 4, half.
+Measure 0. G 4, quarter. A 4, quarter. G 4, half.
+Measure 0. Chord F 4, A 4, whole. Double barline.
+Part 1, voice 2
+Measure 1. A 3, eighth. B flat 3, sixteenth. C 4, sixteenth. B flat 3, eighth. A 3, eighth. D 4, dotted quarter. D 4, eighth.
+Measure 0. B flat 3, eighth. C 4, sixteenth. D 4, sixteenth. C 4, eighth. B flat 3, eighth. E flat 4, quarter. F 4, eighth. E flat 4, eighth.
+Measure 0. D 4, half. Sixteenth rest. D 4, sixteenth. B flat 3, sixteenth. C 4, sixteenth. D 4, sixteenth. E flat 4, sixteenth. C 4, sixteenth. D 4, sixteenth.
+Measure 0. A 3, sixteenth. B flat 3, sixteenth. C 4, sixteenth. B flat 3, eighth. A 3, eighth. Sixteenth rest. F 4, sixteenth. D 4, sixteenth. E 4, sixteenth. F 4, sixteenth. G 4, sixteenth. E 4, sixteenth. F 4, sixteenth. D 4, sixteenth.
+Measure 0. B flat 4, sixteenth. G 4, sixteenth. A 4, sixteenth. B flat 4, sixteenth. C 5, sixteenth. A 4, sixteenth. B flat 4, sixteenth. G 4, quarter. Quarter rest. Sixteenth rest.
+Measure 0. Dotted eighth rest. F 4, quarter. Sixteenth rest. E 4, sixteenth. F 4, sixteenth. G 4, sixteenth. A 4, sixteenth. F 4, sixteenth. G 4, sixteenth. A 4, sixteenth. D 4, sixteenth, tied.
+Measure 0. Dotted eighth rest. G 4, quarter. Sixteenth rest. D 4, sixteenth. E 4, sixteenth. F 4, sixteenth. C 4, sixteenth. F 4, sixteenth. E flat 4, sixteenth. D 4, sixteenth. C 4, sixteenth, tied.
+Measure 0. Dotted eighth rest. F 4, quarter. Sixteenth rest. C 4, sixteenth. D 4, sixteenth. E flat 4, sixteenth. B flat 3, sixteenth. D 4, sixteenth. C 4, sixteenth. B flat 3, sixteenth. C 4, sixteenth, tied.
+Measure 0. Dotted eighth rest. D 4, quarter. Half rest. Sixteenth rest. G 4, sixteenth.
+Measure 0. Sixteenth rest. F 4, sixteenth. E flat 4, sixteenth. D 4, sixteenth. F 4, sixteenth. E flat 4, sixteenth. D 4, sixteenth. C sharp 4, sixteenth. D 4, quarter. E natural 4, sixteenth. G 4, sixteenth. F 4, sixteenth. E 4, sixteenth. F 4, eighth.
+Measure 0. Eighth rest. E 4, sixteenth. D 4, sixteenth. C sharp 4, quarter. D 4, sixteenth. A 4, sixteenth. G 4, sixteenth. A 4, sixteenth. F 4, quarter.
+Measure 0. Quarter rest. E 4, eighth. F 4, quarter. E 4, eighth. A 4, quarter, tied.
+Measure 0. Eighth rest. G 4, eighth. F 4, eighth. E 4, sixteenth. D 4, sixteenth. F 4, quarter. F 4, eighth. E 4, eighth, tied.
+Measure 0. Eighth rest. D 4, quarter. Sixteenth rest. C 4, eighth. F 4, quarter. Eighth rest. D 4, sixteenth, tied.
+Measure 0. Sixteenth rest. E 4, quarter. D 4, eighth. B flat 3, eighth. C 4, quarter. B flat 3, dotted eighth, tied.
+Measure 0. Sixteenth rest. E flat 4, quarter, tied. E natural 4, eighth, tied from previous. C 4, eighth. F 4, quarter. D 4, eighth. G 4, sixteenth, tied.
+Measure 0. Sixteenth rest. G 4, sixteenth, tied from previous. F 4, sixteenth. E 4, sixteenth. D 4, sixteenth. E 4, quarter. F 4, double dotted quarter, tied. E 4, quarter.
+Measure 0. D 4, eighth. B flat 3, eighth. C 4, quarter. B flat 3, quarter. E flat 4, quarter, tied.
+Measure 0. E 4, eighth, tied from previous. C 4, eighth. F 4, quarter. D 4, eighth. G 4, eighth, tied. G 4, sixteenth, tied from previous. F 4, sixteenth. E 4, sixteenth. D 4, sixteenth.
+Measure 0. E 4, quarter. F 4, half. E 4, quarter.
+Part 2
+Measure 1. F 3, dotted quarter. F 3, eighth. B flat 2, eighth. C 3, sixteenth. D 3, sixteenth. C 3, eighth. B flat 2, eighth.
+Measure 0. E flat 3, dotted quarter. D 3, eighth. C 3, eighth. D 3, sixteenth. E natural 3, sixteenth. D 3, eighth. C 3, eighth.
+Measure 0. B flat 2, sixteenth. B flat 3, sixteenth. G 3, sixteenth. A 3, sixteenth. B flat 3, sixteenth. C 4, sixteenth. A 3, sixteenth. B flat 3, sixteenth. G 3, half.
+Measure 0. Sixteenth rest. F 3, eighth. B flat 2, eighth. C 3, quarter. Double dotted quarter rest.
+Measure 0. B flat 2, half. Sixteenth rest. B flat 3, sixteenth. G 3, sixteenth. A 3, sixteenth. B flat 3, sixteenth. D 4, sixteenth. C 4, sixteenth. B flat 3, sixteenth.
+Measure 0. A 3, quarter. F 3, quarter. Sixteenth rest. G 3, sixteenth. A 3, sixteenth. B flat 3, sixteenth. E flat 3, sixteenth. G 3, sixteenth. F 3, sixteenth. E flat 3, sixteenth.
+Measure 0. F 3, half. Sixteenth rest. F 3, sixteenth. G 3, sixteenth. A 3, sixteenth. D 3, sixteenth. F 3, sixteenth. E flat 3, sixteenth. D 3, sixteenth.
+Measure 0. E flat 3, half. Sixteenth rest. E flat 3, sixteenth. D 3, sixteenth. C 3, sixteenth. B flat 2, sixteenth. C 3, sixteenth. B flat 2, sixteenth. A 2, sixteenth.
+Measure 0. G 2, sixteenth. G 3, sixteenth. F 3, sixteenth. E 3, sixteenth. D 3, sixteenth. E flat 3, sixteenth. D 3, sixteenth. C 3, sixteenth. B flat 2, eighth. G 2, eighth. G 3, quarter, tied.
+Measure 0. G 3, sixteenth, tied from previous. G 3, sixteenth. F 3, sixteenth. E 3, sixteenth. F 3, eighth. E 3, sixteenth. D 3, sixteenth. C sharp 3, quarter. D 3, quarter.
+Measure 0. A 2, sixteenth. A 3, sixteenth. G 3, sixteenth. A 3, sixteenth. F 3, eighth. E 3, eighth. D 3, eighth. E 3, eighth. B flat 2, sixteenth. A 2, sixteenth. Eighth rest.
+Measure 0. C 3, eighth. A 2, eighth. A 3, eighth. G 3, eighth. F 3, eighth. E 3, sixteenth. D 3, sixteenth. C 3, quarter.
+Measure 0. D 3, quarter. B flat 2, quarter. C 3, eighth. C 4, eighth, tied. C 4, sixteenth, tied from previous. B flat 3, sixteenth. A 3, sixteenth. G 3, sixteenth.
+Measure 0. F 3, quarter, tied. F 3, sixteenth, tied from previous. E 3, sixteenth. D 3, sixteenth. C sharp 3, sixteenth. D 3, quarter, tied. D 3, sixteenth, tied from previous. C natural 3, sixteenth. B flat 2, sixteenth. A 2, sixteenth.
+Measure 0. B flat 2, quarter, tied. B flat 2, sixteenth, tied from previous. A 2, sixteenth. G 2, sixteenth. F 2, sixteenth. G 2, eighth. G 3, eighth, tied. G 3, sixteenth, tied from previous. F 3, sixteenth. E flat 3, sixteenth. D 3, sixteenth.
+Measure 0. C 3, eighth. F 3, eighth, tied. F 3, sixteenth, tied from previous. E flat 3, sixteenth. D 3, sixteenth. C 3, sixteenth. B flat 2, quarter. G 2, quarter.
+Measure 0. C 3, whole.
+Measure 0. Chord F 2, F 3, whole. Double barline.
+Measure 0. B flat 2, quarter, tied. B flat 2, sixteenth, tied from previous. A 2, sixteenth. G 2, sixteenth. F 2, sixteenth. G 2, eighth. G 3, eighth, tied. G 3, sixteenth, tied from previous. F 3, sixteenth. E flat 3, sixteenth. D 3, sixteenth.
+Measure 0. C 3, eighth. F 3, eighth, tied. F 3, sixteenth, tied from previous. E flat 3, sixteenth. D 3, sixteenth. C 3, sixteenth. B flat 2, quarter. G 2, quarter.
+Measure 0. C 3, whole.
+Measure 0. Chord F 2, F 3, whole. Double barline.

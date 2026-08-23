@@ -1,0 +1,102 @@
+Music21 Fragment
+Music21
+2 parts: Part 1; Part 2
+47 measures
+Key: C major, no sharps or flats
+Time signature: 4 4
+Part 1
+Measure 1. F 5, quarter. D 5, quarter. E 5, quarter. F 5, quarter.
+Measure 0. G 5, quarter. C 5, quarter. D 5, quarter. E 5, quarter.
+Measure 0. F 5, quarter. D 5, quarter. E 5, quarter. F 5, quarter.
+Measure 0. G 5, quarter. C 5, quarter. D 5, quarter. E 5, quarter.
+Measure 0. D 5, whole.
+Measure 0. E 5, quarter. C 5, quarter. D 5, quarter. E 5, quarter.
+Measure 0. F 5, quarter. D 5, quarter. E 5, quarter. F 5, quarter.
+Measure 0. G 6, quarter. C 6, quarter. E 6, quarter. D 6, quarter.
+Measure 0. C 6, whole.
+Measure 0. E 6, quarter. D 6, quarter. E 6, quarter. F 6, quarter.
+Measure 0. Repeat: forward repeat begins here. G 6, quarter. D 6, quarter. E 6, quarter. F 6, quarter.
+Measure 0. G 5, quarter. C 5, quarter. D 5, quarter. E 5, quarter.
+Measure 0. F 5, quarter. D 5, quarter. E 5, quarter. C 5, quarter.
+Measure 0. D 5, whole.
+Measure 0. E 5, quarter. C 5, quarter. D 5, quarter. E 5, quarter.
+Measure 0. F 5, quarter. D 5, quarter. E 5, quarter. F 5, quarter.
+Measure 0. G 5, quarter. C 5, quarter. E 5, quarter. D 5, quarter.
+Measure 0. C 5, whole. Repeat: go back to the start of measure 0.
+Measure 0. Repeat: forward repeat begins here. E 6, half. F 6, half.
+Measure 0. E 6, whole.
+Measure 0. D 6, quarter. E 6, quarter. F 6, quarter. D 6, quarter.
+Measure 0. C 6, whole.
+Measure 0. E 6, quarter. F 6, quarter. G 6, quarter. E 6, quarter.
+Measure 0. D 6, quarter. E 6, quarter. F 6, quarter. D 6, quarter.
+Measure 0. E 6, quarter. F 6, quarter. E 6, quarter. D 6, quarter.
+Measure 0. C 6, quarter. E 6, quarter. D 6, quarter. E 6, quarter.
+Measure 0. G 6, half. F 5, half.
+Measure 0. D 6, quarter. E 6, quarter. F 6, quarter. D 6, quarter.
+Measure 0. C 6, whole. Repeat: go back to the start of measure 0.
+Measure 0. Repeat: forward repeat begins here. G 5, quarter. F 5, quarter, staccatissimo. E 5, quarter, staccatissimo. Quarter rest.
+Measure 0. E 5, quarter, staccatissimo. D 5, quarter, staccatissimo. C 5, quarter, staccatissimo. Quarter rest.
+Measure 0. D 5, quarter, staccatissimo. E 5, quarter, staccatissimo. D 5, quarter, staccatissimo. Quarter rest.
+Measure 0. C 5, quarter, staccatissimo. D 5, quarter, staccatissimo. E 5, quarter, staccatissimo. Quarter rest.
+Measure 0. G 5, quarter, staccatissimo. F 5, quarter, staccatissimo. E 5, quarter, staccatissimo. Quarter rest.
+Measure 0. E 5, quarter, staccatissimo. D 5, quarter, staccatissimo. C 5, quarter, staccatissimo. Quarter rest.
+Measure 0. D 5, quarter, staccatissimo. E 5, quarter, staccatissimo. D 5, quarter, staccatissimo. Quarter rest.
+Measure 0. C 5, dotted half. Quarter rest. Repeat: go back to the start of measure 0.
+Measure 0. Repeat: forward repeat begins here. F 5, quarter, staccatissimo. G 5, quarter, staccatissimo. F 5, quarter, staccatissimo. Quarter rest.
+Measure 0. E 5, quarter, staccatissimo. D 5, quarter, staccatissimo. C 5, quarter, staccatissimo. Quarter rest.
+Measure 0. D 5, quarter, staccatissimo. E 5, quarter, staccatissimo. D 5, quarter, staccatissimo. Quarter rest.
+Measure 0. C 5, quarter, staccatissimo. D 5, quarter, staccatissimo. E 5, quarter, staccatissimo. Quarter rest.
+Measure 0. G 5, quarter, staccatissimo. F 5, quarter, staccatissimo. E 5, quarter, staccatissimo. Quarter rest.
+Measure 0. E 5, quarter, staccatissimo. D 5, quarter, staccatissimo. C 5, quarter, staccatissimo. Quarter rest.
+Measure 0. D 5, quarter, staccatissimo. E 5, quarter, staccatissimo. D 5, quarter, staccatissimo. Quarter rest.
+Measure 0. C 5, dotted half. Quarter rest. Repeat: go back to the start of measure 0.
+Measure 0. Repeat: forward repeat begins here. Whole measure rest.
+Measure 1. Quarter rest.
+Part 2
+Measure 1. D 4, whole, tied.
+Measure 0. E 4, whole.
+Measure 0. G 4, half. G 4, half.
+Measure 0. G 4, quarter. F 4, quarter. E 4, quarter. D 4, quarter.
+Measure 0. C 4, whole, tied.
+Measure 0. E 4, quarter. F 4, quarter. E 4, quarter. D 4, quarter.
+Measure 0. C 4, whole, tied.
+Measure 0. D 4, whole.
+Measure 0. E 4, half. G 4, quarter. F 4, quarter.
+Measure 0. E 4, quarter. G 4, quarter. E 4, quarter. C 4, quarter.
+Measure 0. Repeat: forward repeat begins here. C 4, whole, tied.
+Measure 0. E 4, whole.
+Measure 0. G 4, half. G 4, half.
+Measure 0. G 4, quarter. F 4, quarter. E 4, quarter. D 4, quarter.
+Measure 0. C 4, whole, tied.
+Measure 0. D 4, whole.
+Measure 0. E 4, half. G 4, quarter. F 4, quarter.
+Measure 0. E 4, quarter. G 4, quarter. C 4, half. Repeat: go back to the start of measure 0.
+Measure 0. Repeat: forward repeat begins here. E 4, quarter. E 4, quarter. G 4, quarter. G 5, quarter.
+Measure 0. C 5, quarter. E 5, quarter. D 5, quarter. C 5, quarter.
+Measure 0. E 5, quarter. E 5, quarter. D 5, quarter. E 5, quarter.
+Measure 0. E 5, quarter. E 5, quarter. E 5, quarter. E 5, quarter.
+Measure 0. C 5, quarter. E 5, quarter. E 5, quarter. F 5, quarter.
+Measure 0. E 5, quarter. E 5, quarter. D 5, quarter. E 5, quarter.
+Measure 0. E 5, quarter. E 5, quarter. E 5, quarter. G 5, quarter.
+Measure 0. E 5, quarter. E 5, quarter. D 5, quarter. E 5, quarter.
+Measure 0. E 5, quarter. E 5, quarter. E 5, quarter. C 5, quarter.
+Measure 0. C 5, quarter. E 5, quarter. D 5, quarter. E 5, quarter.
+Measure 0. E 5, quarter. E 5, quarter. C 5, half. Repeat: go back to the start of measure 0.
+Measure 0. Repeat: forward repeat begins here. Whole measure rest. Quarter rest.
+Measure 0. G 4, quarter. F 4, quarter, staccatissimo. E 4, quarter, staccatissimo. Quarter rest.
+Measure 0. F 4, quarter. G 4, quarter. F 4, quarter. Quarter rest.
+Measure 0. E 4, quarter. D 4, quarter. C 4, quarter. Quarter rest.
+Measure 0. Whole measure rest. Quarter rest.
+Measure 0. G 4, quarter. F 4, quarter. E 4, quarter. Quarter rest.
+Measure 0. F 4, quarter. G 4, quarter. F 4, quarter. Quarter rest.
+Measure 0. E 4, quarter. G 4, quarter. C 4, quarter. Quarter rest. Repeat: go back to the start of measure 0.
+Measure 0. Repeat: forward repeat begins here. D 4, quarter, tied, staccatissimo. E 4, quarter, staccatissimo. D 4, quarter, staccatissimo. Quarter rest.
+Measure 0. C 4, quarter. D 4, quarter. E 4, quarter. Quarter rest.
+Measure 0. F 4, quarter. G 4, quarter. F 4, quarter. Quarter rest.
+Measure 0. E 4, quarter. D 4, quarter. C 4, quarter. Quarter rest.
+Measure 0. Whole measure rest. Quarter rest.
+Measure 0. G 4, quarter, staccatissimo. F 4, quarter, staccatissimo. E 4, quarter, staccatissimo. Quarter rest.
+Measure 0. F 4, quarter. G 4, quarter. F 4, quarter. Quarter rest.
+Measure 0. E 4, quarter. G 4, quarter. C 4, quarter. Quarter rest. Repeat: go back to the start of measure 0.
+Measure 0. Repeat: forward repeat begins here. Whole measure rest.
+Measure 1. Quarter rest.

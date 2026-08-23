@@ -286,26 +286,31 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             if let barline = currentBarline { measureBarlines.append(barline) }
             currentBarline = nil
         case "work-title":
+            let value = Self.cleaned(value)
             metadata.workTitle = value.isEmpty ? nil : value
         case "movement-title":
+            let value = Self.cleaned(value)
             metadata.movementTitle = value.isEmpty ? nil : value
         case "movement-number":
             metadata.movementNumber = value.isEmpty ? nil : value
         case "rights":
+            let value = Self.cleaned(value)
             metadata.rights = value.isEmpty ? nil : value
         case "software":
+            let value = Self.cleaned(value)
             metadata.encodingSoftware = value.isEmpty ? nil : value
         case "creator":
+            let creator = Self.cleaned(value)
             switch creatorType {
-            case "composer": metadata.composer = value.isEmpty ? nil : value
-            case "lyricist", "poet": metadata.lyricist = value.isEmpty ? nil : value
+            case "composer": metadata.composer = creator.isEmpty ? nil : creator
+            case "lyricist", "poet": metadata.lyricist = creator.isEmpty ? nil : creator
             default: break
             }
             creatorType = nil
         case "part-name":
             if let id = currentScorePartID, !value.isEmpty {
                 // Part names carry embedded newlines: "Singstimme\nVoice".
-                partNames[id] = value.split(whereSeparator: \.isNewline)
+                partNames[id] = Self.cleaned(value).split(whereSeparator: \.isNewline)
                     .map { $0.trimmingCharacters(in: .whitespaces) }
                     .joined(separator: ", ")
             }
@@ -372,24 +377,44 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
                 attributes.time = TimeSignature(beats: beats, beatType: beatType)
             }
         case "words":
-            if !value.isEmpty { pendingDirections.append(.words(value)) }
+            // Exporters smuggle music-font glyphs into <words> as Private Use
+            // codepoints. They mean nothing outside that font, and SPEC §6.1
+            // forbids musical symbols in the output.
+            // The untrimmed text, not `value`: a fragment's leading or trailing
+            // space is what holds it apart from the next fragment.
+            let cleaned = Self.cleaned(text)
+            if !cleaned.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                pendingDirections.append(.words(cleaned))
+            }
         case "rehearsal":
-            if !value.isEmpty { pendingDirections.append(.rehearsal(value)) }
+            let mark = Self.cleaned(value)
+            if !mark.isEmpty { pendingDirections.append(.rehearsal(mark)) }
         case "beat-unit":
             if metronomeUnit == nil { metronomeUnit = value }
         case "per-minute":
             metronomePerMinute = value
         case "metronome":
-            if let unit = metronomeUnit, let rate = metronomePerMinute, !rate.isEmpty {
+            // A rate-less metronome is kept: the Webern writes its tempo as
+            // "Langsam (", a metronome carrying only a beat unit, then " ca 48)",
+            // and dropping the middle leaves the parenthesis dangling.
+            if let unit = metronomeUnit {
                 pendingDirections.append(.metronome(beatUnit: unit, dots: metronomeDots,
-                                                    perMinute: rate))
+                                                    perMinute: metronomePerMinute ?? ""))
             }
         case "other-dynamics":
-            if !value.isEmpty { pendingDirections.append(.dynamic(value)) }
+            let mark = Self.cleaned(value)
+            if !mark.isEmpty { pendingDirections.append(.dynamic(mark)) }
         case "direction":
-            for direction in pendingDirections {
+            // One <direction> is one thing to read, however many
+            // <direction-type> elements the exporter split it across.
+            if pendingDirections.count == 1 {
                 events.append(.direction(PlacedDirection(
-                    direction: direction, staff: directionStaff ?? 1, onset: cursor)))
+                    direction: pendingDirections[0],
+                    staff: directionStaff ?? 1, onset: cursor)))
+            } else if pendingDirections.count > 1 {
+                events.append(.direction(PlacedDirection(
+                    direction: .compound(pendingDirections),
+                    staff: directionStaff ?? 1, onset: cursor)))
             }
             pendingDirections = []
             directionStaff = nil
@@ -397,7 +422,9 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
             lyricSyllabic = Syllabic(musicXML: value)
         case "text":
             // <text> appears only inside <lyric> in the MusicXML this reads.
-            lyricText = (lyricText ?? "") + value
+            // Music-font glyphs turn up here as well as in <words>: the Satie
+            // carries two Private Use codepoints as a lyric.
+            lyricText = (lyricText ?? "") + Self.cleaned(value)
         case "lyric":
             if let text = lyricText, !text.isEmpty {
                 noteLyrics.append(Lyric(verse: lyricVerse, text: text,
@@ -427,6 +454,35 @@ final class MusicXMLHandler: NSObject, XMLParserDelegate {
         default:
             break
         }
+    }
+
+    /// Text from the file, made safe to speak without changing what it says.
+    ///
+    /// Three things happen, and nothing else — the words themselves are never
+    /// rewritten, per `SPEC.md` §6.13:
+    ///
+    /// - **Private Use codepoints are dropped.** Exporters smuggle music-font
+    ///   glyphs in as text; they mean nothing outside the font that defines them.
+    /// - **Zero-width characters are dropped.** They are invisible to a reader
+    ///   and to trimming alike.
+    /// - **Unusual spaces become ordinary ones.** French typography puts a
+    ///   non-breaking space before "!" and ":", which is the same character
+    ///   semantically but invisible to whitespace trimming.
+    static func cleaned(_ text: String) -> String {
+        var scalars = String.UnicodeScalarView()
+        for scalar in text.unicodeScalars {
+            switch scalar.value {
+            case 0xE000...0xF8FF, 0xF0000...0xFFFFD, 0x100000...0x10FFFD:
+                continue                                   // private use
+            case 0x200B...0x200F, 0xFEFF, 0x2060:
+                continue                                   // zero width
+            case 0x00A0, 0x2000...0x200A, 0x202F, 0x205F, 0x3000:
+                scalars.append(" ")                        // unusual spaces
+            default:
+                scalars.append(scalar)
+            }
+        }
+        return String(scalars)
     }
 
     /// Records a fatal problem and stops parsing. `didEndElement`'s `defer` still

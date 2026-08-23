@@ -1,0 +1,100 @@
+Music21 Fragment
+Music21
+2 parts: Part 1; Part 2
+30 measures
+Key: A flat major, 4 flats
+Time signature: 3 4
+Part 1
+Measure 1. F 5, half. Quarter rest.
+Measure 0. D flat 5, half. F 5, quarter.
+Measure 0. Quarter rest. C 5, half. C 5, quarter.
+Measure 0. Quarter rest. E flat 5, dotted half.
+Measure 0. Quarter rest. D natural 5, half. Quarter rest.
+Measure 0. Quarter rest. Quarter rest. Half rest.
+Measure 0. F 5, half. E flat 5, quarter.
+Measure 0. D flat 5, half. F 5, quarter.
+Measure 0. C 5, half. C 5, quarter.
+Measure 0. E flat 5, dotted half.
+Measure 0. D natural 5, half. D natural 5, quarter.
+Measure 0. D flat 5, half. D flat 5, quarter.
+Measure 0. C 5, dotted half, tied.
+Measure 0. C 5, half, tied from previous, fermata. Quarter rest.
+Measure 0. Chord F 4, A flat 4, dotted eighth. Chord G 4, B flat 4, sixteenth. Half rest.
+Measure 0. Chord A flat 4, C 5, half. Chord G 4, B flat 4, dotted eighth. Chord F 4, A flat 4, sixteenth.
+Measure 0. Chord G 4, B flat 4, half. Chord F 4, A flat 4, dotted eighth. Chord E natural 4, G 4, sixteenth.
+Measure 0. Chord F 4, A flat 4, quarter. F 4, half, tied. Quarter rest.
+Measure 0. F 4, half, tied from previous. E flat 4, quarter.
+Measure 0. Chord C 4, E flat 4, A flat 4, quarter. Chord B natural 3, E flat 4, G 4, quarter. Chord C 4, E flat 4, A flat 4, quarter.
+Measure 0. Chord G 4, B flat 4, quarter. Chord E flat 4, G 4, C 5, quarter. Chord E flat 4, G 4, D flat 5, quarter.
+Measure 0. C 5, dotted half, fermata.
+Measure 0. C 5, quarter. Quarter rest. C 5, eighth. B natural 4, eighth.
+Measure 0. C 5, quarter. G 4, quarter. F sharp 4, quarter.
+Measure 0. G 4, half. A flat 4, quarter.
+Measure 0. Chord G 4, B flat 4, quarter. Chord E flat 4, G 4, C 5, quarter. Chord E flat 4, G 4, D flat 5, quarter.
+Measure 0. Chord E flat 4, A flat 4, C 5, dotted half, tied.
+Measure 0. Chord E flat 4, A flat 4, C 5, quarter, tied from previous. Quarter rest. Chord C 4, E flat 4, C 5, eighth. Chord B natural 3, B natural 4, eighth.
+Measure 0. Chord C 4, E natural 4, C 5, quarter. Chord C 4, E natural 4, G 4, quarter. Chord C 4, D sharp 4, F sharp 4, quarter.
+Measure 0. C 4, dotted eighth. D flat 4, sixteenth. C 4, quarter. Chord F 4, A flat 4, quarter.
+Part 1, voice 2
+Measure 1. Whole measure rest.
+Measure 0. Quarter rest. Half rest.
+Measure 0. Quarter rest. Half rest.
+Measure 0. Quarter rest. Half rest.
+Measure 0. Quarter rest. Half rest.
+Measure 0. A flat 4, half. G 4, quarter.
+Measure 0. F 4, half. A flat 4, quarter.
+Measure 0. E flat 4, half. Chord E flat 4, A flat 4, quarter.
+Measure 0. Chord E flat 4, C 5, dotted half.
+Measure 0. B flat 4, half. F 4, quarter.
+Measure 0. Chord D flat 4, A flat 4, half. Chord D flat 4, G 4, quarter.
+Measure 0. Chord C 4, A flat 4, dotted half, tied.
+Measure 0. Chord C 4, A flat 4, half, tied from previous. Quarter rest.
+Measure 0. C 4, quarter. D flat 4, quarter. Quarter rest.
+Measure 0. C 4, dotted eighth. B flat 3, sixteenth. A flat 3, quarter. B flat 3, quarter.
+Part 2
+Measure 1. A flat 3, half. Quarter rest.
+Measure 0. Whole measure rest.
+Measure 0. E flat 3, half. E flat 3, quarter.
+Measure 0. G 3, dotted half.
+Measure 0. G 3, quarter, tied from previous. Quarter rest. Chord A flat 3, B natural 3, D natural 4, quarter. Quarter rest.
+Measure 0. Whole measure rest. Half rest.
+Measure 0. D flat 3, quarter. Chord A flat 3, D flat 4, F 4, half.
+Measure 0. D flat 2, quarter. Chord F 3, A flat 3, D flat 4, quarter. Chord F 3, A flat 3, D flat 4, quarter.
+Measure 0. A flat 2, quarter. Chord E flat 3, A flat 3, C 4, quarter. Chord G flat 2, G flat 3, quarter.
+Measure 0. Chord F 2, F 3, quarter. G 3, quarter. A natural 3, quarter.
+Measure 0. Quarter rest. Chord A flat 3, B natural 3, D natural 4, quarter. Chord A flat 3, B natural 3, D natural 4, quarter.
+Measure 0. Quarter rest. E flat 3, quarter. E flat 3, quarter.
+Measure 0. E flat 3, quarter. E flat 3, quarter. F 3, quarter.
+Measure 0. E flat 3, half, fermata. Quarter rest.
+Measure 0. Quarter rest. Half rest.
+Measure 0. Dotted eighth rest. D flat 4, sixteenth. C 4, quarter. C 3, quarter.
+Measure 0. Dotted eighth rest. D flat 4, sixteenth. C 4, quarter. C 3, quarter.
+Measure 0. F 2, quarter. A flat 3, quarter. B flat 3, quarter.
+Measure 0. A flat 3, dotted eighth. G 3, sixteenth. F 3, quarter. G 2, quarter.
+Measure 0. A flat 2, quarter. E flat 3, half.
+Measure 0. D flat 4, quarter. C 4, quarter. B flat 3, quarter.
+Measure 0. Chord A flat 2, E flat 3, C 4, quarter, tied from previous. B flat 3, quarter. A flat 3, quarter.
+Measure 0. E flat 3, dotted eighth. F 3, sixteenth. E flat 3, quarter. A flat 3, quarter.
+Measure 0. G 3, quarter. B flat 3, quarter. A natural 3, quarter.
+Measure 0. Chord C 3, B flat 3, half. Quarter rest.
+Measure 0. D flat 4, quarter. C 4, quarter. B flat 3, quarter.
+Measure 0. Chord A flat 2, E flat 3, C 4, quarter, tied from previous. B flat 3, quarter. A flat 3, quarter.
+Measure 0. E flat 3, dotted eighth. F 3, sixteenth. E flat 3, quarter. A flat 3, quarter.
+Measure 0. G 3, quarter. B flat 3, quarter. A natural 3, quarter.
+Measure 0. Chord C 3, B flat 3, half. Quarter rest.
+Part 2, voice 2
+Measure 1. D flat 3, quarter. Chord A flat 3, D flat 4, F 4, half.
+Measure 0. Quarter rest. D flat 2, quarter. Chord F 3, A flat 3, D flat 4, quarter. Chord F 3, A flat 3, D flat 4, quarter.
+Measure 0. Quarter rest. E flat 3, half. E flat 3, quarter.
+Measure 0. Quarter rest. G 3, half, tied.
+Measure 0. Chord B flat 2, A flat 3, half. Quarter rest.
+Measure 0. Chord B flat 2, A flat 3, half. Half rest.
+Measure 0. Quarter rest. E flat 2, dotted half.
+Measure 0. Quarter rest. A flat 2, dotted half, tied.
+Measure 0. Quarter rest. A flat 2, half, tied from previous, fermata.
+Measure 0. F 2, half. C 3, quarter.
+Measure 0. C 2, half. C 3, quarter.
+Measure 0. E flat 3, dotted half, tied.
+Measure 0. C 3, dotted half.
+Measure 0. E flat 3, dotted half, tied.
+Measure 0. C 3, dotted half.

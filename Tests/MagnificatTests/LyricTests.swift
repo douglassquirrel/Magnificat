@@ -105,3 +105,31 @@ func lyricNote(_ lyric: String) -> Data {
     // Syllables must be rejoined, not left hyphenated.
     #expect(!text.contains("-"))
 }
+
+@Test func stripsPrivateUseGlyphsFromLyricsToo() throws {
+    // The Satie carries <text font-family="Leland Text">\u{E551}\u{E551}</text> —
+    // two music glyphs used as a lyric. SPEC §6.1 allows non-ASCII in lyrics, but
+    // a Private Use codepoint is not text; it means nothing outside that font.
+    let onlyGlyphs = lyricNote("<lyric number=\"1\"><syllabic>single</syllabic>"
+                               + "<text>\u{E551}\u{E551}</text></lyric>")
+    #expect(try measureLines(onlyGlyphs) == ["Measure 1. C 5, quarter."])
+
+    let mixed = lyricNote("<lyric number=\"1\"><syllabic>single</syllabic>"
+                          + "<text>ah\u{E551}</text></lyric>")
+    #expect(try measureLines(mixed) == ["Measure 1. C 5, quarter, lyric ah."])
+}
+
+@Test func normalisesUnusualSpacesToOrdinaryOnes() throws {
+    // French typography puts a non-breaking space before "!" and ":", and the
+    // Ferrari and Satie both do. It is the same character semantically, and
+    // leaving it in means invisible whitespace that trimming cannot see.
+    let xml = lyricNote("<lyric number=\"1\"><syllabic>single</syllabic>"
+                        + "<text>Sommeil\u{00A0}!</text></lyric>")
+    #expect(try measureLines(xml) == ["Measure 1. C 5, quarter, lyric Sommeil !."])
+}
+
+@Test func stripsZeroWidthCharactersEntirely() throws {
+    let xml = lyricNote("<lyric number=\"1\"><syllabic>single</syllabic>"
+                        + "<text>ah\u{200B}ah</text></lyric>")
+    #expect(try measureLines(xml) == ["Measure 1. C 5, quarter, lyric ahah."])
+}

@@ -121,3 +121,74 @@ func directionMeasure(_ direction: String) -> Data {
     #expect(try measureLines(xml).first?
             .contains("Tempo: dotted quarter note equals 60.") == true)
 }
+
+// Found by reviewing the Webern golden, as SPEC §7.7 requires. All three of these
+// produced visible nonsense in a transcript that every unit test passed.
+
+@Test func aDirectionSplitAcrossDirectionTypesIsOnePhrase() throws {
+    // The Webern writes its tempo as three <direction-type> elements inside one
+    // <direction>: "Langsam (", a metronome, then " ca 48)". Rendering them as
+    // separate phrases gave "Langsam (. ca 48)".
+    let xml = directionMeasure("""
+      <direction placement="above">
+        <direction-type><words>Langsam (</words></direction-type>
+        <direction-type><metronome><beat-unit>quarter</beat-unit>
+          <per-minute/></metronome></direction-type>
+        <direction-type><words> ca 48)</words></direction-type>
+      </direction>
+    """)
+    #expect(try measureLines(xml).first?
+            .contains("Langsam (quarter note ca 48). C 5, quarter.") == true)
+}
+
+@Test func aMetronomeWithNoRateNamesOnlyItsBeatUnit() throws {
+    let xml = directionMeasure("""
+      <direction><direction-type><metronome>
+        <beat-unit>half</beat-unit><per-minute/></metronome></direction-type></direction>
+    """)
+    #expect(try measureLines(xml).first?.contains("half note.") == true)
+}
+
+@Test func doesNotAddAFullStopToTextThatAlreadyEndsInOne() throws {
+    // "poco rit." was rendering as "poco rit..", which a screen reader reads as
+    // two sentence breaks.
+    let xml = directionMeasure("<direction><direction-type><words>poco rit.</words>"
+                               + "</direction-type></direction>")
+    #expect(try measureLines(xml) == ["Measure 1. poco rit. C 5, quarter."])
+}
+
+@Test func stripsPrivateUseGlyphsFromDirectionText() throws {
+    // The Webern carries <words font-family="Leland Text">\u{E520}</words> — a
+    // SMuFL music glyph smuggled in as text. It has no meaning outside that font,
+    // and SPEC §6.1 forbids musical symbols in the output outright.
+    let xml = directionMeasure("<direction><direction-type>"
+                               + "<words>\u{E520}</words></direction-type></direction>")
+    #expect(try measureLines(xml) == ["Measure 1. C 5, quarter."])
+}
+
+@Test func keepsRealTextAroundAStrippedGlyph() throws {
+    let xml = directionMeasure("<direction><direction-type>"
+                               + "<words>rit. \u{E520} molto</words></direction-type></direction>")
+    #expect(try measureLines(xml) == ["Measure 1. rit. molto. C 5, quarter."])
+}
+
+@Test func keepsOrdinaryNonASCIIInDirectionText() throws {
+    // Stripping must not reach ordinary accented text: "Träumerisch" is a real
+    // marking and must survive.
+    let xml = directionMeasure("<direction><direction-type>"
+                               + "<words>Träumerisch</words></direction-type></direction>")
+    #expect(try measureLines(xml) == ["Measure 1. Träumerisch. C 5, quarter."])
+}
+
+@Test func joinsCompoundFragmentsWithASpaceOnlyWhereOneIsNeeded() throws {
+    // The Webern writes "Langsam (" and "ca 48)" with no space between them: the
+    // space was the metronome glyph's own width. Joining them raw gives
+    // "quarter noteca 48", and always inserting a space gives "( quarter note".
+    let xml = directionMeasure("""
+      <direction><direction-type><words>Langsam (</words></direction-type>
+        <direction-type><metronome><beat-unit>quarter</beat-unit>
+          <per-minute/></metronome></direction-type>
+        <direction-type><words>ca 48)</words></direction-type></direction>
+    """)
+    #expect(try measureLines(xml).first?.contains("Langsam (quarter note ca 48).") == true)
+}

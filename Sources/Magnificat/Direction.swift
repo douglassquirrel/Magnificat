@@ -16,11 +16,41 @@ public enum Direction: Sendable, Equatable {
     case octaveShiftStop
     /// A rehearsal mark.
     case rehearsal(String)
-    /// A metronome mark: a beat unit, its dots, and a rate.
+    /// A metronome mark: a beat unit, its dots, and a rate. The rate is empty
+    /// when the file writes it as free text alongside — the Webern's tempo is
+    /// "Langsam (", a rate-less metronome, then " ca 48)".
     case metronome(beatUnit: String, dots: Int, perMinute: String)
+    /// Several markings that the file wrote as one `<direction>`, and which are
+    /// therefore one thing to read.
+    indirect case compound([Direction])
 
     /// The direction spoken as plain text.
+    ///
+    /// Whitespace is tidied only here, at the top: the fragments of a compound
+    /// direction carry the spacing that holds them apart, and trimming them
+    /// before joining ran "Langsam (" into " ca 48)".
     var spokenText: String {
+        Self.tidied(rawSpokenText)
+    }
+
+    /// Whether two fragments of a compound marking need a space between them.
+    /// Not after an opening bracket, and not where either side already has one.
+    static func needsSpace(between left: String, and right: String) -> Bool {
+        guard let last = left.last, let first = right.first else { return false }
+        if last == " " || first == " " { return false }
+        if last == "(" || last == "[" || last == "-" { return false }
+        if first == ")" || first == "]" || first == "," || first == "." { return false }
+        return true
+    }
+
+    /// Runs of whitespace collapsed to one space, and the ends trimmed.
+    static func tidied(_ text: String) -> String {
+        text.split(whereSeparator: { $0 == " " || $0 == "\t" || $0.isNewline })
+            .joined(separator: " ")
+    }
+
+    /// The direction before whitespace is tidied.
+    private var rawSpokenText: String {
         switch self {
         case .dynamic(let mark):
             // Always prefixed. A bare "Piano" at the start of a line is ambiguous
@@ -44,7 +74,16 @@ public enum Direction: Sendable, Equatable {
             return "Rehearsal mark \(mark)"
         case .metronome(let unit, let dots, let perMinute):
             let dotted = dots == 1 ? "dotted " : dots == 2 ? "double dotted " : ""
+            guard !perMinute.isEmpty else { return "\(dotted)\(unit) note" }
             return "Tempo: \(dotted)\(unit) note equals \(perMinute)"
+        case .compound(let directions):
+            // Fragments of one marking. Separating them with a full stop turned
+            // "Langsam (quarter note ca 48)" into "Langsam (. ca 48)"; joining
+            // them raw ran it into "quarter noteca 48", because the space between
+            // was the metronome glyph's own width.
+            return directions.map(\.rawSpokenText).reduce(into: "") { joined, part in
+                joined += Self.needsSpace(between: joined, and: part) ? " " + part : part
+            }
         }
     }
 

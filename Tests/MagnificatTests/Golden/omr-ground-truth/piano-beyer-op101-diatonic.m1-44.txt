@@ -1,0 +1,94 @@
+2 parts: Upper staff; Lower staff
+44 measures
+Key: C major, no sharps or flats
+Time signature: 4 4
+Upper staff
+Measure 1. E 5, quarter. C 5, quarter. D 5, quarter. E 5, quarter.
+Measure 2. F 5, quarter. D 5, quarter. E 5, quarter. F 5, quarter.
+Measure 3. G 5, quarter. C 5, quarter. D 5, quarter. E 5, quarter.
+Measure 4. D 5, whole.
+Measure 5. E 5, quarter. C 5, quarter. D 5, quarter. E 5, quarter.
+Measure 6. F 5, quarter. D 5, quarter. E 5, quarter. F 5, quarter.
+Measure 7. G 5, quarter. C 5, quarter. E 5, quarter. D 5, quarter.
+Measure 8. C 5, whole.
+Measure 9. F 5, quarter. D 5, quarter. E 5, quarter. F 5, quarter.
+Measure 10. G 5, quarter. C 5, quarter. D 5, quarter. E 5, quarter.
+Measure 11. F 5, quarter. D 5, quarter. E 5, quarter. C 5, quarter.
+Measure 12. D 5, whole.
+Measure 13. E 5, quarter. C 5, quarter. D 5, quarter. E 5, quarter.
+Measure 14. F 5, quarter. D 5, quarter. E 5, quarter. F 5, quarter.
+Measure 15. G 5, quarter. C 5, quarter. E 5, quarter. D 5, quarter.
+Measure 16. C 5, whole.
+Measure 17. G 5, half. F 5, half.
+Measure 18. E 5, whole.
+Measure 19. D 5, quarter. E 5, quarter. F 5, quarter. D 5, quarter.
+Measure 20. C 5, whole.
+Measure 21. E 5, quarter. F 5, quarter. G 5, quarter. E 5, quarter.
+Measure 22. D 5, quarter. E 5, quarter. F 5, quarter. D 5, quarter.
+Measure 23. E 5, quarter. F 5, quarter. G 5, quarter. E 5, quarter.
+Measure 24. D 5, quarter. E 5, quarter. F 5, quarter. D 5, quarter.
+Measure 25. G 5, half. F 5, half.
+Measure 26. E 5, whole.
+Measure 27. D 5, quarter. E 5, quarter. F 5, quarter. D 5, quarter.
+Measure 28. C 5, whole.
+Measure 29. G 5, quarter. F 5, quarter. E 5, quarter.
+Measure 30. E 5, quarter. D 5, quarter. C 5, quarter.
+Measure 31. D 5, quarter. E 5, quarter. D 5, quarter.
+Measure 32. C 5, quarter. D 5, quarter. E 5, quarter.
+Measure 33. G 5, quarter. F 5, quarter. E 5, quarter.
+Measure 34. E 5, quarter. D 5, quarter. C 5, quarter.
+Measure 35. D 5, quarter. E 5, quarter. D 5, quarter.
+Measure 36. C 5, dotted half.
+Measure 37. F 5, quarter. G 5, quarter. F 5, quarter.
+Measure 38. E 5, quarter. D 5, quarter. C 5, quarter.
+Measure 39. D 5, quarter. E 5, quarter. D 5, quarter.
+Measure 40. C 5, quarter. D 5, quarter. E 5, quarter.
+Measure 41. G 5, quarter. F 5, quarter. E 5, quarter.
+Measure 42. E 5, quarter. D 5, quarter. C 5, quarter.
+Measure 43. D 5, quarter. E 5, quarter. D 5, quarter.
+Measure 44. C 5, dotted half.
+Lower staff
+Measure 1. C 4, whole, tied.
+Measure 2. D 4, whole.
+Measure 3. E 4, whole.
+Measure 4. G 4, quarter. F 4, quarter. E 4, quarter. D 4, quarter.
+Measure 5. C 4, whole.
+Measure 6. D 4, whole.
+Measure 7. E 4, half. G 4, quarter. F 4, quarter.
+Measure 8. E 4, quarter. G 4, quarter. E 4, quarter. C 4, quarter.
+Measure 9. D 4, whole.
+Measure 10. E 4, whole.
+Measure 11. G 4, half. G 4, half.
+Measure 12. G 4, quarter. F 4, quarter. E 4, quarter. D 4, quarter.
+Measure 13. C 4, whole, tied.
+Measure 14. D 4, whole.
+Measure 15. E 4, half. G 4, quarter. F 4, quarter.
+Measure 16. E 4, quarter. G 4, quarter. C 4, half.
+Measure 17. E 4, quarter. C 4, quarter. D 4, quarter. G 4, quarter.
+Measure 18. C 4, quarter. D 4, quarter. E 4, quarter. C 4, quarter.
+Measure 19. F 4, quarter. E 4, quarter. D 4, quarter. F 4, quarter.
+Measure 20. E 4, quarter. F 4, quarter. G 4, quarter. E 4, quarter.
+Measure 21. C 4, quarter. D 4, quarter. E 4, quarter. G 4, quarter.
+Measure 22. F 4, quarter. E 4, quarter. D 4, quarter. F 4, quarter.
+Measure 23. C 4, quarter. D 4, quarter. E 4, quarter. G 4, quarter.
+Measure 24. F 4, quarter. E 4, quarter. D 4, quarter. F 4, quarter.
+Measure 25. E 4, quarter. C 4, quarter. D 4, quarter. G 4, quarter.
+Measure 26. C 4, quarter. D 4, quarter. E 4, quarter. C 4, quarter.
+Measure 27. F 4, quarter. E 4, quarter. D 4, quarter. F 4, quarter.
+Measure 28. E 4, quarter. D 4, quarter. C 4, half.
+Measure 29. Whole measure rest.
+Measure 30. G 4, quarter. F 4, quarter. E 4, quarter.
+Measure 31. F 4, quarter. G 4, quarter. F 4, quarter.
+Measure 32. E 4, quarter. D 4, quarter. C 4, quarter.
+Measure 33. Whole measure rest.
+Measure 34. G 4, quarter. F 4, quarter. E 4, quarter.
+Measure 35. F 4, quarter. G 4, quarter. F 4, quarter.
+Measure 36. E 4, quarter. G 4, quarter. C 4, quarter.
+Measure 37. D 4, quarter, tied. E 4, quarter. D 4, quarter.
+Measure 38. C 4, quarter. D 4, quarter. E 4, quarter.
+Measure 39. F 4, quarter. G 4, quarter. F 4, quarter.
+Measure 40. E 4, quarter. D 4, quarter. C 4, quarter.
+Measure 41. Whole measure rest.
+Measure 42. G 4, quarter. F 4, quarter. E 4, quarter.
+Measure 43. F 4, quarter. G 4, quarter. F 4, quarter.
+Measure 44. E 4, quarter. G 4, quarter. C 4, quarter.

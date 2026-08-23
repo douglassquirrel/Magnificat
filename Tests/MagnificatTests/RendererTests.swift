@@ -364,3 +364,20 @@ func headings(_ xml: Data) throws -> [String] {
                                       "Measure 2. Dynamic: piano. Whole measure rest.",
                                       "Measure 3. Whole measure rest."])
 }
+
+@Test func doesNotRepeatThePartNameAsItsFirstStreamHeading() throws {
+    // Found reviewing the Parry golden. Its vocal line has a second voice, so the
+    // part has two streams; the first stream's label is the part name, and the
+    // transcript printed "Voice" twice in a row.
+    let xml = scoreXML(parts: """
+      <part id="P1"><measure number="1">
+        <attributes><divisions>4</divisions></attributes>
+        <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration>
+          <type>quarter</type><voice>1</voice></note>
+        <backup><duration>4</duration></backup>
+        <note><pitch><step>E</step><octave>4</octave></pitch><duration>4</duration>
+          <type>quarter</type><voice>2</voice></note>
+      </measure></part>
+    """)
+    #expect(try headings(xml) == ["Voice", "Voice, voice 2"])
+}

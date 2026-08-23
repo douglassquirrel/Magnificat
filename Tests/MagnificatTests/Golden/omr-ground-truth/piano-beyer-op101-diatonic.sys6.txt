@@ -1,0 +1,22 @@
+2 parts: Upper staff; Lower staff
+8 measures
+Key: C major, no sharps or flats
+Time signature: 3 4
+Upper staff
+Measure 1. F 5, quarter. G 5, quarter. F 5, quarter.
+Measure 2. E 5, quarter. D 5, quarter. C 5, quarter.
+Measure 3. D 5, quarter. E 5, quarter. D 5, quarter.
+Measure 4. C 5, quarter. D 5, quarter. E 5, quarter.
+Measure 5. G 5, quarter. F 5, quarter. E 5, quarter.
+Measure 6. E 5, quarter. D 5, quarter. C 5, quarter.
+Measure 7. D 5, quarter. E 5, quarter. D 5, quarter.
+Measure 8. C 5, dotted half.
+Lower staff
+Measure 1. D 4, quarter, tied. E 4, quarter. D 4, quarter.
+Measure 2. C 4, quarter. D 4, quarter. E 4, quarter.
+Measure 3. F 4, quarter. G 4, quarter. F 4, quarter.
+Measure 4. E 4, quarter. D 4, quarter. C 4, quarter.
+Measure 5. Whole measure rest.
+Measure 6. G 4, quarter. F 4, quarter. E 4, quarter.
+Measure 7. F 4, quarter. G 4, quarter. F 4, quarter.
+Measure 8. E 4, quarter. G 4, quarter. C 4, quarter.

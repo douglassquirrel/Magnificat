@@ -1,0 +1,112 @@
+1 part: Zeus
+18 measures
+Key: F major, 1 flat
+No time signature.
+Measure 1
+Right hand. Whole measure rest.
+Right hand, voice 2. G 3, 2 in the time of 1, dotted half. Chord B flat 3, G 4, 2 in the time of 1, dotted half. C 5, 2 in the time of 1, dotted half. A 4, 2 in the time of 1, half.
+Left hand has no measure 1.
+Left hand, voice 2. A 2, dotted quarter. A 2, eighth. E 2, eighth. E 2, sixteenth. F 2, sixteenth. E 2, sixteenth. D 2, sixteenth. C 2, eighth. E 2, sixteenth.
+Left hand, voice 3 has no measure 1.
+Measure 2
+Right hand. Whole measure rest.
+Right hand, voice 2. F 4, sixteenth. E 4, sixteenth. G 4, sixteenth. G 4, sixteenth. E 4, sixteenth. B flat 3, sixteenth. G flat 4, sixteenth, slur begins. B flat 4, sixteenth. G flat 4, sixteenth. B flat 4, sixteenth. D 5, sixteenth. C 5, sixteenth.
+Left hand has no measure 2.
+Left hand, voice 2. A flat 2, dotted quarter. G 2, eighth. E 2, sixteenth. F 2, sixteenth. G 2, sixteenth. F 2, sixteenth. E 2, sixteenth.
+Left hand, voice 3 has no measure 2.
+Measure 3
+Right hand. G 5, whole, tied.
+Right hand, voice 2. G 4, dotted eighth. A 4, sixteenth. G 4, 2 in the time of 1, half. A 4, 2 in the time of 1, dotted half.
+Left hand has no measure 3.
+Left hand, voice 2. D 2, sixteenth. B flat 3, sixteenth. G 3, sixteenth. A 3, sixteenth. B flat 3, sixteenth. C 4, sixteenth. A 3, sixteenth. B flat 3, sixteenth. Half rest.
+Left hand, voice 3 has no measure 3.
+Measure 4
+Right hand. B flat 3, whole.
+Right hand, voice 2. Quarter rest. B flat 3, dotted half, tied.
+Left hand has no measure 4.
+Left hand, voice 2. Sixteenth rest. D 3, sixteenth. G 2, sixteenth. A 2, sixteenth. B flat 2, sixteenth. D 3, sixteenth. B flat 2, sixteenth. C 3, sixteenth. G 2, 2 in the time of 1, half. G 2, 2 in the time of 1, half.
+Left hand, voice 3 has no measure 4.
+Measure 5
+Right hand. B flat 5, sixteenth. A 5, sixteenth. F 5, sixteenth. G 5, sixteenth. A 5, sixteenth. B flat 5, sixteenth. G 5, sixteenth. A 5, sixteenth. F 5, half, tied.
+Right hand, voice 2 has no measure 5.
+Left hand has no measure 5.
+Left hand, voice 2. Half rest. Dotted sixteenth rest. A 4, thirty-second. D 5, dotted sixteenth. A 4, thirty-second. G 5, sixteenth. A 5, sixteenth. D 5, sixteenth. B flat 4, sixteenth.
+Left hand, voice 3 has no measure 5.
+Measure 6
+Right hand. Sixteenth rest. C 5, sixteenth. D 5, sixteenth. F 5, sixteenth. G 5, sixteenth. E 5, sixteenth. F 5, sixteenth. G 5, sixteenth. F 5, 2 in the time of 1, half, slur ends. F 5, 2 in the time of 1, half.
+Right hand, voice 2. A 4, half.
+Left hand has no measure 6.
+Left hand, voice 2. A 3, half. Quarter rest. Grace note: B flat 1, eighth, slur begins. A flat 2, sixteenth, slur ends. D 3, sixteenth. C 3, sixteenth. A flat 2, sixteenth.
+Left hand, voice 3 has no measure 6.
+Measure 7
+Right hand. Half rest. Quarter rest.
+Right hand, voice 2. Sixteenth rest. A 4, sixteenth. C 5, sixteenth. D flat 5, sixteenth. G 4, sixteenth. D flat 5, sixteenth. C flat 5, sixteenth. B flat 4, sixteenth. A 4, 2 in the time of 1, half. A 4, 2 in the time of 1, half.
+Left hand has no measure 7.
+Left hand, voice 2. Whole measure rest.
+Left hand, voice 3 has no measure 7.
+Measure 8
+Right hand. Chord A 4, D 5, whole.
+Right hand, voice 2. Sixteenth rest. G 4, dotted sixteenth. B flat 4, sixteenth. C flat 5, sixteenth. F 4, sixteenth. B flat 4, sixteenth. A 4, dotted sixteenth. F 4, thirty-second. A 4, dotted quarter. A 4, sixteenth. F double sharp 4, sixteenth. A 4, sixteenth.
+Left hand has no measure 8.
+Left hand, voice 2. Half rest. Sixteenth rest. G 2, sixteenth. F 2, sixteenth. D 2, sixteenth. D 2, sixteenth. D 2, sixteenth. C 2, sixteenth. D 2, sixteenth.
+Left hand, voice 3 has no measure 8.
+Measure 9
+Right hand. Half rest. A 4, sixteenth, slur begins. E 5, sixteenth. D 5, sixteenth. C 5, sixteenth. A 4, sixteenth. D 5, sixteenth. C 5, sixteenth. A 4, sixteenth.
+Right hand, voice 2. Half rest. A 4, sixteenth, tied from previous. G 4, sixteenth. A 4, sixteenth. C 5, sixteenth. A 4, sixteenth. D 5, sixteenth. C 5, sixteenth. B flat 4, sixteenth.
+Left hand has no measure 9.
+Left hand, voice 2. A 1, sixteenth. F 3, sixteenth. G 2, sixteenth. A 2, sixteenth. G 2, sixteenth. B flat 2, sixteenth. A 2, sixteenth. B flat 2, sixteenth. F 2, sixteenth. B flat 1, sixteenth, slur ends. B flat 2, quarter, slur begins.
+Left hand, voice 3 has no measure 9.
+Measure 10
+Right hand. A 4, whole.
+Right hand, voice 2. C sharp 4, 2 in the time of 1, dotted half. C sharp 4, 2 in the time of 1, half. F 3, sixteenth. A 3, sixteenth. F 3, sixteenth. E 3, sixteenth. F 3, sixteenth. C sharp 4, sixteenth. D 3, sixteenth.
+Left hand has no measure 10.
+Left hand, voice 2. Half rest. Quarter rest. Quarter rest.
+Left hand, voice 3. A 1, sixteenth, tied from previous. A 2, sixteenth. E 3, sixteenth. A 2, sixteenth. C 3, sixteenth. A 2, sixteenth. G 2, sixteenth. A 2, sixteenth. F 2, sixteenth. E 2, sixteenth. F 1, sixteenth. F 2, sixteenth. G 2, half.
+Measure 11
+Right hand. C 4, dotted half, arpeggiated. A 4, sixteenth. F 5, sixteenth. A 5, sixteenth. F 5, sixteenth.
+Right hand, voice 2 has no measure 11.
+Left hand has no measure 11.
+Left hand, voice 2. C 2, sixteenth. C 3, sixteenth. F 3, sixteenth. A 3, sixteenth. F 3, sixteenth. A 2, sixteenth. C 3, sixteenth. A 2, sixteenth. F 2, sixteenth. A 2, sixteenth. C 3, sixteenth. F 3, sixteenth. F 3, sixteenth. E 3, sixteenth. F 3, sixteenth.
+Left hand, voice 3 has no measure 11.
+Measure 12
+Right hand. B flat 4, eighth. D 5, quarter. B flat 4, dotted eighth. E 5, sixteenth. B flat 4, sixteenth, tied. Eighth rest. E 5, eighth.
+Right hand, voice 2. E 4, eighth. D 5, quarter. C 5, eighth. E 5, dotted quarter.
+Left hand has no measure 12.
+Left hand, voice 2. G 2, eighth. C 2, eighth. G 3, eighth. E 3, eighth, slur ends. Dotted quarter rest. A 2, eighth.
+Left hand, voice 3 has no measure 12.
+Measure 13
+Right hand. G 5, dotted quarter. F 5, dotted eighth. Half rest.
+Right hand, voice 2. D 5, sixteenth. C 5, sixteenth. A 4, sixteenth. B flat 4, sixteenth. D 5, sixteenth. B flat 4, sixteenth. E 4, sixteenth. Half rest.
+Left hand has no measure 13.
+Left hand, voice 2. C 3, quarter. G 2, quarter, tied. E 2, sixteenth, tied from previous. C 4, sixteenth, tied. C 4, sixteenth, tied from previous. B flat 3, sixteenth. A 3, sixteenth. G 3, sixteenth.
+Left hand, voice 3 has no measure 13.
+Measure 14
+Right hand. Eighth rest. G 4, dotted eighth. B flat 4, sixteenth. G 4, eighth. Sixteenth rest. B flat 4, sixteenth. C 5, sixteenth.
+Right hand, voice 2. Half rest. Sixteenth rest. Sixteenth rest. Eighth rest. Sixteenth rest. Sixteenth rest.
+Left hand. B flat 4, dotted eighth.
+Left hand, voice 2. E 3, quarter, tied. G 2, sixteenth, tied from previous. A 2, sixteenth. G 2, sixteenth. A sharp 2, sixteenth. C 3, half, tied.
+Left hand, voice 3. F 3, half, tied.
+Measure 15
+Right hand. B flat 4, whole.
+Right hand, voice 2. A 4, half. F 4, 2 in the time of 1, half. A flat 4, 2 in the time of 1, half, slur ends.
+Left hand has no measure 15.
+Left hand, voice 2. G 2, 2 in the time of 1, quarter. A 2, 2 in the time of 1, sixteenth, slur begins. B flat 1, sixteenth, slur ends. D 2, sextuplet sixteenth. C 2, sextuplet sixteenth. D 2, sextuplet sixteenth. B flat 1, sextuplet sixteenth. D 2, sixteenth. F 3, sixteenth, tied. F 3, sixteenth, tied from previous. F 3, sixteenth, tied. Eighth rest. G 2, sextuplet sixteenth. E 3, sextuplet sixteenth. D flat 3, sextuplet sixteenth. G 2, sextuplet sixteenth. D 2, sextuplet sixteenth. G 2, sextuplet sixteenth. D flat 3, sextuplet sixteenth. G 2, sextuplet sixteenth. B flat 2, sextuplet sixteenth.
+Left hand, voice 3 has no measure 15.
+Measure 16
+Right hand. B flat 4, sixteenth, slur ends, slur begins. G 4, sixteenth. D 5, quarter. E 5, sixteenth, slur ends. A 4, sixteenth, slur begins. E 5, sixteenth, tied from previous, slur ends. A 4, sixteenth, slur begins. D 5, sixteenth. F 5, sixteenth, slur ends. D 5, sixteenth. C 5, sixteenth. A 4, sixteenth.
+Right hand, voice 2. Half rest. A 4, half.
+Left hand has no measure 16.
+Left hand, voice 2. F 2, sixteenth. E 3, sixteenth, tied. E 3, eighth, tied from previous. D flat 3, sixteenth. C 3, sixteenth. D 2, sixteenth. F 2, sixteenth. Quarter rest. C 2, sixteenth. A 2, sixteenth. C 2, sixteenth. E 2, sixteenth.
+Left hand, voice 3 has no measure 16.
+Measure 17
+Right hand. E 5, half. B flat 4, half.
+Right hand, voice 2. C 5, half. Half rest.
+Left hand has no measure 17.
+Left hand, voice 2. E 4, whole, tied from previous.
+Left hand, voice 3 has no measure 17.
+Measure 18
+Right hand. Whole measure rest.
+Right hand, voice 2 has no measure 18.
+Left hand has no measure 18.
+Left hand, voice 2. F 2, whole, tied.
+Left hand, voice 3 has no measure 18.

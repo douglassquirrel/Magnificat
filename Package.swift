@@ -14,7 +14,7 @@ let package = Package(
         .testTarget(
             name: "MagnificatTests",
             dependencies: ["Magnificat", "MagnificatCLI"],
-            resources: [.copy("Fixtures")]
+            resources: [.copy("Fixtures"), .copy("Golden")]
         ),
     ]
 )

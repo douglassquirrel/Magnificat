@@ -53,7 +53,10 @@ struct Renderer {
 
             let streams = Self.streams(of: part, partName: name)
             for stream in streams {
-                if streams.count > 1 {
+                // Not when the label is the part name again: a single-staff part
+                // with a second voice would otherwise print its name twice in a
+                // row, which the Parry golden did.
+                if streams.count > 1 && stream.label != name {
                     lines.append(TranscriptLine(text: stream.label, kind: .partHeading,
                                                 partID: part.id))
                 }
@@ -295,7 +298,7 @@ struct Renderer {
             case .perMeasure:
                 let text = (["Measure \(measure.number)"] + opening
                             + groups.map { phrase(for: $0) } + closing)
-                    .map { $0 + "." }
+                    .map { $0.hasSuffix(".") ? $0 : $0 + "." }
                     .joined(separator: " ")
                 lines.append(TranscriptLine(text: text, kind: .measure,
                                             partID: part.id,

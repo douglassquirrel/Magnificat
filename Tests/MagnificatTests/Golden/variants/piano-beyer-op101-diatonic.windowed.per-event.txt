@@ -1,0 +1,364 @@
+2 parts: Staff 1; Staff 2
+46 measures
+Key: C major, no sharps or flats
+Time signature: 4 4
+Staff 1
+Measure 1
+E 5, dotted quarter
+C 5, quarter
+D 5, quarter
+Measure 2
+F 5, quarter
+D 5, quarter
+E 5, quarter
+F 5, quarter
+Measure 3
+G 5, quarter
+C 5, quarter
+D 5, quarter
+E 5, quarter
+Measure 4
+D 5, whole
+Measure 5
+E 5, quarter
+C 5, quarter
+D 5, quarter
+E 5, quarter
+Measure 6
+F 5, quarter
+D 5, quarter
+E 5, quarter
+F 5, quarter
+Measure 7
+G 6, quarter
+C 6, quarter
+E 6, quarter
+D 6, quarter
+Measure 8
+C 5, whole
+Measure 9
+Repeat: forward repeat begins here
+F 6, quarter
+D 6, quarter
+E 6, quarter
+F 6, quarter
+Measure 10
+G 6, quarter
+C 6, quarter
+D 6, quarter
+E 6, quarter
+Measure 11
+F 7, quarter
+D 6, quarter
+E 6, quarter
+C 6, quarter
+Measure 12
+D 6, whole
+Measure 13
+E 6, quarter
+C 6, quarter
+D 6, quarter
+E 6, quarter
+Measure 14
+F 6, quarter
+D 6, quarter
+E 6, quarter
+F 6, quarter
+Measure 15
+G 6, quarter
+C 6, quarter
+E 6, quarter
+D 6, quarter
+Measure 16
+C 6, whole
+Repeat: go back to the start of measure 9
+Measure 17
+Repeat: forward repeat begins here
+Whole measure rest
+Measure 18
+G 5, half, tied, tenuto
+F 5, half, tied from previous, tenuto
+Measure 19
+E 5, whole, tenuto
+Measure 20
+D 5, quarter
+E 5, quarter
+F 5, quarter, tenuto
+D 5, quarter, tenuto
+Measure 21
+C 5, whole
+Measure 22
+E 5, quarter
+F 5, quarter, tenuto
+G 5, quarter, tenuto
+E 5, quarter, tenuto
+Measure 23
+D 5, quarter, tenuto
+E 5, quarter, tenuto
+F 5, quarter, tenuto
+D 5, quarter
+Measure 24
+E 5, quarter
+F 5, quarter, tenuto
+G 5, quarter, tenuto
+E 5, quarter, tenuto
+Measure 25
+D 5, quarter, tenuto
+E 5, quarter, tenuto
+F 5, quarter, tenuto
+D 5, quarter, tenuto
+Measure 26
+G 5, half
+F 5, half
+Measure 27
+E 5, whole
+Measure 28
+D 5, quarter
+E 5, quarter
+F 5, quarter, tenuto
+D 5, quarter
+Measure 29
+C 5, whole
+Double barline
+Measure 30
+G 5, quarter, staccatissimo
+F 5, quarter, staccatissimo
+E 5, quarter, staccatissimo
+Measure 31
+E 5, quarter, staccatissimo
+D 5, quarter, staccatissimo
+C 5, quarter, staccatissimo
+Measure 32
+D 5, quarter
+E 5, quarter
+D 5, quarter
+Measure 33
+E 5, quarter
+D 5, quarter
+E 5, quarter
+Measure 34
+G 5, quarter, staccatissimo
+F 5, quarter, staccatissimo
+E 5, quarter, staccatissimo
+Measure 35
+E 5, quarter, staccatissimo
+D 5, quarter, staccatissimo
+C 5, quarter, staccatissimo
+Measure 36
+D 5, quarter, staccatissimo
+E 5, quarter, staccatissimo
+D 5, quarter, staccatissimo
+Measure 37
+C 5, dotted half
+Measure 38
+Repeat: forward repeat begins here
+F 5, quarter, staccatissimo
+G 5, quarter, staccatissimo
+F 5, quarter, staccatissimo
+Measure 39
+E 5, quarter, staccatissimo
+D 5, quarter, staccatissimo
+C 5, quarter, staccatissimo
+Measure 40
+D 5, quarter, staccatissimo
+E 5, quarter, staccatissimo
+D 5, quarter, staccatissimo
+Measure 41
+C 5, quarter, staccatissimo
+D 5, quarter, staccatissimo
+E 5, quarter, staccatissimo
+Measure 42
+G 5, quarter, staccatissimo
+F 5, quarter, staccatissimo
+E 5, quarter, staccatissimo
+Measure 43
+E 5, quarter, staccatissimo
+D 5, quarter, staccatissimo
+C 5, quarter, staccatissimo
+Measure 44
+D 5, quarter, staccatissimo
+E 5, quarter, staccatissimo
+D 5, quarter, staccatissimo
+Measure 45
+C 5, dotted half
+Repeat: go back to the start of measure 38
+Measure 46
+Repeat: forward repeat begins here
+Whole measure rest
+Staff 2
+Measure 1
+C 4, whole
+Measure 2
+D 4, whole
+Measure 3
+E 4, whole
+Measure 4
+G 4, quarter
+F 4, quarter
+E 4, quarter
+D 4, quarter
+Measure 5
+C 4, whole
+Measure 6
+D 4, whole
+Measure 7
+E 4, half
+G 4, quarter
+F 4, quarter
+Measure 8
+E 4, quarter
+G 4, quarter
+E 4, quarter
+C 4, quarter
+Measure 9
+Repeat: forward repeat begins here
+D 4, whole, tied
+Measure 10
+E 4, whole
+Measure 11
+G 4, half
+G 4, half
+Measure 12
+G 4, quarter
+F 4, quarter
+E 4, quarter
+D 4, quarter
+Measure 13
+C 4, whole, tied
+Measure 14
+D 4, whole
+Measure 15
+E 4, half
+G 4, quarter
+F 4, quarter
+Measure 16
+E 4, quarter
+G 4, quarter
+C 4, half
+Repeat: go back to the start of measure 9
+Measure 17
+Repeat: forward repeat begins here
+Whole measure rest
+Measure 18
+E 4, quarter, tenuto
+C 4, quarter, tenuto
+D 4, quarter, tenuto
+G 4, quarter, tenuto
+Measure 19
+C 4, quarter, tenuto
+D 4, quarter, tenuto
+E 4, quarter, tenuto
+C 4, quarter, tenuto
+Measure 20
+F 4, quarter, tenuto
+E 4, quarter, tenuto
+D 4, quarter, tenuto
+F 4, quarter, tenuto
+Measure 21
+E 4, quarter, tenuto
+F 4, quarter, tenuto
+G 4, quarter, tenuto
+E 4, quarter, tenuto
+Measure 22
+C 4, quarter, tenuto
+D 4, quarter, tenuto
+E 4, quarter, tenuto
+G 4, quarter, tenuto
+Measure 23
+F 4, quarter, tenuto
+E 4, quarter, tenuto
+D 4, quarter, tenuto
+F 4, quarter, tenuto
+Measure 24
+C 4, quarter, tenuto
+D 4, quarter, tenuto
+E 4, quarter, tenuto
+G 4, quarter, tenuto
+Measure 25
+F 4, quarter, tenuto
+E 4, quarter, tenuto
+D 4, quarter, tenuto
+F 4, quarter, tenuto
+Measure 26
+E 4, quarter, tenuto
+C 4, quarter, tenuto
+D 4, quarter, tenuto
+G 4, quarter, tenuto
+Measure 27
+C 4, quarter, tenuto
+D 4, quarter, tenuto
+E 4, quarter, tenuto
+C 4, quarter, tenuto
+Measure 28
+F 4, quarter, tenuto
+E 4, quarter, tenuto
+D 4, quarter, tenuto
+F 4, quarter, tenuto
+Measure 29
+E 4, quarter, tenuto
+D 4, quarter, tenuto
+C 4, half, tenuto
+Double barline
+Measure 30
+Whole measure rest
+Measure 31
+G 4, quarter, staccatissimo
+F 4, quarter, staccatissimo
+E 4, quarter, staccatissimo
+Measure 32
+F 4, quarter
+G 4, quarter
+F 4, quarter
+Measure 33
+E 4, quarter
+D 4, quarter
+C 4, quarter
+Measure 34
+Whole measure rest
+Measure 35
+G 4, quarter, staccatissimo
+F 4, quarter, staccatissimo
+E 4, quarter, staccatissimo
+Measure 36
+F 4, quarter
+G 4, quarter
+F 4, quarter
+Measure 37
+E 4, quarter
+G 4, quarter
+C 4, quarter
+Measure 38
+Repeat: forward repeat begins here
+D 4, quarter, tied, staccatissimo
+E 4, quarter, staccatissimo
+D 4, quarter, staccatissimo
+Measure 39
+C 4, quarter
+D 4, quarter
+E 4, quarter
+Measure 40
+F 4, quarter
+G 4, quarter
+F 4, quarter
+Measure 41
+E 4, quarter
+D 4, quarter
+C 4, quarter
+Measure 42
+Whole measure rest
+Measure 43
+G 4, quarter, staccatissimo
+F 4, quarter, staccatissimo
+E 4, quarter, staccatissimo
+Measure 44
+F 4, quarter
+G 4, quarter
+F 4, quarter
+Measure 45
+E 4, quarter
+G 4, quarter
+C 4, quarter
+Repeat: go back to the start of measure 38
+Measure 46
+Repeat: forward repeat begins here
+Whole measure rest
