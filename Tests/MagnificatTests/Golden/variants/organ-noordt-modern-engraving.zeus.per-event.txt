@@ -1,6 +1,6 @@
 1 part: Zeus
 18 measures
-Key: F major, 1 flat
+Key signature: 1 flat, B flat
 No time signature.
 Zeus
 Right hand

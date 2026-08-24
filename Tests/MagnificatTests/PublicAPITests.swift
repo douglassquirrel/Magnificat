@@ -87,7 +87,7 @@ import Testing
     let score = try Score(musicXML: Fixture.named("mayer-1-du-bist-wie-eine-blume.musicxml"))
     let transcript = try score.transcript(measures: 5...6)
     let heading = transcript.lines.filter { $0.kind == .scoreHeading }.map(\.text)
-    #expect(heading.contains("Key: A flat major, 4 flats"))
+    #expect(heading.contains("Key signature: 4 flats, B flat, E flat, A flat, D flat"))
     #expect(heading.contains("Time signature: 4 4"))
     #expect(!heading.contains("No time signature."))
 }
@@ -118,6 +118,7 @@ import Testing
     """)
     let heading = try Score(musicXML: xml).transcript(measures: 3...3)
         .lines.filter { $0.kind == .scoreHeading }.map(\.text)
-    #expect(heading.contains("Key: B flat major, 2 flats"))
+    // The document states no <mode>, so no key is named — only its accidentals.
+    #expect(heading.contains("Key signature: 2 flats, B flat, E flat"))
     #expect(heading.contains("Time signature: 3 4"))
 }

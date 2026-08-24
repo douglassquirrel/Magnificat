@@ -3,7 +3,7 @@ Scott Joplin
 Words by Scott Joplin
 2 parts: Voice; Piano
 104 measures
-Key: B flat major, 2 flats
+Key signature: 2 flats, B flat, E flat
 Time signature: 3 4
 Voice
 Measures 1 to 7. Rest.

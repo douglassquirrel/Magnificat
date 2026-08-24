@@ -2,7 +2,7 @@ Music21 Fragment
 Music21
 3 parts: Part 1; Part 2; Part 3
 16 measures
-Key: F sharp major, 6 sharps
+Key signature: 6 sharps, F sharp, C sharp, G sharp, D sharp, A sharp, E sharp
 No time signature.
 Part 1
 Measure 1. A natural 4, eighth. F sharp 5, sixteenth. C sharp 5, sixteenth. C sharp 5, eighth. D natural 5, sixteenth. C sharp 5, sixteenth. C sharp 5, eighth. G sharp 4, eighth. Quarter rest.

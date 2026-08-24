@@ -29,7 +29,17 @@ extension Renderer {
         let measures = score.parts.map(\.measures.count).max() ?? 0
         facts.append(count(measures, "measure"))
 
-        if let key = score.firstKey { facts.append("Key: \(key.spokenName)") }
+        if let key = score.firstKey {
+            if key.statesNoKey {
+                // The file says outright that the music has no key.
+                facts.append("No key signature.")
+            } else if key.mode != nil, !(key.mode ?? "").isEmpty {
+                facts.append("Key: \(key.spokenName)")
+            } else {
+                // No name, because the file gave none. Just the accidentals.
+                facts.append("Key signature: \(key.spokenName)")
+            }
+        }
         if let time = score.firstTime {
             facts.append("Time signature: \(time.beats) \(time.beatType)")
         } else {

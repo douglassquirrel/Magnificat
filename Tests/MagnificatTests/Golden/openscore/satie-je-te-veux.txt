@@ -3,7 +3,7 @@ Erik Satie
 Words by Henry Pacory
 2 parts: Chant, Voice; Piano
 110 measures
-Key: C major, no sharps or flats
+Key signature: no sharps or flats
 Time signature: 3 4
 Chant, Voice
 Measure 1. Modéré. Whole measure rest.

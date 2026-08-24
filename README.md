@@ -217,7 +217,7 @@ Words by Heinrich Heine
 From 3 Lieder, Op.7, number 1
 2 parts: Singstimme, Voice; Pianoforte
 32 measures
-Key: A flat major, 4 flats
+Key signature: 4 flats, B flat, E flat, A flat, D flat
 Time signature: 4 4
 ```
 

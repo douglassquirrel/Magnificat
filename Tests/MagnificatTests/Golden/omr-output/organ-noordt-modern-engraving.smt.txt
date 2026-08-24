@@ -2,7 +2,7 @@ Music21 Fragment
 Music21
 2 parts: Part 1; Part 2
 22 measures
-Key: F major, 1 flat
+Key signature: 1 flat, B flat
 Time signature: 4 4
 Part 1
 Measure 1. F 4, whole.

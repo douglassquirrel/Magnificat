@@ -4,7 +4,7 @@ Words by Martin Luther
 From 4 Serious Songs, Op.121 (Vier ernste Gesänge), number 3
 2 parts: Singstimme, Voice; Pianoforte
 41 measures
-Key: G major, 1 sharp
+Key signature: 1 sharp, F sharp
 Time signature: 3 2
 Singstimme, Voice
 Measure 0. Pickup measure. Grave. B 3, half, lyric O.

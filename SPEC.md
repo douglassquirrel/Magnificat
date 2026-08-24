@@ -414,7 +414,7 @@ Words by Heinrich Heine
 From 3 Lieder, Op.7, number 1
 2 parts: Singstimme, Voice; Pianoforte
 32 measures
-Key: A flat major, 4 flats
+Key signature: 4 flats, B flat, E flat, A flat, D flat
 Time signature: 4 4
 ```
 
@@ -424,9 +424,27 @@ Time signature: 4 4
   §6.13's own rule. The opus number is also already inside the title in every
   fixture that has one, so speaking `<work-number>` as well would give
   `3 Lieder, Op.7, opus 7`.
-- The key is named from `<fifths>` and `<mode>`. Where `<mode>` is absent, the major name is
-  given with the accidental count, which is unambiguous and does not assert a mode the file
-  did not state.
+- **The key is named only when the file names it.** MusicXML states `<mode>` on 3 of the 92
+  `<key>` elements across the fixtures, so for almost every real score there is nothing to
+  name. Corrected 24 August 2026, in response to the user asking whether a key name is ever
+  actually given and confirming it should never be guessed: the previous rule filled the gap
+  by asserting the major tonic for the accidental count, which reads as fact to a reader who
+  cannot check it and is often wrong — the Brahms carries one sharp and is in E minor, and the
+  guess called it G major. Two of the three stated modes are `<mode>none</mode>`, on the
+  Webern: the file saying outright that the music is atonal, which the guess overrode with
+  `C major`.
+  - Where `<mode>` is `major` or `minor`, the line is `Key: <tonic> <mode>, <accidentals>`,
+    e.g. `Key: E minor, 1 sharp, F sharp`.
+  - Where `<mode>` names something else — `dorian`, `mixolydian` — the mode is spoken without
+    a tonic: `dorian, no sharps or flats`. Deriving the tonic of a non-major/minor mode from
+    the accidental count needs a table per mode; the file said the mode, and that is what is
+    said back.
+  - Where `<mode>` is `none`, the line is `No key signature.` — the file's own claim, stated
+    plainly.
+  - Where `<mode>` is absent altogether — the common case — no tonic is asserted. The line is
+    `Key signature: <accidentals>`, and `<accidents>` now also lists **which notes are
+    altered**, in written order: `4 flats, B flat, E flat, A flat, D flat`. That is a fact
+    regardless of mode, and it tells a player more than a name would.
 - A time signature is written as its two numbers with a space between and never a solidus:
   `Time signature: 4 4`, `Time signature: 3 4`, `Time signature: 6 8`. The label always
   precedes it, so the bare pair of numbers is never left to be guessed at. Screen readers

@@ -4,7 +4,7 @@ Words by Edmond Rostand (1868-1918)
 From Ballade des gros dindons, IEC 5
 2 parts: Voice; Piano
 91 measures
-Key: F major, 1 flat
+Key signature: 1 flat, B flat
 Time signature: 2 4
 Voice
 Measures 1 to 2. Rest.

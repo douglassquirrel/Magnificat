@@ -3,7 +3,7 @@ Frank Bridge
 Words by Robert Herrick
 2 parts: Voice; Piano
 43 measures
-Key: A major, 3 sharps
+Key signature: 3 sharps, F sharp, C sharp, G sharp
 Time signature: 4 4
 Voice
 Measure 1. Allegretto con moto. Whole measure rest.

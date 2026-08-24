@@ -1,6 +1,6 @@
 1 part: Violin
 16 measures
-Key: E minor, 1 sharp
+Key: E minor, 1 sharp, F sharp
 Time signature: 4 4
 Violin
 Measure 1. B 5, sixteenth. G 5, sixteenth. E 5, sixteenth. B 4, sixteenth. G 4, sixteenth. E 4, sixteenth. B 3, sixteenth. G 3, sixteenth. A 3, sixteenth. B 3, sixteenth. D sharp 4, sixteenth. F sharp 4, sixteenth. A 4, sixteenth. B 4, sixteenth. D sharp 5, sixteenth. F sharp 5, sixteenth.

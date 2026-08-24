@@ -4,7 +4,7 @@ Words by Stefan George
 From 5 Lieder nach Gedichten von Stefan George, Op.4, number 5
 2 parts: Gesang, Voice; Klavier, Piano
 16 measures
-Key: C major, no sharps or flats
+No key signature.
 Time signature: 2 4
 Gesang, Voice
 Measure 0

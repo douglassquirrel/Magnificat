@@ -1,6 +1,6 @@
 2 parts: Staff 1; Staff 2
 46 measures
-Key: C major, no sharps or flats
+Key signature: no sharps or flats
 Time signature: 4 4
 Staff 1
 Measure 1. E 5, dotted quarter. C 5, quarter. D 5, quarter.

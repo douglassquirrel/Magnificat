@@ -19,33 +19,62 @@ public struct KeySignature: Sendable, Equatable {
                                       "A", "E", "B", "F sharp", "C sharp", "G sharp",
                                       "D sharp", "A sharp"]
 
-    /// The key spoken as plain text: tonic, mode, and the count of accidentals.
-    ///
-    /// Where the file states no `<mode>` the major name is given, which is what
-    /// the accidentals themselves say; asserting a mode the file did not state
-    /// would be inventing information. See `SPEC.md` §6.13.
-    var spokenName: String {
-        let index = fifths + 7
-        guard Self.majorTonics.indices.contains(index) else {
-            return "\(fifths) on the circle of fifths"
-        }
-        let isMinor = mode?.lowercased() == "minor"
-        let tonic = isMinor ? Self.minorTonics[index] : Self.majorTonics[index]
-        let quality = isMinor ? "minor" : "major"
+    /// True when the file says outright that the music has no key — MusicXML's
+    /// `<mode>none</mode>`, which the Webern uses.
+    var statesNoKey: Bool { mode?.lowercased() == "none" }
 
-        let count: String
-        switch fifths {
-        case 0: count = "no sharps or flats"
-        case 1: count = "1 sharp"
-        case -1: count = "1 flat"
-        case let n where n > 0: count = "\(n) sharps"
-        default: count = "\(-fifths) flats"
+    /// The key spoken as plain text.
+    ///
+    /// **The key is named only when the file names it.** MusicXML states `<mode>`
+    /// on 3 of the 92 `<key>` elements in the fixtures, so for almost every real
+    /// score there is no name to give — and inferring one from the accidental
+    /// count is a guess. It reads as fact to somebody who cannot check it, and it
+    /// is often wrong: the Brahms carries one sharp and is in E minor, and the old
+    /// rule called it G major.
+    ///
+    /// What is always given instead is **which notes the signature alters**. That
+    /// is a fact, it asserts no tonic, and it tells a player more than a name
+    /// does. See `SPEC.md` §6.13.
+    var spokenName: String {
+        let accidentals = spokenAccidentals
+        guard let mode, !mode.isEmpty, !statesNoKey else { return accidentals }
+
+        switch mode.lowercased() {
+        case "major", "minor":
+            let index = fifths + 7
+            guard Self.majorTonics.indices.contains(index) else { return accidentals }
+            let isMinor = mode.lowercased() == "minor"
+            let tonic = isMinor ? Self.minorTonics[index] : Self.majorTonics[index]
+            return "\(tonic) \(isMinor ? "minor" : "major"), \(accidentals)"
+        default:
+            // Working out the tonic of dorian or mixolydian from the accidental
+            // count needs a table per mode. The file said the mode; that is what
+            // is said back, without inventing a tonic to go with it.
+            return "\(mode), \(accidentals)"
         }
-        return "\(tonic) \(quality), \(count)"
+    }
+
+    /// The count of sharps or flats, and which notes they fall on.
+    private var spokenAccidentals: String {
+        guard fifths != 0 else { return "no sharps or flats" }
+        let altered = Self.alteredSteps(fifths: fifths)
+        let count = abs(fifths) == 1
+            ? (fifths > 0 ? "1 sharp" : "1 flat")
+            : "\(abs(fifths)) \(fifths > 0 ? "sharps" : "flats")"
+        guard !altered.isEmpty else { return count }
+        return ([count] + altered).joined(separator: ", ")
+    }
+
+    /// The notes this signature alters, in the order they are written on the staff.
+    static func alteredSteps(fifths: Int) -> [String] {
+        guard fifths != 0 else { return [] }
+        let word = fifths > 0 ? "sharp" : "flat"
+        let order = fifths > 0 ? sharpOrder : sharpOrder.reversed()
+        return order.prefix(min(abs(fifths), 7)).map { "\($0.rawValue) \(word)" }
     }
 
     /// Sharps appear in this order; flats in the reverse of it.
-    private static let sharpOrder: [Step] = [.f, .c, .g, .d, .a, .e, .b]
+    static let sharpOrder: [Step] = [.f, .c, .g, .d, .a, .e, .b]
 
     /// The alteration this key signature applies to `step`, in semitones.
     ///

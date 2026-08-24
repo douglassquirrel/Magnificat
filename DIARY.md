@@ -14,7 +14,7 @@ The running record of how this library got built. `CLAUDE.md` §Diary governs th
 | `SPEC.md` | Settled. §14 is a decision log. Amended five times while building — each amendment says why, in place. |
 | Library | `Sources/Magnificat/`, Foundation only. Verified to compile for `arm64-apple-ios16.0`, the iOS simulator, and macOS. |
 | CLI | `Sources/MagnificatCLI/`. Every flag in `SPEC.md` §12, distinct exit codes, 18 tests. |
-| Tests | **196**, four layers: units, parser tests on complete inline documents, integration over 31 real files, and 49 goldens plus invariants. |
+| Tests | **201**, four layers: units, parser tests on complete inline documents, integration over 31 real files, and 49 goldens plus invariants. |
 | Coverage | **98.2% of lines**, 93.1% of regions. `CLAUDE.md` asks for ≥90%. |
 | `README.md` | Complete. Every Swift snippet is also a test, verbatim, so it cannot rot. |
 | Goldens | 49, all reviewed. `Tests/MagnificatTests/Golden/README.md` records the depth of each. |
@@ -24,12 +24,6 @@ The running record of how this library got built. `CLAUDE.md` §Diary governs th
 - **No blind or low-vision musician has read a word of the output.** Everything has been
   checked by eye — the one sense the output exists not to need. This is the most valuable
   review remaining and nothing substitutes for it.
-- **Key naming asserts a mode the file did not state.** `SPEC.md` §6.13 gives the major name
-  when `<mode>` is absent, so the Brahms — in E minor — reads `Key: G major, 1 sharp`, and the
-  atonal Webern reads `Key: C major, no sharps or flats`. The count is right and the name is a
-  guess. Naming the altered notes instead (`Key: 4 flats: B flat, E flat, A flat, D flat`)
-  would assert nothing and tell a player more, but it changes §7.5 and every golden, so it is
-  the user's call rather than a fix to slip in.
 - **`transcribe()` has no streaming form.** The largest fixture renders in well under a second,
   so nothing yet needs one.
 
@@ -375,3 +369,42 @@ an invisible character, a dangling parenthesis. Reading the output found seven t
 1,000 assertions did not. Keep the review requirement.
 
 **State.** 196 tests green, 98.2% line coverage, README complete, CLI working.
+
+---
+
+### 24 August 2026 — Stopped guessing at keys
+
+**Goal.** The user asked, after the library was otherwise complete: does MusicXML ever
+actually name a key, and if so use it — but never guess one.
+
+**What happened.** Surveyed all 92 `<key>` elements across the 31 fixtures before touching
+any code. `<mode>` is present on **3 of them**. Two of those three are `<mode>none</mode>`, on
+the Webern — the file stating outright that the music is atonal. The old rule, added on 23
+August without checking this, filled every absent mode with the major tonic for the
+accidental count. That is a guess presented as fact, and on real fixtures it was frequently
+wrong: the Brahms carries one sharp and is in E minor; the rule called it G major. On the
+Webern it was worse than wrong — it overrode the file's own explicit "no key" with `C major`.
+
+**Decision.** The key is now named only when the file names it:
+
+- `<mode>` is `major` or `minor` → `Key: E minor, 1 sharp, F sharp`.
+- `<mode>` is something else (`dorian`, `mixolydian`, …) → the mode is spoken with no
+  invented tonic: `dorian, no sharps or flats`.
+- `<mode>` is `none` → `No key signature.`, the file's own claim.
+- `<mode>` is absent (the common case — 89 of 92) → no tonic asserted at all. The line
+  becomes `Key signature: <accidentals>`, and the accidentals now name **which notes are
+  altered**, not just the count: `4 flats, B flat, E flat, A flat, D flat`. That is a fact
+  regardless of mode and tells a player more than a guessed name would.
+
+**Surprise.** None on the code side — this was checking an assumption, not discovering a
+bug in working code. The interesting part is that the old rule passed every test and every
+golden review without anyone noticing it was guessing, because a plausible major key *looks*
+right sitting next to four flats. It took the user asking a direct question about the data to
+surface it. Recorded as a lesson: a rule that fills a gap with an inference is worth
+re-examining even after it ships clean, especially where the inference reads as confident
+fact to someone who cannot check it — which is this library's whole risk surface.
+
+**State.** `SPEC.md` §6.13, `Sources/Magnificat/KeySignature.swift` and `Heading.swift`
+updated; all 49 goldens regenerated and reviewed for scope (confirmed only `Key`/`No key`
+lines changed, nothing else moved); `README.md`'s captured CLI output and `SPEC.md` §7.5's
+worked example updated to match. 201 tests green.

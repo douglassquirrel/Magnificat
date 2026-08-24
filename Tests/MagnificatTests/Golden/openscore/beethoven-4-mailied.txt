@@ -4,7 +4,7 @@ Words by Johann Wolfgang von Goethe
 From 8 Lieder, Op.52, number 4
 2 parts: Voice; Piano
 126 measures
-Key: E flat major, 3 flats
+Key signature: 3 flats, B flat, E flat, A flat
 Time signature: 2 4
 Voice
 Measure 1. Allegro. Eighth rest.
