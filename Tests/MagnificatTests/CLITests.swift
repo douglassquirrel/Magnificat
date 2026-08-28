@@ -159,13 +159,12 @@ import Testing
     // same information embedded at the top of the delivered text itself.
     let url = try #require(Bundle.module.url(forResource: "Fixtures", withExtension: nil))
         .appendingPathComponent("omr-output/organ-noordt-modern-engraving.zeus.musicxml")
-    let expectedSummary = try #require(
-        try Score(musicXML: Data(contentsOf: url)).transcript().anomalySummary)
+    let expected = try Score(musicXML: Data(contentsOf: url)).transcript().plainTextWithAnomalySummary
 
     var output = CapturingOutput()
     let code = MagnificatCLI.run(arguments: [url.path], output: &output)
     #expect(code == 0)
-    #expect(output.standardOutput.hasPrefix(expectedSummary + "\n\n"))
+    #expect(output.standardOutput == expected)
 }
 
 /// Collects what the CLI writes, so exit codes and streams can be tested without

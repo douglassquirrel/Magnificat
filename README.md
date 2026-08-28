@@ -145,19 +145,25 @@ end up inside a braille export.
 
 For a caller who only ever reads the delivered text itself, the same information is also folded
 directly into it: `transcript.anomalySummary` is one line per anomaly naming its measure, or
-`nil` for a clean file; `transcript.plainTextWithAnomalySummary` is that summary followed by a
-blank line and then `plainText` (exactly `plainText` when there is nothing to report). Both the
-command-line client and the desktop app write this — not plain `plainText` — as their actual
-output, so a reader who opens the file directly still sees the warning.
+`nil` for a clean file; `transcript.plainTextWithAnomalySummary` always leads with a fixed
+disclaimer that the text may have come from machine recognition of a scanned page — recognition
+can misread music without tripping any coherence check, so the *absence* of a listed anomaly is
+not proof the page was read correctly — followed by `anomalySummary` when there is one, a blank
+line, then `plainText`. Both the command-line client and the desktop app write this — never plain
+`plainText` — as their actual output, so a reader who opens the file directly still sees both.
 
 ```swift
 let text = transcript.plainTextWithAnomalySummary
-// Starts, when there is something to report, with:
-// "N anomalies found in this file:
+// "This text was produced by machine recognition of a scanned page and may
+// contain errors
+// 2 anomalies found in this file:
 // Measure 12: a note typed quarter lasts 6 divisions, where that value would be 4
 // Measure 45: a note is written on staff 3, but this part declares 2
 //
 // <the rest of the transcript>"
+//
+// The disclaimer's first line is unconditional; the anomaly block only
+// appears when transcript.anomalySummary is non-nil.
 ```
 
 ## Error handling

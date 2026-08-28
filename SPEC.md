@@ -134,8 +134,9 @@ Transcript
   lines: [TranscriptLine]
   plainText: String              // lines joined with "\n", trailing newline
   anomalySummary: String?        // one line per anomaly naming its measure; nil if none
-  plainTextWithAnomalySummary: String  // anomalySummary + blank line + plainText;
-                                 //   exactly plainText when there are none
+  plainTextWithAnomalySummary: String  // a fixed OMR disclaimer, always present, then
+                                 //   anomalySummary when there is one, then a blank
+                                 //   line, then plainText — never equal to plainText
   anomalies: [Anomaly]           // musical incoherence found while rendering (§6.15);
                                  //   never fatal, empty for a clean file
 
@@ -553,12 +554,16 @@ refusal. Anomalies are surfaced as `Transcript.anomalies: [Anomaly]`, each carry
 and measure, and the transcript is still produced. Only the errors in §6.16 stop the work.
 
 Anomalies are also folded into the delivered text itself, via `Transcript.anomalySummary` (one
-line per anomaly, naming its measure) and `Transcript.plainTextWithAnomalySummary` (the summary
-followed by a blank line, then `plainText`; identical to `plainText` for a clean file). A caller
-that only ever reads the delivered text — never inspects `anomalies` separately — still sees the
-warning. The CLI writes `plainTextWithAnomalySummary` to stdout and additionally logs each
-anomaly to stderr; the desktop app writes it to the `.txt` output file and additionally logs each
-anomaly, with its measure number, to `last-run.log`.
+line per anomaly, naming its measure; `nil` when clean) and `Transcript.plainTextWithAnomalySummary`
+(a fixed disclaimer — "This text was produced by machine recognition of a scanned page and may
+contain errors" — followed by `anomalySummary` when there is one, a blank line, then `plainText`).
+The disclaimer is **unconditional**, present even for a clean file: recognition can misread music
+without tripping any of the checks above, so the absence of a listed anomaly is not proof the
+page was read correctly, and `plainTextWithAnomalySummary` is therefore never equal to `plainText`.
+A caller that only ever reads the delivered text — never inspects `anomalies` separately — still
+sees both the disclaimer and any specific warning. The CLI writes `plainTextWithAnomalySummary` to
+stdout and additionally logs each anomaly to stderr; the desktop app writes it to the `.txt`
+output file and additionally logs each anomaly, with its measure number, to `last-run.log`.
 
 **This is deferred, not ruled out forever.** If a reason to validate appears — a new exporter
 producing files this parser mishandles, or a caller who needs a formal conformance statement —
@@ -890,3 +895,11 @@ had earlier called settled:
   same information rides along in the text every consumer already reads. Both existing
   per-anomaly channels (CLI stderr, `last-run.log`) are kept as well, since a caller watching the
   process rather than reading the file still wants them.
+- **28 August 2026 — `plainTextWithAnomalySummary` gained a fixed, unconditional disclaimer.**
+  Requested directly, the same day as the entry above: "This text was produced by machine
+  recognition of a scanned page and may contain errors" now always leads the text, even for a
+  file with zero listed anomalies — reasoning that recognition can misread music without
+  tripping any of §6.15's checks, so a clean anomaly list is not proof of a correct reading.
+  `plainTextWithAnomalySummary` is therefore never equal to `plainText` any more; every test and
+  README example that assumed the old "identical when clean" contract was updated to match, not
+  worked around.

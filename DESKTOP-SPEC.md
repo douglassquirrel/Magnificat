@@ -164,7 +164,13 @@ Cowork feedback: the log named each anomaly by measure, but a reader who opens t
 `.txt` file directly — rather than separately checking `last-run.log` — never saw it. The file
 now uses `Transcript.plainTextWithAnomalySummary` (`SPEC.md` §6.15) rather than `plainText`, so an
 anomalous file's `.txt` opens with the same "N anomalies found in this file:" block, one line per
-anomaly, before the transcript itself; a clean file's `.txt` is unchanged.
+anomaly, before the transcript itself.
+
+**Every `.txt` file, clean or not, opens with a fixed disclaimer.** Requested the same day: "This
+text was produced by machine recognition of a scanned page and may contain errors" now precedes
+the transcript unconditionally — a clean anomaly list is not proof of a correct reading, since
+recognition can misread music without tripping any coherence check. A clean file's `.txt` is no
+longer byte-identical to `plainText`; it is the disclaimer, a blank line, then the transcript.
 
 ### What the window never does
 

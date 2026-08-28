@@ -91,15 +91,21 @@ public struct Transcript: Sendable, Equatable {
         return lines.joined(separator: "\n")
     }
 
-    /// `plainText`, preceded by `anomalySummary` when there is one. Identical
-    /// to `plainText` for a clean transcript.
-    ///
-    /// `anomalies` already carried this information for a caller to surface
-    /// however it liked; this embeds the same detail directly in the
-    /// delivered text itself, for a reader of the file who never separately
-    /// inspects `anomalies` — added after exactly that gap was reported.
+    /// A fixed reminder that this text came from machine recognition of a scanned
+    /// page, not a verified transcription. Shown unconditionally: recognition can
+    /// misread music without tripping any of the checks in `Coherence.swift`, so
+    /// the absence of a listed anomaly is not proof the page was read correctly.
+    private static let omrDisclaimer = "This text was produced by machine recognition "
+        + "of a scanned page and may contain errors"
+
+    /// `omrDisclaimer`, followed by `anomalySummary` when there is one, then
+    /// `plainText`. Unlike `anomalySummary`, this is never `nil` and never
+    /// simply equals `plainText` — the disclaimer is unconditional.
     public var plainTextWithAnomalySummary: String {
-        guard let anomalySummary else { return plainText }
-        return anomalySummary + "\n\n" + plainText
+        var header = Self.omrDisclaimer
+        if let anomalySummary {
+            header += "\n" + anomalySummary
+        }
+        return header + "\n\n" + plainText
     }
 }

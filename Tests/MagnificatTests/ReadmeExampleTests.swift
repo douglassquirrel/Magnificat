@@ -83,7 +83,8 @@ import Testing
     // --- end ---
 
     let summary = try #require(transcript.anomalySummary)
-    #expect(text.hasPrefix(summary + "\n\n"))
+    #expect(text.hasPrefix("This text was produced by machine recognition of a scanned page "
+                          + "and may contain errors\n" + summary + "\n\n"))
     #expect(text.hasSuffix(transcript.plainText))
 }
 

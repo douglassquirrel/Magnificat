@@ -44,23 +44,25 @@ func anomaly(measure: String, detail: String) -> Anomaly {
     """)
 }
 
-@Test func plainTextWithAnomalySummaryEqualsPlainTextWhenClean() {
+let omrDisclaimer = "This text was produced by machine recognition of a scanned page "
+    + "and may contain errors"
+
+@Test func plainTextWithAnomalySummaryLeadsWithTheDisclaimerEvenWhenClean() {
     let transcript = Transcript(lines: [TranscriptLine(text: "Measure 1. C 5, quarter.", kind: .measure)])
-    #expect(transcript.plainTextWithAnomalySummary == transcript.plainText)
+    let expected = omrDisclaimer + "\n\nMeasure 1. C 5, quarter.\n"
+    #expect(transcript.plainTextWithAnomalySummary == expected)
 }
 
-@Test func plainTextWithAnomalySummaryPutsTheSummaryFirst() {
+@Test func plainTextWithAnomalySummaryAppendsTheAnomalyListAfterTheDisclaimer() {
     let transcript = Transcript(
         lines: [TranscriptLine(text: "Measure 12. C 5, quarter.", kind: .measure)],
         anomalies: [anomaly(measure: "12", detail: "overfull")])
 
-    let expected = """
-    1 anomaly found in this file:
-    Measure 12: overfull
-
-    Measure 12. C 5, quarter.
-
-    """
+    let expected = omrDisclaimer + "\n"
+        + "1 anomaly found in this file:\n"
+        + "Measure 12: overfull\n"
+        + "\n"
+        + "Measure 12. C 5, quarter.\n"
     #expect(transcript.plainTextWithAnomalySummary == expected)
 }
 

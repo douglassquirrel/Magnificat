@@ -11,18 +11,18 @@ need to know *why* something is the way it is.
 *Rewritten in place every session. Last updated 28 August 2026.*
 
 **The library, CLI, and desktop app are all built and working, including compressed `.mxl`
-support and anomaly summaries embedded directly in the delivered text.** 291 tests, all green.
-`swift build`, `swift test --enable-code-coverage`, `swift run MagnificatCLI --help`, and
-`Scripts/build-desktop-app.sh` all succeed.
+support and an OMR disclaimer + anomaly summary embedded directly in the delivered text.** 291
+tests, all green. `swift build`, `swift test --enable-code-coverage`,
+`swift run MagnificatCLI --help`, and `Scripts/build-desktop-app.sh` all succeed.
 
 | | |
 | --- | --- |
-| `SPEC.md` | Settled. §14 is a decision log, now covering three post-hoc reversals (key naming, `.mxl` support, anomaly summaries in the delivered text) as well as the original build. |
+| `SPEC.md` | Settled. §14 is a decision log, now covering four post-hoc reversals (key naming, `.mxl` support, anomaly summaries in the delivered text, then the unconditional disclaimer added on top of that same day) as well as the original build. |
 | `DESKTOP-SPEC.md` | Settled. A new component, added 28 August 2026: a macOS GUI wrapping the CLI's behavior, designed to be driven by a Claude Cowork automation instance rather than a person. |
 | Library | `Sources/Magnificat/`. Foundation, plus one deliberate exception: `Compression` (a system framework, not a UI framework, not third-party) for reading compressed `.mxl`. Verified to compile for `arm64-apple-ios16.0`, the iOS simulator, and macOS. |
-| CLI | `Sources/MagnificatCLI/`. Every flag in `SPEC.md` §12, distinct exit codes. Reads `.mxl` with no code changes of its own — the library handles it transparently. stdout now leads with the anomaly summary (`plainTextWithAnomalySummary`) when there is one, alongside the existing per-anomaly `stderr` warnings. |
-| Desktop app | `Sources/MagnificatDesktop/` (thin SwiftUI shell) + `Sources/MagnificatDesktopCore/` (every real decision, tested). Packaged by `Scripts/build-desktop-app.sh` into a real `.app` bundle (`org.magnificat.desktop`), ad-hoc signed for launch hygiene. Actually launched and clicked through — twice, once before `.mxl` support and once to confirm the fix that followed — via computer-use, not just unit-tested. The written `.txt` output now also leads with the anomaly summary, matching the CLI. |
-| Tests | **291** across two targets. `MagnificatTests` (225: units, parser tests, 31-file integration, 49 goldens, `.mxl` round-trips against 3 real user-provided fixtures, and the new anomaly-summary suite). `MagnificatDesktopCoreTests` (66: Configuration, InputScan, RunResult display logic, Runner, AppViewModel). |
+| CLI | `Sources/MagnificatCLI/`. Every flag in `SPEC.md` §12, distinct exit codes. Reads `.mxl` with no code changes of its own — the library handles it transparently. stdout now always leads with `plainTextWithAnomalySummary` (a fixed OMR disclaimer, plus the anomaly summary when there is one), alongside the existing per-anomaly `stderr` warnings. |
+| Desktop app | `Sources/MagnificatDesktop/` (thin SwiftUI shell) + `Sources/MagnificatDesktopCore/` (every real decision, tested). Packaged by `Scripts/build-desktop-app.sh` into a real `.app` bundle (`org.magnificat.desktop`), ad-hoc signed for launch hygiene. Actually launched and clicked through — twice, once before `.mxl` support and once to confirm the fix that followed — via computer-use, not just unit-tested. The written `.txt` output now also always leads with the disclaimer, matching the CLI; no `.txt` file is byte-identical to plain `plainText` any more, clean or not. |
+| Tests | **291** across two targets. `MagnificatTests` (225: units, parser tests, 31-file integration, 49 goldens, `.mxl` round-trips against 3 real user-provided fixtures, and the anomaly-summary suite). `MagnificatDesktopCoreTests` (66: Configuration, InputScan, RunResult display logic, Runner, AppViewModel). |
 | Coverage | Library: **98.3% of lines**, 92.2% of regions (not re-measured this session; the new code is fully exercised by its own tests). Desktop core: similar; the untested remainder is the SwiftUI View itself, deliberately thin and unit-untested, mirroring the CLI's own untested `main.swift`. |
 | `README.md` / `Tests/MagnificatTests/Golden/README.md` / `Tests/MagnificatTests/Fixtures/mxl/README.md` | All current. Every Swift snippet in the main README is also a test, verbatim. |
 
@@ -621,3 +621,51 @@ unrelated change.
 `README.md`'s "Warning a reader about a scruffy file" section all updated and re-verified
 (the two new README snippets are themselves tests, per the usual convention). Next step, if any:
 none outstanding — the request as stated is done on both consumers.
+
+---
+
+### 28 August 2026 — `plainTextWithAnomalySummary` gets a fixed, unconditional disclaimer
+
+**Goal.** Same day, direct follow-up to the increment above: always emit a fixed header — "This
+text was produced by machine recognition of a scanned page and may contain errors" (amended from
+an initial "will contain errors" to "may", per the user's own correction, before any code was
+written) — with the existing anomaly list appended after it when there is one.
+
+**Test.** Edited the two `AnomalySummaryTests.swift` tests that pinned the *old* contract
+("`plainTextWithAnomalySummary` equals `plainText` when clean"; "the summary comes first") to
+assert the new one instead — renamed
+`plainTextWithAnomalySummaryLeadsWithTheDisclaimerEvenWhenClean` and
+`plainTextWithAnomalySummaryAppendsTheAnomalyListAfterTheDisclaimer`. Per `CLAUDE.md`, editing a
+passing test's expectation is only legitimate when the *test's* expectation was wrong, not the
+code's — here the reason is explicit and stateable: the user changed the spec that same message,
+superseding the contract those two tests pinned down.
+
+**Red.**
+```
+plainTextWithAnomalySummaryLeadsWithTheDisclaimerEvenWhenClean() recorded an issue:
+Expectation failed: (transcript.plainTextWithAnomalySummary → "Measure 1. C 5, quarter.\n")
+== (expected → "This text was produced by machine recognition of a scanned page and may
+contain errors\n\nMeasure 1. C 5, quarter.\n")
+```
+Correct failure — the disclaimer simply wasn't there yet.
+
+**Green.** Added a private `omrDisclaimer` constant to `Transcript.swift` and rebuilt
+`plainTextWithAnomalySummary` to always prepend it. The two edited tests passed; so did the other
+5 in the file (`anomalySummary` itself is untouched — still `nil` when clean — only the combined
+property changed).
+
+**Decision / surprise.** The full suite then showed 5 failures elsewhere — every test written in
+the *previous* increment that had baked in "equals `transcribe()`" or "equals `plainText`" as its
+expected value for a real end-to-end run: `RunnerTests.swift` (`transcribesAValidFileAndWritesItsOutput`,
+`anomaliesInATranscriptAreCountedAsAWarningNotAFailure`, `transcribesARealMxlFileDroppedIntoFolderIn`),
+`ReadmeExampleTests.swift` (`readmeAnomalySummaryInTheDeliveredText`), and `CLITests.swift`
+(`standardOutputLeadsWithTheAnomalySummaryWhenTheFileHasOne`). All five were updated to expect
+`Score(...).transcript().plainTextWithAnomalySummary` (or a prefix including the disclaimer)
+rather than the bare transcript — the same "spec changed, so does the pinned value" reasoning as
+above, not a worked-around failure. `SPEC.md`, `DESKTOP-SPEC.md`, and `README.md` (prose plus the
+matching test) were all updated in the same pass so no stale "identical to `plainText` when
+clean" claim survived anywhere in the docs.
+
+**State.** 291 tests green (same count — this increment only changed existing tests' assertions,
+it added none net new beyond the file that already existed). Every consumer's actual output —
+CLI stdout, the desktop app's `.txt` file — now unconditionally opens with the disclaimer.

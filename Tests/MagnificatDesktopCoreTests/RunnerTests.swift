@@ -43,7 +43,7 @@ func makeFolder() -> URL {
                                           outcome: .succeeded(outputName: "song.txt", anomalies: []))])
 
     let written = try String(contentsOf: folder.appendingPathComponent("out/song.txt"), encoding: .utf8)
-    let expected = try transcribe(musicXML: validMusicXML)
+    let expected = try Score(musicXML: validMusicXML).transcript().plainTextWithAnomalySummary
     #expect(written == expected)
 }
 
@@ -187,7 +187,8 @@ func makeFolder() -> URL {
 
     let written = try String(contentsOf: folder.appendingPathComponent("out/\(outputName)"),
                              encoding: .utf8)
-    #expect(written.hasPrefix("1 anomaly found in this file:\nMeasure 1:"))
+    #expect(written.hasPrefix("This text was produced by machine recognition of a scanned page "
+                              + "and may contain errors\n1 anomaly found in this file:\nMeasure 1:"))
 }
 
 @Test func outputNameReplacesTheExtensionCaseInsensitively() {
@@ -350,5 +351,5 @@ func minimalStoredMxl(scoreContent: Data) -> Data {
     #expect(outputName == "song.txt")
     #expect(anomalies.isEmpty)
     let written = try String(contentsOf: folder.appendingPathComponent("out/song.txt"), encoding: .utf8)
-    #expect(written == (try transcribe(musicXML: validMusicXML)))
+    #expect(written == (try Score(musicXML: validMusicXML).transcript().plainTextWithAnomalySummary))
 }
