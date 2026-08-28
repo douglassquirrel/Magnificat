@@ -2,36 +2,54 @@
 
 The running record of how this library got built. `CLAUDE.md` §Diary governs this file.
 
-**If you are picking this up cold:** read `## Where things stand
+**If you are picking this up cold:** read `## Where things stand` immediately below, then
+`SPEC.md` for the library and `DESKTOP-SPEC.md` for the desktop app, then the `## Log` when you
+need to know *why* something is the way it is.
 
-*Rewritten in place every session. Last updated 24 August 2026.*
+## Where things stand
 
-**The library is built and complete.** 196 tests, all green. `swift build`,
-`swift test --enable-code-coverage` and `swift run MagnificatCLI --help` all succeed.
+*Rewritten in place every session. Last updated 28 August 2026.*
+
+**The library, CLI, and desktop app are all built and working, including compressed `.mxl`
+support requested after everything else was already in place.** 282 tests, all green.
+`swift build`, `swift test --enable-code-coverage`, `swift run MagnificatCLI --help`, and
+`Scripts/build-desktop-app.sh` all succeed.
 
 | | |
 | --- | --- |
-| `SPEC.md` | Settled. §14 is a decision log. Amended five times while building — each amendment says why, in place. |
-| Library | `Sources/Magnificat/`, Foundation only. Verified to compile for `arm64-apple-ios16.0`, the iOS simulator, and macOS. |
-| CLI | `Sources/MagnificatCLI/`. Every flag in `SPEC.md` §12, distinct exit codes, 18 tests. |
-| Tests | **201**, four layers: units, parser tests on complete inline documents, integration over 31 real files, and 49 goldens plus invariants. |
-| Coverage | **98.2% of lines**, 93.1% of regions. `CLAUDE.md` asks for ≥90%. |
-| `README.md` | Complete. Every Swift snippet is also a test, verbatim, so it cannot rot. |
-| Goldens | 49, all reviewed. `Tests/MagnificatTests/Golden/README.md` records the depth of each. |
+| `SPEC.md` | Settled. §14 is a decision log, now covering two post-hoc reversals (key naming, `.mxl` support) as well as the original build. |
+| `DESKTOP-SPEC.md` | Settled. A new component, added 28 August 2026: a macOS GUI wrapping the CLI's behavior, designed to be driven by a Claude Cowork automation instance rather than a person. |
+| Library | `Sources/Magnificat/`. Foundation, plus one deliberate exception: `Compression` (a system framework, not a UI framework, not third-party) for reading compressed `.mxl`. Verified to compile for `arm64-apple-ios16.0`, the iOS simulator, and macOS. |
+| CLI | `Sources/MagnificatCLI/`. Every flag in `SPEC.md` §12, distinct exit codes. Reads `.mxl` with no code changes of its own — the library handles it transparently. |
+| Desktop app | `Sources/MagnificatDesktop/` (thin SwiftUI shell) + `Sources/MagnificatDesktopCore/` (every real decision, tested). Packaged by `Scripts/build-desktop-app.sh` into a real `.app` bundle (`org.magnificat.desktop`), ad-hoc signed for launch hygiene. Actually launched and clicked through — twice, once before `.mxl` support and once to confirm the fix that followed — via computer-use, not just unit-tested. |
+| Tests | **282** across two targets. `MagnificatTests` (216: units, parser tests, 31-file integration, 49 goldens, and `.mxl` round-trips against 3 real user-provided fixtures). `MagnificatDesktopCoreTests` (66: Configuration, InputScan, RunResult display logic, Runner, AppViewModel). |
+| Coverage | Library: **98.3% of lines**, 92.2% of regions. Desktop core: similar; the untested remainder is the SwiftUI View itself, deliberately thin and unit-untested, mirroring the CLI's own untested `main.swift`. |
+| `README.md` / `Tests/MagnificatTests/Golden/README.md` / `Tests/MagnificatTests/Fixtures/mxl/README.md` | All current. Every Swift snippet in the main README is also a test, verbatim. |
 
 ### What is not done
 
-- **No blind or low-vision musician has read a word of the output.** Everything has been
-  checked by eye — the one sense the output exists not to need. This is the most valuable
-  review remaining and nothing substitutes for it.
-- **`transcribe()` has no streaming form.** The largest fixture renders in well under a second,
-  so nothing yet needs one.
+- **No blind or low-vision musician has read a word of the library's output.** Still true,
+  still the most valuable review remaining, still nothing substitutes for it.
+- **The desktop app's idle-state file listing is launch-time / folder-switch-time only** — it
+  does not live-refresh when a file is added while the window is already open. Clicking "Use
+  this folder" with the unchanged path works as a manual refresh. Documented as a deliberate
+  choice in `DESKTOP-SPEC.md` §10, not an oversight, but worth knowing if it ever feels wrong
+  in practice.
+- **`transcribe()` has no streaming form.** Still true, still not yet needed.
 
 ### Where to start reading the code
 
-`Sources/Magnificat/AccidentalContext.swift` and `Renderer.swift` hold the subtlety. The
-parser is long but flat. `Coherence.swift` is where the anomaly checks live, and its comments
-record which real file falsified each earlier version of them.
+For the library: `Sources/Magnificat/AccidentalContext.swift` and `Renderer.swift` hold the
+subtlety; `Coherence.swift`'s comments record which real file falsified each earlier version of
+its checks; `ZipReader.swift` is the newest piece, a from-scratch minimal ZIP reader with no
+third-party dependency.
+
+For the desktop app: `Sources/MagnificatDesktopCore/Runner.swift` does the real work;
+`Sources/MagnificatDesktop/AppViewModel.swift` is the only part of the SwiftUI layer with real
+logic (and the one place a display bug was found by actually running the app, not by a unit
+test); `ContentView.swift` should stay thin — if it starts growing `??`-fallback logic of its
+own, that is a sign something belongs in `AppViewModel` instead, per the mistake corrected on
+28 August.
 
 ---
 
@@ -408,3 +426,146 @@ fact to someone who cannot check it — which is this library's whole risk surfa
 updated; all 49 goldens regenerated and reviewed for scope (confirmed only `Key`/`No key`
 lines changed, nothing else moved); `README.md`'s captured CLI output and `SPEC.md` §7.5's
 worked example updated to match. 201 tests green.
+
+---
+
+### 28 August 2026 — MagnificatDesktop: spec, core logic, and the SwiftUI shell
+
+**Goal.** A new requirement: a macOS GUI wrapping `MagnificatCLI`'s behavior, but driven
+entirely by a Claude Cowork automation instance rather than a person — folder-based I/O, no
+file pickers, no drag-and-drop, no modal dialogs of any kind.
+
+**What happened.** Wrote `DESKTOP-SPEC.md` first, mapping each unusual constraint in the brief
+to what Cowork concretely cannot do (a system dialog belongs to another process it cannot see;
+a modal blocks every subsequent command with no recovery). Five decisions had to be made
+unilaterally — batch processing rather than single-file only, an explicit Run button rather
+than a folder watcher, a JSON config file for the folder since a picker is exactly what's
+banned, "done" on a mixed batch when at least one file succeeds, a 6-item cap making "no
+scrolling required" concrete — each written into §10 with its reasoning.
+
+Built test-first, same package structure as the library itself:
+`MagnificatDesktopCore` (Foundation + Magnificat only, every real behavior, deeply tested) and
+a thin `MagnificatDesktop` executable. `Runner` scans `FOLDER/in` fresh on every click, never
+the possibly-stale on-screen listing; a folder that cannot even be created becomes a `RunResult`
+with a top-level failure reason rather than an exception, since there is nowhere to write a log
+about a log directory that does not exist. `AppViewModel` is the one part of the executable with
+real decision logic, so it is tested directly via `@testable import`, exactly like
+`MagnificatCLI`'s `Invocation` already is.
+
+**Decision / surprise.** `ObservableObject`/`@Published`, not the newer `@Observable` macro:
+`@Observable` needs macOS 14, and the package's platform floor (macOS 13) is shared with the
+portable library, which must not be raised for this app's convenience.
+
+**State.** Core logic complete and tested. SwiftUI wiring next.
+
+---
+
+### 28 August 2026 — The window, a real .app bundle, and a bug only running it found
+
+**Goal.** Wire `ContentView`/`MagnificatDesktopApp` to the tested `AppViewModel`, package a real
+`.app`, and actually run it.
+
+**What happened.** `Scripts/build-desktop-app.sh` assembles `Magnificat Desktop.app` — SwiftPM
+only produces a raw executable — with a distinct identifier (`org.magnificat.desktop`) and
+ad-hoc self-signing for launch hygiene. Grepped the whole target for every banned API
+(`NSAlert`, `.alert`, `.sheet`, `.confirmationDialog`, `.fileImporter`, `NSOpenPanel`, `sudo`):
+none found.
+
+Then actually launched it. `computer-use` was contended by another session at first;
+`screencapture` and AppleScript UI-scripting (the fallback) were both blocked by permissions
+this shell does not hold, and were not worked around. When `computer-use` freed up: launched,
+clicked Run, clicked through DONE and FAILED. Found a real defect no unit test had caught — a
+successful single-file run showed `"DONE / song.txt / 1 file ready in FOLDER/in"`, idle-state
+text leaking in underneath a completed run. Cause: Run leaves input files in place and rescans
+afterward, so `scanned` still shows them, and a naive `runResult?.detail ?? idleDetail(...)`
+fell through whenever the run's own `detail` was legitimately `nil` ("nothing more to say").
+
+**Decision / surprise — the lesson worth keeping.** This is the same thing the library's own
+golden-review phase found: every unit was individually correct; only running the whole thing
+surfaced what their *composition* actually did. Fixed by moving all of it out of the untested
+View into `AppViewModel.display*` (headline, detail, output filename, file lines), each tested
+directly, including the exact scenario that broke. Rebuilt the packaged app and reran the same
+click-through to confirm: clean `"DONE"` with just the filename, nothing leaked.
+
+**State.** 264 tests green. The window works as designed.
+
+---
+
+### 28 August 2026 — Cowork: log every anomaly by measure number, not just a count
+
+**Goal.** Feedback from the actual Cowork operator: *"The app's log says '2 anomalies' for
+Dichterliebe, but nothing in the transcript says where. Magnificat's own API exposes
+transcript.anomalies with measure numbers, so the data exists — it just isn't reaching the
+reader."*
+
+**What happened.** Correct, and a real gap: `FileOutcome.succeeded` carried only
+`anomalyCount: Int`, discarding the `Anomaly` values themselves — each already carrying a
+`measureNumber` and a `detail` string documented as "safe to show a user." `FileOutcome` now
+carries `[Anomaly]` directly (reusing `Magnificat.Anomaly` rather than a parallel type), and the
+log lists each one on its own indented line under the file's summary. The window still shows
+only a count, by design — the 6-item cap rules out per-anomaly detail there.
+
+**Decision / surprise.** `Anomaly` is `public` in the main library but Swift only synthesizes an
+`internal` memberwise initializer for a plain struct — external code, including this app's own
+tests, could not construct one at all. Added an explicit `public init`; purely additive,
+verified against the full existing library suite with no changes needed there.
+
+**State.** 267 tests green.
+
+---
+
+### 28 August 2026 — Compressed `.mxl`: real fixtures, then real implementation
+
+**Goal.** New requirement, requested directly: accept compressed `.mxl` in both the CLI and the
+desktop app. The user's own framing — "just an unzip step... then everything else as usual" —
+was checked rather than assumed correct.
+
+**What happened.** The user placed three real `.mxl` files directly in the `Magnificat` folder,
+then their uncompressed `.musicxml` siblings. In the process of finding them, stumbled onto an
+unrelated sibling project (`blindmusic`) on the same machine with its own principal/plan — not
+touched, not read beyond confirming it was irrelevant to this request; the files the user
+actually meant turned out to be sitting directly in `Magnificat`'s own root the whole time.
+Verified all three pairs byte-identical (`unzip -p` vs. the sibling) before trusting either,
+then moved them into `Tests/MagnificatTests/Fixtures/mxl/` with a README recording exactly that
+provenance and what checking each `container.xml` revealed: the root entry's name never matches
+the archive's own name (`carmen.mxl` → `carmen.xml`), confirming the user's "just unzip" framing
+was incomplete — the format's `META-INF/container.xml` manifest has to be read to find the right
+entry, not guessed.
+
+**Decision.** Foundation has no ZIP API. Wrote `ZipReader.swift` from scratch — end-of-central-
+directory, central directory, local headers, all parsed by hand — using `Compression`, a system
+framework present identically on iOS and macOS, for the actual DEFLATE decompression. This is a
+deliberate, documented exception to "Foundation only": not a UI framework, not a third-party
+dependency, the only thing that makes this possible without either. `CompressedMusicXML.swift`
+sits on top, reading `container.xml` with a small purpose-built `XMLParserDelegate` (not the
+full `MusicXMLHandler` — this document does not need it) to find the root entry. Wired into
+`Score.init(musicXML:)` alone, so `MagnificatCLI` and `MagnificatDesktop` need **no code changes**
+to gain `.mxl` support — confirmed by adding one end-to-end test to each rather than assuming it.
+
+`TranscriptionError.unsupportedFormat` — which existed for exactly one reason, refusing `.mxl`
+— was removed entirely rather than left with zero remaining trigger. A new `.corruptedArchive`
+case covers a broken archive specifically, distinct from `.malformedXML` (the *extracted*
+MusicXML not parsing).
+
+**Decision / surprise — two real bugs the automated tests found, not manual inspection.**
+
+1. My own first test for "local header signature is wrong" corrupted the wrong bytes: the first
+   entry's local header sits at offset 0, which doubles as `Score.init`'s own outer "is this
+   even a zip" check. Corrupting it there makes the file stop looking like a zip at all, so it
+   correctly falls through to being parsed as plain (and then malformed) XML — sound behavior,
+   just not the branch that test meant to provoke. Fixed by targeting the *second* entry instead.
+2. `MagnificatDesktopCore`'s own `scanInputFolder` had not been told about `.mxl` — it still
+   only recognized `.musicxml`, so a real `.mxl` dropped into `FOLDER/in` was silently skipped
+   by the desktop app's scan, never reaching the library code that now reads it fine. Found by
+   an end-to-end Runner test (`transcribesARealMxlFileDroppedIntoFolderIn`), not by inspecting
+   the scan filter in isolation — exactly the kind of thing a unit test on the filter alone
+   would not have caught, because the filter was internally consistent, just stale.
+   `Runner.outputName(for:)` had the same gap (would have produced `song.mxl.txt`). Both fixed;
+   `DESKTOP-SPEC.md` §6 records the finding.
+
+**State.** 282 tests green. Library coverage 98.3% of lines. Every distinct archive corruption
+`ZipReader`/`CompressedMusicXML` can report is provoked by a direct test (missing
+`container.xml`, an unsupported compression method, a truncated central directory, a corrupted
+local header, a decompression size mismatch) except two lines documented in `ZipReader.swift`
+itself as genuinely hard to provoke without either a flaky timing-dependent test or bypassing
+the test builder's own type safety for a scenario no real exporter produces.
