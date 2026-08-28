@@ -77,3 +77,17 @@ import Testing
 
     #expect(try scanInputFolder(inDir).isEmpty)
 }
+
+@Test func recognisesCompressedMxlFilesToo() throws {
+    // Found via transcribesARealMxlFileDroppedIntoFolderIn: the library gained
+    // .mxl support, but the scan's own extension check had not, so a real
+    // .mxl dropped into FOLDER/in was silently skipped rather than processed.
+    let inDir = tempDirectory()
+    defer { try? FileManager.default.removeItem(at: inDir) }
+    try Data().write(to: inDir.appendingPathComponent("song.mxl"))
+    try Data().write(to: inDir.appendingPathComponent("Song.MXL"))
+
+    let scanned = try scanInputFolder(inDir)
+
+    #expect(scanned.allSatisfy { $0.isMusicXML })
+}

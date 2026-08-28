@@ -72,15 +72,16 @@ public struct Runner: Sendable {
         }
     }
 
-    /// `song.musicxml` → `song.txt`, matching case-insensitively so
-    /// `Song.MUSICXML` still becomes `Song.txt` rather than keeping its
-    /// original extension untouched.
+    /// `song.musicxml` → `song.txt`, `song.mxl` → `song.txt`, matching
+    /// case-insensitively so `Song.MUSICXML`/`Song.MXL` still become
+    /// `Song.txt` rather than keeping their original extension untouched.
     static func outputName(for inputName: String) -> String {
-        guard inputName.count > ".musicxml".count,
-              inputName.lowercased().hasSuffix(".musicxml") else {
-            return inputName + ".txt"
+        for suffix in [".musicxml", ".mxl"] {
+            guard inputName.count > suffix.count,
+                  inputName.lowercased().hasSuffix(suffix) else { continue }
+            return String(inputName.dropLast(suffix.count)) + ".txt"
         }
-        return String(inputName.dropLast(".musicxml".count)) + ".txt"
+        return inputName + ".txt"
     }
 
     /// Wording for this app's log and window — kept separate from

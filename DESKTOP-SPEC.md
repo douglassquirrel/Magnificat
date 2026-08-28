@@ -88,9 +88,12 @@ On launch: read or create the config, ensure `FOLDER/in` and `FOLDER/out` exist,
 ### The scan
 
 Non-recursive — only the direct contents of `FOLDER/in`. A file counts as input when its name
-ends `.musicxml`, matched case-insensitively (`.MUSICXML` counts; a real exporter's casing
-should never be a reason a file is silently ignored). Everything else in the folder is listed
-too, but marked as skipped and never opened.
+ends `.musicxml` or `.mxl` (compressed MusicXML — `SPEC.md`'s decision log), matched
+case-insensitively (`.MUSICXML`/`.MXL` count; a real exporter's casing should never be a reason
+a file is silently ignored). Everything else in the folder is listed too, but marked as skipped
+and never opened. Added 28 August 2026: the scan's own filter had not been updated when `.mxl`
+support landed in the library, so a real `.mxl` dropped into `FOLDER/in` was silently skipped
+rather than processed — caught by an end-to-end test, not a unit test on the filter in isolation.
 
 ### Run
 
@@ -101,12 +104,13 @@ file is mid-copy would produce a spurious failure with no way for Cowork to know
 click is also the one signal an agent can produce and synchronize against reliably.
 
 Run re-scans `FOLDER/in` fresh (not the possibly-stale listing shown on screen), and for every
-`.musicxml` file found, in filename order:
+`.musicxml` or `.mxl` file found, in filename order:
 
 1. Read the file, call `Score(musicXML:)` then `.transcript()` with **default
    `TranscriptOptions()`** — no options UI exists (§13). This matches `magnificat file.musicxml`
-   with no flags.
-2. On success, write `FOLDER/out/<stem>.txt` (the input's name with `.musicxml` replaced by
+   with no flags. `Score(musicXML:)` itself detects and transparently decompresses `.mxl`, so
+   this step needs no branching on which extension it was.
+2. On success, write `FOLDER/out/<stem>.txt` (the input's name with its extension replaced by
    `.txt`), **overwriting** any existing file of that name. Re-running is idempotent.
 3. On failure (`TranscriptionError`), write nothing for that file; record the reason.
 4. Anomalies from a successful transcript (`SPEC.md` §6.15) are recorded as part of that file's

@@ -192,6 +192,15 @@ func makeFolder() -> URL {
     #expect(Runner.outputName(for: "a.b.musicxml") == "a.b.txt")
 }
 
+@Test func outputNameStripsTheCompressedExtensionToo() {
+    // Found alongside the InputScan fix: scanInputFolder now recognizes .mxl,
+    // and the output name must not just append .txt onto it wholesale
+    // ("song.mxl.txt") the way the fallback branch would for an unrecognized
+    // extension.
+    #expect(Runner.outputName(for: "song.mxl") == "song.txt")
+    #expect(Runner.outputName(for: "Song.MXL") == "Song.txt")
+}
+
 // Every TranscriptionError case gets its own log/window wording, tested
 // directly against Runner.describe rather than through six different
 // malformed files — the point here is the string mapping, and the main
@@ -248,4 +257,94 @@ func makeFolder() -> URL {
         Issue.record("expected a failure, got \(String(describing: result.results.first))")
         return
     }
+}
+
+// No Runner code changes were needed for .mxl support — Score(musicXML:)
+// handles it transparently — but this proves the wiring actually reaches a
+// real folder-driven run, not just the library's own unit tests. A minimal
+// STORED-method (uncompressed) archive is built by hand rather than reusing
+// the real Fixtures/mxl/ files, which live in MagnificatTests's own resource
+// bundle and are not visible from this target.
+
+func minimalStoredMxl(scoreContent: Data) -> Data {
+    func u16(_ v: UInt16) -> [UInt8] { [UInt8(v & 0xFF), UInt8(v >> 8)] }
+    func u32(_ v: UInt32) -> [UInt8] {
+        [UInt8(v & 0xFF), UInt8((v >> 8) & 0xFF), UInt8((v >> 16) & 0xFF), UInt8((v >> 24) & 0xFF)]
+    }
+    let container = Data("""
+    <container><rootfiles><rootfile full-path="score.xml"/></rootfiles></container>
+    """.utf8)
+
+    func localHeader(name: String, content: Data) -> Data {
+        let nameBytes = Data(name.utf8)
+        var header = Data()
+        header.append(contentsOf: u32(0x0403_4B50)); header.append(contentsOf: u16(20))
+        header.append(contentsOf: u16(0)); header.append(contentsOf: u16(0))  // flags, method=0 (stored)
+        header.append(contentsOf: u16(0)); header.append(contentsOf: u16(0))  // time, date
+        header.append(contentsOf: u32(0))                                     // crc32
+        header.append(contentsOf: u32(UInt32(content.count)))                 // compressed size
+        header.append(contentsOf: u32(UInt32(content.count)))                 // uncompressed size
+        header.append(contentsOf: u16(UInt16(nameBytes.count))); header.append(contentsOf: u16(0))
+        header.append(nameBytes)
+        header.append(content)
+        return header
+    }
+    func centralRecord(name: String, content: Data, offset: UInt32) -> Data {
+        let nameBytes = Data(name.utf8)
+        var record = Data()
+        record.append(contentsOf: u32(0x0201_4B50))
+        record.append(contentsOf: u16(20)); record.append(contentsOf: u16(20))
+        record.append(contentsOf: u16(0)); record.append(contentsOf: u16(0))
+        record.append(contentsOf: u16(0)); record.append(contentsOf: u16(0))
+        record.append(contentsOf: u32(0))
+        record.append(contentsOf: u32(UInt32(content.count)))
+        record.append(contentsOf: u32(UInt32(content.count)))
+        record.append(contentsOf: u16(UInt16(nameBytes.count)))
+        record.append(contentsOf: u16(0)); record.append(contentsOf: u16(0))
+        record.append(contentsOf: u16(0)); record.append(contentsOf: u16(0))
+        record.append(contentsOf: u32(0))
+        record.append(contentsOf: u32(offset))
+        record.append(nameBytes)
+        return record
+    }
+
+    var body = Data()
+    let containerOffset: UInt32 = 0
+    body.append(localHeader(name: "META-INF/container.xml", content: container))
+    let scoreOffset = UInt32(body.count)
+    body.append(localHeader(name: "score.xml", content: scoreContent))
+
+    var centralDirectory = Data()
+    centralDirectory.append(centralRecord(name: "META-INF/container.xml", content: container, offset: containerOffset))
+    centralDirectory.append(centralRecord(name: "score.xml", content: scoreContent, offset: scoreOffset))
+
+    var archive = body
+    let cdOffset = UInt32(archive.count)
+    archive.append(centralDirectory)
+    archive.append(contentsOf: u32(0x0605_4B50))
+    archive.append(contentsOf: u16(0)); archive.append(contentsOf: u16(0))
+    archive.append(contentsOf: u16(2)); archive.append(contentsOf: u16(2))
+    archive.append(contentsOf: u32(UInt32(centralDirectory.count)))
+    archive.append(contentsOf: u32(cdOffset))
+    archive.append(contentsOf: u16(0))
+    return archive
+}
+
+@Test func transcribesARealMxlFileDroppedIntoFolderIn() throws {
+    let folder = makeFolder()
+    defer { try? FileManager.default.removeItem(at: folder) }
+    let archive = minimalStoredMxl(scoreContent: validMusicXML)
+    try archive.write(to: folder.appendingPathComponent("in/song.mxl"))
+
+    let result = Runner().run(folder: folder, now: Date(timeIntervalSince1970: 0))
+
+    #expect(result.status == .done)
+    guard case .succeeded(let outputName, let anomalies) = result.results.first?.outcome else {
+        Issue.record("expected a success, got \(String(describing: result.results.first))")
+        return
+    }
+    #expect(outputName == "song.txt")
+    #expect(anomalies.isEmpty)
+    let written = try String(contentsOf: folder.appendingPathComponent("out/song.txt"), encoding: .utf8)
+    #expect(written == (try transcribe(musicXML: validMusicXML)))
 }
