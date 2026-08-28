@@ -67,6 +67,48 @@ public final class AppViewModel: ObservableObject {
         }
     }
 
+    // MARK: - Display composition
+
+    /// `"RUNNING"`, or the completed run's headline, or `"IDLE"` before any run
+    /// has happened. Composed here — not in the View — after a live check found
+    /// idle-state text leaking into a completed run's display; see
+    /// `displayDetail` for the actual bug.
+    public var displayHeadline: String {
+        if isRunning { return "RUNNING" }
+        return runResult?.headline ?? "IDLE"
+    }
+
+    /// The one-line detail beneath the headline, or `nil` when nothing more
+    /// needs saying.
+    ///
+    /// **Once a run has happened, this never falls back to the idle folder
+    /// listing** — even when the run's own `detail` is `nil`. Run leaves input
+    /// files in place and rescans afterward, so `scanned` still shows them; a
+    /// naive `runResult?.detail ?? idleDetail(...)` showed "1 file ready in
+    /// FOLDER/in" underneath a "DONE" headline, which reads as if the run left
+    /// something unprocessed. Found by actually running the app, not by a unit
+    /// test — this composition previously lived only in the untested View.
+    public var displayDetail: String? {
+        if isRunning { return nil }
+        if let runResult { return runResult.detail }
+        return idleDetail(scanned: scanned)
+    }
+
+    /// The output filename, shown big, only for a single-file run — `nil`
+    /// while running or before any run.
+    public var displayOutputFilename: String? {
+        guard !isRunning else { return nil }
+        return runResult?.outputFilenameToDisplay
+    }
+
+    /// The file-list lines to show: the run's own capped list once one exists,
+    /// the idle folder listing before that, nothing while running.
+    public var displayFileLines: [String] {
+        guard !isRunning else { return [] }
+        if let runResult { return runResult.visibleFileLines }
+        return idleVisibleLines(scanned: scanned)
+    }
+
     /// Runs once over the current folder, off the main actor so a larger batch
     /// never blocks the window, then rescans so newly written output — and any
     /// input files an operator dropped in mid-run — are reflected.
