@@ -95,8 +95,8 @@ public struct Runner: Sendable {
             return "not well-formed XML: line \(line), \(message)"
         case .unsupportedRootElement(let found):
             return "not a partwise MusicXML score (found <\(found)>)"
-        case .unsupportedFormat(let what):
-            return "unsupported format: \(what)"
+        case .corruptedArchive(let why):
+            return "could not read the .mxl archive: \(why)"
         case .emptyScore:
             return "empty score — the file holds no music"
         case .invalidValue(let element, let value):

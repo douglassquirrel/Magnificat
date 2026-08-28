@@ -201,7 +201,7 @@ func makeFolder() -> URL {
     let cases: [(TranscriptionError, contains: String)] = [
         (.malformedXML(line: 3, message: "oops"), "not well-formed XML"),
         (.unsupportedRootElement(found: "html"), "not a partwise MusicXML score"),
-        (.unsupportedFormat("compressed .mxl"), "unsupported format"),
+        (.corruptedArchive("no container.xml"), "could not read the .mxl archive"),
         (.emptyScore, "empty score"),
         (.invalidValue(element: "octave", value: "banana"), "cannot mean anything"),
         // Never actually reachable through this app (no part/measure

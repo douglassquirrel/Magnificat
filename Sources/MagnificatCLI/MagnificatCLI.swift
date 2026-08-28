@@ -121,8 +121,8 @@ public enum MagnificatCLI {
         case .unsupportedRootElement(let found):
             return "This is not a partwise MusicXML score: the document is <\(found)>, "
                  + "not <score-partwise>."
-        case .unsupportedFormat(let what):
-            return "Magnificat does not read \(what). Uncompress it first."
+        case .corruptedArchive(let why):
+            return "This .mxl file could not be read: \(why)"
         case .emptyScore:
             return "This file holds no music."
         case .invalidValue(let element, let value):

@@ -7,8 +7,11 @@ public enum TranscriptionError: Error, Equatable {
     case malformedXML(line: Int, message: String)
     /// The root element is not `score-partwise`.
     case unsupportedRootElement(found: String)
-    /// A format this library deliberately does not read, such as compressed `.mxl`.
-    case unsupportedFormat(String)
+    /// A `.mxl` file is a ZIP archive that could not be read — not a valid ZIP
+    /// structure, no `META-INF/container.xml`, its root entry missing, or an
+    /// unsupported compression method. Distinct from `.malformedXML`, which
+    /// means the *extracted* MusicXML itself does not parse.
+    case corruptedArchive(String)
     /// The file parsed but holds no music.
     case emptyScore
     /// An element carried a value that cannot mean anything.

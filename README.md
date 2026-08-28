@@ -58,6 +58,15 @@ That is the whole API for the common case. Everything below is refinement.
 
 ## Usage
 
+### Compressed `.mxl` works the same way
+
+```swift
+// No special call needed — Score(musicXML:) detects the ZIP signature and
+// reads the archive's root entry transparently, exactly as if it had been
+// handed the uncompressed MusicXML directly.
+let text = try transcribe(musicXML: compressed)
+```
+
 ### What is this file?
 
 `summary` reads the metadata without rendering anything, which is what a file picker wants:
@@ -141,7 +150,7 @@ Show these somewhere separate from the reading — the command-line client puts 
 | --- | --- | --- |
 | `.malformedXML(line:message:)` | Not well-formed XML | Show the position; the file is damaged |
 | `.unsupportedRootElement(found:)` | `<score-timewise>`, or not a score at all | Ask for a partwise export |
-| `.unsupportedFormat(_:)` | A compressed `.mxl` | Uncompress it first |
+| `.corruptedArchive(_:)` | A `.mxl` whose ZIP structure, `container.xml`, or root entry is broken | The archive itself is damaged, not just the music |
 | `.emptyScore` | Parsed, but holds no music | Nothing to read |
 | `.invalidValue(element:value:)` | e.g. `<octave>banana</octave>` | The file is corrupt |
 | `.unknownPart(_:)` | No such part | Offer the real names from `summary.partNames` |
@@ -152,8 +161,8 @@ do {
     return try transcribe(musicXML: data)
 } catch TranscriptionError.unsupportedRootElement(let found) {
     return "Not a partwise score: found <\(found)>."
-} catch TranscriptionError.unsupportedFormat(let what) {
-    return "Magnificat does not read \(what)."
+} catch TranscriptionError.corruptedArchive(let why) {
+    return "This .mxl file could not be read: \(why)"
 } catch TranscriptionError.malformedXML(let line, _) {
     return "Not well-formed XML, at line \(line)."
 } catch TranscriptionError.emptyScore {
@@ -239,8 +248,8 @@ swift test --enable-code-coverage
 swift run MagnificatCLI --help
 ```
 
-**196 tests, all passing. Line coverage of the library target is 98.2%** (region coverage
-93.1%). Every rule in `SPEC.md` §6 was written test-first: a failing test, run and watched
+**216 tests, all passing. Line coverage of the library target is 98.3%** (region coverage
+92.2%). Every rule in `SPEC.md` §6 was written test-first: a failing test, run and watched
 fail for the right reason, before the code that satisfies it.
 
 The suite is in four layers, because each catches what the others miss:
@@ -262,13 +271,20 @@ music-font glyph smuggled into a `<words>` element as a Private Use codepoint an
 the transcript as an invisible character. `Tests/MagnificatTests/Golden/README.md` records
 what was reviewed and how.
 
+**Compressed `.mxl` gets its own real fixtures**, not synthetic ones built to match the
+implementation: three matched pairs — a real `.mxl` archive and its extracted `.musicxml`
+sibling, confirmed byte-identical before either was trusted
+(`Tests/MagnificatTests/Fixtures/mxl/README.md`). Every distinct archive corruption the reader
+can report — missing `container.xml`, an unsupported compression method, a truncated central
+directory, and others — is also provoked directly, since no real exporter produces a broken
+archive on demand.
+
 ## Limitations and non-goals
 
 - **Not braille music notation.** Plain text that a braille display renders in literary
   braille is the entire point.
 - **Not optical music recognition.** Getting MusicXML out of a scanned page is a separate
   problem.
-- **Compressed `.mxl` is refused**, with a clear error, rather than unzipped.
 - **No audio, MIDI, playback or tempo maps.** Nothing here makes a sound.
 - **No transposition, analysis, fingering, or realising ornaments.** Ornaments are named, never
   turned into notes. The transcript reports what is on the page; it does not interpret it.

@@ -81,8 +81,8 @@ import Testing
             return try transcribe(musicXML: data)
         } catch TranscriptionError.unsupportedRootElement(let found) {
             return "Not a partwise score: found <\(found)>."
-        } catch TranscriptionError.unsupportedFormat(let what) {
-            return "Magnificat does not read \(what)."
+        } catch TranscriptionError.corruptedArchive(let why) {
+            return "This .mxl file could not be read: \(why)"
         } catch TranscriptionError.malformedXML(let line, _) {
             return "Not well-formed XML, at line \(line)."
         } catch TranscriptionError.emptyScore {
@@ -94,8 +94,23 @@ import Testing
     // --- end ---
 
     #expect(describe(Data("<html/>".utf8)) == "Not a partwise score: found <html>.")
-    #expect(describe(Data([0x50, 0x4B, 0x03, 0x04]))
-            == "Magnificat does not read compressed .mxl.")
+    var brokenArchive = Data([0x50, 0x4B, 0x03, 0x04])
+    brokenArchive.append(Data(repeating: 0, count: 32))
+    #expect(describe(brokenArchive).hasPrefix("This .mxl file could not be read:"))
+}
+
+@Test func readmeCompressedMusicXML() throws {
+    let compressed = try mxlFixture("carmen.mxl")
+
+    // --- README: Compressed .mxl ---
+    // No special call needed — Score(musicXML:) detects the ZIP signature and
+    // reads the archive's root entry transparently, exactly as if it had been
+    // handed the uncompressed MusicXML directly.
+    let text = try transcribe(musicXML: compressed)
+    // --- end ---
+
+    let uncompressed = try mxlFixture("carmen.musicxml")
+    #expect(text == (try transcribe(musicXML: uncompressed)))
 }
 
 @Test func readmeInjectingNothing() throws {

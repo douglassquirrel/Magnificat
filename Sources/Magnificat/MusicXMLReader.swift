@@ -3,17 +3,20 @@ import Foundation
 extension Score {
     /// Parses a MusicXML document.
     ///
-    /// The document must be uncompressed `score-partwise`, with or without a
-    /// DOCTYPE — most machine-generated MusicXML carries none, and the root
-    /// element decides, not the DOCTYPE. See `SPEC.md` §6.14.
+    /// The document is `score-partwise`, with or without a DOCTYPE — most
+    /// machine-generated MusicXML carries none, and the root element decides,
+    /// not the DOCTYPE. See `SPEC.md` §6.14.
+    ///
+    /// Compressed `.mxl` is read transparently: detected by its ZIP signature,
+    /// its root entry located via `META-INF/container.xml` and decompressed,
+    /// then parsed exactly as an uncompressed file would be. See `SPEC.md`'s
+    /// decision log.
     ///
     /// - Throws: ``TranscriptionError``.
     public init(musicXML data: Data) throws {
-        // A .mxl is a zip archive. SPEC.md §13 makes unzipping a non-goal, so it
-        // is detected by its signature and refused clearly, rather than reaching
-        // the XML parser and being reported as malformed.
+        var data = data
         if data.starts(with: [0x50, 0x4B, 0x03, 0x04]) {
-            throw TranscriptionError.unsupportedFormat("compressed .mxl")
+            data = try CompressedMusicXML.extractRootMusicXML(from: data)
         }
 
         let handler = MusicXMLHandler()

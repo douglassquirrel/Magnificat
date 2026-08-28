@@ -161,3 +161,16 @@ struct CapturingOutput: TextOutput {
     mutating func write(_ text: String) { standardOutput += text }
     mutating func writeError(_ text: String) { standardError += text }
 }
+
+@Test func transcribesARealCompressedMxlFileEndToEnd() throws {
+    // No CLI code changes were needed for .mxl support — Score.init(musicXML:)
+    // handles it transparently. This proves that wiring actually reaches the
+    // command line, not just the library's own unit tests.
+    let url = try #require(Bundle.module.url(forResource: "Fixtures", withExtension: nil))
+        .appendingPathComponent("mxl/carmen.mxl")
+    var output = CapturingOutput()
+    let code = MagnificatCLI.run(arguments: [url.path], output: &output)
+    #expect(code == 0)
+    #expect(!output.standardOutput.isEmpty)
+    #expect(output.standardError.isEmpty)
+}

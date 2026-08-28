@@ -159,10 +159,11 @@ a part, or highlight the current line, without re-parsing the text it just recei
 ### `Score.init(musicXML:)`
 
 - **Purpose:** parse a MusicXML document into the domain model.
-- **Inputs:** `Data` containing an uncompressed MusicXML file. UTF-8 or UTF-16, with or
-  without a BOM; the encoding is taken from the XML declaration.
+- **Inputs:** `Data` containing a MusicXML file, either uncompressed (UTF-8 or UTF-16, with or
+  without a BOM; the encoding is taken from the XML declaration) or compressed `.mxl`,
+  detected by its ZIP signature and read transparently (§6.14).
 - **Output:** `Score`.
-- **Errors:** `.malformedXML`, `.unsupportedRootElement`, `.unsupportedFormat`,
+- **Errors:** `.malformedXML`, `.unsupportedRootElement`, `.corruptedArchive`,
   `.emptyScore`, `.invalidValue`. See §6.16 for the full enum. A duration that cannot be
   expressed in the prevailing divisions is **not** an error (§6.3).
 - **Notes:** throwing, synchronous, no I/O, no network. `Score` is `Sendable` and
@@ -458,6 +459,16 @@ Time signature: 4 4
 
 ### 6.14 Parsing rules
 
+- **Compressed `.mxl` is read transparently**, added 28 August 2026 — reversing this section's
+  earlier decision to refuse it (§14). Detected by its ZIP signature (`PK\x03\x04`), its root
+  entry located via the standard `META-INF/container.xml` manifest and decompressed, then
+  parsed exactly as an uncompressed file. A malformed archive — not a valid ZIP, no
+  `container.xml`, a root entry the archive does not actually contain, or a compression method
+  other than the two ZIP methods real `.mxl` files use (stored, deflate) — is
+  `.corruptedArchive`, distinct from `.malformedXML`, which means the *extracted* MusicXML
+  itself does not parse. Reading the ZIP structure uses `Compression`, a system framework
+  present identically on iOS and macOS — not `Foundation`, but not a UI framework or a
+  third-party dependency either, and it is what makes this possible without either.
 - `<score-partwise>` only. `<score-timewise>` throws `.unsupportedRootElement` — it is
   legal MusicXML, it is vanishingly rare in the wild, and silently mishandling it would be
   worse than refusing it.
@@ -565,7 +576,7 @@ problems in §6.15 do not.
 | --- | --- | --- |
 | `.malformedXML(line: Int, message: String)` | not well-formed XML | report the position to the user |
 | `.unsupportedRootElement(found: String)` | `<score-timewise>`, or not a score at all | ask for a partwise export |
-| `.unsupportedFormat(String)` | a compressed `.mxl` (detected by its zip signature) | uncompress it first |
+| `.corruptedArchive(String)` | a `.mxl` whose ZIP structure, `container.xml`, or root entry is broken | the archive itself, not just the music, is damaged |
 | `.emptyScore` | no parts, or every part has no measures | the file has no music in it |
 | `.invalidValue(element: String, value: String)` | `<octave>x</octave>`, `<fifths>12</fifths>` | the file is corrupt |
 | `.unknownPart(String)` | a part ID or name not in the score | offer the real part names |
@@ -699,12 +710,12 @@ The library performs **no I/O at all**. It takes `Data` in and returns values. I
 read files, write files, touch the network, or cache anything. Opening the file is the host
 app's job, and the CLI's.
 
-- **Input format:** uncompressed MusicXML, partwise, versions 3.x and 4.x, with or without
-  a DOCTYPE (§6.14). Both exporters in the fixtures — MuseScore 4.5.2 and music21 v10.5.0 —
-  must work, and neither is special-cased. Files need only be well-formed XML that a
-  MusicXML reader can make sense of. **Files are not validated against the DTD or the XSD**
-  — §6.15 records the experiment behind that decision, and the coherence checks that replace
-  it.
+- **Input format:** MusicXML, partwise, versions 3.x and 4.x, with or without a DOCTYPE
+  (§6.14) — uncompressed, or compressed as `.mxl`, read transparently. Both exporters in the
+  uncompressed fixtures — MuseScore 4.5.2 and music21 v10.5.0 — must work, and neither is
+  special-cased. Files need only be well-formed XML that a MusicXML reader can make sense of.
+  **Files are not validated against the DTD or the XSD** — §6.15 records the experiment
+  behind that decision, and the coherence checks that replace it.
 - **Output format:** UTF-8 plain text, `\n` line endings. Not `Codable`, not versioned — it
   is prose for a person, not a wire format.
 - `Score` and `Transcript` are `Equatable` for testing but deliberately **not** `Codable`.
@@ -785,8 +796,6 @@ Measure 5. A flat 4, dotted quarter, lyric bist. A flat 4, eighth, lyric wie. A 
 - **Braille music.** Not braille music notation, not braille ASCII, not BRF. Plain text that
   a braille display renders in literary braille is the whole point.
 - **Optical music recognition.** Getting MusicXML out of a scanned page is `KunstDerFuge`.
-- **Compressed `.mxl`.** Detected and refused with a clear error, not unzipped. Adding a zip
-  reader is a dependency or a large piece of new code for a format the user does not need.
 - **Audio, MIDI, playback, or tempo maps.** Nothing here makes a sound.
 - **Round-tripping.** The library never writes MusicXML and the transcript is not
   reversible.
@@ -836,3 +845,28 @@ work would start:
 
 When something here turns out to be wrong in the building, change this file in the same commit
 that discovers it, and say which decision moved and why.
+
+### Decisions after the library was in use
+
+Two changes made once real use surfaced real questions, each reversing something this section
+had earlier called settled:
+
+- **24 August 2026 — key naming stopped guessing.** The user asked whether MusicXML ever
+  actually states a key. Checked before answering: `<mode>` appears on 3 of 92 `<key>` elements
+  in the fixtures, two of them `<mode>none</mode>` on the Webern. The prior rule filled every
+  absent mode with a guessed major tonic — often wrong (the Brahms is in E minor; the rule said
+  G major), and on the Webern it overrode the file's own stated absence of a key with "C major".
+  §6.13 now names a key only when the file names one.
+- **28 August 2026 — compressed `.mxl` is read, reversing §13's earlier refusal.** Requested
+  directly, after the rest of the library and both consumers were built. `.mxl` support lives
+  entirely in `Score.init(musicXML:)` (§6.14), so `MagnificatCLI` and `MagnificatDesktop` needed
+  no code changes to gain it — except that `MagnificatDesktop`'s own folder-scan filter had a
+  *separate* extension check that had not been told about `.mxl`, found by an end-to-end test,
+  not a unit test on the filter in isolation (`DESKTOP-SPEC.md`'s decision log). The one new
+  piece of real engineering is a from-scratch minimal ZIP reader (`ZipReader.swift`), since
+  Foundation has no ZIP API; it uses `Compression`, a system framework present identically on
+  iOS and macOS, which is a deliberate, narrow exception to "Foundation only" — not a UI
+  framework, not a third-party dependency, and the only thing that makes this possible without
+  either. Verified against three real `.mxl` files the user provided, each confirmed
+  byte-identical to an uncompressed sibling before being trusted
+  (`Tests/MagnificatTests/Fixtures/mxl/README.md`).

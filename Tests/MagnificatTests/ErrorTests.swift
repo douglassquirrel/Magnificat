@@ -38,13 +38,19 @@ import Testing
     #expect(line > 0)
 }
 
-@Test func refusesCompressedMXL() {
-    // A .mxl is a zip. SPEC §13 makes unzipping a non-goal, so it is detected by
-    // its signature and refused with a clear error rather than parsed as garbage.
+@Test func reportsACorruptedArchiveRatherThanParsingItAsGarbage() throws {
+    // Compressed .mxl is now read (CompressedMusicXMLTests.swift covers the
+    // real round trip against real fixtures) — this provokes the archive
+    // itself being broken, not the MusicXML inside it. The ZIP signature is
+    // real; nothing after it is a valid archive.
     var data = Data([0x50, 0x4B, 0x03, 0x04])   // "PK\u{03}\u{04}"
     data.append(Data(repeating: 0, count: 32))
-    #expect(throws: TranscriptionError.unsupportedFormat("compressed .mxl")) {
+    let error = #expect(throws: TranscriptionError.self) {
         _ = try Score(musicXML: data)
+    }
+    guard case .corruptedArchive = try #require(error) else {
+        Issue.record("expected .corruptedArchive, got \(String(describing: error))")
+        return
     }
 }
 
