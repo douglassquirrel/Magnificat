@@ -28,7 +28,7 @@ let package = Package(
         ),
         .testTarget(
             name: "MagnificatDesktopCoreTests",
-            dependencies: ["MagnificatDesktopCore"]
+            dependencies: ["MagnificatDesktopCore", "MagnificatDesktop"]
         ),
     ]
 )
