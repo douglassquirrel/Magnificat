@@ -78,4 +78,28 @@ public struct Transcript: Sendable, Equatable {
     public var plainText: String {
         lines.map(\.text).joined(separator: "\n") + "\n"
     }
+
+    /// A summary of `anomalies`, one line per anomaly naming its measure, or
+    /// `nil` when there are none. Plain English throughout — `Anomaly.detail`
+    /// is already documented as safe to show a user — so this obeys `SPEC.md`
+    /// §6.1's ASCII rule with no extra work.
+    public var anomalySummary: String? {
+        guard !anomalies.isEmpty else { return nil }
+        let count = anomalies.count
+        var lines = ["\(count) \(count == 1 ? "anomaly" : "anomalies") found in this file:"]
+        lines += anomalies.map { "Measure \($0.measureNumber): \($0.detail)" }
+        return lines.joined(separator: "\n")
+    }
+
+    /// `plainText`, preceded by `anomalySummary` when there is one. Identical
+    /// to `plainText` for a clean transcript.
+    ///
+    /// `anomalies` already carried this information for a caller to surface
+    /// however it liked; this embeds the same detail directly in the
+    /// delivered text itself, for a reader of the file who never separately
+    /// inspects `anomalies` — added after exactly that gap was reported.
+    public var plainTextWithAnomalySummary: String {
+        guard let anomalySummary else { return plainText }
+        return anomalySummary + "\n\n" + plainText
+    }
 }

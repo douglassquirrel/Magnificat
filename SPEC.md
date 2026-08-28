@@ -133,6 +133,9 @@ renderer uses one or the other depending on `accidentalStyle`.
 Transcript
   lines: [TranscriptLine]
   plainText: String              // lines joined with "\n", trailing newline
+  anomalySummary: String?        // one line per anomaly naming its measure; nil if none
+  plainTextWithAnomalySummary: String  // anomalySummary + blank line + plainText;
+                                 //   exactly plainText when there are none
   anomalies: [Anomaly]           // musical incoherence found while rendering (§6.15);
                                  //   never fatal, empty for a clean file
 
@@ -549,6 +552,14 @@ whose scanned page produced a ragged bar still wants the transcript — with a w
 refusal. Anomalies are surfaced as `Transcript.anomalies: [Anomaly]`, each carrying its part
 and measure, and the transcript is still produced. Only the errors in §6.16 stop the work.
 
+Anomalies are also folded into the delivered text itself, via `Transcript.anomalySummary` (one
+line per anomaly, naming its measure) and `Transcript.plainTextWithAnomalySummary` (the summary
+followed by a blank line, then `plainText`; identical to `plainText` for a clean file). A caller
+that only ever reads the delivered text — never inspects `anomalies` separately — still sees the
+warning. The CLI writes `plainTextWithAnomalySummary` to stdout and additionally logs each
+anomaly to stderr; the desktop app writes it to the `.txt` output file and additionally logs each
+anomaly, with its measure number, to `last-run.log`.
+
 **This is deferred, not ruled out forever.** If a reason to validate appears — a new exporter
 producing files this parser mishandles, or a caller who needs a formal conformance statement —
 the groundwork below is done and the decision can be revisited without new research. What must
@@ -870,3 +881,12 @@ had earlier called settled:
   either. Verified against three real `.mxl` files the user provided, each confirmed
   byte-identical to an uncompressed sibling before being trusted
   (`Tests/MagnificatTests/Fixtures/mxl/README.md`).
+- **28 August 2026 — anomalies embedded directly in the delivered text, not only surfaced
+  separately.** `Transcript.anomalies` already existed for a caller to surface however it liked
+  (CLI to stderr, desktop app to `last-run.log`), but Claude Code — reading the delivered text
+  output itself — reported the warning "isn't reaching the reader": a consumer that only reads
+  the text output, never inspecting `anomalies` in code, saw nothing. Added
+  `Transcript.anomalySummary` and `Transcript.plainTextWithAnomalySummary` (§4, §6.15) so the
+  same information rides along in the text every consumer already reads. Both existing
+  per-anomaly channels (CLI stderr, `last-run.log`) are kept as well, since a caller watching the
+  process rather than reading the file still wants them.

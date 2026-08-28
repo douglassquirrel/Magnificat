@@ -59,8 +59,9 @@ public struct Runner: Sendable {
             let data = try Data(contentsOf: file.url)
             let score = try Score(musicXML: data)
             let transcript = score.transcript()
-            try transcript.plainText.write(to: outFolder.appendingPathComponent(outputName),
-                                           atomically: true, encoding: .utf8)
+            try transcript.plainTextWithAnomalySummary.write(
+                to: outFolder.appendingPathComponent(outputName),
+                atomically: true, encoding: .utf8)
             return FileResult(inputName: file.name,
                               outcome: .succeeded(outputName: outputName,
                                                  anomalies: transcript.anomalies))

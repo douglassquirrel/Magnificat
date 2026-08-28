@@ -86,9 +86,9 @@ public enum MagnificatCLI {
                     options: invocation.options,
                     parts: invocation.parts.isEmpty ? nil : invocation.parts,
                     measures: invocation.measures)
-                output.write(transcript.plainText)
-                // Anomalies are a warning about the file, not part of the
-                // reading: on stdout they would end up in a braille export.
+                output.write(transcript.plainTextWithAnomalySummary)
+                // Anomalies are also reported one by one on stderr, for a
+                // caller watching the process rather than reading the text.
                 for anomaly in transcript.anomalies {
                     output.writeError("Warning: part \(anomaly.partID), measure "
                                       + "\(anomaly.measureNumber): \(anomaly.detail)\n")

@@ -143,14 +143,29 @@ import Testing
 }
 
 @Test func reportsAnomaliesOnStandardErrorSoTheyDoNotPolluteTheTranscript() throws {
-    // Anomalies are a warning about the file, not part of the reading. Sending
-    // them to stdout would put them in a braille export.
+    // Anomalies still get their own "Warning:" line on stderr for a caller
+    // watching the process, distinct from the summary now embedded in stdout
+    // itself (see below) — that summary never uses the word "Warning".
     let url = try #require(Bundle.module.url(forResource: "Fixtures", withExtension: nil))
         .appendingPathComponent("omr-output/organ-noordt-modern-engraving.zeus.musicxml")
     var output = CapturingOutput()
     let code = MagnificatCLI.run(arguments: [url.path], output: &output)
     #expect(code == 0)
     #expect(!output.standardOutput.contains("Warning:"))
+}
+
+@Test func standardOutputLeadsWithTheAnomalySummaryWhenTheFileHasOne() throws {
+    // Claude Code, reading stdout directly rather than stderr, asked for the
+    // same information embedded at the top of the delivered text itself.
+    let url = try #require(Bundle.module.url(forResource: "Fixtures", withExtension: nil))
+        .appendingPathComponent("omr-output/organ-noordt-modern-engraving.zeus.musicxml")
+    let expectedSummary = try #require(
+        try Score(musicXML: Data(contentsOf: url)).transcript().anomalySummary)
+
+    var output = CapturingOutput()
+    let code = MagnificatCLI.run(arguments: [url.path], output: &output)
+    #expect(code == 0)
+    #expect(output.standardOutput.hasPrefix(expectedSummary + "\n\n"))
 }
 
 /// Collects what the CLI writes, so exit codes and streams can be tested without

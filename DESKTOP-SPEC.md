@@ -159,6 +159,13 @@ dichterliebe.musicxml → dichterliebe.txt (2 anomalies)
 The window still shows only the count (`SPEC.md` §6's own 6-item cap rules out per-anomaly
 detail there) — the log is where the count's substance lives.
 
+**The `.txt` output file also leads with the same detail.** Corrected 28 August 2026, again after
+Cowork feedback: the log named each anomaly by measure, but a reader who opens the delivered
+`.txt` file directly — rather than separately checking `last-run.log` — never saw it. The file
+now uses `Transcript.plainTextWithAnomalySummary` (`SPEC.md` §6.15) rather than `plainText`, so an
+anomalous file's `.txt` opens with the same "N anomalies found in this file:" block, one line per
+anomaly, before the transcript itself; a clean file's `.txt` is unchanged.
+
 ### What the window never does
 
 No `NSAlert`, no SwiftUI `.alert`/`.confirmationDialog`/`.sheet` used as a blocking prompt, no

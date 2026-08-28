@@ -11,19 +11,19 @@ need to know *why* something is the way it is.
 *Rewritten in place every session. Last updated 28 August 2026.*
 
 **The library, CLI, and desktop app are all built and working, including compressed `.mxl`
-support requested after everything else was already in place.** 282 tests, all green.
+support and anomaly summaries embedded directly in the delivered text.** 291 tests, all green.
 `swift build`, `swift test --enable-code-coverage`, `swift run MagnificatCLI --help`, and
 `Scripts/build-desktop-app.sh` all succeed.
 
 | | |
 | --- | --- |
-| `SPEC.md` | Settled. §14 is a decision log, now covering two post-hoc reversals (key naming, `.mxl` support) as well as the original build. |
+| `SPEC.md` | Settled. §14 is a decision log, now covering three post-hoc reversals (key naming, `.mxl` support, anomaly summaries in the delivered text) as well as the original build. |
 | `DESKTOP-SPEC.md` | Settled. A new component, added 28 August 2026: a macOS GUI wrapping the CLI's behavior, designed to be driven by a Claude Cowork automation instance rather than a person. |
 | Library | `Sources/Magnificat/`. Foundation, plus one deliberate exception: `Compression` (a system framework, not a UI framework, not third-party) for reading compressed `.mxl`. Verified to compile for `arm64-apple-ios16.0`, the iOS simulator, and macOS. |
-| CLI | `Sources/MagnificatCLI/`. Every flag in `SPEC.md` §12, distinct exit codes. Reads `.mxl` with no code changes of its own — the library handles it transparently. |
-| Desktop app | `Sources/MagnificatDesktop/` (thin SwiftUI shell) + `Sources/MagnificatDesktopCore/` (every real decision, tested). Packaged by `Scripts/build-desktop-app.sh` into a real `.app` bundle (`org.magnificat.desktop`), ad-hoc signed for launch hygiene. Actually launched and clicked through — twice, once before `.mxl` support and once to confirm the fix that followed — via computer-use, not just unit-tested. |
-| Tests | **282** across two targets. `MagnificatTests` (216: units, parser tests, 31-file integration, 49 goldens, and `.mxl` round-trips against 3 real user-provided fixtures). `MagnificatDesktopCoreTests` (66: Configuration, InputScan, RunResult display logic, Runner, AppViewModel). |
-| Coverage | Library: **98.3% of lines**, 92.2% of regions. Desktop core: similar; the untested remainder is the SwiftUI View itself, deliberately thin and unit-untested, mirroring the CLI's own untested `main.swift`. |
+| CLI | `Sources/MagnificatCLI/`. Every flag in `SPEC.md` §12, distinct exit codes. Reads `.mxl` with no code changes of its own — the library handles it transparently. stdout now leads with the anomaly summary (`plainTextWithAnomalySummary`) when there is one, alongside the existing per-anomaly `stderr` warnings. |
+| Desktop app | `Sources/MagnificatDesktop/` (thin SwiftUI shell) + `Sources/MagnificatDesktopCore/` (every real decision, tested). Packaged by `Scripts/build-desktop-app.sh` into a real `.app` bundle (`org.magnificat.desktop`), ad-hoc signed for launch hygiene. Actually launched and clicked through — twice, once before `.mxl` support and once to confirm the fix that followed — via computer-use, not just unit-tested. The written `.txt` output now also leads with the anomaly summary, matching the CLI. |
+| Tests | **291** across two targets. `MagnificatTests` (225: units, parser tests, 31-file integration, 49 goldens, `.mxl` round-trips against 3 real user-provided fixtures, and the new anomaly-summary suite). `MagnificatDesktopCoreTests` (66: Configuration, InputScan, RunResult display logic, Runner, AppViewModel). |
+| Coverage | Library: **98.3% of lines**, 92.2% of regions (not re-measured this session; the new code is fully exercised by its own tests). Desktop core: similar; the untested remainder is the SwiftUI View itself, deliberately thin and unit-untested, mirroring the CLI's own untested `main.swift`. |
 | `README.md` / `Tests/MagnificatTests/Golden/README.md` / `Tests/MagnificatTests/Fixtures/mxl/README.md` | All current. Every Swift snippet in the main README is also a test, verbatim. |
 
 ### What is not done
@@ -569,3 +569,55 @@ MusicXML not parsing).
 local header, a decompression size mismatch) except two lines documented in `ZipReader.swift`
 itself as genuinely hard to provoke without either a flaky timing-dependent test or bypassing
 the test builder's own type safety for a scenario no real exporter produces.
+
+---
+
+### 28 August 2026 — Anomaly summary embedded in the delivered text itself
+
+**Goal.** `Transcript.anomalies` already existed (§6.15) for a caller to surface however it
+liked, and both consumers already did — the CLI to `stderr`, the desktop app to `last-run.log`,
+the latter itself corrected earlier the same day to name each anomaly by measure rather than
+just counting them. The user relayed further feedback from Claude Code, this time reading the
+delivered text output directly rather than either side-channel: the warning "isn't reaching the
+reader." Requested: the same information at the top of the text output itself, on both CLI and
+desktop app.
+
+**Test.** `Tests/MagnificatTests/AnomalySummaryTests.swift`, new file, 7 tests covering
+`Transcript.anomalySummary` (nil when clean, singular/plural wording, one line per anomaly named
+by measure) and `Transcript.plainTextWithAnomalySummary` (equals `plainText` when clean, summary
+first then a blank line then `plainText`, exactly one trailing newline) — plus one tied directly
+to Claude Code's own reported case, parsing the real `Dichterliebe01.musicxml` fixture and
+asserting its summary starts `"2 anomalies found in this file:"`, ASCII throughout.
+
+**Red.**
+```
+AnomalySummaryTests.swift:18:24: error: value of type 'Transcript' has no member 'anomalySummary'
+```
+Confirmed red for the right reason — the members did not exist yet, not a typo or fixture
+problem.
+
+**Green.** Added `anomalySummary` and `plainTextWithAnomalySummary` to `Transcript.swift`. All 7
+new tests passed; full suite (289 tests at that point) stayed green — purely additive.
+
+Then wired both consumers, each with its own red-first end-to-end test rather than trusting the
+library change alone reached them:
+- `MagnificatCLI.swift`: `output.write(transcript.plainText)` → `...plainTextWithAnomalySummary`.
+  New CLI test asserts stdout, for the scruffy OMR fixture, starts with exactly
+  `transcript.anomalySummary + "\n\n"` — computed independently in the test, not hand-copied, so
+  it cannot drift from the library's own definition. The existing
+  `reportsAnomaliesOnStandardErrorSoTheyDoNotPolluteTheTranscript` test needed only its comment
+  updated, not its assertion — the embedded summary never uses the word "Warning", so it doesn't
+  collide with the separate `stderr` line format that test guards.
+- `Runner.swift`: `transcript.plainText.write(...)` → `...plainTextWithAnomalySummary.write(...)`.
+  Extended the existing `anomaliesInATranscriptAreCountedAsAWarningNotAFailure` test to also read
+  the written `.txt` file back and check its prefix, rather than adding a whole new fixture.
+
+**Decision.** Both existing per-anomaly channels (CLI `stderr`, `last-run.log`) are kept
+alongside the new embedded summary, not replaced — a caller watching the process rather than
+reading the delivered file still wants them, and removing either would be an unrequested,
+unrelated change.
+
+**State.** 291 tests green. `SPEC.md` §4 and §6.15, `DESKTOP-SPEC.md`'s log section, and
+`README.md`'s "Warning a reader about a scruffy file" section all updated and re-verified
+(the two new README snippets are themselves tests, per the usual convention). Next step, if any:
+none outstanding — the request as stated is done on both consumers.

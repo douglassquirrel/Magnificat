@@ -184,6 +184,10 @@ func makeFolder() -> URL {
     #expect(outputName == "noisy.txt")
     #expect(anomalies.count == 1)
     #expect(anomalies.first?.measureNumber == "1")
+
+    let written = try String(contentsOf: folder.appendingPathComponent("out/\(outputName)"),
+                             encoding: .utf8)
+    #expect(written.hasPrefix("1 anomaly found in this file:\nMeasure 1:"))
 }
 
 @Test func outputNameReplacesTheExtensionCaseInsensitively() {

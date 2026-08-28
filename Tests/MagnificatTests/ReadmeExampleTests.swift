@@ -74,6 +74,19 @@ import Testing
     #expect(!transcript.lines.isEmpty, "the transcript is produced anyway")
 }
 
+@Test func readmeAnomalySummaryInTheDeliveredText() throws {
+    let data = try Fixture.named("organ-noordt-modern-engraving.zeus.musicxml")
+
+    // --- README: Anomalies embedded in the delivered text ---
+    let transcript = try Score(musicXML: data).transcript()
+    let text = transcript.plainTextWithAnomalySummary
+    // --- end ---
+
+    let summary = try #require(transcript.anomalySummary)
+    #expect(text.hasPrefix(summary + "\n\n"))
+    #expect(text.hasSuffix(transcript.plainText))
+}
+
 @Test func readmeErrorHandling() throws {
     // --- README: Error handling ---
     func describe(_ data: Data) -> String {

@@ -139,8 +139,26 @@ for anomaly in transcript.anomalies {
 }
 ```
 
-Show these somewhere separate from the reading — the command-line client puts them on
-`stderr` precisely so they cannot end up inside a braille export.
+`transcript.anomalies` is there for a caller who wants to handle the warning separately from the
+reading — the command-line client also logs each one to `stderr` precisely so they don't have to
+end up inside a braille export.
+
+For a caller who only ever reads the delivered text itself, the same information is also folded
+directly into it: `transcript.anomalySummary` is one line per anomaly naming its measure, or
+`nil` for a clean file; `transcript.plainTextWithAnomalySummary` is that summary followed by a
+blank line and then `plainText` (exactly `plainText` when there is nothing to report). Both the
+command-line client and the desktop app write this — not plain `plainText` — as their actual
+output, so a reader who opens the file directly still sees the warning.
+
+```swift
+let text = transcript.plainTextWithAnomalySummary
+// Starts, when there is something to report, with:
+// "N anomalies found in this file:
+// Measure 12: a note typed quarter lasts 6 divisions, where that value would be 4
+// Measure 45: a note is written on staff 3, but this part declares 2
+//
+// <the rest of the transcript>"
+```
 
 ## Error handling
 
