@@ -1,11 +1,16 @@
 import Foundation
+import Magnificat
 
 /// What happened to one file in a run. See `DESKTOP-SPEC.md` §4, §6.
 public enum FileOutcome: Sendable, Equatable {
-    /// Transcribed and written to `outputName` in `FOLDER/out`. `anomalyCount`
-    /// is the number of musical-coherence anomalies (`SPEC.md` §6.15) found —
-    /// zero for a clean file. A non-zero count is still a success.
-    case succeeded(outputName: String, anomalyCount: Int)
+    /// Transcribed and written to `outputName` in `FOLDER/out`. `anomalies` are
+    /// the musical-coherence anomalies (`SPEC.md` §6.15) found — empty for a
+    /// clean file. Non-empty is still a success; each anomaly's own
+    /// `measureNumber` and `detail` are what let the log say specifically
+    /// where and what, rather than just a bare count. Reused directly from
+    /// `Magnificat.Anomaly`, whose `detail` is documented as "safe to show a
+    /// user" — exactly this use.
+    case succeeded(outputName: String, anomalies: [Anomaly])
     /// Could not be transcribed. Nothing was written for this file.
     case failed(reason: String)
     /// Not a `.musicxml` file, or a subdirectory. Never opened.

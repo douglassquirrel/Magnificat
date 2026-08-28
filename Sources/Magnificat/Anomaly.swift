@@ -29,4 +29,15 @@ public struct Anomaly: Sendable, Equatable {
     public var measureNumber: String
     /// Plain English, safe to show a user.
     public var detail: String
+
+    /// A `public struct` gets only an `internal` memberwise initializer by
+    /// default, which blocks any external consumer — including a host app's
+    /// own tests — from constructing one. Added when MagnificatDesktop needed
+    /// to build `Anomaly` values directly for its own tests.
+    public init(kind: Kind, partID: String, measureNumber: String, detail: String) {
+        self.kind = kind
+        self.partID = partID
+        self.measureNumber = measureNumber
+        self.detail = detail
+    }
 }

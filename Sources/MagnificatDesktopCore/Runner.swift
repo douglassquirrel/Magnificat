@@ -25,6 +25,11 @@ public struct Runner: Sendable {
                              timestamp: now, folder: folder)
         }
 
+        // Not covered by a test: ensureFolders just succeeded, so this only
+        // fires if inFolder is removed in the instant between that call and
+        // this one — a genuine race, not deterministically provocable without
+        // either a flaky timing-dependent test or a test-only hook added to
+        // production code purely to force it. Left in as real defense.
         let scanned: [ScannedFile]
         do {
             scanned = try scanInputFolder(inFolder)
@@ -58,7 +63,7 @@ public struct Runner: Sendable {
                                            atomically: true, encoding: .utf8)
             return FileResult(inputName: file.name,
                               outcome: .succeeded(outputName: outputName,
-                                                 anomalyCount: transcript.anomalies.count))
+                                                 anomalies: transcript.anomalies))
         } catch let error as TranscriptionError {
             return FileResult(inputName: file.name, outcome: .failed(reason: Self.describe(error)))
         } catch {

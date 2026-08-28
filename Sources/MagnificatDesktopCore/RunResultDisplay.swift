@@ -21,7 +21,7 @@ extension RunResult {
 
     private var totalAnomalies: Int {
         results.reduce(0) { sum, result in
-            if case .succeeded(_, let anomalyCount) = result.outcome { return sum + anomalyCount }
+            if case .succeeded(_, let anomalies) = result.outcome { return sum + anomalies.count }
             return sum
         }
     }
@@ -33,6 +33,10 @@ extension RunResult {
 
     /// A one-line summary shown beneath the headline, or `nil` when nothing
     /// more needs saying — exactly one file, succeeded, no anomalies.
+    ///
+    /// This stays a bare count by design — `DESKTOP-SPEC.md` §6 caps the
+    /// window at a handful of lines, and the log is where the detail behind
+    /// the count belongs (`logText`, below).
     public var detail: String? {
         if let topLevelFailureReason { return topLevelFailureReason }
         if attempted.isEmpty { return "Nothing to do — FOLDER/in was empty." }
@@ -40,8 +44,9 @@ extension RunResult {
             switch attempted[0].outcome {
             case .failed(let reason):
                 return reason
-            case .succeeded(_, let anomalyCount) where anomalyCount > 0:
-                return "\(anomalyCount) \(anomalyCount == 1 ? "warning" : "warnings") — see last-run.log"
+            case .succeeded(_, let anomalies) where !anomalies.isEmpty:
+                let count = anomalies.count
+                return "\(count) \(count == 1 ? "warning" : "warnings") — see last-run.log"
             default:
                 return nil
             }
@@ -91,6 +96,10 @@ extension RunResult {
 
     /// The complete text of `FOLDER/out/last-run.log`. Overwritten every run —
     /// this is the record of the *most recent* run only. `DESKTOP-SPEC.md` §6.
+    ///
+    /// Every anomaly is listed here with its measure number and detail —
+    /// Cowork feedback, 28 August 2026: a bare "(2 anomalies)" said nothing
+    /// carries the words down to where the count was previously the dead end.
     public var logText: String {
         let formatter = ISO8601DateFormatter()
         var lines = [
@@ -104,7 +113,7 @@ extension RunResult {
         } else if results.isEmpty {
             lines.append("Nothing to do — FOLDER/in was empty.")
         } else {
-            lines += results.map(Self.logLine(for:))
+            lines += results.flatMap(Self.logLines(for:))
             lines.append("")
             lines.append(logSummaryLine)
         }
@@ -122,15 +131,21 @@ extension RunResult {
         return line + "."
     }
 
-    private static func logLine(for result: FileResult) -> String {
+    /// One or more lines for a single file: the summary line, then one
+    /// indented line per anomaly naming its measure and what was found. The
+    /// window only ever shows a count for anomalies and points here for the
+    /// rest — this is that "rest".
+    private static func logLines(for result: FileResult) -> [String] {
         switch result.outcome {
-        case .succeeded(let outputName, let anomalyCount):
-            let suffix = anomalyCount > 0 ? " (\(anomalyCount) anomalies)" : ""
-            return "\(result.inputName) → \(outputName)\(suffix)"
+        case .succeeded(let outputName, let anomalies):
+            let suffix = anomalies.isEmpty ? "" : " (\(anomalies.count) anomalies)"
+            var lines = ["\(result.inputName) → \(outputName)\(suffix)"]
+            lines += anomalies.map { "  measure \($0.measureNumber): \($0.detail)" }
+            return lines
         case .failed(let reason):
-            return "\(result.inputName) → FAILED: \(reason)"
+            return ["\(result.inputName) → FAILED: \(reason)"]
         case .skipped(let reason):
-            return "\(result.inputName): skipped: \(reason)"
+            return ["\(result.inputName): skipped: \(reason)"]
         }
     }
 }

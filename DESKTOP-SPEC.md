@@ -136,11 +136,24 @@ second Run can be started mid-run.
 
 `FOLDER/out/last-run.log` is **overwritten**, not appended, on every run — it is the record of
 the *most recent* run only, matching its name. Contents: a timestamp, the folder paths in use,
-one line per file (`succeeded → name.txt`, `succeeded → name.txt (2 anomalies)`, `FAILED: <why>`,
-or `skipped: not .musicxml`), and a one-line summary matching what the window shows. This is
-where Cowork gets the detail the window's 6-item cap can't show, and where anomaly detail lives
-— `SPEC.md` §6.15's anomalies have no stderr to go to here, so the log is their only home besides
-the compact in-window count.
+one line per file (`succeeded → name.txt`, `FAILED: <why>`, or `skipped: not .musicxml`), and a
+one-line summary matching what the window shows. This is where Cowork gets the detail the
+window's 6-item cap can't show.
+
+**Every anomaly is listed by measure number, not just counted.** Corrected 28 August 2026 after
+Cowork feedback: the log originally said `name.txt (2 anomalies)` and stopped there — the count
+without the content. `SPEC.md` §6.15's `Anomaly` already carries a `measureNumber` and a plain-
+English `detail` documented as "safe to show a user," so nothing needed inventing; it just was
+not reaching the log. Now each anomaly gets its own indented line under the file's summary line:
+
+```
+dichterliebe.musicxml → dichterliebe.txt (2 anomalies)
+  measure 12: a note typed quarter lasts 6 divisions, where that value would be 4
+  measure 45: a note is written on staff 3, but this part declares 2
+```
+
+The window still shows only the count (`SPEC.md` §6's own 6-item cap rules out per-anomaly
+detail there) — the log is where the count's substance lives.
 
 ### What the window never does
 

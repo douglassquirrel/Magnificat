@@ -40,7 +40,7 @@ func makeFolder() -> URL {
 
     #expect(result.status == .done)
     #expect(result.results == [FileResult(inputName: "song.musicxml",
-                                          outcome: .succeeded(outputName: "song.txt", anomalyCount: 0))])
+                                          outcome: .succeeded(outputName: "song.txt", anomalies: []))])
 
     let written = try String(contentsOf: folder.appendingPathComponent("out/song.txt"), encoding: .utf8)
     let expected = try transcribe(musicXML: validMusicXML)
@@ -178,15 +178,74 @@ func makeFolder() -> URL {
     let result = Runner().run(folder: folder, now: Date(timeIntervalSince1970: 0))
 
     #expect(result.status == .done)
-    guard case .succeeded(let outputName, let anomalyCount) = result.results.first?.outcome else {
+    guard case .succeeded(let outputName, let anomalies) = result.results.first?.outcome else {
         Issue.record("expected a success"); return
     }
     #expect(outputName == "noisy.txt")
-    #expect(anomalyCount == 1)
+    #expect(anomalies.count == 1)
+    #expect(anomalies.first?.measureNumber == "1")
 }
 
 @Test func outputNameReplacesTheExtensionCaseInsensitively() {
     #expect(Runner.outputName(for: "song.musicxml") == "song.txt")
     #expect(Runner.outputName(for: "Song.MUSICXML") == "Song.txt")
     #expect(Runner.outputName(for: "a.b.musicxml") == "a.b.txt")
+}
+
+// Every TranscriptionError case gets its own log/window wording, tested
+// directly against Runner.describe rather than through six different
+// malformed files — the point here is the string mapping, and the main
+// library's own test suite already thoroughly covers error *production*.
+
+@Test func describesEveryTranscriptionErrorCase() {
+    let cases: [(TranscriptionError, contains: String)] = [
+        (.malformedXML(line: 3, message: "oops"), "not well-formed XML"),
+        (.unsupportedRootElement(found: "html"), "not a partwise MusicXML score"),
+        (.unsupportedFormat("compressed .mxl"), "unsupported format"),
+        (.emptyScore, "empty score"),
+        (.invalidValue(element: "octave", value: "banana"), "cannot mean anything"),
+        // Never actually reachable through this app (no part/measure
+        // subsetting — DESKTOP-SPEC.md §9), but the switch stays exhaustive.
+        (.unknownPart("Trombone"), "no such part"),
+        (.measureRangeOutOfBounds(requested: 90...100, available: 1...32), "outside"),
+    ]
+    for (error, expected) in cases {
+        #expect(Runner.describe(error).contains(expected), "\(error)")
+    }
+}
+
+@Test func outputNameFallsBackWhenTheNameDoesNotActuallyEndInMusicXML() {
+    // Runner.process only ever calls this on names the scan already confirmed
+    // end in .musicxml, so this fallback is not reachable through the real
+    // pipeline — but outputName is itself public and testable, and its
+    // contract should hold regardless of how a caller happens to use it.
+    #expect(Runner.outputName(for: "weird") == "weird.txt")
+    #expect(Runner.outputName(for: ".musicxml") == ".musicxml.txt")
+}
+
+@Test func anUnreadableFileFailsWithoutCrashing() throws {
+    // process()'s generic catch — a non-TranscriptionError failure reading the
+    // file. A first version of this test deleted the file between the scan
+    // and the read to provoke it, but that just meant scanInputFolder never
+    // saw it at all (an empty, correctly-.done run) — the intended race is not
+    // reachable synchronously. A permission-denied file fails the same way,
+    // deterministically, with no race required.
+    let folder = makeFolder()
+    defer {
+        try? FileManager.default.setAttributes(
+            [.posixPermissions: 0o644],
+            ofItemAtPath: folder.appendingPathComponent("in/locked.musicxml").path)
+        try? FileManager.default.removeItem(at: folder)
+    }
+    let path = folder.appendingPathComponent("in/locked.musicxml")
+    try validMusicXML.write(to: path)
+    try FileManager.default.setAttributes([.posixPermissions: 0o000], ofItemAtPath: path.path)
+
+    let result = Runner().run(folder: folder, now: Date(timeIntervalSince1970: 0))
+
+    #expect(result.status == .failed)
+    guard case .failed = result.results.first?.outcome else {
+        Issue.record("expected a failure, got \(String(describing: result.results.first))")
+        return
+    }
 }
